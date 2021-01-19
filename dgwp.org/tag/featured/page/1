@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-GB" itemscope itemtype="http://schema.org/WebPage">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://dgwp.test/xmlrpc.php">
+
+<title>featured &#8211; DGWP</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="DGWP &raquo; Feed" href="http://dgwp.test/feed/" />
+<link rel="alternate" type="application/rss+xml" title="DGWP &raquo; Comments Feed" href="http://dgwp.test/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="DGWP &raquo; featured Tag Feed" href="http://dgwp.test/tag/featured/feed/" />
+<link rel='stylesheet' id='wp-block-library-css'  href='http://dgwp.test/wp-includes/css/dist/block-library/style.css?ver=5.6' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-components-css'  href='http://dgwp.test/wp-includes/css/dist/components/style.css?ver=5.6' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-editor-font-css'  href='https://fonts.googleapis.com/css?family=Noto+Serif%3A400%2C400i%2C700%2C700i&#038;ver=5.6' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-editor-css'  href='http://dgwp.test/wp-includes/css/dist/block-editor/style.css?ver=5.6' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-nux-css'  href='http://dgwp.test/wp-includes/css/dist/nux/style.css?ver=5.6' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-editor-css'  href='http://dgwp.test/wp-includes/css/dist/editor/style.css?ver=5.6' type='text/css' media='all' />
+<link rel='stylesheet' id='gb_accordion-cgb-style-css-css'  href='http://dgwp.test/wp-content/plugins/dgwp-blocks/dist/blocks.style.build.css' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://dgwp.test/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='ixion-style-css'  href='http://dgwp.test/wp-content/themes/ixion/style.css?ver=5.6' type='text/css' media='all' />
+<link rel='stylesheet' id='child-style-css'  href='http://dgwp.test/wp-content/themes/ixion-child/style.css?ver=1.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='ixion-blocks-css'  href='http://dgwp.test/wp-content/themes/ixion/blocks.css?ver=5.6' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://dgwp.test/wp-content/themes/ixion/assets/fonts/genericons/genericons/genericons.css?ver=5.6' type='text/css' media='all' />
+<link rel='stylesheet' id='googleFonts-css'  href='https://fonts.googleapis.com/css?family=Archivo+Narrow%3A700%7COpen+Sans%3A400%2C400i%2C700%2C700i&#038;display=swap&#038;ver=5.6' type='text/css' media='all' />
+<script type='text/javascript' src='http://dgwp.test/wp-includes/js/jquery/jquery.js?ver=3.5.1' id='jquery-core-js'></script>
+<script type='text/javascript' src='http://dgwp.test/wp-includes/js/jquery/jquery-migrate.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="http://dgwp.test/wp-json/" /><link rel="alternate" type="application/json" href="http://dgwp.test/wp-json/wp/v2/tags/7" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://dgwp.test/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 5.6" />
+<link rel="icon" href="http://dgwp.test/wp-content/uploads/2019/03/cropped-Icon-v1-32x32.png" sizes="32x32" />
+<link rel="icon" href="http://dgwp.test/wp-content/uploads/2019/03/cropped-Icon-v1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="http://dgwp.test/wp-content/uploads/2019/03/cropped-Icon-v1-180x180.png" />
+<meta name="msapplication-TileImage" content="http://dgwp.test/wp-content/uploads/2019/03/cropped-Icon-v1-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			.accordion-text {
+	p+p {
+		padding-bottom: .4em;
+	}
+}
+
+pre {
+	margin-bottom: 1em;
+}		</style>
+		</head>
+
+<body class="archive tag tag-featured tag-7 wp-custom-logo wp-embed-responsive hfeed no-sidebar has-cta-button has-description header-overlay-medium">
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+
+		<div class="utility-container">
+						
+<form role="search" method="get" class="search-form" action="http://dgwp.test/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field"
+		placeholder="Search &hellip;"
+		value="" name="s"
+		title="Search for:" />
+		<span class="search-form-icon"></span>
+	</label>
+	<input type="submit" class="search-submit"
+		value="Search" />
+</form>
+		</div>
+
+		<div class="branding-container">
+					<div class="site-branding">
+			<a href="http://dgwp.test/" class="custom-logo-link" rel="home"><img width="359" height="85" src="http://dgwp.test/wp-content/uploads/2019/03/site-logo.png" class="custom-logo" alt="DGWP" srcset="http://dgwp.test/wp-content/uploads/2019/03/site-logo.png 359w, http://dgwp.test/wp-content/uploads/2019/03/site-logo-300x71.png 300w" sizes="(max-width: 359px) 100vw, 359px" /></a>		</div><!-- .site-branding -->
+			<nav id="site-navigation" class="main-navigation" role="navigation">
+	<button class="menu-toggle" aria-controls="top-menu" aria-expanded="false">Menu</button>
+	<div class="menu-primary-container"><ul id="top-menu" class="menu"><li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-84"><a href="http://dgwp.test/practical-information/">Practical Information</a></li>
+<li id="menu-item-443" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-443"><a href="http://dgwp.test/about/">About</a></li>
+</ul></div></nav>
+		</div>
+
+	</header>
+
+	
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<section class="no-results not-found">
+	<header class="page-header">
+		<h1 class="page-title">Nothing Found</h1>
+	</header>
+	<div class="page-content">
+		
+			<p>It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.</p>
+			
+<form role="search" method="get" class="search-form" action="http://dgwp.test/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field"
+		placeholder="Search &hellip;"
+		value="" name="s"
+		title="Search for:" />
+		<span class="search-form-icon"></span>
+	</label>
+	<input type="submit" class="search-submit"
+		value="Search" />
+</form>
+	</div>
+</section><!-- .no-results -->
+		</main>
+	</div>
+
+	</div>
+	<footer id="colophon" class="site-footer" role="contentinfo">
+			<div class="footer-widgets clear">
+		<div class="widget-areas">
+							<div class="widget-area">
+					<section id="text-5" class="widget widget_text"><h2 class="widget-title">Supported by:</h2>			<div class="textwidget"></div>
+		</section>				</div><!-- .widget-area -->
+			
+							<div class="widget-area">
+					<section id="media_image-8" class="widget widget_media_image"><a href="http://www.philgrad.hhu.de/en.html"><img width="250" height="75" src="http://dgwp.test/wp-content/uploads/2019/03/philGRAD-75px.png" class="image wp-image-308  attachment-full size-full" alt="" loading="lazy" style="max-width: 100%; height: auto;" /></a></section>				</div><!-- .widget-area -->
+			
+							<div class="widget-area">
+					<section id="media_image-4" class="widget widget_media_image"><a href="https://indmet.weebly.com"><img width="300" height="39" src="http://dgwp.test/wp-content/uploads/2019/03/DFG-vollständig-300x39.png" class="image wp-image-293  attachment-medium size-medium" alt="" loading="lazy" style="max-width: 100%; height: auto;" srcset="http://dgwp.test/wp-content/uploads/2019/03/DFG-vollständig-300x39.png 300w, http://dgwp.test/wp-content/uploads/2019/03/DFG-vollständig-1024x133.png 1024w, http://dgwp.test/wp-content/uploads/2019/03/DFG-vollständig-768x99.png 768w, http://dgwp.test/wp-content/uploads/2019/03/DFG-vollständig.png 1058w" sizes="(max-width: 300px) 100vw, 300px" /></a></section>				</div><!-- .widget-area -->
+			
+							<div class="widget-area">
+					<section id="media_image-5" class="widget widget_media_image"><a href="https://gap-im-netz.de/en/"><img width="178" height="75" src="http://dgwp.test/wp-content/uploads/2019/03/DFG-vollständig-75px.png" class="image wp-image-309  attachment-full size-full" alt="" loading="lazy" style="max-width: 100%; height: auto;" /></a></section>				</div><!-- .widget-area -->
+					</div><!-- .widget-areas -->
+	</div><!-- .footer-widgets -->
+		<div class="site-info">
+  <a href="https://wordpress.org/">Proudly powered by WordPress</a>
+</div><!-- .site-info -->	</footer>
+</div>
+
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"http:\/\/dgwp.test\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://dgwp.test/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.3.2' id='contact-form-7-js'></script>
+<script type='text/javascript' src='http://dgwp.test/wp-content/themes/ixion/assets/js/navigation.js?ver=20151215' id='ixion-navigation-js'></script>
+<script type='text/javascript' src='http://dgwp.test/wp-content/themes/ixion/assets/js/skip-link-focus-fix.js?ver=20151215' id='ixion-skip-link-focus-fix-js'></script>
+
+</body>
+</html>
