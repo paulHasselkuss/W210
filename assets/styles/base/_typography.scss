@@ -1,0 +1,71 @@
+html {
+  color: var(--color--font);
+  line-height: var(--baseline);
+
+  font-family: var(--font-family);
+  font-size: 110%;
+  @include fw("normal");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family--heading);
+  margin: var(--spacing) 0 var(--spacing);
+}
+
+h2,
+h3 {
+  margin: #{spacing(1)} 0 #{spacing(.5)};
+
+  &+* {
+    margin-top: 0 !important;
+  }
+}
+
+@for $i from 1 through 5 {
+  h#{$i} {
+    @include ms-fw(5 - $i, "semi-bold");
+  }
+}
+
+p {
+  margin: 0 0 var(--spacing--small);
+  hyphens: auto;
+}
+
+b,
+strong,
+.bold {
+  @include fw("semi-bold");
+}
+
+i,
+em,
+.italic {
+  font-style: italic;
+}
+
+.bigtext {
+  @include ms-fw(1, "semi-bold");
+}
+
+.smalltext {
+  @include ms(-1);
+}
+
+code,
+pre {
+  font-family: monospace;
+  color: $black;
+  background-color: var(--color--viewport--alt);
+  padding: spacing(.5);
+}
+
+::selection {
+  color: var(--color--viewport--background);
+  background-color: var(--color--font);
+}

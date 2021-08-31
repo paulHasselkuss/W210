@@ -1,0 +1,74 @@
+{{ partial "site/head.html" . }}
+
+{{ block "header" . }}
+<header class="site-header">
+  <h1 class="site-header__logo">
+    <a class="unstyled" href="{{ .Site.BaseURL }}">DGWP</a>
+  </h1>
+
+  <button id="menu-btn" class="site-nav--btn hamburger" type="button">
+    <div class="hamburger__inner">
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+
+  <nav id="main-nav" class="site-nav">
+    <ul>
+      {{ $currentPage := . }}
+      {{ range .Site.Menus.primary }}
+      <li><a class="site-nav__item unstyled {{if or ($currentPage.IsMenuCurrent "primary" .) ($currentPage.HasMenuCurrent "primary" .) }} is-active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>
+{{ end }}
+
+<main class="site-content grid">
+
+  <header class="page-header grid--main">
+    <h1 class="page-header__title">{{ .Title }}</h1>
+
+    {{ if or (.Params.date) (.Params.author)}}
+    <p class="page-header__meta">
+      {{ with .Params.author }}<span>by {{ . }}</span>{{ end }}
+      {{ with .Params.date }}<span>published {{ .Format "2 January 2006" }}</span>{{ end }}
+    </p>
+    {{ end }}
+  </header>
+
+  <div class="page-frontmatter grid--main bigtext">
+
+    {{ with .Description }}
+    <section class="page-description">
+      {{ . | markdownify }}
+    </section>
+    {{ end }}
+
+    {{ block "main" . }}
+  </div>
+  {{ .Content }}
+  {{ end }}
+
+</main>
+
+{{ block "footer" . }}
+<footer class="site-footer">
+  <div class="site-footer__logo"><a href="#" class="unstyled">DGWP</a></div>
+  <ul class="site-footer__item site-footer__nav unstyled">
+    {{ range .Site.Menus.footer }}
+    <li><a href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+    {{ end }}
+  </ul>
+  <div class="site-footer__item">
+    <div>© {{ now.Format "2006"}} DGWP</div>
+    <ul class="site-footer__icons unstyled">
+      <li class="theme-toggle" onClick="toggleTheme()">{{ partial "svg.html" "icons/circle"}}</li>
+      <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}">{{ partial "svg.html" "icons/facebook"}}</a></li>
+      <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}">{{ partial "svg.html" "icons/twitter"}}</a></li>
+  </div>
+  </div>
+</footer>
+{{ end }}
+
+{{ partial "site/foot.html" . }}

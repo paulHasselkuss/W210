@@ -1,0 +1,44 @@
+baseURL = "https://dgwp.org/"
+languageCode = "en-gb"
+title = "DGWP"
+
+enableRobotsTXT = true
+disableAliases = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+images = ["android-chrome-512x512.png"] #img for Open Graph
+disallow_search_engines = false # set robots.txt to disallow everything
+
+# add redirects/headers
+[outputs]
+home = ["HTML", "RSS", "REDIRECTS", "HEADERS"]
+
+# remove .{ext} from text/netlify
+[mediaTypes."text/netlify"]
+suffixes = [""]
+delimiter = ""
+
+# add output format for netlify _redirects
+[outputFormats.REDIRECTS]
+mediatype = "text/netlify"
+baseName = "_redirects"
+isPlainText = true
+notAlternative = true
+
+# add output format for netlify _headers
+[outputFormats.HEADERS]
+mediatype = "text/netlify"
+baseName = "_headers"
+isPlainText = true
+notAlternative = true
+
+[markup]
+[markup.tableOfContents]
+endLevel = 2
+ordered = true
+startLevel = 2
+
+[markup.goldmark.renderer]
+unsafe = true
+

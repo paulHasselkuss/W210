@@ -1,0 +1,48 @@
+@mixin ms($factor) {
+  font-size: modular-scale($factor);
+}
+
+@mixin fw($weight) {
+  @if map-has-key($font-weights, $weight) {
+    font-weight: #{inspect(map-get($font-weights, $weight))};
+  }
+
+  @else {
+    @error "The breakpoint '#{$name}' does not exist in $fontweights.";
+  }
+}
+
+@mixin ms-fw($factor, $weight) {
+  @include ms($factor);
+  @include fw($weight);
+}
+
+@mixin md($name) {
+  @if map-has-key($breakpoints, $name) {
+    @media screen and (min-width: #{inspect(map-get($breakpoints, $name))}) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "The breakpoint '#{$name}' does not exist in $breakpoints.";
+  }
+}
+
+@mixin except-last($selector, $value) {
+  #{$selector}: #{$value};
+
+  &:last-child {
+    #{$selector}: 0;
+  }
+}
+
+//https://stackoverflow.com/a/21622588
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend %headings !optional;
+}

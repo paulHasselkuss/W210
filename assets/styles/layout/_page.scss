@@ -1,0 +1,35 @@
+$max-page-width: 1200px;
+$padding-left-right: 1.6rem;
+
+html {
+  background-color: var(--color--viewport--background);
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  max-width: $max-page-width;
+  min-height: 100%;
+  margin: auto;
+}
+
+.site-content {
+  flex: 1;
+}
+
+.site-header,
+.site-content,
+.site-footer {
+  margin: 0 #{$padding-left-right} #{spacing(1)};
+}
+
+.site-header {
+  padding-top: spacing(1);
+}

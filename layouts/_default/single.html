@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+{{ if .Params.toc }}
+<section class="page__toc">
+  {{ .TableOfContents }}
+</section>
+{{ end }}
+</div>
+
+<section class="page-content grid--main">
+  {{ .Content }}
+</section>
+
+{{ if .Params.images }}
+{{ partial "featured-img.html" . }}
+{{ end }}
+
+{{ end }}

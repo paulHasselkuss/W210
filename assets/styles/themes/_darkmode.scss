@@ -1,0 +1,25 @@
+@mixin darkmode {
+  --color--font: #{$white};
+  --color--font--alt: #{$gray--light};
+  --color--action: #{$blue--light};
+  --color--viewport--background: #{$black};
+  --color--viewport--alt: #{$gray};
+}
+
+.alt-theme {
+  @include darkmode;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include darkmode;
+  }
+
+  .alt-theme {
+    --color--font: #{$black};
+    --color--font--alt: #{$gray--dark};
+    --color--action: #{$blue};
+    --color--viewport--background: #{$white};
+    --color--viewport--alt: #{$gray--light};
+  }
+}

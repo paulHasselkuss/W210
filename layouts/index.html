@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+<ul class="page-list vertical">
+  {{ range .Site.Menus.home }}
+  <li><a class="button" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+  {{ end }}
+</ul>
+
+</div>
+
+{{ if .Params.images }}
+{{ partial "featured-img.html" . }}
+{{ end }}
+
+<section class="page-content grid--main">
+  {{ .Content }}
+</section>
+
+{{ end }}

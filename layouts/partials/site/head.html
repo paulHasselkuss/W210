@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Site info -->
+    <title>{{ if not .IsHome}}{{- with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title -}}</title>
+    {{ with .Description }}
+    <meta name="description" content="{{ . }}">
+    {{ end }}
+    {{ template "_internal/schema.html" . }}
+    {{ template "_internal/opengraph.html" . }}
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    {{ $accentColor := "#00008b" }}
+    {{- if eq hugo.Environment "production" -}}
+    {{ $accentColor = "#f22727" }}
+    {{ end }}
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="{{ $accentColor }}">
+    <meta name="msapplication-TileColor" content="{{ $accentColor }}">
+    <!-- Other -->
+    {{ range .AlternativeOutputFormats }}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+    {{ end }}
+
+    {{- $sassOptions := dict "includePaths" (slice "node_modules") -}}
+    {{- if eq hugo.Environment "production" -}}
+    {{- $sassOptions = merge $sassOptions (dict "outputStyle" "compressed") -}}
+    {{- else -}}
+    {{- $sassOptions = merge $sassOptions (dict "enableSourceMap" true) -}}
+    {{- end -}}
+
+    {{- $s := resources.Get "styles/main.scss" | toCSS $sassOptions -}}
+    {{- if eq hugo.Environment "production" -}}
+    {{- $s = $s | postCSS (dict "config" "postcss.config.js") | minify | fingerprint -}}
+    {{- end }}
+    <link rel="stylesheet" href="{{ $s.Permalink }}" integrity="{{ $s.Data.Integrity }}" />
+  </head>
+
+  <body class="kind-{{ .Kind }}">

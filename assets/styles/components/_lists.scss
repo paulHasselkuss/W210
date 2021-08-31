@@ -1,0 +1,61 @@
+ul,
+ol {
+  list-style-position: outsite;
+  margin-top: 0;
+  margin-bottom: spacing(.5);
+  padding: 0;
+
+  &.vertical,
+  &.unstyled {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 0;
+
+    li:before {
+      content: "";
+    }
+  }
+
+  &.vertical li {
+    display: inline-block;
+    @include except-last(padding-right, 1.5em);
+  }
+}
+
+ul {
+  margin-left: 1em;
+}
+
+ol {
+  list-style: none;
+  counter-reset: ordered-list;
+}
+
+ol li {
+  counter-increment: ordered-list;
+
+  &:before {
+    content: counters(ordered-list, '.', upper-roman) '. ';
+
+    display: inline-block;
+    min-width: 1.5em;
+  }
+}
+
+
+li li {
+  margin-left: 1em;
+}
+
+dl {
+  margin: 0;
+}
+
+dt {
+  @include fw("bold");
+  margin: 0;
+}
+
+dd {
+  margin: 0;
+}

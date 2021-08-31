@@ -1,0 +1,19 @@
+<section class="grid__main">
+
+  <ul class="page__logos vertical">
+    <span>Sponsors:</span>
+
+    {{ $hhu := resources.Get "img/sponsors/logo_hhu.svg"}}
+    <li><a href="https://hhu.de"><img class="logo-h1" src="{{ $hhu.RelPermalink }}"></a></li>
+
+    {{ $philgrad := resources.Get "img/sponsors/logo_philgrad.svg"}}
+    <li><a href="http://www.philo.hhu.de/en.html"><img class="logo-h2" src="{{ $philgrad.RelPermalink }}"></a></li>
+
+    {{ $dfg := resources.Get "img/sponsors/logo_dfg.svg"}}
+    <li><a href="https://indmet.weebly.com/"><img class="logo-h1_5" src="{{ $dfg.RelPermalink }}"></a></li>
+
+    {{ $gap := resources.Get "img/sponsors/logo_gap.png"}}
+    <li><a href="https://www.gap-im-netz.de/en/"><img class="logo-h2" src="{{ $gap.RelPermalink }}"></a></li>
+    </div>
+
+</section>

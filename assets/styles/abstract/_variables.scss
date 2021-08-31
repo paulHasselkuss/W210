@@ -1,0 +1,61 @@
+// Colors
+$white: #fffffc;
+$black: #00000f;
+$gray--dark: #444444;
+$gray: #C4C4C4;
+$gray--light: #E9E9E9;
+
+$blue: #030BA6;
+$blue--dark: #020873;
+$blue--light: #5961E0; //#5E76BF;
+
+// Typography
+$baseline: 1.6;
+$font-family: "'GeneralSans-Variable', 'GeneralSans', monospace, #{$font-stack-helvetica}";
+$font-weights: ("x-light": 200,
+"light": 300,
+"normal": 400,
+"medium": 500,
+"semi-bold": 600,
+"bold": 700);
+
+// Breakpoints
+$breakpoints: ("small": 576px,
+"medium": 768px,
+"large": 992px,
+"x-large": 1200px,
+"xx-large": 1400px);
+
+:root {
+  // Colors
+  --color--font: #{$black};
+  --color--font--alt: #{$gray--dark};
+  --color--action: #{$blue};
+  --color--viewport--background: #{$white};
+  --color--viewport--alt: #{$gray--light};
+
+  // Typography
+  --font-family: #{$font-family};
+  --font-family--heading: #{$font-family};
+  --baseline: #{$baseline};
+
+  // Other Sizes for horizontal spacing
+  --spacing--small: #{spacing(.5)};
+  --spacing: #{spacing(1)};
+
+  // Borders
+  --border-radius: 0;
+  --border-width: 0.175em;
+  --border-width--small: calc(0.175em / 2);
+  --border: var(--border-width) solid currentColor;
+  --border--small: var(--border-width--small) solid currentColor;
+
+  // Focus
+  --focus-outline-width: 0.1875em;
+  --focus-outline-offset: 0.125em;
+  --focus-outline: var(--focus-outline-width) solid var(--color--action);
+
+  // Animations
+  --duration: 150ms;
+  --timing: ease;
+}

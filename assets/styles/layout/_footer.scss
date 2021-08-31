@@ -1,0 +1,45 @@
+.site-footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+
+  padding-top: spacing(.5);
+  padding-bottom: spacing(1);
+  border-top: var(--border--small);
+}
+
+.site-footer__logo {
+  @include ms-fw(3, "bold");
+}
+
+.site-footer__item {
+  margin-top: calc((#{font-container-height(3)} - #{modular-scale(3)}) / 2);
+
+  &:last-child {
+    text-align: right;
+  }
+}
+
+.site-footer__nav {
+  column-count: 2;
+}
+
+.site-footer__icons {
+
+  .theme-toggle svg {
+    cursor: pointer;
+    transition: transform default-transition();
+
+    &:hover {
+      transform: rotate(45deg);
+    }
+  }
+
+  li {
+    display: inline-block;
+    @include except-last(padding-right, .2em);
+  }
+
+  svg {
+    height: 1em;
+  }
+}

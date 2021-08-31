@@ -1,0 +1,8 @@
+{{ $path := $.Params.data }}
+{{ $data := index .Page.Site.Data.contact $path}}
+
+{{ if $data }}
+{{ $data | markdownify }}
+{{ else }}
+{{ errorf "Missing value for contact data '%s'." $path }}
+{{ end }}

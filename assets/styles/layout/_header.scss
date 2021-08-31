@@ -1,0 +1,48 @@
+.site-header {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: spacing(.5);
+  border-bottom: var(--border--small);
+}
+
+.site-header__logo {
+  font-size: 1em;
+  margin: 0;
+}
+
+//logo (header font-size * line-height) + bottom-padding + offset
+$header-height: calc(#{font-container-height(0)} + #{spacing(1 + .5)} + 0.0875rem);
+
+.site-header {
+  position: fixed;
+  top: 0;
+  z-index: 101;
+
+  // needs to have the same size and the same padding as content and footer
+  width: calc(100% - (#{$padding-left-right} * 2));
+  max-width: calc(#{$max-page-width} - (#{$padding-left-right} * 2));
+
+  background-color: var(--color--viewport--background);
+  transition: transform 250ms var(--timing);
+}
+
+.site-content {
+  margin-top: $header-height;
+}
+
+//see https: //stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header
+//we add a margine to ::target::before that is equal to the header's offset (here to .hide-logo)
+:target::before {
+  content: " ";
+  display: block;
+  visibility: hidden;
+  pointer-events: none;
+  height: calc(#{$header-height} + #{spacing(1)});
+  /* fixed header height*/
+  margin: calc(-1 * (#{$header-height} + #{spacing(1)})) 0 0;
+  /* negative fixed header height */
+
+  z-index: -9999;
+}

@@ -1,0 +1,42 @@
+details summary {
+  cursor: pointer;
+  @include fw("semi-bold");
+
+  &:focus {
+    outline: none;
+  }
+
+  margin-bottom: spacing(.5);
+}
+
+details {
+  margin-bottom: spacing(.5);
+}
+
+details summary>* {
+  display: inline;
+}
+
+details summary,
+details summary>* {
+  transition: color var(--duration) var(--timing);
+}
+
+details summary:hover,
+details summary:hover>* {
+  color: var(--color--action);
+}
+
+details[open] summary~* {
+  animation: sweep .5s ease-in-out;
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

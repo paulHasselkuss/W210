@@ -1,0 +1,21 @@
+@include md("medium") {
+
+  .grid {
+    display: grid;
+    grid-template-columns: 75% 1fr; //repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .grid--main {
+    grid-column: 1/2;
+  }
+
+  .grid--full {
+    grid-column: 1/3;
+  }
+
+  .grid--side {
+    grid-column: 2/3;
+  }
+
+}

@@ -1,0 +1,11 @@
+@function spacing($amount: 1) {
+  @return calc(#{$amount}rem * var(--baseline));
+}
+
+@function font-container-height($ms-factor: 0) {
+  @return calc(#{modular-scale($ms-factor)} * var(--baseline));
+}
+
+@function default-transition() {
+  @return var(--duration) var(--timing);
+}

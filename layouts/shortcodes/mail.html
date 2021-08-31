@@ -1,0 +1,11 @@
+{{/* Get address, protocol and other parameters */}}
+{{- $address := .Get "address" | default (.Page.Site.Data.contact.mail) -}}
+{{- $displaytext := .Get "display" | default ($address) -}}
+{{- $parts := split $address "@" -}}
+{{- $user := (index $parts 0) -}}
+{{- $domain := (index $parts 1) | default "" -}}
+{{ if in $displaytext "@" }}
+{{- $displaytext = replace $displaytext "@" " [AT] " }}
+{{- $displaytext = replace $displaytext "." " [DOT] " }}
+{{ end }}
+<a href='javascript:void(0)' rel='nofollow' onclick='str1="{{ $user }}";str2="{{ $domain }}";this.href="mailto:" + str1 + "@" + str2'>{{ $displaytext }}</a>

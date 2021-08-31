@@ -1,0 +1,44 @@
+{{ define "main" }}
+
+{{ if not .Sections }}
+<ul class="page-list vertical">
+  {{ partial "partials/paginate-pages" . }}
+</ul>
+{{ end }}
+
+</div>
+
+{{ with .Content }}
+<section class="page-content grid--main">
+  {{ . }}
+</section>
+{{ end }}
+
+{{ if .Sections }}
+<section class="section-list grid--main">
+
+  {{ range .Sections }}
+  <article class=" section">
+
+    <h3 class="section__title">{{ .Title }}</h3>
+    <p class="section__description">{{ .Description | markdownify }}</p>
+
+    <ul class="page__page-list vertical">
+      <li><a class="button button--primary" href="{{ .Permalink }}">Info</a></li>
+      {{ partial "partials/paginate-pages" . }}
+    </ul>
+
+  </article>
+  {{ end }}
+</section>
+{{ end }}
+
+{{ end }}
+
+{{ define "partials/paginate-pages" }}
+
+{{ range .Paginator.Pages }}
+<li><a class="button" href="{{ .Permalink }}">{{ .Title }}</a></li>
+{{ end }}
+
+{{ end }}
