@@ -1,5 +1,5 @@
 $max-page-width: 1200px;
-$padding-left-right: 1.5rem;
+$padding-left-right: clamp-builder(.75em, 3em);
 
 html {
   background-color: var(--color--viewport--background);
@@ -23,8 +23,6 @@ body {
 .site-content {
   flex: 1;
 }
-
-
 
 .site-header,
 .site-content,
