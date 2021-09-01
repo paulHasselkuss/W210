@@ -2,9 +2,10 @@ html {
   color: var(--color--font);
   line-height: var(--baseline);
 
-  font-family: var(--font-family);
-  font-size: 110%;
+  font-size: 100%; //fallback
+  font-size: clamp-builder(16px, 18px);
   @include fw("normal");
+  font-family: var(--font-family);
 }
 
 h1,

@@ -1,5 +1,5 @@
 $max-page-width: 1200px;
-$padding-left-right: 1.6rem;
+$padding-left-right: 1.5rem;
 
 html {
   background-color: var(--color--viewport--background);
@@ -24,12 +24,27 @@ body {
   flex: 1;
 }
 
+
+
 .site-header,
 .site-content,
 .site-footer {
-  margin: 0 #{$padding-left-right} #{spacing(1)};
+  margin: 0 #{$padding-left-right} #{spacing(.5)};
 }
 
 .site-header {
-  padding-top: spacing(1);
+  padding-top: spacing(.5);
+}
+
+@include md("medium") {
+
+  .site-header,
+  .site-content,
+  .site-footer {
+    margin-bottom: spacing(1);
+  }
+
+  .site-header {
+    padding-top: spacing(1);
+  }
 }
