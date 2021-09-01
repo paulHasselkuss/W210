@@ -1,8 +1,6 @@
 ---
 title: Call for Abstracts
 description: On What There Isn’t. Imagination, Impossibilities and Counterfactual Reasoning. 5th – 6th September 2019, Heinrich-Heine University Düsseldorf, Germany.
-author: Joe Public
-date: "2015-09-11T15:20:15+09:00"
 ---
 
 ## Theme 
