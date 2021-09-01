@@ -2,8 +2,8 @@ function toggleTheme() {
   root = document.documentElement;
   root.classList.toggle("alt-theme");
 }
+var header = document.getElementsByClassName('site-header')[0];
 window.onscroll = function() {
-  var header = document.getElementsByClassName('site-header')[0];
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     header.classList.add('is-scolled');
   } else {
@@ -16,5 +16,6 @@ btn.addEventListener('click', function(e) {
   btn.classList.toggle('is-active');
   nav.classList.toggle('is-active');
   document.body.classList.toggle('noscroll');
+  header.classList.add('is-scolled');
   e.preventDefault();
 });

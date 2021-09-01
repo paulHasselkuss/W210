@@ -6,8 +6,8 @@ $cubic--burger: cubic-bezier(0.645, 0.045, 0.355, 1);
   overflow: hidden;
 
   position: fixed;
-  z-index: 101;
-  top: $header-height;
+  z-index: 100;
+  top: var(--header-height);
   left: 0;
   width: 100%;
 

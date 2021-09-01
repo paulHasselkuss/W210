@@ -12,8 +12,14 @@
   margin: 0;
 }
 
-//logo (header font-size * line-height) + bottom-padding + offset
-$header-height: calc(#{font-container-height(0)} + #{spacing(1 + .5)} + 0.0875rem);
+:root {
+  //logo (header font-size * line-height) + bottom-padding + offset
+  --header-height: calc(#{font-container-height(0)} + #{spacing(.5 + .5)} + .01em);
+
+  @include md("medium") {
+    --header-height: calc(#{font-container-height(0)} + #{spacing(1 + .5)} + .01em);
+  }
+}
 
 .site-header {
   position: fixed;
@@ -29,7 +35,7 @@ $header-height: calc(#{font-container-height(0)} + #{spacing(1 + .5)} + 0.0875re
 }
 
 .site-content {
-  margin-top: $header-height;
+  margin-top: var(--header-height);
 }
 
 //see https: //stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header
@@ -39,9 +45,9 @@ $header-height: calc(#{font-container-height(0)} + #{spacing(1 + .5)} + 0.0875re
   display: block;
   visibility: hidden;
   pointer-events: none;
-  height: calc(#{$header-height} + #{spacing(1)});
+  height: calc(var(--header-height) + #{spacing(1)});
   /* fixed header height*/
-  margin: calc(-1 * (#{$header-height} + #{spacing(1)})) 0 0;
+  margin: calc(-1 * (var(--header-height) + #{spacing(1)})) 0 0;
   /* negative fixed header height */
 
   z-index: -9999;
