@@ -17,9 +17,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    {{ $accentColor := "#00008b" }}
+    {{ $accentColor := "#00000f" }}
     {{- if eq hugo.Environment "production" -}}
-    {{ $accentColor = "#f22727" }}
+    {{ $accentColor = "#00008b" }}
     {{ end }}
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="{{ $accentColor }}">
     <meta name="msapplication-TileColor" content="{{ $accentColor }}">
