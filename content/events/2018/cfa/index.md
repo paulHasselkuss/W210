@@ -11,9 +11,9 @@ In our workshop, we are interested in finding answers to questions like the foll
 
 ## Keynotes and Organisation
 
-- [Sophie Allen](https://www.keele.ac.uk/spire/staff/sophieallen/) (Keele)
-- [Jiri Benovsky](http://www.jiribenovsky.org/) (Fribourg)
-- [Richard Woodward](https://carvingnature.net/woodward/) (Hamburg)
+- [Dr. Sophie Allen](https://www.keele.ac.uk/spire/staff/sophieallen/) (Keele)
+- [Dr. Jiri Benovsky](http://www.jiribenovsky.org/) (Fribourg)
+- [Dr. Richard Woodward](https://carvingnature.net/woodward/) (Hamburg)
 
 The conference will be held from 30/08/2018 to 31/08/2018 at Heinrich-Heine University’s [Haus der Universität](http://www.hdu.hhu.de/en.html) in the heart of the city.
 
