@@ -1,9 +1,6 @@
 ---
 title: Programme
 description: The workshop takes place at Heinrich-Heine University's [Haus der Universität](/practical-information#venue) on the 5th and 6th September 2019. On both days, lunch will be provided.
-menu:
-  primary:
-    weight: 1
 ---
 
 Please note that the schedule had to be changed last minute: Prof. Dr. Ruth Byrne cannot attend the workshop due to unforeseen circumstances.

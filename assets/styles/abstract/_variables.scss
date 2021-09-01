@@ -11,11 +11,11 @@ $blue--light: #5961E0; //#5E76BF;
 
 // Typography
 $baseline: 1.6;
-$font-family: "'GeneralSans-Variable', 'GeneralSans', monospace, #{$font-stack-helvetica}";
-$font-weights: ("x-light": 200,
-"light": 300,
+$font-family: "'GeneralSans-Variable', 'GeneralSans', #{$font-stack-helvetica}";
+$font-weights: ( //"x-light": 200,
+//"light": 300,
 "normal": 400,
-"medium": 500,
+//"medium": 500,
 "semi-bold": 600,
 "bold": 700);
 

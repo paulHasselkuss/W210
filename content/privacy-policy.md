@@ -5,7 +5,7 @@ sitemap:
   priority: 0.1
 menu:
   footer:
-    weight: 100
+    weight: -100
 ---
 Personal data (usually referred to just as "data" below) will only be processed by us to the extent necessary and for the purpose of providing a functional and user-friendly website, including its contents, and the services offered there.
 

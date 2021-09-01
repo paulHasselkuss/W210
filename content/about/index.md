@@ -3,7 +3,7 @@ title: About
 description: Düsseldorf Graduate Workshop for Philosophy is a yearly event for early career researchers in metaphysics and neighbouring fields that takes place at Heinrich-Heine University Düsseldorf, Germany.
 images:
 - ULB_von_Nordwesten.jpg
-menu: ["home", primary", "footer"]
+menu: ["home", "primary", "footer"]
 ---
 
 All events can be found [here](/events).

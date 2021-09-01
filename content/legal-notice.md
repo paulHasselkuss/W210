@@ -5,7 +5,7 @@ sitemap:
   priority: 0.1
 menu:
   footer:
-    weight: 100
+    weight: -100
 ---
 
 ## Information in accordance with Section 5 TMG 
