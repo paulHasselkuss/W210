@@ -1,5 +1,4 @@
 $max-page-width: 1200px;
-$padding-left-right: clamp-builder(.75em, 3em);
 
 html {
   background-color: var(--color--viewport--background);
@@ -27,7 +26,7 @@ body {
 .site-header,
 .site-content,
 .site-footer {
-  margin: 0 #{$padding-left-right} #{spacing(.5)};
+  margin: 0 var(--spacing--site) #{spacing(.5)};
 }
 
 .site-header {

@@ -21,8 +21,8 @@ $header-height: calc(#{font-container-height(0)} + #{spacing(1 + .5)} + 0.0875re
   z-index: 101;
 
   // needs to have the same size and the same padding as content and footer
-  width: calc(100% - (#{$padding-left-right} * 2));
-  max-width: calc(#{$max-page-width} - (#{$padding-left-right} * 2));
+  width: calc(100% - (var(--spacing--site) * 2));
+  max-width: calc(#{$max-page-width} - (var(--spacing--site) * 2));
 
   background-color: var(--color--viewport--background);
   transition: transform 250ms var(--timing);

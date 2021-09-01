@@ -42,6 +42,7 @@ $breakpoints: ("small": 576px,
   // Other Sizes for horizontal spacing
   --spacing--small: #{spacing(.5)};
   --spacing: #{spacing(1)};
+  --spacing--site: #{clamp-builder(.75em, 3em)};
 
   // Borders
   --border-radius: 0;
