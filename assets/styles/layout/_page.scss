@@ -45,3 +45,9 @@ body {
     padding-top: spacing(1);
   }
 }
+
+.kind-404 .site-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
