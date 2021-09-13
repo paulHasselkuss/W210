@@ -1,12 +1,5 @@
 <div id="searchWrapper" class="search-wrapper">
   <section class="search-container grid">
-    <!-- If fixedearch is loaded, the action is changed -->
-    <!--<form id="search-form" class="search noscript" method="GET" action="https://duckduckgo.com/" data-language-prefix="{{ site.LanguagePrefix }}">
-      <div class="search-bar">
-        <input id="search-input" class="search__input search--hidden" name="q" tabindex="0" autocomplete="off" {{ with site.BaseURL }} value=" site:{{ . }}" {{ end }} placeholder="{{ i18n "search" }}">
-        <input id="search-submit" type="submit" value="search">
-      </div>
-    </form>-->
 
     <div class="search-form grid--main">
       <form id="searchForm" class="noscript" method="GET" data-language-prefix="{{ site.LanguagePrefix }}">
@@ -26,5 +19,5 @@
   </section>
 </div>
 
-{{ $search := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" . | fingerprint }}
+{{ $search := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" . | minify | fingerprint }}
 <script src="{{ $search.Permalink }}" integrity="{{ $search.Data.Integrity }}"></script>

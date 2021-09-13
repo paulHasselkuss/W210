@@ -1,7 +1,7 @@
 /* beautify ignore:start */
 {{ $flexsearch := resources.Get "js/flexsearch.js" }}
 {{ $mark := resources.Get "js/mark.js" }}
-{{ $vendor := slice $mark $flexsearch | resources.Concat "js/vendor.js" }}
+{{ $vendor := slice $mark $flexsearch | resources.Concat "js/vendor.js" | minify | fingerprint }}
 const vendor_link = '{{ $vendor.Permalink}}';
 /* beautify ignore:end */
 const search_wrapper = document.getElementById('searchWrapper');
