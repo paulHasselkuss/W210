@@ -7,8 +7,7 @@
     "dev:sublime": "subl .",
     "start": "hugo server",
     "build": "hugo --minify",
-    "ci": "npm install && npm run build",
-    "postinstall": "[ ! -f ./node_modules/@csstools/normalize.css/normalize.css ] || mv ./node_modules/@csstools/normalize.css/normalize.css ./node_modules/@csstools/normalize.css/normalize.scss"
+    "ci": "npm install && npm run build"
   },
   "browserlists": [
     "last 3 versions"
