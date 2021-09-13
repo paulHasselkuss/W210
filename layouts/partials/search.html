@@ -1,0 +1,30 @@
+<div id="searchWrapper" class="search-wrapper">
+  <section class="search-container grid">
+    <!-- If fixedearch is loaded, the action is changed -->
+    <!--<form id="search-form" class="search noscript" method="GET" action="https://duckduckgo.com/" data-language-prefix="{{ site.LanguagePrefix }}">
+      <div class="search-bar">
+        <input id="search-input" class="search__input search--hidden" name="q" tabindex="0" autocomplete="off" {{ with site.BaseURL }} value=" site:{{ . }}" {{ end }} placeholder="{{ i18n "search" }}">
+        <input id="search-submit" type="submit" value="search">
+      </div>
+    </form>-->
+
+    <div class="search-form grid--main">
+      <form id="searchForm" class="noscript" method="GET" data-language-prefix="{{ site.LanguagePrefix }}">
+        <input id="searchInput" type="search" name="q" tabindex="0" autocomplete="off" placeholder="Search dgwp.org">
+      </form>
+      <div>Type to search or press esc to cancel.</div>
+    </div>
+
+    <div class="search-list grid--main">
+      <h2 id="searchListTitle" class="search-list__title bigtext">
+        <!--Filled by JS -->
+      </h2>
+      <ul id="searchListItems" class="search-list__items unstyled">
+        <!-- Filled by JS -->
+      </ul>
+    </div>
+  </section>
+</div>
+
+{{ $search := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" . | fingerprint }}
+<script src="{{ $search.Permalink }}" integrity="{{ $search.Data.Integrity }}"></script>

@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{ define "page-frontmatter" }}
 
 {{ if not .Sections }}
 <ul class="page-list vertical">
@@ -6,7 +6,9 @@
 </ul>
 {{ end }}
 
-</div>
+{{ end }}
+
+{{ define "main" }}
 
 {{ with .Content }}
 <section class="page-content grid--main">

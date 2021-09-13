@@ -52,11 +52,11 @@ $breakpoints: ("small": 576px,
   --border--small: var(--border-width--small) solid currentColor;
 
   // Focus
-  --focus-outline-width: 0.1875em;
+  --focus-outline-width: 0; //0.1875em;
   --focus-outline-offset: 0.125em;
   --focus-outline: var(--focus-outline-width) solid var(--color--action);
 
   // Animations
-  --duration: 150ms;
-  --timing: ease;
+  --duration: 200ms;
+  --timing: ease-in-out;
 }

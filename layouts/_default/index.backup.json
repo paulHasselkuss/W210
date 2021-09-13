@@ -1,0 +1,23 @@
+{{- $index := slice -}}
+{{- range .Site.Pages.ByDate.Reverse -}}
+
+{{- $var := newScratch -}}
+
+{{- template "breadcrumb" (dict "var" $var "p1" . "p2" . ) -}}
+{{/* We add title, permlink, describtion and content.*/}}
+{{- $index = $index | append (dict "title" ( .Title | plainify ) "permalink" .Permalink "desc" (.Description | markdownify | htmlUnescape | plainify) "content" (.Summary | markdownify | htmlUnescape | plainify)  "path" (delimit ($var.Get "path") "" ) ) -}}
+{{- end -}}
+{{- $index | jsonify -}}
+
+{{- define "breadcrumb" -}}
+{{- if .p1.Parent -}}
+{{- template "breadcrumb" (dict "var" .var "p1" .p1.Parent "p2" .p2 )  -}}
+{{- else if not .p1.IsHome -}}
+{{- template "breadcrumb" (dict "var" .var "p1" .p1.Site.Home "p2" .p2 )  -}}
+{{- end -}}
+{{- if not .p1.IsHome -}}
+{{- .var.Add "path" (slice "<li>" .p1.Title "</li>") -}}
+{{- else -}}
+{{- .var.Add "path" (slice "<li>" "Home" "</li>") -}}
+{{- end -}}
+{{- end -}}

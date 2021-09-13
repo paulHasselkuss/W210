@@ -60,7 +60,12 @@ textarea {
   width: 100%;
 
   &:focus {
-    box-shadow: var(--form-box-shadow-focus);
+    outline: none;
+  }
+
+  //if we combine this one with the rule above, Safari does not accept either?!
+  &:focus-visible {
+    outline: none;
   }
 
   &:disabled {

@@ -1,0 +1,15 @@
+[
+{{- $pages := where .Site.Pages "Kind" "in" (slice "page" "section") -}}
+{{- $pages = where $pages "Params.excludefromsearch" "!=" true -}}
+{{- $pages = where $pages "Content" "not in" (slice nil "") -}}
+
+{{ range $index, $page := $pages }}
+{{ if gt $index 0}},{{end}} {
+"id": {{ $index }},
+"href": "{{ $page.RelPermalink }}",
+"title": {{ $page.Title | jsonify }},
+"desc": {{ $page.Description | markdownify | plainify | jsonify }},
+"content": {{ $page.Plain | jsonify }}
+}
+{{- end -}}
+]

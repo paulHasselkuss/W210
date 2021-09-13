@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{ define "page-frontmatter" }}
 
 <ul class="page-list vertical">
   {{ range .Site.Menus.home }}
@@ -6,7 +6,9 @@
   {{ end }}
 </ul>
 
-</div>
+{{end}}
+
+{{ define "main" }}
 
 {{ if .Params.images }}
 {{ partial "featured-img.html" . }}

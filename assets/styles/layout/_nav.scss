@@ -130,6 +130,9 @@ button.hamburger {
     position: initial;
     width: initial;
 
+    text-align: right;
+    flex: 1;
+
     ul li {
       opacity: 1;
       border-bottom: 0;
@@ -139,13 +142,18 @@ button.hamburger {
       padding: 0;
       margin-right: 0;
 
-      a.is-active {
-        background-color: var(--color--font);
+      a {
+        transition: all default-transition();
         display: inline-block;
         padding: .25em .75em;
-        color: var(--color--viewport--background);
 
+        &.is-active,
         &:hover {
+          background-color: var(--color--font);
+          color: var(--color--viewport--background);
+        }
+
+        &.is-active:hover {
           background-color: var(--color--action);
         }
       }

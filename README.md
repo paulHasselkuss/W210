@@ -6,7 +6,6 @@ The site is created using [Hugo](http://gohugo.io) and [Atlas](https://github.co
 The theme is work in progress. Todos include:
 - [ ] Testing in multiple browsers, support for non-variable fonts?
 - [ ] Add https://instant.page
-- [ ] Add local search
 - [ ] Add sponsor logos from `assets/img/sponsors`
 
 ## Build

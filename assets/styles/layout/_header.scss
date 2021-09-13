@@ -10,14 +10,15 @@
 .site-header__logo {
   font-size: 1em;
   margin: 0;
+  flex: 1;
 }
 
 :root {
   //logo (header font-size * line-height) + bottom-padding + offset
-  --header-height: calc(#{font-container-height(0)} + #{spacing(.5 + .5)} + .01em);
+  --header-height: calc(#{font-container-height(0)} + #{spacing(.5 + .5)} + .5em);
 
   @include md("medium") {
-    --header-height: calc(#{font-container-height(0)} + #{spacing(1 + .5)} + .01em);
+    --header-height: calc(#{font-container-height(0)} + #{spacing(1 + .5)} + .5125em);
   }
 }
 

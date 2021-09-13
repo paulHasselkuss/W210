@@ -24,10 +24,10 @@ $bourbon: ("modular-scale-base": 1rem, "modular-scale-ratio": 1.250, "global-fon
 @import "layout/page";
 @import "layout/header";
 @import "layout/nav";
+@import "layout/search";
 @import "layout/footer";
 
 @import "pages/common-elements";
 @import "pages/index";
 
-//themes
 @import "themes/darkmode";

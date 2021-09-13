@@ -1,10 +1,14 @@
 {{ partial "site/head.html" . }}
 
 {{ block "header" . }}
-<header class="site-header">
+<header id="siteHeader" class="site-header">
   <h1 class="site-header__logo">
     <a class="unstyled" href="{{ .Site.BaseURL }}">DGWP</a>
   </h1>
+
+  <div id="searchToggle" class="search-toggle icon">
+    {{- partial "svg.html" "icons/search_bold" -}}
+  </div>
 
   <button id="menu-btn" class="site-nav--btn hamburger" type="button">
     <div class="hamburger__inner">
@@ -21,12 +25,14 @@
       {{ end }}
     </ul>
   </nav>
+
 </header>
 {{ end }}
 
 <main class="site-content grid">
 
   <header class="page-header grid--main">
+
     <h1 class="page-header__title">{{ .Title }}</h1>
 
     {{ if or (.Params.date) (.Params.author)}}
@@ -45,8 +51,13 @@
     </section>
     {{ end }}
 
-    {{ block "main" . }}
+    {{ block "page-frontmatter" . }}
+    {{/*Other layouts can add additional frontmatter via this block*/}}
+    {{ end }}
+
   </div>
+
+  {{ block "main" . }}
   {{ .Content }}
   {{ end }}
 
@@ -63,7 +74,7 @@
   <div class="site-footer__item">
     <div>© {{ now.Format "2006"}} DGWP</div>
     <ul class="site-footer__icons unstyled">
-      <li class="theme-toggle" onClick="toggleTheme()">{{ partial "svg.html" "icons/circle"}}</li>
+      <li id="themeToggle" class="theme-toggle">{{ partial "svg.html" "icons/circle"}}</li>
       <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}">{{ partial "svg.html" "icons/facebook"}}</a></li>
       <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}">{{ partial "svg.html" "icons/twitter"}}</a></li>
   </div>

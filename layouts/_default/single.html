@@ -1,11 +1,14 @@
-{{ define "main" }}
+{{ define "page-frontmatter" }}
 
 {{ if .Params.toc }}
 <section class="page__toc">
   {{ .TableOfContents }}
 </section>
 {{ end }}
-</div>
+
+{{ end }}
+
+{{ define "main" }}
 
 <section class="page-content grid--main">
   {{ .Content }}

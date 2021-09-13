@@ -1,3 +1,5 @@
+{{ partial "search" }}
+
 {{ $js := resources.Get "js/app.js" | minify | fingerprint }}
 <script src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}"></script>
 {{- if eq hugo.Environment "production" -}}

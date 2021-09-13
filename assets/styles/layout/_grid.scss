@@ -3,7 +3,7 @@
   .grid {
     display: grid;
     grid-template-columns: 75% 1fr; //repeat(3, 1fr);
-    grid-template-rows: auto;
+    grid-template-rows: minmax(min-content, max-content);
   }
 
   .grid--main {
