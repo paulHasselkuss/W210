@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "@csstools/normalize.css": "^11.0.1",
-    "autoprefixer": "^10.2.6",
+    "autoprefixer": "^10.3.4",
     "bourbon": "^7.0.0",
     "cssnano": "^5.0.6",
     "flexsearch": "^0.7.21",
