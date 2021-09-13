@@ -4,9 +4,16 @@ const nav_toggle = document.getElementById('navToggle');
 const theme_toggle = document.getElementById('themeToggle');
 let ticking = false;
 theme_toggle.addEventListener('click', function(e) {
-  body.classList.toggle("alt-theme");
+  let status = sessionStorage.getItem("alt-theme");
+  if (status) {
+    sessionStorage.removeItem("alt-theme");
+  } else {
+    sessionStorage.setItem("alt-theme", "true")
+  }
+  handle_theme(!status);
   e.preventDefault();
 });
+window.addEventListener('load', handle_theme());
 nav_toggle.addEventListener('click', function(e) {
   body.classList.toggle('nav-active')
   nav_toggle.classList.toggle('is-active');
@@ -26,3 +33,11 @@ window.addEventListener('scroll', function(e) {
     ticking = true;
   }
 });
+
+function handle_theme(add = sessionStorage.getItem("alt-theme")) {
+  if (add) {
+    document.documentElement.classList.add("alt-theme");
+  } else {
+    document.documentElement.classList.remove("alt-theme");
+  }
+}
