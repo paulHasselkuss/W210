@@ -28,7 +28,7 @@
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
     {{ end }}
 
-    {{- $sassOptions := dict "includePaths" (slice "node_modules") -}}
+    {{- $sassOptions := "" -}}
     {{- if eq hugo.Environment "production" -}}
     {{- $sassOptions = merge $sassOptions (dict "outputStyle" "compressed") -}}
     {{- else -}}

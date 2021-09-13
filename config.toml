@@ -42,3 +42,27 @@ startLevel = 2
 [markup.goldmark.renderer]
 unsafe = true
 
+[module]
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+
+  [[module.mounts]]
+    source = "node_modules/bourbon/core/"
+    target = "assets/styles/vendors/bourbon"
+
+  [[module.mounts]]
+    source = "node_modules/@csstools/normalize.css/"
+    target = "assets/styles/vendors/normalize"
+
+  [[module.mounts]]
+    source = "node_modules/flexsearch/dist"
+    target = "assets/js/vendor/flexsearch"
+
+  [[module.mounts]]
+    source = "node_modules/mark.js/dist"
+    target = "assets/js/vendor/mark.js"

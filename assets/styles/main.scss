@@ -1,8 +1,9 @@
 @charset "utf-8";
 
-@import "@csstools/normalize.css/normalize";
+// these are added from node_modules via Hugo module mounts, see config.toml
+@import "vendors/normalize/normalize.css";
 $bourbon: ("modular-scale-base": 1rem, "modular-scale-ratio": 1.250, "global-font-file-formats": (woff2));
-@import "bourbon/core/bourbon";
+@import "vendors/bourbon/bourbon";
 
 @import "abstract/functions";
 @import "abstract/mixings";

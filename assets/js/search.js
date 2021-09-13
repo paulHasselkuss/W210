@@ -1,6 +1,6 @@
 /* beautify ignore:start */
-{{ $flexsearch := resources.Get "js/flexsearch.js" }}
-{{ $mark := resources.Get "js/mark.js" }}
+{{ $flexsearch := resources.Get "js/vendor/flexsearch/flexsearch.compact.js" }}
+{{ $mark := resources.Get "js/vendor/mark.js/mark.min.js" }}
 {{ $vendor := slice $mark $flexsearch | resources.Concat "js/vendor.js" | minify | fingerprint }}
 const vendor_link = '{{ $vendor.Permalink}}';
 /* beautify ignore:end */
