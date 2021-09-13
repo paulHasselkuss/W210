@@ -1,5 +1,4 @@
-const header = document.getElementById('siteHeader');
-const root = document.documentElement;
+const body = document.body;
 const nav = document.getElementById('main-nav')
 const nav_toggle = document.getElementById('menu-btn');
 const theme_toggle = document.getElementById('themeToggle');
@@ -19,7 +18,7 @@ window.addEventListener('scroll', function(e) {
   //simple & native throttle: http://www.html5rocks.com/en/tutorials/speed/animations/
   if (!ticking) {
     window.requestAnimationFrame(function() {
-      set_is_scolled(root.scrollTop > 50);
+      set_is_scolled(document.documentElement.scrollTop > 50);
       ticking = false;
     });
     ticking = true;
@@ -27,13 +26,13 @@ window.addEventListener('scroll', function(e) {
 });
 
 function toggle_no_scroll() {
-  root.classList.toggle('noscroll');
+  body.classList.toggle('noscroll');
 }
 
 function set_is_scolled(add) {
   if (add) {
-    header.classList.add('is-scolled');
+    body.classList.add('is-scolled');
   } else {
-    header.classList.remove('is-scolled');
+    body.classList.remove('is-scolled');
   }
 }

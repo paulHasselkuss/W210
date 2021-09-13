@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 // these are added from node_modules via Hugo module mounts, see config.toml
-@import "vendors/normalize/normalize.css";
+@use "vendors/normalize/normalize.css";
 $bourbon: ("modular-scale-base": 1rem, "modular-scale-ratio": 1.250, "global-font-file-formats": (woff2));
 @import "vendors/bourbon/bourbon";
 

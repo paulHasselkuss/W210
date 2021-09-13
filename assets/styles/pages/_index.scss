@@ -1,7 +1,7 @@
 .kind-home .site-header {
   border-bottom: 0;
+}
 
-  &.is-scolled {
-    border-bottom: var(--border--small);
-  }
+.kind-home.is-scolled .site-header {
+  border-bottom: var(--border--small);
 }
