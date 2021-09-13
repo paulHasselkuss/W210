@@ -26,7 +26,12 @@ body {
 .site-header,
 .site-content,
 .site-footer {
-  margin: 0 var(--spacing--site) #{spacing(.5)};
+  margin: 0 var(--spacing--site);
+}
+
+.site-content,
+.site-footer {
+  margin-bottom: spacing(.5);
 }
 
 .site-header {
@@ -35,7 +40,6 @@ body {
 
 @include md("medium") {
 
-  .site-header,
   .site-content,
   .site-footer {
     margin-bottom: spacing(1);

@@ -1,32 +1,34 @@
 {{ partial "site/head.html" . }}
 
 {{ block "header" . }}
-<header id="siteHeader" class="site-header {{if or (.IsHome) (.Params.hideborder) }}site-header--border-on-scroll{{end}}">
-  <h1 class="site-header__logo">
-    <a class="unstyled" href="{{ .Site.BaseURL }}">DGWP</a>
-  </h1>
+<div class="header-wrapper">
+  <header id="siteHeader" class="site-header {{if or (.IsHome) (.Params.hideborder) }}site-header--border-on-scroll{{end}}">
+    <h1 class="site-header__logo">
+      <a class="unstyled" href="{{ .Site.BaseURL }}">DGWP</a>
+    </h1>
 
-  <div id="searchToggle" class="search-toggle icon">
-    {{- partial "svg.html" "icons/search_bold" -}}
-  </div>
-
-  <button id="navToggle" class="site-nav--btn hamburger" type="button">
-    <div class="hamburger__inner">
-      <span></span>
-      <span></span>
+    <div id="searchToggle" class="search-toggle icon">
+      {{- partial "svg.html" "icons/search_bold" -}}
     </div>
-  </button>
 
-  <nav id="siteNav" class="site-nav">
-    <ul>
-      {{ $currentPage := . }}
-      {{ range .Site.Menus.primary }}
-      <li><a class="site-nav__item unstyled {{if or ($currentPage.IsMenuCurrent "primary" .) ($currentPage.HasMenuCurrent "primary" .) }} is-active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
-      {{ end }}
-    </ul>
-  </nav>
+    <button id="navToggle" class="site-nav--btn hamburger" type="button">
+      <div class="hamburger__inner">
+        <span></span>
+        <span></span>
+      </div>
+    </button>
 
-</header>
+    <nav id="siteNav" class="site-nav">
+      <ul>
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.primary }}
+        <li><a class="site-nav__item unstyled {{if or ($currentPage.IsMenuCurrent "primary" .) ($currentPage.HasMenuCurrent "primary" .) }} is-active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+
+  </header>
+</div>
 {{ end }}
 
 <main class="site-content grid">
