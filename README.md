@@ -4,7 +4,7 @@
 The site is created using [Hugo](http://gohugo.io) and [Atlas](https://github.com/indigotree/atlas). See below for more information.
 
 The theme is work in progress. Todos include:
-- [ ] Testing in multiple browsers, support for non-variable fonts?
+- [ ] Support for non-variable fonts?
 - [ ] Add https://instant.page
 - [ ] Add sponsor logos from `assets/img/sponsors`
 

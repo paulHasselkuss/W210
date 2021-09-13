@@ -36,23 +36,7 @@
   }
 }
 
-.site-footer__icons {
-
-  .theme-toggle svg {
-    cursor: pointer;
-    transition: transform default-transition();
-
-    &:hover {
-      transform: rotate(45deg);
-    }
-  }
-
-  li {
-    display: inline-block;
-    @include except-last(padding-right, .2em);
-  }
-
-  svg {
-    height: 1em;
-  }
+.site-footer__icons li {
+  display: inline-block;
+  @include except-last(padding-right, .2em);
 }

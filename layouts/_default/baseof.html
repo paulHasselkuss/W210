@@ -74,7 +74,7 @@
   <div class="site-footer__item">
     <div>© {{ now.Format "2006"}} DGWP</div>
     <ul class="site-footer__icons unstyled">
-      <li id="themeToggle" class="theme-toggle">{{ partial "svg.html" "icons/circle"}}</li>
+      <li><span id="themeToggle" class="theme-toggle"></span></li>
       <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}">{{ partial "svg.html" "icons/facebook"}}</a></li>
       <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}">{{ partial "svg.html" "icons/twitter"}}</a></li>
   </div>

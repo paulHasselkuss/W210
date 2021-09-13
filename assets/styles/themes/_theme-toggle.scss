@@ -1,0 +1,38 @@
+$toggle-size: .9em;
+
+.theme-toggle {
+  display: block;
+  width: $toggle-size;
+  height: $toggle-size;
+  border-radius: $toggle-size;
+  border: currentColor solid var(--border-width--small);
+  overflow: hidden;
+  cursor: pointer;
+
+  transform: rotate(45deg);
+
+  &::after {
+    width: $toggle-size / 2;
+    height: $toggle-size;
+    display: block;
+    background: $black;
+    content: "";
+  }
+
+  background: $white;
+  transition: transform 250ms ease-in-out;
+}
+
+.alt-theme .theme-toggle {
+  transform: rotate(225deg);
+}
+
+@media (hover: hover) {
+  .theme-toggle:hover {
+    transform: rotate(90deg);
+  }
+
+  .alt-theme .theme-toggle:hover {
+    transform: rotate(270deg);
+  }
+}
