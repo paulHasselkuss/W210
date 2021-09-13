@@ -23,7 +23,7 @@ Our privacy policy is structured as follows:
 
 The party responsible for this website (the "controller") for purposes of data protection law is:
 
-{{< contact data="address" >}}
+{{< contact data="address" >}}<br />
 
 Telephone: {{< contact data="phone" >}}<br />
 E-Mail: {{< mail >}}
