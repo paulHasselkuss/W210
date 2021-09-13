@@ -41,25 +41,30 @@ $cubic--burger: cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 }
 
-.site-nav.is-active {
-  height: 100%;
+.nav-active {
+  height: 100vh;
+  overflow: hidden;
 
-  ul li {
-    transform: scale(1) translateY(0px);
-    opacity: 1;
+  .site-nav {
+    height: 100%;
 
-    @for $i from 1 through 10 {
-      &:nth-child(#{$i}) {
-        transition-delay: #{0.07 * $i}s;
+    ul li {
+      transform: scale(1) translateY(0px);
+      opacity: 1;
+
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          transition-delay: #{0.07 * $i}s;
+        }
       }
     }
   }
+
+  .site-header--border-on-scroll {
+    border-bottom: var(--border--small);
+  }
 }
 
-.noscroll {
-  height: 100vh;
-  overflow: hidden;
-}
 
 button.hamburger {
   padding: 0;

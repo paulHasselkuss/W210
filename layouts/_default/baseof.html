@@ -1,7 +1,7 @@
 {{ partial "site/head.html" . }}
 
 {{ block "header" . }}
-<header id="siteHeader" class="site-header">
+<header id="siteHeader" class="site-header {{if or (.IsHome) (.Params.hideborder) }}site-header--border-on-scroll" data-border="false{{end}}">
   <h1 class="site-header__logo">
     <a class="unstyled" href="{{ .Site.BaseURL }}">DGWP</a>
   </h1>
@@ -10,14 +10,14 @@
     {{- partial "svg.html" "icons/search_bold" -}}
   </div>
 
-  <button id="menu-btn" class="site-nav--btn hamburger" type="button">
+  <button id="navToggle" class="site-nav--btn hamburger" type="button">
     <div class="hamburger__inner">
       <span></span>
       <span></span>
     </div>
   </button>
 
-  <nav id="main-nav" class="site-nav">
+  <nav id="siteNav" class="site-nav">
     <ul>
       {{ $currentPage := . }}
       {{ range .Site.Menus.primary }}

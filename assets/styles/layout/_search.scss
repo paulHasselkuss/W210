@@ -30,9 +30,18 @@
 
   background-color: var(--color--viewport--background);
   transition: height default-transition();
+}
 
-  &.is-active {
+.search-active {
+  height: 100vh;
+  overflow: hidden;
+
+  .search-wrapper {
     height: 100vh;
+  }
+
+  .site-header--border-on-scroll {
+    border-bottom: var(--border--small);
   }
 }
 

@@ -4,7 +4,6 @@
 {{ $vendor := slice $mark $flexsearch | resources.Concat "js/vendor.js" | minify | fingerprint }}
 const vendor_link = '{{ $vendor.Permalink}}';
 /* beautify ignore:end */
-const search_wrapper = document.getElementById('searchWrapper');
 const search_form = document.getElementById('searchForm'); // search form
 const search_input = document.getElementById('searchInput'); // input box for search
 const search_results = document.getElementById('searchListItems'); // targets the <ul>
@@ -100,15 +99,13 @@ function search_toggle_focus(e) {
   //console.log(e); // DEBUG
   // order of operations is very important to keep focus where it should stay
   if (!search__focus) {
-    search_wrapper.classList.add('is-active');
+    document.body.classList.add('search-active');
     search_toggle.classList.add('is-active');
-    document.body.classList.add('noscroll');
     search_input.focus(); // move focus to search box
     search__focus = true;
   } else {
-    search_wrapper.classList.remove('is-active');
+    document.body.classList.remove('search-active');
     search_toggle.classList.remove('is-active');
-    document.body.classList.remove('noscroll');
     document.activeElement.blur(); // remove focus from search box
     search__focus = false;
   }
