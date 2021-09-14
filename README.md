@@ -10,7 +10,6 @@ While the project is usuable, some things still need to be done:
 - Add Babel to transpile Javascript
 - Move the theme to its own repo and add a license
 - Test https://instant.page
-- Support for non-variable fonts
 
 ## Build
 

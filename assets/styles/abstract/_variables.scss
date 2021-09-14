@@ -11,7 +11,7 @@ $blue--light: #5961E0; //#5E76BF;
 
 // Typography
 $baseline: 1.6;
-$font-family: "'GeneralSans-Variable', 'GeneralSans', #{$font-stack-helvetica}";
+$font-family: "'GeneralSans', #{$font-stack-helvetica}";
 $font-weights: ( //"x-light": 200,
 //"light": 300,
 "normal": 400,
@@ -59,4 +59,12 @@ $breakpoints: ("small": 576px,
   // Animations
   --duration: 200ms;
   --timing: ease-in-out;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    //use variable fonts only if supported
+    font-family: 'GeneralSans-Variable',
+    #{$font-family};
+  }
 }
