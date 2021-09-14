@@ -4,6 +4,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font & Styles -->
+    <link rel="preload" as="font" href="{{ .Site.BaseURL }}fonts/GeneralSans-variable-normal.woff2" type="font/woff2" crossorigin="">
+    {{- $sassOptions := dict "includePaths" (slice "node_modules") -}}
+    {{- if eq hugo.Environment "production" -}}
+    {{- $sassOptions = merge $sassOptions (dict "outputStyle" "compressed") -}}
+    {{- else -}}
+    {{- $sassOptions = merge $sassOptions (dict "enableSourceMap" true) -}}
+    {{- end -}}
+
+    {{- $s := resources.Get "styles/main.scss" | toCSS $sassOptions -}}
+    {{- if eq hugo.Environment "production" -}}
+    {{- $s = $s | postCSS (dict "config" "postcss.config.js") | minify | fingerprint -}}
+    {{- end }}
+    <link rel="stylesheet" href="{{ $s.Permalink }}" integrity="{{ $s.Data.Integrity }}" />
     <!-- Site info -->
     <title>{{ if not .IsHome}}{{- with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title -}}</title>
     {{ with .Description }}
@@ -27,19 +41,6 @@
     {{ range .AlternativeOutputFormats }}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
     {{ end }}
-
-    {{- $sassOptions := dict "includePaths" (slice "node_modules") -}}
-    {{- if eq hugo.Environment "production" -}}
-    {{- $sassOptions = merge $sassOptions (dict "outputStyle" "compressed") -}}
-    {{- else -}}
-    {{- $sassOptions = merge $sassOptions (dict "enableSourceMap" true) -}}
-    {{- end -}}
-
-    {{- $s := resources.Get "styles/main.scss" | toCSS $sassOptions -}}
-    {{- if eq hugo.Environment "production" -}}
-    {{- $s = $s | postCSS (dict "config" "postcss.config.js") | minify | fingerprint -}}
-    {{- end }}
-    <link rel="stylesheet" href="{{ $s.Permalink }}" integrity="{{ $s.Data.Integrity }}" />
   </head>
 
   <body class="kind-{{ .Kind }}">
