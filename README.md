@@ -9,7 +9,6 @@ While the project is usuable, some things still need to be done:
 - Add a linter for Javascript and Sass
 - Add Babel to transpile Javascript
 - Move the theme to its own repo and add a license
-- Test https://instant.page
 
 ## Build
 
