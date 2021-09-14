@@ -13,7 +13,7 @@ theme_toggle.addEventListener('click', function(e) {
   handle_theme(!status);
   e.preventDefault();
 });
-window.addEventListener('load', handle_theme());
+window.addEventListener('DOMContentLoaded', handle_theme());
 nav_toggle.addEventListener('click', function(e) {
   body.classList.toggle('nav-active')
   nav_toggle.classList.toggle('is-active');
