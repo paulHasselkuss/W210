@@ -1,19 +1,14 @@
-<section class="grid__main">
+<section class="grid-element sponsors">
 
-  <ul class="page__logos vertical">
-    <span>Sponsors:</span>
+  <h5 class="sponsors__title grid-element__full">Supported by:</h5>
 
-    {{ $hhu := resources.Get "img/sponsors/logo_hhu.svg"}}
-    <li><a href="https://hhu.de"><img class="logo-h1" src="{{ $hhu.RelPermalink }}"></a></li>
+  {{ $philgrad := resources.Get "img/sponsors/logo_philgrad.svg"}}
+  <a class="grid-element__third sponsors__logo" href="http://www.philo.hhu.de/"><img src="{{ $philgrad.RelPermalink }}"></a>
 
-    {{ $philgrad := resources.Get "img/sponsors/logo_philgrad.svg"}}
-    <li><a href="http://www.philo.hhu.de/en.html"><img class="logo-h2" src="{{ $philgrad.RelPermalink }}"></a></li>
+  {{ $dfg := resources.Get "img/sponsors/logo_dfg.svg"}}
+  <a class="grid-element__third sponsors__logo" href="https://indmet.weebly.com/"><img src="{{ $dfg.RelPermalink }}"></a>
 
-    {{ $dfg := resources.Get "img/sponsors/logo_dfg.svg"}}
-    <li><a href="https://indmet.weebly.com/"><img class="logo-h1_5" src="{{ $dfg.RelPermalink }}"></a></li>
-
-    {{ $gap := resources.Get "img/sponsors/logo_gap.png"}}
-    <li><a href="https://www.gap-im-netz.de/en/"><img class="logo-h2" src="{{ $gap.RelPermalink }}"></a></li>
-    </div>
+  {{ $gap := resources.Get "img/sponsors/logo_gap.svg"}}
+  <a class="grid-element__third sponsors__logo" href="https://www.gap-im-netz.de/en/"><img src="{{ $gap.RelPermalink }}"></a>
 
 </section>

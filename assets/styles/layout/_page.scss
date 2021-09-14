@@ -55,14 +55,3 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-
-.submission-form {
-  padding-top: spacing(.5);
-  margin-bottom: spacing(.5);
-  border-top: var(--border);
-  border-bottom: var(--border);
-
-  h3 {
-    margin-top: 0;
-  }
-}
