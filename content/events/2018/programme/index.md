@@ -38,4 +38,4 @@ The workshop takes place at HHU’s [Haus der Universität](/practical-informati
 |12:45‑13:30|**Category-mistakes in contemporary metaphysics**<br>Rouyu Zhang (Durham)|
 |13:30|🍕Pizza|
 
-A downloadable version is available [here]({{< file "What_Do_We_Do_When_We_Do_Metaphysics_-_Programme_&_Abstratcs_(Web).pdf" >}}).
+A downloadable version is available [here](What_Do_We_Do_When_We_Do_Metaphysics_-_Programme_&_Abstratcs_(Web).pdf).

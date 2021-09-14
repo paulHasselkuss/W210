@@ -27,7 +27,7 @@ Please note that the schedule had to be changed last minute: Prof. Dr. Ruth Byrn
 |12:30-13:15|**A Predicate Logic for Aboutness in Imagination**<br>Christopher Badura (Bochum)|
 |13:15|🍕Pizza|
 
-A downloadable version is available [here]({{< file "On_What_The_Isn't_-_Schedule_&_Abstracts_(Web).pdf" >}}).
+A downloadable version is available [here](On_What_The_Isn't_-_Schedule_&_Abstracts_(Web).pdf).
 
 ## Registration
 There is no participation fee. However, we ask you to register before by sending us a short {{<mail address="dgwp@phil.hhu.de" display="mail">}} indicating your name, affiliation and dietary preferences.
