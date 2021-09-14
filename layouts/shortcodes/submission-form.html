@@ -1,0 +1,59 @@
+<details class="submission-form">
+  <summary>Submission Form</summary>
+
+  <form id="submissionForm" class="grid-element" name="submission-form" method="POST" data-netlify="true" onsubmit="onFormSubmit()">
+
+    <div class=grid-element__full>
+      <h3>Contact Information:</h3>
+      <p class="form-note">If your submission has multiple authors, please enter the contact information of the corresponding author only.</p>
+    </div>
+
+    <div class="grid-element__half">
+      <label for="first-name" class="is-required">First Name</label>
+      <input id="first-name" type="text" placeholder="Joe" required>
+    </div>
+    <div class="grid-element__half">
+      <label for="last-name" class="is-required">Last Name</label>
+      <input id="last-name" type="text" placeholder="Public" required>
+    </div>
+    <div class="grid-element__half">
+      <label for="email" class="is-required">Your Mail Address</label>
+      <input id="email" type="email" placeholder="joe.public@hhu.de" required>
+    </div>
+    <div class="grid-element__half">
+      <label for="affiliation" class="is-required">Your Affiliation</label>
+      <input id="affiliation" type="text" placeholder="Heinrich-Heine University Düsseldorf" required>
+    </div>
+
+    <div class="grid-element__full">
+      <h3>Submission:</h3>
+      <p class="form-note">Submissions must be prepared for blind review, your name <b>must not</b> be present within the abstract. Instead, please submit a short CV.</p>
+    </div>
+
+    <div class="grid-element__full">
+      <label for="abstract" class="is-required">Anonymized Abstract (PDF)</label>
+      <input id="abstract" type="file" accept=".pdf" required>
+    </div>
+    <div class="grid-element__full">
+      <label for="cv" class="is-required">Short CV (PDF)</label>
+      <input id="cv" type="file" accept=".pdf" required>
+    </div>
+
+    <div class="grid-element__full">
+      <input id="privacy-policy" type="checkbox" required>
+      <label for="privacy-policy" class="is-required">Privacy Policy</label>
+      <p class="smalltext">Yes, I have read the <a href="/privacy-policy/">privacy policy</a> and agree that the data I have provided may be collected and stored electronically. My data will only be used strictly for the purpose of processing and answering my enquiry.</p>
+    </div>
+
+    <div class="grid-element__full">
+      <input type="submit">
+    </div>
+  </form>
+
+  <script type="text/javascript">
+  function onFormSubmit() {
+    window.alert("Many thanks for your submission. We will confirm your submission via the provided mail-address. If you do not receive a message form us within the next 48 hours, please contact us.");
+  }
+  </script>
+
+</details>

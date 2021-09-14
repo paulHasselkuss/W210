@@ -19,3 +19,22 @@
   }
 
 }
+
+.grid-element {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: auto;
+  column-gap: spacing(.5);
+
+  .grid-element__full {
+    grid-column: span 6;
+  }
+
+  .grid-element__half {
+    grid-column: span 3;
+  }
+
+  .grid-element__third {
+    grid-column: span 2;
+  }
+}

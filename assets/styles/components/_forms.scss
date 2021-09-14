@@ -5,6 +5,10 @@
   0 0 0.3125rem #{var(--color--action)};
 }
 
+form {
+  margin-bottom: spacing(.5);
+}
+
 fieldset {
   background-color: transparent;
   border: 0;
@@ -22,6 +26,11 @@ label {
   display: block;
   @include fw("bold");
   margin-bottom: var(--spacing--small);
+
+  &.is-required::after {
+    content: " *";
+    color: red;
+  }
 }
 
 input,
@@ -114,6 +123,10 @@ select {
     outline: var(--focus-outline);
     outline-offset: var(--focus-outline-offset);
   }
+}
+
+input[type="checkbox"]+label {
+  display: inline-block;
 }
 
 hr {
