@@ -1,12 +1,16 @@
 # [DGWP](https://www.dgwp.org)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4d033c2d-096f-4121-b6ec-3f5368aae8fd/deploy-status)](https://app.netlify.com/sites/boring-brattain-3ff500/deploys)
 
-The site is created using [Hugo](http://gohugo.io) and [Atlas](https://github.com/indigotree/atlas). See below for more information.
+The goal of this project is to create a theme for Hugo that can be used for small, but text-heavy websites such as academic events or reserach groups.
 
-The theme is work in progress. Todos include:
-- [ ] Support for non-variable fonts?
-- [ ] Add https://instant.page
-- [ ] Add sponsor logos from `assets/img/sponsors`
+The overall structure is based on [Atlas](https://github.com/indigotree/atlas), SASS is based on [Bourbon](https://github.com/thoughtbot/bourbon/).
+
+While the project is usuable, some things still need to be done:
+- Add a linter for Javascript and Sass
+- Add Babel to transpile Javascript
+- Move the theme to its own repo and add a license
+- Test https://instant.page
+- Support for non-variable fonts
 
 ## Build
 
