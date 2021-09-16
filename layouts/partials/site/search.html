@@ -19,5 +19,4 @@
   </section>
 </div>
 
-{{ $search := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" . | minify | fingerprint }}
-<script src="{{ $search.Permalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+{{ partial "esbuild" (dict "src" "js/search.js" "targetPath" "search.js" "load" "async" "transpile" false) -}}

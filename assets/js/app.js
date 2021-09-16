@@ -1,14 +1,15 @@
+'use strict';
+import { instant } from 'instant.page/instantpage.js';
 const body = document.body;
-const nav = document.getElementById('siteNav');
 const nav_toggle = document.getElementById('navToggle');
 const theme_toggle = document.getElementById('themeToggle');
 let ticking = false;
 theme_toggle.addEventListener('click', function(e) {
-  let status = sessionStorage.getItem("alt-theme");
+  let status = sessionStorage.getItem('alt-theme');
   if (status) {
-    sessionStorage.removeItem("alt-theme");
+    sessionStorage.removeItem('alt-theme');
   } else {
-    sessionStorage.setItem("alt-theme", "true")
+    sessionStorage.setItem('alt-theme', 'true')
   }
   handle_theme(!status);
   e.preventDefault();
@@ -34,10 +35,10 @@ window.addEventListener('scroll', function(e) {
   }
 });
 
-function handle_theme(add = sessionStorage.getItem("alt-theme")) {
+function handle_theme(add = sessionStorage.getItem('alt-theme')) {
   if (add) {
-    document.documentElement.classList.add("alt-theme");
+    document.documentElement.classList.add('alt-theme');
   } else {
-    document.documentElement.classList.remove("alt-theme");
+    document.documentElement.classList.remove('alt-theme');
   }
 }

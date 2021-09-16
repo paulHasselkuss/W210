@@ -20,24 +20,24 @@
 
 }
 
-.grid-element {
+.element-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
   column-gap: spacing(.5);
 
-  .grid-element__full {
+  &__full {
     grid-column: span 6;
   }
 
-  .grid-element__third,
-  .grid-element__half {
+  &__third,
+  &__half {
     grid-column: span 3;
   }
 
   @include md("medium") {
 
-    .grid-element__third {
+    &__third {
       grid-column: span 2;
     }
 

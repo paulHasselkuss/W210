@@ -1,6 +1,7 @@
 ---
 title: Call for Abstracts
 description: What Do We do When We Do Metaphysics? Methods, Limitations, and Consequences. 30th – 31st August 2018, Heinrich Heine University Düsseldorf, Germany.
+showLogos: true
 ---
 
 ## Theme
@@ -26,5 +27,3 @@ We encourage **early career researchers** (MA and PhD students) to participate. 
 Please send submissions and questions to Paul Hasselkuß (meta2phil [at] phil.hhu [dot] de). The organizing committee will notify authors of its decision by 01/07/2018.
 
 There is no participation fee. In general, we cannot cover travel and accommodation expenses, but we may be able to offer support for those who are unable to obtain financial compensation. Also, some free accommodation provided by local students may be available.
-
-{{<logos>}}

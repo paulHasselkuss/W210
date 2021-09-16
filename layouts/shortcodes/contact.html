@@ -20,6 +20,6 @@
   E-Mail: <a href='javascript:void(0)' rel='nofollow' onclick='str1="{{ $user }}";str2="{{ $domain }}";this.href="mailto:" + str1 + "@" + str2'>{{- $displaytext | safeHTML -}}</a>
 </p>
 
-{{- else }}
-{{- errorf "Missing value for contact data '%s'." $type -}}
+{{ else }}
+{{ errorf "Missing value for contact data '%s'." $type }}
 {{ end }}

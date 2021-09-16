@@ -11,7 +11,7 @@
 {{ define "main" }}
 
 {{ if .Params.images }}
-{{ partial "featured-img.html" . }}
+{{ partial "responsive-img.html" (dict "page" . "class" "page-image grid--full" ) }}
 {{ end }}
 
 <section class="page-content grid--main">

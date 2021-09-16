@@ -1,26 +1,21 @@
-/* beautify ignore:start */
-{{ $flexsearch := resources.Get "js/vendor/flexsearch/flexsearch.compact.js" }}
-{{ $mark := resources.Get "js/vendor/mark.js/mark.min.js" }}
-{{ $vendor := slice $mark $flexsearch | resources.Concat "js/vendor.js" | minify | fingerprint }}
-const vendor_link = '{{ $vendor.Permalink}}';
-/* beautify ignore:end */
+'use strict';
+import Document from 'flexsearch/dist/module/document.js';
 const search_form = document.getElementById('searchForm'); // search form
 const search_input = document.getElementById('searchInput'); // input box for search
 const search_results = document.getElementById('searchListItems'); // targets the <ul>
 const search_results_title = document.getElementById('searchListTitle');
 const search_toggle = document.getElementById('searchToggle');
 const options = {
-  preset: "match",
+  preset: 'match',
   context: 'true',
-  tokenize: "full",
+  tokenize: 'full',
   document: {
     id: 'id',
     field: ['title', 'desc', 'content'],
-    store: ['title', 'href']
-  }
+    store: ['title', 'href'],
+  },
 };
 let index; // holds our search engine
-let mark; // holds markjs
 let search__focus = false; // check to true to make visible by default
 let results_available = false;
 let first_run = true; // allow us to delay loading json data unless search activated
@@ -84,7 +79,7 @@ document.addEventListener('keydown', function(e) {
   }
 });
 //init when the form is in focus
-search_form.addEventListener('focusin', function(e) {
+search_form.addEventListener('focusin', function() {
   search_init();
 });
 search_form.addEventListener('keydown', function(e) {
@@ -95,7 +90,7 @@ search_form.addEventListener('keydown', function(e) {
   }
 });
 
-function search_toggle_focus(e) {
+function search_toggle_focus() {
   //console.log(e); // DEBUG
   // order of operations is very important to keep focus where it should stay
   if (!search__focus) {
@@ -110,39 +105,20 @@ function search_toggle_focus(e) {
     search__focus = false;
   }
 }
-//see https://stackoverflow.com/a/55451823
-function load_script(url) {
-  return new Promise(function(resolve, reject) {
-    let script = document.createElement("script");
-    script.onerror = reject;
-    script.onload = resolve;
-    if (document.currentScript) {
-      document.currentScript.parentNode.insertBefore(script, document.currentScript);
-    } else {
-      document.head.appendChild(script);
-    }
-    script.src = url;
-  });
-}
 
 function search_init() {
   if (first_run) {
-    load_script(vendor_link).then(() => {
-      first_run = false; // let's never do this again
-      fetch(search_form.getAttribute('data-language-prefix') + '/index.json')
-        .then(data => data.json())
-        .then(data => {
-          index = new FlexSearch.Document(options);
-          data.forEach(data => index.add(data));
-          search_input.addEventListener('keyup', function(e) { // execute search as each character is typed
-            search_exec(this.value);
-          });
-          mark = new Mark(search_results);
-          //console.log("index.json loaded"); // DEBUG
+    first_run = false; // let's never do this again
+    fetch(search_form.getAttribute('data-language-prefix') + '/index.json')
+      .then(data => data.json())
+      .then(data => {
+        index = new Document(options);
+        data.forEach(data => index.add(data));
+        search_input.addEventListener('keyup', function() { // execute search as each character is typed
+          search_exec(this.value);
         });
-    }).catch((error) => {
-      console.log(`Vendor scripts failed to load: ${error}.`);
-    });
+        //console.log('index.json loaded'); // DEBUG
+      });
   }
 }
 
@@ -156,19 +132,20 @@ function search_exec(term) {
       results_title_html = 'No results match.';
     } else { // build our html
       results_available = true;
-      results[0].result.forEach(item => { results_html += result_html(item) });
+      let regex = new RegExp(term.split(/\s+/).filter(function(i) { return i === null || i === void 0 ? void 0 : i.length; }).join('|'), 'gi');
+      results[0].result.forEach(item => { results_html += result_html(item, regex) });
       results_title_html = maybePluralize(results[0].result.length, ' result');
     }
   }
   search_results_title.innerHTML = results_title_html;
   search_results.innerHTML = results_html;
-  mark.mark(term);
 }
 
-function result_html(item) {
-  return `<li class="search-result"><a class="unstyled" href="${item.doc.href}" tabindex = "0">
-    <h2 class="search-result__title">${item.doc.title}</h2>
-    <p class="search-result__path">${item.doc.href}</p>
+function result_html(item, regex) {
+  let title = item.doc.title.replace(regex, function(match) { return '<mark>' + match + '</mark>'; });
+  return `<li class='search-result'><a class='unstyled' href='${item.doc.href}' tabindex = '0'>
+    <h2 class='search-result__title'>${title}</h2>
+    <p class='search-result__path'>${item.doc.href}</p>
     </a></li>`;
 }
 

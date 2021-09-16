@@ -63,6 +63,23 @@
   {{ .Content }}
   {{ end }}
 
+  {{ with .Params.showLogos }}
+  <section class="grid--main element-grid sponsors">
+
+    <h5 class="sponsors__title element-grid__full">Supported by:</h5>
+
+    {{ $philgrad := resources.Get "img/sponsors/logo_philgrad.svg"}}
+    <a class="element-grid__third sponsors__logo" href="http://www.philo.hhu.de/"><img src="{{ $philgrad.RelPermalink }}"></a>
+
+    {{ $dfg := resources.Get "img/sponsors/logo_dfg.svg"}}
+    <a class="element-grid__third sponsors__logo" href="https://indmet.weebly.com/"><img src="{{ $dfg.RelPermalink }}"></a>
+
+    {{ $gap := resources.Get "img/sponsors/logo_gap.svg"}}
+    <a class="element-grid__third sponsors__logo" href="https://www.gap-im-netz.de/en/"><img src="{{ $gap.RelPermalink }}"></a>
+
+  </section>
+  {{ end }}
+
 </main>
 
 {{ block "footer" . }}
@@ -74,7 +91,7 @@
     {{ end }}
   </ul>
   <div class="site-footer__item">
-    <div>© {{ now.Format "2006"}} DGWP</div>
+    <div>{{ replace .Site.Copyright "{currentYear}" now.Year | markdownify}}</div>
     <ul class="site-footer__icons unstyled">
       <li><span id="themeToggle" class="theme-toggle"></span></li>
       <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}">{{ partial "svg.html" "icons/facebook"}}</a></li>

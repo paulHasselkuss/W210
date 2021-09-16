@@ -1,7 +1,6 @@
-{{ $s := resources.Get "styles/matomo.scss" | toCSS | postCSS (dict "config" "postcss.config.js") | minify }}
+<!-- Get Hugo to build the css for Matomo. The file is then loaded by Matomo's iframe via the 'Custom Opt-Out' plugin: {{ partial "libsass" (dict "src" "styles/matomo.scss") }} -->
 
 <!-- Matomo -->
-<!-- stylesheet link {{ $s.Permalink }} -->
 <script>
 var _paq = window._paq = window._paq || [];
 /* tracker methods like "setCustomDimension" should be called before "trackPageView" */

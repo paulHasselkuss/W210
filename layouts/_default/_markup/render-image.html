@@ -1,8 +1,27 @@
+{{ $destination := .Destination }}
+
+{{ if strings.HasPrefix $destination "http" }}
+
 {{ if .Title }}
 <figure>
-  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+  <img src="{{ $destination | safeURL }}" alt="{{ .Text }}">
   <figcaption>{{ .Title }}</figcaption>
 </figure>
 {{ else }}
-<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+
+<img src="{{ $destination | safeURL }}" alt="{{ .Text }}">
+{{ end }}
+
+{{ else }}
+
+{{ if .Title }}
+<figure>
+  {{ partial "responsive-img" (dict "page" .Page "src" $destination "alt" .Text "media" "main" )}}
+  <figcaption>{{ .Title }}</figcaption>
+</figure>
+{{ else }}
+
+{{ partial "responsive-img" (dict "page" .Page "src" $destination "alt" .Text "media" "main" )}}
+{{ end }}
+
 {{ end }}

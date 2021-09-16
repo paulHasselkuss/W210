@@ -1,0 +1,18 @@
+{{ $src := .src -}}
+{{ $targetPath := .targetPath | default $src -}}
+
+{{ $options := (dict "targetPath" "main.css" "transpiler" "libsass" "includePaths" (slice "node_modules")) -}}
+
+{{ if eq (hugo.Environment) "development" -}}
+{{ $options := merge $options (dict "enableSourceMap" "true") -}}
+{{ else -}}
+{{ $options := merge $options (dict "outputStyle" "compressed" ) -}}
+{{ end }}
+
+{{ $css := resources.Get $src | toCSS $options -}}
+
+{{ if eq (hugo.Environment) "production" -}}
+{{ $css = $css | postCSS (dict "config" "config/postcss.config.js") | fingerprint }}
+{{ end }}
+
+<link rel="stylesheet" href="{{ $css.Permalink | relURL }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">

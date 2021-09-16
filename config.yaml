@@ -1,0 +1,57 @@
+baseURL: 'https://www.dgwp.org/'
+languageCode: en-gb
+title: DGWP
+copyright: "&copy; {currentYear} DGWP"
+enableRobotsTXT: true
+disableAliases: true
+disableKinds:
+  - taxonomy
+  - term
+
+params:
+  images:
+    - android-chrome-512x512.png #img for open graph
+  disallow_search_engines: false
+
+# add JSON, Redirects, Headers
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+    - REDIRECTS
+    - HEADERS
+
+# remove .{ext} from text/netlify
+mediaTypes:
+  text/netlify:
+    suffixes:
+      - ''
+    delimiter: ''
+
+# add output format for netlify _redirects & _headers
+outputFormats:
+  REDIRECTS:
+    mediatype: text/netlify
+    baseName: _redirects
+    isPlainText: true
+    notAlternative: true
+  HEADERS:
+    mediatype: text/netlify
+    baseName: _headers
+    isPlainText: true
+    notAlternative: true
+
+markup:
+  tableOfContents:
+    endLevel: 2
+    ordered: true
+    startLevel: 2
+  goldmark:
+    renderer:
+      unsafe: true
+    parser:
+      attribute:
+        block: true
+        title: true
+

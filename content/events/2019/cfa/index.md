@@ -1,6 +1,7 @@
 ---
 title: Call for Abstracts
 description: On What There Isn’t. Imagination, Impossibilities and Counterfactual Reasoning. 5th – 6th September 2019, Heinrich-Heine University Düsseldorf, Germany.
+showLogos: true
 ---
 
 ## Theme 
@@ -25,5 +26,3 @@ We encourage **early career researchers** (MA and PhD students) to participate. 
 Submissions are now closed. For questions, please contact the organisers (dgwp [at] phil [dot] hhu [dot] de). The organizing committee will notify authors of its decision by 30/07/2019.
 
 There is no participation fee. In general, we cannot cover travel and accommodation expenses, but we may be able to offer support for those who are unable to obtain financial compensation. Also, some free accommodation provided by local students may be available.
-
-{{<logos>}}

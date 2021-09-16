@@ -1,10 +1,7 @@
-{{ partial "search" }}
+{{ partial "site/search" . }}
+{{ partial "esbuild" (dict "src" "js/app.js" "targetPath" "main.js" "load" "defer" "transpile" false) }}
 
-{{ $js := resources.Get "js/app.js" | minify | fingerprint }}
-<script src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}"></script>
-{{ $instantpage := resources.Get "js/vendor/instant.page/instantpage.js" | minify | fingerprint }}
-<script src="{{ $instantpage.Permalink }}" integrity="{{ $instantpage.Data.Integrity }}"></script>
-{{- if eq hugo.Environment "production" -}}
+{{ if eq hugo.Environment "production" }}
 {{ partial "site/analytics.html" . }}
 {{ end }}
 </body>

@@ -1,0 +1,33 @@
+{{ $page := .page }}
+{{ $src := .src }}
+{{ $class := .class | default "" }}
+{{ $alt := .alt | default "" }}
+{{ $sizes := .sizes | default "500,800,1200" }}
+{{ $media := .media | default "full" }}
+
+{{/*Using default throws an error if images is not set, even when it is not needed*/}}
+{{ if not .src }}
+{{ $src = index $page.Params.images 0 }}
+{{ end }}
+
+{{/*These are equal to the breakpoints in CSS*/}}
+{{ if eq $media "full" }}
+{{ $media = "100vw,(min-width: 768px) 1200px" }}
+{{ else if eq $media "main" }}
+{{ $media = "100vw,(min-width: 768px) 900px" }}
+{{ else if eq $media "side" }}
+{{ $media = "100vw,(min-width: 768px) 300px" }}
+{{ end }}
+
+{{ $src = $page.Resources.GetMatch $src }}
+{{ $sizes = split $sizes "," }}
+
+<img class="{{ $class }}" sizes="{{ $media }}" srcset='
+    {{ range $sizes}}
+      {{ if ge $src.Width (string . ) }}
+        {{ $img := $src.Resize (printf "%sx" . )}}
+        {{ $img.RelPermalink }} {{ . }}w,
+      {{end}}
+
+    {{ end }}
+    ' src="{{ $src.RelPermalink }}" {{ with .alt }} alt="{{ . }}" {{ end }}>
