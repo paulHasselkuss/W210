@@ -17,4 +17,4 @@
 {{ $css = $css | postCSS (dict "config" "postcss.config.js") | fingerprint }}
 {{ end }}
 
-<link rel="stylesheet" href="{{ $css.Permalink | relURL }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
