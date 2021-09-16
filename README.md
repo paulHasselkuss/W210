@@ -3,11 +3,9 @@
 
 The goal of this project is to create a theme for Hugo that can be used for small, but text-heavy websites such as academic events or reserach groups.
 
-The overall structure is based on [Atlas](https://github.com/indigotree/atlas), SASS is based on [Bourbon](https://github.com/thoughtbot/bourbon/).
+The overall structure is based on [Atlas](https://github.com/indigotree/atlas) and [Hyas](https://gethyas.com), SASS is based on [Bourbon](https://github.com/thoughtbot/bourbon/).
 
 While the project is usuable, some things still need to be done:
-- Add a linter for Javascript and Sass
-- Add Babel to transpile Javascript
 - Move the theme to its own repo and add a license
 
 ## Build
