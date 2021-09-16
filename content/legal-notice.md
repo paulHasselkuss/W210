@@ -10,11 +10,10 @@ menu:
 
 ## Information in accordance with Section 5 TMG 
 
-{{< contact data="address" >}}
+{{< contact "address" >}}
 
 ### Contact Information
-Telephone: {{< contact data="phone" >}}<br>
-E-Mail: {{< mail >}}
+{{< contact "contact" >}}
 
 ## Disclaimer
 Accountability for content
@@ -26,6 +25,5 @@ Responsibility for the content of external links (to web pages of third parties)
 ## Copyright
 Our web pages and their contents are subject to German copyright law. Unless expressly permitted by law, every form of utilizing, reproducing or processing works subject to copyright protection on our web pages requires the prior consent of the respective owner of the rights. Individual reproductions of a work are only allowed for private use. The materials from these pages are copyrighted and any unauthorized use may violate copyright laws. 
 
-<p class="small">
-  Source: <a href="http://www.translate-24h.de/" target="_blank" rel="noopener">translate-24h.de</a>.
-</p>
+Source: [translate-24h.de](http://www.translate-24h.de).
+{.smalltext}

@@ -1,11 +1,7 @@
 ---
 title: Programme
+description: The workshop takes place at Heinrich-Heine University's [Haus der Universität](/practical-information#venue) on the 30th and 31st Sugust 2018. On both days, lunch will be provided.
 ---
-
-## Registration
-
-The workshop takes place at HHU’s [Haus der Universität](/practical-information#venue), lunch will be provided. If you want to participate, please register by sending a short mail to {{<mail address="dgwp@phil.hhu.de" display="Paul Hasselkuß">}} indicating your name, affiliation and dietary preferences.
-
 
 ## Thursday (30/08/2018)
 
@@ -39,3 +35,7 @@ The workshop takes place at HHU’s [Haus der Universität](/practical-informati
 |13:30|🍕Pizza|
 
 A downloadable version is available [here](What_Do_We_Do_When_We_Do_Metaphysics_-_Programme_&_Abstratcs_(Web).pdf).
+
+## Registration
+
+The workshop takes place at HHU’s [Haus der Universität](/practical-information#venue), lunch will be provided. If you want to participate, please register by sending a short mail to [Paul Hasselkuß](dgwp@phil.hhu.de "Workshop Registration") indicating your name, affiliation and dietary preferences.

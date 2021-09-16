@@ -1,8 +1,25 @@
-{{ $path := $.Params.data }}
-{{ $data := index .Page.Site.Data.contact $path}}
+{{ $type := .Get 0 }}
 
-{{ if $data }}
-{{ $data | markdownify }}
-{{ else }}
-{{ errorf "Missing value for contact data '%s'." $path }}
+{{ if eq $type "address" }}
+<p>
+  <address>{{- index .Page.Site.Data.contact $type | markdownify -}}</address></p>
+{{ else if eq $type "contact" }}
+<p>
+  {{ $phone := index .Page.Site.Data.contact "phone"}}
+  Telephone: <a href="tel:{{ $phone }}">{{- $phone | htmlEscape -}}</a><br />
+
+  {{ $data := index .Page.Site.Data.contact "mail" }}
+  {{ $parts := split $data "@" }}
+  {{ $user := index $parts 0}}
+  {{ $domain := index $parts 1 }}
+
+  {{ $displaytext := slice ($user) (" [AT] ") ($domain) }}
+  {{ $displaytext = delimit $displaytext "  " }}
+  {{ $displaytext = replace $displaytext "." " [DOT] " }}
+
+  E-Mail: <a href='javascript:void(0)' rel='nofollow' onclick='str1="{{ $user }}";str2="{{ $domain }}";this.href="mailto:" + str1 + "@" + str2'>{{- $displaytext | safeHTML -}}</a>
+</p>
+
+{{- else }}
+{{- errorf "Missing value for contact data '%s'." $type -}}
 {{ end }}

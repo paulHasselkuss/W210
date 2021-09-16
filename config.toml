@@ -34,13 +34,18 @@ isPlainText = true
 notAlternative = true
 
 [markup]
-[markup.tableOfContents]
-endLevel = 2
-ordered = true
-startLevel = 2
+  [markup.tableOfContents]
+    endLevel = 2
+    ordered = true
+    startLevel = 2
 
-[markup.goldmark.renderer]
-unsafe = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+    [markup.goldmark.parser.attribute]
+      block = true
+      title = true
 
 [module]
   [[module.mounts]]

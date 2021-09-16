@@ -23,10 +23,8 @@ Our privacy policy is structured as follows:
 
 The party responsible for this website (the "controller") for purposes of data protection law is:
 
-{{< contact data="address" >}}<br />
-
-Telephone: {{< contact data="phone" >}}<br />
-E-Mail: {{< mail >}}
+{{< contact "address" >}}
+{{< contact "contact" >}}
 
 ## II. The rights of users and data subjects
 
@@ -71,8 +69,7 @@ In addition, you have the option of terminating the analysis of your usage behav
 
 <iframe class="stats-opt-out" src="https://stats.hasselkuss.com/index.php?module=CoreAdminHome&action=optOut&idsite=3&language=en"></iframe>
 
-a cookie is stored on your device via your browser to prevent any further analysis. Please note, however, that you must click the above link again if you delete the cookies stored on your end device. 
+a cookie is stored on your device via your browser to prevent any further analysis. Please note, however, that you must click the above link again if you delete the cookies stored on your end device.
 
-<p class="small">
-  Source: <a href="https://www.ratgeberrecht.eu/leistungen/muster-datenschutzerklaerung.html" target="_blank" rel="noopener">Model Data Protection Statement</a> for <a href="https://www.ratgeberrecht.eu/" target="_blank">Anwaltskanzlei Weiß &amp; Partner</a>.
-</p>
+Source: [Model Data Protection Statement](https://www.ratgeberrecht.eu/leistungen/muster-datenschutzerklaerung.html) for [Anwaltskanzlei Weiß & Partner](https://www.ratgeberrecht.eu/).
+{.smalltext}

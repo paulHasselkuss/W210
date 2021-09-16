@@ -1,0 +1,20 @@
+{{ if in .Destination "@" }}
+
+{{ $parts := split .Destination "@" }}
+{{ $user := replace (index $parts 0) "mailto:" ""}}
+{{ $domain := index $parts 1 }}
+{{ $displaytext := .Text }}
+
+{{ if not $displaytext }}
+{{ $displaytext = slice ($user) (" [AT] ") ($domain) }}
+{{ $displaytext = delimit $displaytext "  " }}
+{{ $displaytext = replace $displaytext "." " [DOT] " }}
+{{ end }}
+
+<a href='javascript:void(0)' rel='nofollow' onclick='str1="{{ $user }}";str2="{{ $domain }}";this.href="mailto:" + str1 + "@" + str2 {{ with .Title }}+ "?subject={{ . }}"{{ end }}'>{{ $displaytext | safeHTML }}</a>
+
+{{ else }}
+
+<a href="{{ .Destination | safeURL }}" {{ with .Title}} title="{{ . }}" {{ end }} {{ if strings.HasPrefix .Destination "http" }} target="_blank" {{ end }}>{{ .Text | safeHTML }}</a>
+
+{{ end }}

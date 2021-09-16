@@ -2,12 +2,15 @@
   "name": "dgwp.org",
   "private": true,
   "scripts": {
+    "prestart": "npm run clean",
+    "start": "hugo server",
+    "prebuild": "npm run clean",
+    "build": "hugo --minify",
+    "clean": "rm -rf public resources",
+    "ci": "npm install && npm run build",
     "dev": "npm-run-all --parallel start dev:*",
     "dev:safari": "sleep 1 && open -a Safari http://localhost:1313",
-    "dev:sublime": "subl .",
-    "start": "hugo server",
-    "build": "hugo --minify",
-    "ci": "npm install && npm run build"
+    "dev:sublime": "subl ."
   },
   "browserlists": [
     "last 3 versions"

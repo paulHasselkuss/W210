@@ -67,7 +67,7 @@
 
 {{ block "footer" . }}
 <footer class="site-footer">
-  <div class="site-footer__logo"><a href="#" class="unstyled">DGWP</a></div>
+  <div class="site-footer__logo"><a href="#" class="unstyled">{{- .Site.Title -}}</a></div>
   <ul class="site-footer__item site-footer__nav unstyled">
     {{ range .Site.Menus.footer }}
     <li><a href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
