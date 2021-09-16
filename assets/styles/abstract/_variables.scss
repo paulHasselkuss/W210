@@ -11,7 +11,6 @@ $blue--light: #5961e0; //#5E76BF;
 
 // Typography
 $baseline: 1.6;
-$font-family: "GeneralSans, #{$font-stack-helvetica}";
 $font-weights: ( //"x-light": 200,
 //"light": 300,
 "normal": 400,
@@ -35,8 +34,10 @@ $breakpoints: ("small": 576px,
   --color--viewport--alt: #{$gray--light};
 
   // Typography
-  --font-family: #{$font-family};
-  --font-family--heading: #{$font-family};
+  --font-family:
+    GeneralSans,
+    #{$font-stack-helvetica};
+  --font-family--heading: var(--font-family);
   --baseline: #{$baseline};
 
   // Other Sizes for horizontal spacing
@@ -66,6 +67,6 @@ $breakpoints: ("small": 576px,
     //use variable fonts only if supported
     font-family:
       GeneralSans-Variable,
-      #{$font-family};
+      #{$font-stack-helvetica};
   }
 }

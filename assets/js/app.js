@@ -1,4 +1,4 @@
-//'use strict';
+'use strict';
 import { instant } from 'instant.page/instantpage.js';
 const body = document.body;
 const nav_toggle = document.getElementById('navToggle');

@@ -23,7 +23,7 @@ h2,
 h3 {
   margin: #{spacing(1)} 0 #{spacing(.5)};
 
-  &+* {
+  & + * {
     margin-top: 0 !important;
   }
 }
