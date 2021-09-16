@@ -1,5 +1,4 @@
 @include md("medium") {
-
   .grid {
     display: grid;
     grid-template-columns: 75% 1fr; //repeat(3, 1fr);
@@ -17,7 +16,6 @@
   .grid--side {
     grid-column: 2/3;
   }
-
 }
 
 .element-grid {
@@ -36,10 +34,8 @@
   }
 
   @include md("medium") {
-
     &__third {
       grid-column: span 2;
     }
-
   }
 }

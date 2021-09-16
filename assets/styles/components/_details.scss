@@ -1,33 +1,28 @@
+details {
+  margin-bottom: spacing(.5);
+}
+
 details summary {
-  cursor: pointer;
   @include fw("semi-bold");
+
+  margin-bottom: spacing(.5);
+  cursor: pointer;
+  transition: color default-timing();
 
   &:focus {
     outline: none;
   }
 
-  margin-bottom: spacing(.5);
+  &:hover {
+    color: var(--color--action);
+  }
 }
 
-details {
-  margin-bottom: spacing(.5);
-}
-
-details summary>* {
+details summary > * {
   display: inline;
 }
 
-details summary,
-details summary>* {
-  transition: color var(--duration) var(--timing);
-}
-
-details summary:hover,
-details summary:hover>* {
-  color: var(--color--action);
-}
-
-details[open] summary~* {
+details[open] summary ~ * {
   animation: sweep .5s ease-in-out;
 }
 

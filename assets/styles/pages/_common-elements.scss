@@ -1,4 +1,4 @@
-.page-frontmatter>* {
+.page-frontmatter > * {
   margin-bottom: spacing(.5);
 }
 
@@ -12,18 +12,18 @@
   margin-bottom: spacing(1);
 }
 
-.page-content>%headings:first-child {
+.page-content > %headings:first-child {
   margin-top: 0;
 }
 
 .page-header__meta span {
   display: inline-block;
 
-  &:after {
+  &::after {
     content: ", ";
   }
 
-  &:first-child:first-letter {
+  &:first-child::first-letter {
     text-transform: capitalize;
   }
 
@@ -32,7 +32,7 @@
   }
 }
 
-.page-toc ol li:before {
+.page-toc ol li::before {
   display: inline-block;
   min-width: 1.5em;
 }

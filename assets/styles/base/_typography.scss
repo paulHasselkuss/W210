@@ -1,10 +1,11 @@
 html {
   color: var(--color--font);
   line-height: var(--baseline);
-
   font-size: 100%; //fallback
   font-size: clamp-builder(16px, 18px);
+
   @include fw("normal");
+
   font-family: var(--font-family);
 }
 
@@ -22,7 +23,7 @@ h2,
 h3 {
   margin: #{spacing(1)} 0 #{spacing(.5)};
 
-  &+* {
+  & + * {
     margin-top: 0 !important;
   }
 }

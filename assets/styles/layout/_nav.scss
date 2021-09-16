@@ -1,10 +1,9 @@
-$cubic--nav: cubic-bezier(0.4, 0.01, 0.165, 0.99);
-$cubic--burger: cubic-bezier(0.645, 0.045, 0.355, 1);
+$cubic--nav: cubic-bezier(.4, .01, .165, .99);
+$cubic--burger: cubic-bezier(.645, .045, .355, 1);
 
 .site-nav {
   height: 0;
   overflow: hidden;
-
   position: fixed;
   z-index: 100;
   top: var(--header-height);
@@ -12,9 +11,9 @@ $cubic--burger: cubic-bezier(0.645, 0.045, 0.355, 1);
   width: 100%;
 
   @include ms-fw(0, "semi-bold");
-  background-color: var(--color--viewport--background);
 
-  transition: height 0.4s;
+  background-color: var(--color--viewport--background);
+  transition: height .4s;
 
   ul {
     list-style: none;
@@ -23,20 +22,20 @@ $cubic--burger: cubic-bezier(0.645, 0.045, 0.355, 1);
     li {
       margin: 0 var(--spacing);
       padding: spacing(1) 0;
+
       @include except-last(border-bottom, var(--border--small));
 
       opacity: 0;
       transform: scale(1.1) translateY(-30px);
-      transition: transform 0.4s $cubic--nav,
-        opacity 0.6s $cubic--nav;
+      transition:
+        transform .4s $cubic--nav,
+        opacity .6s $cubic--nav;
 
       @for $i from 1 through 10 {
         &:nth-child(#{$i}) {
-          transition-delay: #{0.25 - ($i * 0.07)}s;
+          transition-delay: #{.25 - ($i * .07)}s;
         }
       }
-
-
     }
   }
 }
@@ -49,12 +48,12 @@ $cubic--burger: cubic-bezier(0.645, 0.045, 0.355, 1);
     height: 100%;
 
     ul li {
-      transform: scale(1) translateY(0px);
+      transform: scale(1) translateY(0);
       opacity: 1;
 
       @for $i from 1 through 10 {
         &:nth-child(#{$i}) {
-          transition-delay: #{0.07 * $i}s;
+          transition-delay: #{.07 * $i}s;
         }
       }
     }
@@ -64,7 +63,6 @@ $cubic--burger: cubic-bezier(0.645, 0.045, 0.355, 1);
     border-bottom: var(--border--small);
   }
 }
-
 
 button.hamburger {
   padding: 0;
@@ -100,7 +98,7 @@ button.hamburger {
     transform: translate3d(0, .25em, 0);
   }
 
-  &:before {
+  &::before {
     background-color: var(--color--font);
     border-radius: 0;
     content: "";
@@ -113,7 +111,7 @@ button.hamburger {
 }
 
 .hamburger.is-active span {
-  transition: transform 0.2s $cubic--burger;
+  transition: transform .2s $cubic--burger;
   transform: translate3d(0, 0, 0);
 
   &:nth-child(1)::before {
@@ -134,7 +132,6 @@ button.hamburger {
     height: initial;
     position: initial;
     width: initial;
-
     text-align: right;
     flex: 1;
 
@@ -168,5 +165,4 @@ button.hamburger {
       margin: 0;
     }
   }
-
 }

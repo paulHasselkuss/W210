@@ -8,7 +8,6 @@ $toggle-size: .9em;
   border: currentColor solid var(--border-width--small);
   overflow: hidden;
   cursor: pointer;
-
   transform: rotate(45deg);
 
   &::after {

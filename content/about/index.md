@@ -24,4 +24,3 @@ All events can be found [here](/events).
 The website is build using [Hugo](https://gohugo.io) and hosted for free on [Netlify](http://netlify.com), code by Paul Hasselkuß, available on [GitHub](https://github.com/paulHasselkuss/dgwp.org).
 
 Typeset in [General Sans](https://www.fontshare.com/fonts/general-sans) by Frode Helland via Indian Type Foundry.
-

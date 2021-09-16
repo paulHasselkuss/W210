@@ -20,12 +20,10 @@
   // same width as content and footer
   width: calc(100% - (var(--spacing--site) * 2));
   max-width: calc(#{$max-page-width} - (var(--spacing--site) * 2));
-
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
   padding-bottom: spacing(.5);
   border-bottom: var(--border--small);
 }
@@ -56,8 +54,10 @@
   visibility: hidden;
   pointer-events: none;
   height: calc(var(--header-height) + #{spacing(1)});
-  /* fixed header height*/
+
+  /* fixed header height */
   margin: calc(-1 * (var(--header-height) + #{spacing(1)})) 0 0;
+
   /* negative fixed header height */
 
   z-index: -9999;

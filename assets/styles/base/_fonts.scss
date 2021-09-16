@@ -14,7 +14,7 @@
 }
 
 @each $name,
-$weight in $font-weights {
+  $weight in $font-weights {
   @include font-face("GeneralSans", "/fonts/GeneralSans-#{$weight}-normal") {
     font-style: normal;
     font-display: swap;

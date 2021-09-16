@@ -13,7 +13,9 @@ button,
   font-family: var(--font-family-base);
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
+
   @include fw("bold");
+
   line-height: 1;
   padding: var(--spacing--small) var(--spacing);
   text-align: center;
@@ -35,12 +37,13 @@ button,
 
   &:disabled {
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: .5;
   }
 
   margin-bottom: var(--spacing--small);
 }
 
+/* stylelint-disable -- false positive, we are overwriting the styles from above */
 .button--primary,
 [type="submit"] {
   color: var(--color--viewport--background);

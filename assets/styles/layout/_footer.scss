@@ -19,7 +19,6 @@
   @include md("medium") {
     margin-top: calc((#{font-container-height(3)} - #{modular-scale(3)}) / 2);
 
-
     &:last-child {
       text-align: right;
     }
@@ -38,5 +37,6 @@
 
 .site-footer__icons li {
   display: inline-block;
+
   @include except-last(padding-right, .2em);
 }

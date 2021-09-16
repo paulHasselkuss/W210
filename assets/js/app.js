@@ -20,7 +20,7 @@ nav_toggle.addEventListener('click', function(e) {
   nav_toggle.classList.toggle('is-active');
   e.preventDefault();
 });
-window.addEventListener('scroll', function(e) {
+window.addEventListener('scroll', function() {
   //simple & native throttle: http://www.html5rocks.com/en/tutorials/speed/animations/
   if (!ticking) {
     window.requestAnimationFrame(function() {

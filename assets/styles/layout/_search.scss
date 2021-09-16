@@ -22,12 +22,10 @@
 
 .search-wrapper {
   position: fixed;
-
   top: 0;
   height: 0;
   width: 100vw;
   overflow: hidden;
-
   background-color: var(--color--viewport--background);
   transition: height default-transition();
 }
@@ -58,8 +56,8 @@
     border: 0;
     margin: 0;
     padding: 0;
-
     color: var(--color--action);
+
     @include ms-fw(4, "semi-bold");
   }
 }

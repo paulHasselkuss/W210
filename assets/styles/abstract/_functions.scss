@@ -1,11 +1,10 @@
 @function spacing($amount: 1) {
-
   @if $amount%.5==0 {
     @return calc(#{$amount}rem * var(--baseline));
   }
 
   @else {
-    @error "Spacing needs to be a factor of .5, was '#{$amount}."
+    @error "Spacing needs to be a factor of .5, was '#{$amount}.";
   }
 }
 
@@ -26,6 +25,7 @@
     $value-diff: strip-unit($max - $min);
 
     $slope: calc(1rem + #{$value-diff} * ((100vw - #{$min-width}) / #{$width-diff}));
+
     @return clamp(#{$min}, #{$slope}, #{$max});
   }
 

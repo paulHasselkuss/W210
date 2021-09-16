@@ -39,7 +39,6 @@ body {
 }
 
 @include md("medium") {
-
   .site-content,
   .site-footer {
     margin-bottom: spacing(1);

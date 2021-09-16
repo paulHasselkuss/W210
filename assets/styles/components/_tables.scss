@@ -9,10 +9,6 @@ table {
 thead {
   line-height: var(--line-height);
   vertical-align: bottom;
-
-  th:empty {
-    display: none;
-  }
 }
 
 tbody {
@@ -23,11 +19,15 @@ tr {
   @include except-last(border-bottom, var(--border--small));
 }
 
-th {
-  @include fw("bold");
-}
-
 th,
 td {
   padding: var(--spacing--small) var(--spacing--small) var(--spacing--small) 0;
+}
+
+th {
+  @include fw("bold");
+
+  &:empty {
+    display: none;
+  }
 }

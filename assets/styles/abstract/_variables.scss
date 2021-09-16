@@ -1,17 +1,17 @@
 // Colors
 $white: #fffffc;
 $black: #00000f;
-$gray--dark: #444444;
-$gray: #C4C4C4;
-$gray--light: #E9E9E9;
+$gray--dark: #444;
+$gray: #c4c4c4;
+$gray--light: #e9e9e9;
 
-$blue: #030BA6;
+$blue: #030ba6;
 $blue--dark: #020873;
-$blue--light: #5961E0; //#5E76BF;
+$blue--light: #5961e0; //#5E76BF;
 
 // Typography
 $baseline: 1.6;
-$font-family: "'GeneralSans', #{$font-stack-helvetica}";
+$font-family: "GeneralSans, #{$font-stack-helvetica}";
 $font-weights: ( //"x-light": 200,
 //"light": 300,
 "normal": 400,
@@ -46,14 +46,14 @@ $breakpoints: ("small": 576px,
 
   // Borders
   --border-radius: 0;
-  --border-width: 0.175em;
-  --border-width--small: calc(0.175em / 2);
+  --border-width: .175em;
+  --border-width--small: calc(.175em / 2);
   --border: var(--border-width) solid currentColor;
   --border--small: var(--border-width--small) solid currentColor;
 
   // Focus
   --focus-outline-width: 0; //0.1875em;
-  --focus-outline-offset: 0.125em;
+  --focus-outline-offset: .125em;
   --focus-outline: var(--focus-outline-width) solid var(--color--action);
 
   // Animations
@@ -64,7 +64,8 @@ $breakpoints: ("small": 576px,
 @supports (font-variation-settings: normal) {
   :root {
     //use variable fonts only if supported
-    font-family: 'GeneralSans-Variable',
-    #{$font-family};
+    font-family:
+      GeneralSans-Variable,
+      #{$font-family};
   }
 }
