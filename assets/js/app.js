@@ -1,5 +1,5 @@
-'use strict';
-import { instant } from 'instant.page/instantpage.js';
+//'use strict';
+//import { instant } from 'instant.page/instantpage.js';
 const body = document.body;
 const nav_toggle = document.getElementById('navToggle');
 const theme_toggle = document.getElementById('themeToggle');
