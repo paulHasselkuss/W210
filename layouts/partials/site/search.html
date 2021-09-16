@@ -19,4 +19,4 @@
   </section>
 </div>
 
-{{ partial "esbuild" (dict "src" "js/search.js" "targetPath" "search.js" "load" "async" "transpile" false) -}}
+{{ partialCached "esbuild" (dict "src" "js/search.js" "targetPath" "search.js" "load" "async" "transpile" true) -}}

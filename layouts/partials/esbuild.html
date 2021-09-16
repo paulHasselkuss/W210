@@ -1,11 +1,12 @@
-{{/* USAGE:  {{ partial "footer/esbuild" (dict "src" "js/file.js" "targetPath" "main.js" "load" "async/defer" "transpile" true/false) }} */}}
+{{/* USAGE: {{ partial "esbuild" (dict "src" "js/file.js" "targetPath" "main.js" "load" "async/defer" "transpile" true/false) }} */}}
+
 {{ $src := .src -}}
 {{ $targetPath := .targetPath | default $src -}}
 {{ $load := .load -}}
 {{ $js := "" -}}
 
 {{ if .transpile -}}
-{{ $js = resources.Get $src | js.Build | babel ("noComments" true "minified" true "compact" true "config" "config/babel.config.js") | fingerprint -}}
+{{ $js = resources.Get $src | js.Build | babel (dict "noComments" true "minified" true "compact" true "config" "babel.config.js") | fingerprint -}}
 {{ else if eq (hugo.Environment) "development" -}}
 {{ $js = resources.Get $src | js.Build (dict "targetPath" $targetPath "sourceMap" "inline") | fingerprint -}}
 {{ else -}}

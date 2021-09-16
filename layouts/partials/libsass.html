@@ -1,7 +1,9 @@
-{{ $src := .src -}}
-{{ $targetPath := .targetPath | default $src -}}
+{{/* USAGE: {{ partial "libsass" (dict "src" "styles/main.scss" "targetPath" "main.css") }} */}}
 
-{{ $options := (dict "targetPath" "main.css" "transpiler" "libsass" "includePaths" (slice "node_modules")) -}}
+{{ $src := .src -}}
+{{ $targetPath := .targetPath | default (replace $src "scss" "css") -}}
+
+{{ $options := (dict "targetPath" $targetPath "transpiler" "libsass" "includePaths" (slice "node_modules")) -}}
 
 {{ if eq (hugo.Environment) "development" -}}
 {{ $options := merge $options (dict "enableSourceMap" "true") -}}
@@ -12,7 +14,7 @@
 {{ $css := resources.Get $src | toCSS $options -}}
 
 {{ if eq (hugo.Environment) "production" -}}
-{{ $css = $css | postCSS (dict "config" "config/postcss.config.js") | fingerprint }}
+{{ $css = $css | postCSS (dict "config" "postcss.config.js") | fingerprint }}
 {{ end }}
 
 <link rel="stylesheet" href="{{ $css.Permalink | relURL }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">

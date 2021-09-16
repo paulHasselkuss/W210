@@ -21,6 +21,9 @@
     "last 3 versions"
   ],
   "devDependencies": {
+    "@babel/cli": "^7.15",
+    "@babel/core": "^7.15",
+    "@babel/preset-env": "^7.15.6",
     "@csstools/normalize.css": "^11.0.1",
     "autoprefixer": "^10.3.4",
     "bourbon": "^7.0.0",
