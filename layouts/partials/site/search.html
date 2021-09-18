@@ -3,7 +3,9 @@
 
     <div class="search-form grid--main">
       <form id="searchForm" class="noscript" method="GET" data-language-prefix="{{ site.LanguagePrefix }}">
-        <input id="searchInput" type="search" name="q" tabindex="0" autocomplete="off" placeholder="Search dgwp.org">
+        {{ $url := urls.Parse site.BaseURL }}
+        {{ $url = $url.Host | strings.TrimPrefix "www." }}
+        <input id="searchInput" type="search" name="q" tabindex="0" autocomplete="off" placeholder="Search {{ $url }} ">
       </form>
       <div>Type to search or press esc to cancel.</div>
     </div>
