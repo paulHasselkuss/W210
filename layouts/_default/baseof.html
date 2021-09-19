@@ -4,11 +4,13 @@
 <div class="header-wrapper">
   <header id="siteHeader" class="site-header {{if or (.IsHome) (.Params.hideborder) }}site-header--border-on-scroll{{end}}">
     <h1 class="site-header__logo">
-      <a class="unstyled" href="{{ .Site.BaseURL }}">DGWP</a>
+      <a class="unstyled" href="{{ .Site.BaseURL }}">
+        {{ partial "logo" . }}
+      </a>
     </h1>
 
     <div id="searchToggle" class="search-toggle icon">
-      {{- partial "svg.html" "icons/search_bold" -}}
+      {{- partial "svg.html" (dict "src" "img/icons/search_bold") -}}
     </div>
 
     <button id="navToggle" class="site-nav--btn hamburger" type="button">
@@ -68,14 +70,11 @@
 
     <h5 class="sponsors__title element-grid__full">Supported by:</h5>
 
-    {{ $philgrad := resources.Get "img/sponsors/logo_philgrad.svg"}}
-    <a class="element-grid__third sponsors__logo" href="http://www.philo.hhu.de/"><img src="{{ $philgrad.RelPermalink }}"></a>
+    <a class="element-grid__third sponsors__logo" href="http://www.philo.hhu.de/">{{ partial "svg" (dict "src" "img/sponsors/logo_philgrad") }}</a>
 
-    {{ $dfg := resources.Get "img/sponsors/logo_dfg.svg"}}
-    <a class="element-grid__third sponsors__logo" href="https://indmet.weebly.com/"><img src="{{ $dfg.RelPermalink }}"></a>
+    <a class="element-grid__third sponsors__logo" href="https://indmet.weebly.com/">{{ partial "svg" (dict "src" "img/sponsors/logo_dfg") }}</a>
 
-    {{ $gap := resources.Get "img/sponsors/logo_gap.svg"}}
-    <a class="element-grid__third sponsors__logo" href="https://www.gap-im-netz.de/en/"><img src="{{ $gap.RelPermalink }}"></a>
+    <a class="element-grid__third sponsors__logo" href="https://www.gap-im-netz.de/en/">{{ partial "svg" (dict "src" "img/sponsors/logo_gap") }}</a>
 
   </section>
   {{ end }}
@@ -84,7 +83,7 @@
 
 {{ block "footer" . }}
 <footer class="site-footer">
-  <div class="site-footer__logo"><a href="#" class="unstyled">{{- .Site.Title -}}</a></div>
+  <div class="site-footer__logo"><a href="#" class="unstyled">{{ partial "logo" . }}</a></div>
   <ul class="site-footer__item site-footer__nav unstyled">
     {{ range .Site.Menus.footer }}
     <li><a href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
@@ -94,8 +93,8 @@
     <div>{{ replace .Site.Copyright "{currentYear}" now.Year | markdownify}}</div>
     <ul class="site-footer__icons unstyled">
       <li><span id="themeToggle" class="theme-toggle"></span></li>
-      <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}">{{ partial "svg.html" "icons/facebook"}}</a></li>
-      <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}">{{ partial "svg.html" "icons/twitter"}}</a></li>
+      <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}">{{ partial "svg" (dict "src" "img/icons/facebook")}}</a></li>
+      <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}">{{ partial "svg" (dict "src" "img/icons/twitter")}}</a></li>
   </div>
   </div>
 </footer>

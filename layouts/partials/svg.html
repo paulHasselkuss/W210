@@ -1,7 +1,12 @@
-{{/* USAGE: {{ partial "svg" "path/to/svg" }} */}}
-{{ $svg := . }}
-{{ $class := print $svg "-icon" }}
+{{/* USAGE: {{ partial "svg" (dict "src" "path/to/svg" "class" ".someClass") }} */}}
+{{ $src := .src | strings.TrimSuffix ".svg" }}
+{{ $class := slice (print $src "-icon") }}
+
+{{ if .class }}
+{{ $class = $class | append (split .class ", ") }}
+{{ end }}
+
 {{ $match := "<svg (.*)?>(.*)</svg>" }}
 
-{{ $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` $class }}
-{{ return (replaceRE $match $replaceWith (printf "/assets/img/%s.svg" $svg | readFile) | safeHTML) }}
+{{ $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` (delimit $class " ") }}
+{{ return (replaceRE $match $replaceWith (printf "/assets/%s.svg" $src | readFile) | safeHTML) }}

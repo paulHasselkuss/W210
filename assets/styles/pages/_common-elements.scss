@@ -1,4 +1,4 @@
-.page-frontmatter > * {
+.page-frontmatter>* {
   margin-bottom: spacing(.5);
 }
 
@@ -12,7 +12,7 @@
   margin-bottom: spacing(1);
 }
 
-.page-content > %headings:first-child {
+.page-content>%headings:first-child {
   margin-top: 0;
 }
 
@@ -54,6 +54,10 @@
 
   .sponsors__logo {
     padding-right: 2em;
+
+    svg {
+      height: auto;
+    }
   }
 }
 
