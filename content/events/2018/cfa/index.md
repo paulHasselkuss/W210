@@ -1,7 +1,7 @@
 ---
 title: Call for Abstracts
 description: What Do We do When We Do Metaphysics? Methods, Limitations, and Consequences. 30th – 31st August 2018, Heinrich Heine University Düsseldorf, Germany.
-showLogos: true
+showSponsors: true
 ---
 
 ## Theme

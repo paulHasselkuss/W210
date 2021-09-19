@@ -12,6 +12,16 @@ params:
   images:
     - android-chrome-512x512.png #img for open graph
   disallow_search_engines: false
+  sponsors:
+    - name: philGRAD
+      logo: img/sponsors/logo_philgrad.svg
+      link: https://www.philo.hhu.de/
+    - name: German Research Foundation
+      logo: img/sponsors/logo_dfg.svg
+      link: https://indmet.weebly.com/
+    - name: GAP
+      logo: img/sponsors/logo_gap.svg
+      link: https://www.gap-im-netz.de/en/
 
 # add JSON, Redirects, Headers
 outputs:
