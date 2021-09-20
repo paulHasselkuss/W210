@@ -22,7 +22,7 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
-  column-gap: spacing(.5);
+  row-gap: spacing(1);
 
   &__full {
     grid-column: span 6;

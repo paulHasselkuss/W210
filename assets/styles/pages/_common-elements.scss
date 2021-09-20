@@ -46,14 +46,13 @@
   margin-top: spacing(1);
   padding-top: spacing(1);
   border-top: var(--border--small);
-  gap: spacing(1);
 
   .sponsors__title {
     margin: 0;
   }
 
   .sponsors__logo {
-    padding-right: 2em;
+    padding-right: 3rem;
 
     svg {
       height: auto;
