@@ -23,7 +23,7 @@ h2,
 h3 {
   margin: #{spacing(1)} 0 #{spacing(.5)};
 
-  & + * {
+  &+* {
     margin-top: 0 !important;
   }
 }
@@ -68,7 +68,7 @@ pre {
 }
 
 p {
-  margin: 0 0 var(--spacing--small);
+  margin: 0 0 spacing(.5);
 
   //see https://medium.com/clear-left-thinking/all-you-need-to-know-about-hyphenation-in-css-2baee2d89179
   hyphens: auto;

@@ -34,9 +34,8 @@ $breakpoints: ("small": 576px,
   --color--viewport--alt: #{$gray--light};
 
   // Typography
-  --font-family:
-    GeneralSans,
-    #{$font-stack-helvetica};
+  --font-family: GeneralSans,
+  #{$font-stack-helvetica};
   --font-family--heading: var(--font-family);
   --baseline: #{$baseline};
 
@@ -65,8 +64,7 @@ $breakpoints: ("small": 576px,
 @supports (font-variation-settings: normal) {
   :root {
     //use variable fonts only if supported
-    font-family:
-      GeneralSans-Variable,
-      #{$font-stack-helvetica};
+    --font-family: GeneralSans-Variable,
+    #{$font-stack-helvetica};
   }
 }
