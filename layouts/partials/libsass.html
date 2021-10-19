@@ -1,7 +1,8 @@
-{{/* USAGE: {{ partial "libsass" (dict "src" "styles/main.scss" "targetPath" "main.css") }} */}}
+{{/* USAGE: {{ partial "libsass" (dict "src" "styles/main.scss" "targetPath" "main.css" "fingerprint" true/false) }} */}}
 
 {{ $src := .src -}}
 {{ $targetPath := .targetPath | default (replace $src "scss" "css") -}}
+{{ $fingerprint := .fingerprint | default true -}}
 
 {{ $options := (dict "targetPath" $targetPath "transpiler" "libsass" "includePaths" (slice "node_modules")) -}}
 
@@ -14,7 +15,12 @@
 {{ $css := resources.Get $src | toCSS $options -}}
 
 {{ if eq (hugo.Environment) "production" -}}
-{{ $css = $css | postCSS (dict "config" "postcss.config.js") | fingerprint }}
+{{ $css = $css | postCSS (dict "config" "postcss.config.js") }}
+
+{{ if $fingerprint }}
+{{ $css = $css | fingerprint }}
 {{ end }}
 
-<link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
+
+<link rel="stylesheet" href="{{ $css.Permalink }}" {{ if $fingerprint }} integrity="{{ $css.Data.Integrity }}" {{ end }} crossorigin="anonymous">

@@ -1,4 +1,4 @@
-<!-- Get Hugo to build the css for Matomo. The file is then loaded by Matomo's iframe via the 'Custom Opt-Out' plugin: {{ partial "libsass" (dict "src" "styles/matomo.scss") }} -->
+<!-- Get Hugo to build the css for Matomo. The file is then loaded by Matomo's iframe via the 'Custom Opt-Out' plugin: {{ partial "libsass" (dict "src" "styles/matomo.scss" "fingerprint" false ) }} -->
 
 <!-- Matomo -->
 <script>
@@ -17,6 +17,7 @@ _paq.push(['enableLinkTracking']);
   g.src = u + 'matomo.js';
   s.parentNode.insertBefore(g, s);
 })();
+
 </script>
 <!-- End Matomo Code -->
 
