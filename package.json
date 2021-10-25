@@ -28,7 +28,7 @@
     "autoprefixer": "^10.3.7",
     "bourbon": "^7.0.0",
     "cssnano": "^5.0.6",
-    "eslint": "^7.32.0",
+    "eslint": "^8.1.0",
     "flexsearch": "^0.7.21",
     "instant.page": "^5.1.0",
     "markdownlint-cli": "^0.29.0",
