@@ -24,7 +24,21 @@
 {{ $src = $page.Resources.GetMatch $src }}
 {{ $sizes = split $sizes "," }}
 
-<img class="{{ $class }}" sizes="{{ $media }}" srcset='
+<picture class="{{ $class }}">
+
+  <source type="image/webp" sizes="{{ $media }}" srcset='
+    {{ range $sizes}}
+      {{ if ge $src.Width (string . ) }}
+          {{ $options := printf "%s" "x" |
+printf "%s%s webp" . | printf "%s" }}
+        {{ $img := $src.Resize $options }}
+        {{ $img.RelPermalink }} {{ . }}w,
+      {{end}}
+
+    {{ end }}
+    '>
+
+  <img sizes="{{ $media }}" srcset='
     {{ range $sizes}}
       {{ if ge $src.Width (string . ) }}
         {{ $img := $src.Resize (printf "%sx" . )}}
@@ -33,3 +47,4 @@
 
     {{ end }}
     ' src="{{ $src.RelPermalink }}" {{ with .alt }} alt="{{ . }}" {{ end }}>
+</picture>

@@ -65,3 +65,22 @@ markup:
         block: true
         title: true
 
+security:
+  enableInlineShortcodes: false
+  exec:
+    allow:
+      - ^dart-sass-embedded$
+      - ^go$
+      - ^npx$
+      - ^postcss$
+      - ^babel$
+    osEnv:
+      - (?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM)$
+  funcs:
+    getenv:
+      - ^HUGO_
+  http:
+    methods:
+      - (?i)GET|POST
+    urls:
+      - .*
