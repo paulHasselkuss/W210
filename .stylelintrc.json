@@ -1,15 +1,7 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": "stylelint-config-recommended-scss",
   "rules":
   {
-    "property-no-unknown": [
-      true,
-      {
-        "ignoreProperties": ["font-named-instance"]
-      }
-    ],
-    "string-quotes": "double",
-    "number-leading-zero": "never",
     "at-rule-empty-line-before": [
       "always",
       {
@@ -17,32 +9,14 @@
         "ignore": ["after-comment", "inside-block"]
       }
     ],
-    "at-rule-no-unknown": [
+    "number-leading-zero": "never",
+    "property-no-unknown": [
       true,
       {
-        "ignoreAtRules": [
-          "extend",
-          "at-root",
-          "debug",
-          "warn",
-          "error",
-          "if",
-          "else",
-          "for",
-          "each",
-          "while",
-          "mixin",
-          "include",
-          "content",
-          "return",
-          "function",
-          "tailwind",
-          "apply",
-          "responsive",
-          "variants",
-          "screen"
-        ]
+        "ignoreProperties": ["font-named-instance"]
       }
-    ]
+    ],
+    "scss/no-global-function-names": null, 
+    "string-quotes": "double"
   }
 }
