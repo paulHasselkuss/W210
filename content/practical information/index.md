@@ -4,6 +4,7 @@ menu:
   primary:
     weight: 100
   footer:
+    weight: 100
 toc: true
 images:
   - "patrick-robert-doyle-yOWbVN4aYFg-unsplash.jpg"
