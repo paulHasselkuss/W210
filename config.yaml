@@ -30,7 +30,6 @@ params:
 outputs:
   home:
     - HTML
-    - RSS
     - JSON
     - REDIRECTS
     - HEADERS
