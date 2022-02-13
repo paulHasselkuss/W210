@@ -1,0 +1,7 @@
+{{ $currentPage := .page }}
+{{ $menu := .menu }}
+{{ $class := .class | default "unstyled" }}
+
+{{ range (index .page.Site.Menus $menu) }}
+<li><a class="{{- $class -}} {{if or ($currentPage.IsMenuCurrent $menu .) ($currentPage.HasMenuCurrent $menu .) }} is-active{{end}} {{ with .Params.class }}{{ . }}{{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+{{ end }}

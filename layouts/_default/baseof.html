@@ -22,10 +22,7 @@
 
     <nav id="siteNav" class="site-nav">
       <ul>
-        {{ $currentPage := . }}
-        {{ range .Site.Menus.primary }}
-        <li><a class="site-nav__item unstyled {{if or ($currentPage.IsMenuCurrent "primary" .) ($currentPage.HasMenuCurrent "primary" .) }} is-active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
-        {{ end }}
+        {{- partial "menu-item" (dict "menu" "primary" "page" . ) -}}
       </ul>
     </nav>
 
@@ -86,9 +83,7 @@
 <footer class="site-footer">
   <div class="site-footer__logo"><a href="#" class="unstyled">{{ partial "logo" . }}</a></div>
   <ul class="site-footer__item site-footer__nav unstyled">
-    {{ range .Site.Menus.footer }}
-    <li><a href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
-    {{ end }}
+    {{- partial "menu-item" (dict "menu" "footer" "page" . ) -}}
   </ul>
   <div class="site-footer__item">
     <div>{{ replace .Site.Copyright "{currentYear}" now.Year | markdownify}}</div>

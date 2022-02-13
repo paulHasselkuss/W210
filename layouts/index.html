@@ -1,9 +1,7 @@
 {{ define "page-frontmatter" }}
 
 <ul class="page-list vertical">
-  {{ range .Site.Menus.home }}
-  <li><a class="button" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
-  {{ end }}
+  {{- partial "menu-item" (dict "menu" "home" "page" . "class" "button") -}}
 </ul>
 
 {{end}}
