@@ -1,3 +1,4 @@
+{{ if .Site.Params.matomo }}
 <!-- Get Hugo to build the css for Matomo. The file is then loaded by Matomo's iframe via the 'Custom Opt-Out' plugin: {{ partial "libsass" (dict "src" "styles/matomo.scss" "fingerprint" false ) }} -->
 
 <!-- Matomo -->
@@ -7,9 +8,9 @@ var _paq = window._paq = window._paq || [];
 _paq.push(['trackPageView']);
 _paq.push(['enableLinkTracking']);
 (function() {
-  var u = "https://www.stats.hasselkuss.com/";
+  var u = "{{- .Site.Params.Matomo.Url -}}";
   _paq.push(['setTrackerUrl', u + 'matomo.php']);
-  _paq.push(['setSiteId', '4']);
+  _paq.push(['setSiteId', '{{- .Site.Params.matomo.SiteId -}}']);
   var d = document,
     g = d.createElement('script'),
     s = d.getElementsByTagName('script')[0];
@@ -23,6 +24,7 @@ _paq.push(['enableLinkTracking']);
 
 <!-- Matomo Image Tracker-->
 <noscript>
-  <img referrerpolicy="no-referrer-when-downgrade" src="https://www.stats.hasselkuss.com/matomo.php?idsite=4&amp;rec=1" style="border:0" alt="" />
+  <img referrerpolicy="no-referrer-when-downgrade" src="{{- .Site.Params.Matomo.Url -}}/matomo.php?idsite={{- .Site.Params.Matomo.SiteId -}}&amp;rec=1" style="border:0" alt="" />
 </noscript>
 <!-- End Matomo -->
+{{ end }}

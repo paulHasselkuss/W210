@@ -12,6 +12,9 @@ params:
   images:
     - android-chrome-512x512.png #img for open graph
   disallow_search_engines: false
+  matomo:
+    url: https://www.stats.hasselkuss.com
+    siteId: 4
   sponsors:
     - name: philGRAD
       logo: img/sponsors/logo_philgrad.svg
