@@ -1,10 +1,13 @@
-{{ with .Site.Params.Logo }}
+{{ $logo := .Site.Params.Logo | default .Site.Title }}
+
+{{ with resources.Get $logo }}
+
 {{ if strings.HasSuffix . "svg" }}
 {{ partial "svg" ( dict "src" . "class" "site-logo" ) }}
 {{ else }}
-{{ $logo := resources.Get . }}
-<img class="site-logo" src="{{ $logo.RelPermalink }}" alt="{{ $.Site.Title }}">
+<img class="site-logo" src="{{ .RelPermalink }}" alt="{{ $.Site.Title }}">
 {{ end }}
+
 {{ else }}
-{{ .Site.Title }}
+{{ $logo }}
 {{ end }}
