@@ -32,6 +32,10 @@
   font-size: 1em;
   margin: 0;
   flex: 1;
+
+  @include md("medium") {
+    flex: 0
+  }
 }
 
 .site-logo {
