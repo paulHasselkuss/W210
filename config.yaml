@@ -52,6 +52,7 @@ outputFormats:
     isPlainText: true
     notAlternative: true
 
+# toc settings
 markup:
   tableOfContents:
     endLevel: 2
@@ -66,7 +67,7 @@ markup:
         title: true
 
 security:
-  enableInlineShortcodes: false
+  # babel is not allowed by default
   exec:
     allow:
       - ^dart-sass-embedded$
@@ -74,13 +75,3 @@ security:
       - ^npx$
       - ^postcss$
       - ^babel$
-    osEnv:
-      - (?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM)$
-  funcs:
-    getenv:
-      - ^HUGO_
-  http:
-    methods:
-      - (?i)GET|POST
-    urls:
-      - .*
