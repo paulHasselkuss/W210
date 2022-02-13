@@ -21,12 +21,10 @@
     {{ template "_internal/twitter_cards.html" . }}
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | absURL }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absURL }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | absURL }}">
+    <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="any">
+    <link rel="icon" href="{{ "favicon.svg" | absURL }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
     <link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
-    <link rel="mask-icon" href="{{ "safari-pinned-tab.svg" | absURL }}" color="#00008b">
-    <meta name="msapplication-TileColor" content="#00008b">
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#00000f" media="(prefers-color-scheme: dark)">
