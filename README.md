@@ -10,12 +10,12 @@ While the project is usuable, some things still need to be done:
 
 ## Usage
 
-The theme should be added as a [module](https://gohugo.io/hugo-modules/). To use it, create a new hugo site (`hugo new site`), then add the following to your `config.yaml`:
+The theme should be added as a [module](https://gohugo.io/hugo-modules/). To use it, create a new hugo site (`hugo new site`) and add the following to your `config.yaml`:
 
 ```
 module:
   imports:
-  - path: github.com/pahsHasselkuss/W210
+  - path: github.com/paulHasselkuss/W210
 ```
 
 Then you need to install the required NPM dependencies:
@@ -61,3 +61,10 @@ This is a Netlify feature. Learn more about [Netlify Redirects](https://www.netl
 ### Aliases
 
 Hugo [Aliases](https://gohugo.io/content-management/urls/#aliases) are usually handled by `<meta http-equiv="refresh" ...>` tags. These have been disabled within `config.toml` with `disableAliases = true`, and instead are handled by [Netlify Redirects](https://www.netlify.com/docs/redirects/). This is handled automatically and one should continue to add aliases as described in the Hugo documentation.
+
+## License
+
+W210 is copyright © 2021-2022 Paul Hasselkuß. It is free software, and may be redistributed under the terms specified in the [license](LICENSE.md).
+
+W210 is using the [General Sans](https://www.fontshare.com/fonts/general-sans) font under the [Fontshare EULA](static/fonts/FONTSHARE-EULA.txt).
+
