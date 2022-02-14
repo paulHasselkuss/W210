@@ -1,23 +1,29 @@
-# [DGWP](https://www.dgwp.org)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4d033c2d-096f-4121-b6ec-3f5368aae8fd/deploy-status)](https://app.netlify.com/sites/boring-brattain-3ff500/deploys)
+# W210
 
-The goal of this project is to create a theme for Hugo that can be used for small, but text-heavy websites such as academic events or research groups.
+The goal of this project is to create a theme for Hugo usable for small, but text-heavy websites such as academic events or research groups.
 
 The overall structure is based on [Atlas](https://github.com/indigotree/atlas) and [Hyas](https://gethyas.com), SASS is based on [Bourbon](https://github.com/thoughtbot/bourbon/).
 
 While the project is usuable, some things still need to be done:
-- Move the theme to its own repo and add a license
+- Add documentation
+- Improve flexibility (analytics, custom CSS etc.)
 
-## Build
+## Usage
 
-Install [Hugo](https://gohugo.io/getting-started/installing/) and [Node](https://nodejs.dev), including NPM. Then:
+The theme should be added as a [module](https://gohugo.io/hugo-modules/). To use it, create a new hugo site (`hugo new site`), then add the following to your `config.yaml`:
 
 ```
+module:
+  imports:
+  - path: github.com/pahsHasselkuss/W210
+```
+
+Then you need to install the required NPM dependencies:
+```
+hugo mod npm pack
 npm install
-npm run build
 ```
-
-On macOS, one may use `npm run dev` to start the development server and open Safari and SublimeText. For all available commands, see `package.json`. 
+Some usefull scripts can be found in this project's `package.json`.
 
 ## Features
 

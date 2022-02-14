@@ -1,0 +1,43 @@
+{
+  "name": "W210",
+  "private": true,
+  "scripts": {
+    "prestart": "npm run clean",
+    "start": "hugo server",
+    "prebuild": "npm run clean",
+    "build": "hugo --minify",
+    "clean": "rm -rf public resources",
+    "ci": "npm install && npm run build",
+    "dev": "npm-run-all --parallel start dev:*",
+    "dev:safari": "sleep 1 && open -a Safari http://localhost:1313",
+    "dev:sublime": "subl .",
+    "lint": "npm-run-all --continue-on-error lint:*",
+    "lint:scripts": "eslint assets/js",
+    "lint:styles": "stylelint \"assets/styles/**/*.{css,sass,scss,sss,less}\"",
+    "lint:markdown": "markdownlint *.md content/**/*.md",
+    "test": "npm run lint"
+  },
+  "browserlists": [
+    "last 3 versions"
+  ],
+  "dependencies": {
+    "@babel/cli": "^7.17",
+    "@babel/core": "^7.17",
+    "@babel/preset-env": "^7.16.11",
+    "@csstools/normalize.css": "^12.0.0",
+    "autoprefixer": "^10.4.2",
+    "bourbon": "^7.0.0",
+    "cssnano": "^5.0.17",
+    "flexsearch": "^0.7.21",
+    "instant.page": "^5.1.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.6",
+    "postcss-cli": "^9.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0",
+    "markdownlint-cli": "^0.31.1",
+    "stylelint": "^14.5.0",
+    "stylelint-config-recommended-scss": "^5.0.2"
+  }
+}

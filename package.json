@@ -1,25 +1,29 @@
 {
-  "name": "dgwp.org",
-  "private": true,
-  "scripts": {
-    "prestart": "npm run clean",
-    "start": "hugo server",
-    "prebuild": "npm run clean",
-    "build": "hugo --minify",
-    "clean": "rm -rf public resources",
-    "ci": "npm install && npm run build",
-    "dev": "npm-run-all --parallel start dev:*",
-    "dev:safari": "sleep 1 && open -a Safari http://localhost:1313",
-    "dev:sublime": "subl .",
-    "lint": "npm-run-all --continue-on-error lint:*",
-    "lint:scripts": "eslint assets/js",
-    "lint:styles": "stylelint \"assets/styles/**/*.{css,sass,scss,sss,less}\"",
-    "lint:markdown": "markdownlint *.md content/**/*.md",
-    "test": "npm run lint"
-  },
   "browserlists": [
     "last 3 versions"
   ],
+  "comments": {
+    "dependencies": {
+      "@babel/cli": "project",
+      "@babel/core": "project",
+      "@babel/preset-env": "project",
+      "@csstools/normalize.css": "project",
+      "autoprefixer": "project",
+      "bourbon": "project",
+      "cssnano": "project",
+      "flexsearch": "project",
+      "instant.page": "project",
+      "npm-run-all": "project",
+      "postcss": "project",
+      "postcss-cli": "project"
+    },
+    "devDependencies": {
+      "eslint": "project",
+      "markdownlint-cli": "project",
+      "stylelint": "project",
+      "stylelint-config-recommended-scss": "project"
+    }
+  },
   "dependencies": {
     "@babel/cli": "^7.17",
     "@babel/core": "^7.17",
@@ -39,5 +43,23 @@
     "markdownlint-cli": "^0.31.1",
     "stylelint": "^14.5.0",
     "stylelint-config-recommended-scss": "^5.0.2"
+  },
+  "name": "W210",
+  "private": true,
+  "scripts": {
+    "build": "hugo --minify",
+    "ci": "npm install && npm run build",
+    "clean": "rm -rf public resources",
+    "dev": "npm-run-all --parallel start dev:*",
+    "dev:safari": "sleep 1 && open -a Safari http://localhost:1313",
+    "dev:sublime": "subl .",
+    "lint": "npm-run-all --continue-on-error lint:*",
+    "lint:markdown": "markdownlint *.md content/**/*.md",
+    "lint:scripts": "eslint assets/js",
+    "lint:styles": "stylelint \"assets/styles/**/*.{css,sass,scss,sss,less}\"",
+    "prebuild": "npm run clean",
+    "prestart": "npm run clean",
+    "start": "hugo server",
+    "test": "npm run lint"
   }
 }
