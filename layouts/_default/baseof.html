@@ -68,7 +68,7 @@
     {{ range .Site.Params.sponsors }}
     <a class="element-grid__third sponsors__logo unstyled" href="{{ .link }}">
       {{ if .logo }}
-      <img src="{{ (resources.Get .logo).Permalink }}" alt="{{ .name }}">
+      <img class="theme-dark--white" src="{{ (resources.Get .logo).Permalink }}" alt="{{ .name }}">
       {{ else }}
       <h5>{{ .name }}</h5>
       {{ end }}

@@ -23,3 +23,37 @@
     --color--viewport--alt: #{$gray--light};
   }
 }
+
+.theme-dark--display {
+  display: none;
+  
+  @media (prefers-color-scheme: dark) {
+    display: initial;
+  }
+  .alt-theme & {
+    display: initial;
+  }
+}
+
+.theme-light--display {
+  @media (prefers-color-scheme: dark) {
+    display: none;
+  }
+  .alt-theme & {
+    display: none;
+  }
+}
+
+.alt-theme .theme-dark--white {
+  filter: brightness(0) invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .theme-dark--white  {
+    filter: brightness(0) invert(1);
+  }
+
+  .alt-theme .theme-dark--white  {
+    filter: none;
+  }
+}
