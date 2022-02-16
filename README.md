@@ -66,5 +66,5 @@ Hugo [Aliases](https://gohugo.io/content-management/urls/#aliases) are usually h
 
 W210 is copyright © 2021-2022 Paul Hasselkuß. It is free software, and may be redistributed under the terms specified in the [license](LICENSE.md).
 
-W210 is using the [General Sans](https://www.fontshare.com/fonts/general-sans) font under the [Fontshare EULA](static/fonts/FONTSHARE-EULA.txt).
+W210 is using the [General Sans](https://www.fontshare.com/fonts/general-sans) font under the [Fontshare EULA](static/fonts/Fontshare-EULA.txt).
 
