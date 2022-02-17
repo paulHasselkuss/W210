@@ -22,12 +22,17 @@ let first_run = true; // allow us to delay loading json data unless search activ
 search_toggle.addEventListener('click', function(e) {
   search_toggle_focus(e);
 });
+
 document.addEventListener('keydown', function(e) {
   // console.log(event); // DEBUG
   // Ctrl + / to show or hide Search
   // if (event.metaKey && event.which === 191) {
   if (event.ctrlKey && event.which === 191) {
     search_toggle_focus(e); // toggle visibility of search box
+  }
+  
+  if(!search__focus) {
+    return;
   }
   // Use Enter (13) to move to the first result
   if (e.keyCode == 13) {
