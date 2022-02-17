@@ -8,6 +8,9 @@
 
 form {
   margin-bottom: spacing(.5);
+  border-top: var(--border--small);
+  padding-top: spacing(.5);
+  border-bottom: var(--border--small);
 }
 
 fieldset {
@@ -18,7 +21,7 @@ fieldset {
 }
 
 legend {
-  @include fw("bold");
+  @include fw("semi-bold");
 
   margin-bottom: var(--spacing--small);
   padding: 0;
@@ -27,9 +30,13 @@ legend {
 label {
   display: block;
 
-  @include fw("bold");
+  @include fw("semi-bold");
 
   margin-bottom: var(--spacing--small);
+
+  &.no-margin {
+    margin: 0;
+  }
 
   &.is-required::after {
     content: " *";
@@ -42,7 +49,7 @@ select,
 textarea {
   display: block;
   font-family: var(--font-family);
-  font-size: 1rem;
+  font-size: .75rem;
 }
 
 [type="search"] {
@@ -71,7 +78,7 @@ input:not([type]),
 textarea {
   appearance: none;
   background-color: transparent;
-  border: var(--border);
+  border: var(--border--small);
   border-radius: var(--border-radius);
   box-shadow: var(--form-box-shadow);
   box-sizing: border-box;
@@ -139,4 +146,12 @@ hr {
   border-right: 0;
   border-top: 0;
   margin: var(--spacing) 0;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
 }
