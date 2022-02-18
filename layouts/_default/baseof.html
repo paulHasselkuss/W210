@@ -13,6 +13,8 @@
       {{- partial "svg.html" (dict "src" "img/icons/search_bold") -}}
     </div>
 
+    {{ if .Site.Menus.primary }}
+
     <button id="navToggle" class="site-nav--btn hamburger" type="button">
       <div class="hamburger__inner">
         <span></span>
@@ -25,6 +27,8 @@
         {{- partial "menu-item" (dict "menu" "primary" "page" . ) -}}
       </ul>
     </nav>
+
+    {{ end }}
 
   </header>
 </div>
