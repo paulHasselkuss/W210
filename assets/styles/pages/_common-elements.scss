@@ -54,10 +54,25 @@
 
   .sponsors__logo {
     padding-right: 3rem;
+    cursor: pointer;
 
     svg {
       height: auto;
     }
+
+    &:hover svg, &:hover img {
+      animation: pulse 1.5s infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: scale(1.05);
   }
 }
 
