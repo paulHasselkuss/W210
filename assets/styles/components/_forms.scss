@@ -76,9 +76,11 @@ textarea {
 [type="week"],
 input:not([type]),
 textarea {
+  color: var(--color--font);
   appearance: none;
   background-color: transparent;
   border: var(--border--small);
+  border-color: var(--color--font); //if we use currentColor, WebKit uses the placeholder's color
   border-radius: var(--border-radius);
   box-shadow: var(--form-box-shadow);
   box-sizing: border-box;
@@ -105,8 +107,7 @@ textarea {
   }
 
   &::placeholder {
-    color: var(--color--font);
-    opacity: .25;
+    color: var(--color--font--alt);
   }
 }
 
