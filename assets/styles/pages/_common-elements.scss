@@ -48,7 +48,8 @@
   border-top: var(--border--small);
 
   .sponsors__title {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: spacing(.5);
   }
 
   .sponsors__logo {

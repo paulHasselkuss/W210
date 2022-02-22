@@ -69,6 +69,16 @@ pre {
   background-color: var(--color--font);
 }
 
+//see https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -.4em;
+}
+sub { 
+  top: .4em; 
+}
+
 p {
   margin: 0 0 spacing(.5);
 
