@@ -9,7 +9,7 @@
 form {
   margin-bottom: spacing(.5);
   border-top: var(--border--small);
-  padding-top: spacing(.5);
+  padding: spacing(.5) 0;
   border-bottom: var(--border--small);
 }
 
@@ -139,6 +139,10 @@ select {
 
 input[type="checkbox"] + label {
   display: inline-block;
+}
+
+[type="submit"] {
+  margin-top: spacing(.5);
 }
 
 hr {
