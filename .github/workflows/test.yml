@@ -28,6 +28,9 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
+          
+      - name: Install NPM dependencies
+        run: npm install
 
       - name: Build exampleSite
         run: |
