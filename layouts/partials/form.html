@@ -1,0 +1,38 @@
+{{ $formName := .name }}
+{{ $inputs := .inputs }}
+
+{{ $class := .class | default "element-grid"}}
+{{ $attributes := .attributes | default "method='POST' data-netlify='true'" }}
+
+<form name="{{ $formName }}" class="{{ $class }}" {{ string $attributes }}>
+  {{ $attributes }}
+
+{{ range $inputs }}
+{{ partial "inline/form-input" . }}
+{{ end }}
+
+<div class="element-grid__full">
+<input type="submit">
+</div>
+
+</form>
+
+{{ define "partials/inline/form-input" }}
+
+{{ $name := .name }}
+{{ $label := .label }}
+
+{{ $type := .type | default "text" }}
+{{ $class := .class | default "" }}
+{{ $placeholder := .placeholder | default "" }}
+{{ $attributes := .attributes | default "" }}
+
+{{ $required := .required | default "true" }}
+
+<div class="{{ $class }}">
+  <label for="{{ $name }}" class="{{ if in $attributes "required" }}is-required{{ end }}">{{ $label }}</label>
+  <input type="{{ $type }}" id="{{ $name }}" name="{{ $name }}" {{ with $placeholder }}placeholder="{{ . }}"{{ end }} {{ $attributes }}>
+  {{ with .desc }}<p class="smalltext">{{ . }}</p>{{ end }}
+</div>
+
+{{ end }}

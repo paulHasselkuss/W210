@@ -1,0 +1,41 @@
+baseURL: "http://example.com"
+languageCode: en-gb
+title: "W210"
+copyright: "&copy; {currentYear}"
+enableRobotsTXT: false
+disableAliases: true
+disableKinds:
+  - taxonomy
+  - term
+
+menu:
+  home:
+  - name: HTML5 Test Page
+    url: "/html5-test-page/"
+    Params:
+      class: button--primary
+  - name: Source
+    url: "https://github.com/paulHasselkuss/W210"
+
+params:
+  _merge: shallow
+
+outputs:
+  _merge: shallow
+
+mediaTypes:
+  _merge: shallow
+
+outputFormats:
+  _merge: shallow
+
+markup:
+  _merge: shallow
+
+security:
+  _merge: shallow
+
+module:
+  replacements: github.com/paulHasselkuss/W210 -> ../..
+  imports:
+  - path: "github.com/paulHasselkuss/W210"
