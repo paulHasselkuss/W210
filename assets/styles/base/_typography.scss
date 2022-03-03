@@ -59,9 +59,17 @@ code,
 pre {
   font-family: monospace;
   color: $black;
-  background-color: var(--color--viewport--alt);
-  padding: spacing(.5);
-  font-size: .8em;
+  background-color: var(--color--viewport--alt) !important; //overwrite inline styles
+  font-size: .85em;
+  padding: spacing(.5) spacing(1);
+}
+
+code {
+    padding: .25em .5em;
+
+    pre & {
+      padding: 0;
+    }
 }
 
 ::selection {

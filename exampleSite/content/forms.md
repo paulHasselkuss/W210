@@ -44,7 +44,7 @@ fields:
   class: "element-grid__full"  #optional
   type: "text" #optional
   describtion: "This is a describtion that supports **markdown**." #optional
-  label: "This is a label" #optional
+  label: "This is a label that supports __markdown__:" #optional
   attributes: #mapps directly to HTML attributes, optional
     required: "true"
     placeholder: "custom placeholder"
