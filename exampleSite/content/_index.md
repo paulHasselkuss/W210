@@ -1,7 +1,7 @@
 ---
-Title: W210
-Description: The goal of this project is to create a theme for Hugo usable for small, but text-heavy websites such as academic events or research groups.
-Images:
+title: W210
+description: The goal of this project is to create a theme for Hugo usable for small, but text-heavy websites such as academic events or research groups.
+images:
   - moritz-kindler-L4nxX1FcD_8-unsplash.jpg
 ---
 

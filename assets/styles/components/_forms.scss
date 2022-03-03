@@ -145,12 +145,23 @@ input[type="checkbox"] + label {
   margin-top: spacing(.5);
 }
 
-hr {
-  border-bottom: var(--border);
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  margin: var(--spacing) 0;
+.input-container--checkbox,
+.input-container--radio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .input-field[type="checkbox"] {
+    order: -1;
+  }
+
+  .input-label {
+    margin-bottom: 0;
+  }
+
+  .input-describtion {
+    flex-basis: 100%;
+  }
 }
 
 .error {

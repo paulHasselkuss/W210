@@ -1,1 +1,10 @@
+
+{{ $identifier := .Get 0 }}
+
+{{ with (index $.Page.Params $identifier) }}
 {{ partial "form" . }}
+{{ else }}
+{{ with (index $.Site.Data $identifier) }}
+{{ partial "form" . }}
+{{ end }}
+{{ end }}

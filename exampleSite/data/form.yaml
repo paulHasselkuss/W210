@@ -1,0 +1,38 @@
+name: "complex-form"
+attributes:
+  method: "POST"
+  data-netlify: "true"
+fields:
+- name: "first-name"
+  label: "First Name"
+  placeholder: "Joe"
+  class: "element-grid__half"
+- name: "last-name"
+  label: "Last Name"
+  placeholder: "Public"
+  class: "element-grid__half"
+- name: "email"
+  type: "email"
+  label: "Your Mail Address"
+  placeholder: "joe.public@hhu.de"
+  class: "element-grid__half"
+- name: "affilation"
+  label: "Your Current Affilation"
+  placeholder: "HHU"
+  class: "element-grid__half"
+- name: "letter-of-motivation"
+  label: "Letter of Motivation (140-200 words)"
+  type: textarea
+  attributes:
+    rows: "10"
+    required: "true"
+- name: "cv"
+  label: "Short CV (PDF)"
+  type: "file"
+  attributes:
+    accept: ".pdf"
+    required: "true"
+- name: privacy-policy
+  label: Privacy Policy
+  type: "checkbox"
+  describtion: Yes, I have read the [privacy policy](#) and agree that the data I have provided may be collected and stored electronically. My data will only be used strictly for the purpose of processing and answering my enquiry.

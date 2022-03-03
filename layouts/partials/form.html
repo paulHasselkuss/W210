@@ -1,38 +1,58 @@
+{{/* USAGE: {{ partial "form" path/to/form/data }} */}}
 {{ $formName := .name }}
-{{ $inputs := .inputs }}
+{{ $formAttributes := .attributes }}
+{{ $formFields := .fields | append (dict "name" "submit" "type" "submit") }}
+{{ $formClass := .class  | default "element-grid" }}
 
-{{ $class := .class | default "element-grid"}}
-{{ $attributes := .attributes | default "method='POST' data-netlify='true'" }}
+<form name="{{ $formName }}"
+  class="form form--{{ $formName }} {{ with $formClass }} {{ . }}{{ end }}" 
+  {{ partial "inline/attributes" $formAttributes }}
+  >
 
-<form name="{{ $formName }}" class="{{ $class }}" {{ string $attributes }}>
-  {{ $attributes }}
+{{ range $formFields }}
 
-{{ range $inputs }}
-{{ partial "inline/form-input" . }}
-{{ end }}
+{{ $name := .name }}
+{{ $label := .label | default "" }}
+{{ $describtion := .describtion | default ""  }}
+{{ $type := .type | default "text" }}
+{{ $class := .class | default "element-grid__full" }}
+{{ $attributes := .attributes | default (dict "required" "true") }}
 
-<div class="element-grid__full">
-<input type="submit">
+<div class="input-container input-container--{{ $type }} {{ with $class }} {{ . }}{{ end }}">
+  {{ with $label }}
+  <label for="{{ $name }}" class="input-label{{ if isset $attributes "required" }} is-required{{ end }}">
+    {{ . | markdownify }}
+  </label>
+  {{ end }}
+
+  {{ if eq $type "textarea" }}
+  <textarea type="{{ $type }}" id="{{ $name }}" name="{{ $name }}" class="input-field" {{ partial "inline/attributes" $attributes }}></textarea>
+  {{ else }}
+  <input type="{{ $type }}" id="{{ $name }}" name="{{ $name }}" class="input-field" {{ partial "inline/attributes" $attributes }}>
+  {{ end }}
+
+  {{ with $describtion }}
+  <p class="input-describtion smalltext">{{ . | markdownify }}</p>
+  {{ end }}
 </div>
+
+{{ end }}
 
 </form>
 
-{{ define "partials/inline/form-input" }}
 
-{{ $name := .name }}
-{{ $label := .label }}
+{{ define "partials/inline/attributes" }}
 
-{{ $type := .type | default "text" }}
-{{ $class := .class | default "" }}
-{{ $placeholder := .placeholder | default "" }}
-{{ $attributes := .attributes | default "" }}
+{{ $attributes := "" }}
 
-{{ $required := .required | default "true" }}
+{{ range $key, $value := . }}
 
-<div class="{{ $class }}">
-  <label for="{{ $name }}" class="{{ if in $attributes "required" }}is-required{{ end }}">{{ $label }}</label>
-  <input type="{{ $type }}" id="{{ $name }}" name="{{ $name }}" {{ with $placeholder }}placeholder="{{ . }}"{{ end }} {{ $attributes }}>
-  {{ with .desc }}<p class="smalltext">{{ . }}</p>{{ end }}
-</div>
+{{ $string := $key }}
+{{ with $value }}
+{{ $string = printf `"%s"` . | printf "%s=%s" $string}}
+{{ end }}
+{{ $attributes = printf "%s" $attributes | printf "%s %s" $string }}
+{{ end }}
 
+{{ return ($attributes  | safeHTMLAttr) }}
 {{ end }}

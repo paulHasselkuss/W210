@@ -1,6 +1,6 @@
 ---
-Title: HTML5 Test Page
-Description: This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks. Via [cbracco/html5-test-page](https://github.com/cbracco/html5-test-page).
+title: HTML5 Test Page
+description: This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks. Via [cbracco/html5-test-page](https://github.com/cbracco/html5-test-page).
 menu:
   - primary
 ---
