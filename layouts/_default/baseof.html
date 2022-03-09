@@ -15,7 +15,7 @@
 
     {{ if .Site.Menus.primary }}
 
-    <button id="navToggle" class="site-nav--btn hamburger" type="button">
+    <button id="navToggle" class="site-nav--btn hamburger" type="button" aria-label="Toggle navigation">
       <div class="hamburger__inner">
         <span></span>
         <span></span>
@@ -93,8 +93,8 @@
     <div>{{ replace .Site.Copyright "{currentYear}" now.Year | markdownify}}</div>
     <ul class="site-footer__icons unstyled">
       <li><span id="themeToggle" class="theme-toggle"></span></li>
-      <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}">{{ partial "svg" (dict "src" "img/icons/facebook")}}</a></li>
-      <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}">{{ partial "svg" (dict "src" "img/icons/twitter")}}</a></li>
+      <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}" aria-label="Share on Facebook">{{ partial "svg" (dict "src" "img/icons/facebook")}}</a></li>
+      <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}" aria-label="Share on Twitter">{{ partial "svg" (dict "src" "img/icons/twitter")}}</a></li>
   </div>
   </div>
 </footer>
