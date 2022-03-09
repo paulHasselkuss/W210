@@ -46,5 +46,5 @@ printf "%s%s webp" . | printf "%s" }}
       {{end}}
 
     {{ end }}
-    ' src="{{ $src.RelPermalink }}" width="{{ $src.Width }}" height="{{ $src.Height}}" {{ with .alt }} alt="{{ . }}" {{ end }}>
+    ' src="{{ $src.RelPermalink }}" width="{{ $src.Width }}" height="{{ $src.Height}}" alt="{{ with .alt }}{{ . }}{{ end }}">
 </picture>
