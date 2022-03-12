@@ -8,7 +8,7 @@ var _paq = window._paq = window._paq || [];
 _paq.push(['trackPageView']);
 _paq.push(['enableLinkTracking']);
 (function() {
-  var u = "{{- .Site.Params.Matomo.Url -}}";
+  var u = "{{- .Site.Params.Matomo.Url -}}/";
   _paq.push(['setTrackerUrl', u + 'matomo.php']);
   _paq.push(['setSiteId', '{{- .Site.Params.matomo.SiteId -}}']);
   var d = document,
