@@ -39,3 +39,6 @@ module:
   replacements: github.com/paulHasselkuss/W210 -> ../..
   imports:
   - path: "github.com/paulHasselkuss/W210"
+  mounts:
+  - source: static
+    target: static
