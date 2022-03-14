@@ -49,7 +49,7 @@
   "name": "W210",
   "private": true,
   "scripts": {
-    "build": "hugo --minify",
+    "build": "cd exampleSite && hugo --minify",
     "ci": "npm install && npm run build",
     "clean": "rm -rf public resources",
     "dev": "npm-run-all --parallel start dev:*",
@@ -61,7 +61,7 @@
     "lint:styles": "stylelint \"assets/styles/**/*.{css,sass,scss,sss,less}\"",
     "prebuild": "npm run clean",
     "prestart": "npm run clean",
-    "start": "hugo server --navigateToChanged",
+    "start": "cd exampleSite && hugo server --navigateToChanged",
     "test": "npm run lint"
   }
 }
