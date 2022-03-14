@@ -1,18 +1,25 @@
-{{/* This is a copy of Hugo's build-in opengraph template, except that we use a generated image. */}}
+{{/* This is a copy of Hugo's build-in opengraph and twitter templates, except that we use a generated image. */}}
 
+{{/* Find or generate the featured image */}}
+{{- $featuredImage := "" }}
+{{- $images := $.Resources.ByType "image" -}}
+{{- $featured := $images.GetMatch "*feature*" -}}
+{{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
+{{- with $featured -}}
+{{- $featuredImage = $featured }}
+{{- else -}}
+{{- $featuredImage = ( partial "util/social-image.html" . ) }}
+{{- end -}}
+
+{{/* Opengraph */}}
 <meta property="og:title" content="{{ .Title }}" />
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 
-{{- $images := $.Resources.ByType "image" -}}
-{{- $featured := $images.GetMatch "*feature*" -}}
-{{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
-{{- with $featured -}}
-<meta property="og:image" content="{{ $featured.Permalink }}"/>
-{{- else -}}
-<meta property="og:image" content="{{ partial "util/social-image.html" . }}"/>
-{{- end -}}
+{{ with $featuredImage }}
+<meta property="og:image" content="{{ . }}"/>
+{{ end }}
 
 {{- if .IsPage }}
 {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
@@ -40,3 +47,16 @@
 
 {{- /* Facebook Page Admin ID for Domain Insights */}}
 {{- with .Site.Social.facebook_admin }}<meta property="fb:admins" content="{{ . }}" />{{ end }}
+
+{{/* Twitter */}}
+{{- with $featuredImage -}}
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="{{ . }}"/>
+{{ else -}}
+<meta name="twitter:card" content="summary"/>
+{{- end -}}
+<meta name="twitter:title" content="{{ .Title }}"/>
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>
+{{ with .Site.Social.twitter -}}
+<meta name="twitter:site" content="@{{ . }}"/>
+{{ end -}}
