@@ -1,4 +1,4 @@
-{{/* USAGE: {{ partial "esbuild" (dict "src" "js/file.js" "targetPath" "main.js" "load" "async/defer" "transpile" true/false) }} */}}
+{{/* USAGE: {{ partial "util/esbuild.html" (dict "src" "js/file.js" "targetPath" "main.js" "load" "async/defer" "transpile" true/false) }} */}}
 
 {{ $src := .src -}}
 {{ $targetPath := .targetPath | default $src -}}

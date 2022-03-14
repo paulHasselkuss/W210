@@ -1,4 +1,3 @@
-{{/* USAGE: {{ partial "form" path/to/form/data }} */}}
 {{ $formName := .name }}
 {{ $formAttributes := .attributes }}
 {{ $formFields := .fields | append (dict "name" "submit" "type" "submit") }}

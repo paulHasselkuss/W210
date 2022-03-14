@@ -1,4 +1,7 @@
 {{ if .Site.Params.matomo }}
+
+{{ $url := .Site.Params.Matomo.Url }}
+{{ $id := .Site.Params.Matomo.SiteId }}
 <!-- Get Hugo to build the css for Matomo. The file is then loaded by Matomo's iframe via the 'Custom Opt-Out' plugin: {{ partial "util/libsass.html" (dict "src" "styles/matomo.scss" "fingerprint" false ) }} -->
 
 <!-- Matomo -->
@@ -8,9 +11,9 @@ var _paq = window._paq = window._paq || [];
 _paq.push(['trackPageView']);
 _paq.push(['enableLinkTracking']);
 (function() {
-  var u = "{{- .Site.Params.Matomo.Url -}}/";
+  var u = "{{- $url -}}/";
   _paq.push(['setTrackerUrl', u + 'matomo.php']);
-  _paq.push(['setSiteId', '{{- .Site.Params.matomo.SiteId -}}']);
+  _paq.push(['setSiteId', '{{- $id -}}']);
   var d = document,
     g = d.createElement('script'),
     s = d.getElementsByTagName('script')[0];
@@ -18,13 +21,12 @@ _paq.push(['enableLinkTracking']);
   g.src = u + 'matomo.js';
   s.parentNode.insertBefore(g, s);
 })();
-
 </script>
 <!-- End Matomo Code -->
 
 <!-- Matomo Image Tracker-->
 <noscript>
-  <img referrerpolicy="no-referrer-when-downgrade" src="{{- .Site.Params.Matomo.Url -}}/matomo.php?idsite={{- .Site.Params.Matomo.SiteId -}}&amp;rec=1" style="border:0" alt="" />
+  <img referrerpolicy="no-referrer-when-downgrade" src="{{- $url -}}/matomo.php?idsite={{- $id -}}&amp;rec=1" style="border:0" alt="" />
 </noscript>
 <!-- End Matomo -->
 {{ end }}

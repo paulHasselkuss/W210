@@ -1,16 +1,16 @@
-{{ partial "head.html" . }}
+{{ partial "site-head.html" . }}
 
 {{ block "header" . }}
 <div class="header-wrapper">
   <header id="siteHeader" class="site-header {{if or (.IsHome) (.Params.hideborder) }}site-header--border-on-scroll{{end}}">
     <h1 class="site-header__logo">
       <a class="unstyled" href="{{ .Site.BaseURL }}">
-        {{ partial "render/logo.html" . }}
+        {{ partial "logo.html" . }}
       </a>
     </h1>
 
     <div id="searchToggle" class="search-toggle icon">
-      {{- partial "render/svg.html" (dict "src" "img/icons/search_bold") -}}
+      {{- partial "util/svg.html" (dict "src" "img/icons/search_bold") -}}
     </div>
 
     {{ if .Site.Menus.primary }}
@@ -24,7 +24,7 @@
 
     <nav id="siteNav" class="site-nav">
       <ul>
-        {{- partial "render/menu-item.html" (dict "menu" "primary" "page" . ) -}}
+        {{- partial "util/menu-item.html" (dict "menu" "primary" "page" . ) -}}
       </ul>
     </nav>
 
@@ -85,19 +85,19 @@
 
 {{ block "footer" . }}
 <footer class="site-footer">
-  <div class="site-footer__logo"><a href="#" class="unstyled">{{ partial "render/logo.html" . }}</a></div>
+  <div class="site-footer__logo"><a href="#" class="unstyled">{{ partial "logo.html" . }}</a></div>
   <ul class="site-footer__item site-footer__nav unstyled">
-    {{- partial "render/menu-item.html" (dict "menu" "footer" "page" . ) -}}
+    {{- partial "util/menu-item.html" (dict "menu" "footer" "page" . ) -}}
   </ul>
   <div class="site-footer__item">
     <div>{{ replace .Site.Copyright "{currentYear}" now.Year | markdownify}}</div>
     <ul class="site-footer__icons unstyled">
       <li><span id="themeToggle" class="theme-toggle"></span></li>
-      <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}" aria-label="Share on Facebook">{{ partial "render/svg.html" (dict "src" "img/icons/facebook")}}</a></li>
-      <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}" aria-label="Share on Twitter">{{ partial "render/svg.html" (dict "src" "img/icons/twitter")}}</a></li>
+      <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}" aria-label="Share on Facebook">{{ partial "util/svg.html" (dict "src" "img/icons/facebook")}}</a></li>
+      <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}" aria-label="Share on Twitter">{{ partial "util/svg.html" (dict "src" "img/icons/twitter")}}</a></li>
   </div>
   </div>
 </footer>
 {{ end }}
 
-{{ partial "foot.html" . }}
+{{ partial "site-foot.html" . }}

@@ -1,7 +1,7 @@
 {{ define "page-frontmatter" }}
 
 <ul class="page-list vertical">
-  {{- partial "render/menu-item.html" (dict "menu" "home" "page" . "class" "button") -}}
+  {{- partial "util/menu-item.html" (dict "menu" "home" "page" . "class" "button") -}}
 </ul>
 
 {{end}}
@@ -9,7 +9,7 @@
 {{ define "main" }}
 
 {{ if .Params.images }}
-{{ partial "render/responsive-img.html" (dict "page" . "class" "page-image grid--full" ) }}
+{{ partial "util/responsive-img.html" (dict "page" . "class" "page-image grid--full" ) }}
 {{ end }}
 
 <section class="page-content grid--main">

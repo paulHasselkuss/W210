@@ -10,8 +10,6 @@ disableKinds:
 
 params:
   logo: ""
-  images:
-    - android-chrome-512x512.png #img for open graph
   disallow_search_engines: false
   matomo:
     url: ""

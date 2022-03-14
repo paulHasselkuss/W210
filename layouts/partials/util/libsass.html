@@ -1,4 +1,4 @@
-{{/* USAGE: {{ partial "libsass" (dict "src" "styles/main.scss" "targetPath" "main.css" "fingerprint" true/false) }} */}}
+{{/* USAGE: {{ partial "util/libsass.html" (dict "src" "styles/main.scss" "targetPath" "main.css" "fingerprint" true/false) }} */}}
 
 {{ $src := .src -}}
 {{ $targetPath := .targetPath | default (replace $src "scss" "css") -}}

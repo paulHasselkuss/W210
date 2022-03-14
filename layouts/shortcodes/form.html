@@ -1,10 +1,9 @@
-
 {{ $identifier := .Get 0 }}
 
 {{ with (index $.Page.Params $identifier) }}
-{{ partial "render/form.html" . }}
+{{ partial "form.html" . }}
 {{ else }}
 {{ with (index $.Site.Data $identifier) }}
-{{ partial "render/form.html" . }}
+{{ partial "form.html" . }}
 {{ end }}
 {{ end }}

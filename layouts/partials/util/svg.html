@@ -1,4 +1,4 @@
-{{/* USAGE: {{ partial "svg" (dict "src" "path/to/svg" "class" ".someClass") }} */}}
+{{/* USAGE: {{ partial "util/svg.html" (dict "src" "path/to/svg" "class" ".someClass") }} */}}
 {{ $src := .src | strings.TrimSuffix ".svg" }}
 {{ $class := slice (print $src "-icon") }}
 
