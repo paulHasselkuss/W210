@@ -1,0 +1,29 @@
+{{ $img := resources.Get "/img/social-template.png" }}
+{{ $color := "#fffffc" }}
+
+{{ $fontBold := resources.Get "/GeneralSans-Bold.ttf" }}
+{{ $fontSemiBold := resources.Get "/GeneralSans-SemiBold.ttf" }}
+
+{{ $img = $img.Filter (images.Text .Page.Title (dict
+    "font" $fontBold
+    "color" $color
+    "size" 60
+    "linespacing" 2
+    "x" 40
+    "y" 250
+))}}
+
+{{ if not .Page.IsHome }}
+
+{{ $img = $img.Filter (images.Text .Site.Title (dict
+    "font" $fontSemiBold
+    "color" $color
+    "size" 48
+    "linespacing" 2
+    "x" 40
+    "y" 324
+))}}
+
+{{ end }}
+
+{{ return $img.Permalink }}

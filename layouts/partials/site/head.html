@@ -17,8 +17,7 @@
 
     <!-- SEO -->
     {{ template "_internal/schema.html" . }}
-    {{ template "_internal/opengraph.html" . }}
-    {{ template "_internal/twitter_cards.html" . }}
+    {{ partial "opengraph.html" . }}
 
     <!-- Favicons -->
     <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="any">
