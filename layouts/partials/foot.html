@@ -1,0 +1,9 @@
+{{ partialCached "search" . }}
+{{ partial "util/esbuild.html" (dict "src" "js/app.js" "targetPath" "js/main.js" "load" "defer" "transpile" true) }}
+
+{{ if eq hugo.Environment "production" }}
+{{ partialCached "analytics.html" . }}
+{{ end }}
+</body>
+
+</html>
