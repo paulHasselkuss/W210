@@ -51,7 +51,7 @@
   "scripts": {
     "build": "cd exampleSite && hugo --minify",
     "ci": "npm install && npm run build",
-    "clean": "rm -rf public resources",
+    "clean": "cd exampleSite && rm -rf public resources",
     "dev": "npm-run-all --parallel start dev:*",
     "dev:browser": "wait-on http://localhost:1313 && open http://localhost:1313",
     "dev:sublime": "subl .",

@@ -1,5 +1,5 @@
 {{ if .Site.Params.matomo }}
-<!-- Get Hugo to build the css for Matomo. The file is then loaded by Matomo's iframe via the 'Custom Opt-Out' plugin: {{ partial "libsass" (dict "src" "styles/matomo.scss" "fingerprint" false ) }} -->
+<!-- Get Hugo to build the css for Matomo. The file is then loaded by Matomo's iframe via the 'Custom Opt-Out' plugin: {{ partial "util/libsass.html" (dict "src" "styles/matomo.scss" "fingerprint" false ) }} -->
 
 <!-- Matomo -->
 <script>

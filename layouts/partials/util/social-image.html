@@ -1,8 +1,9 @@
-{{ $img := resources.Get "/img/social-template.png" }}
+{{ $img := resources.Get "img/social-template.png" }}
 {{ $color := "#fffffc" }}
 
-{{ $fontBold := resources.Get "/GeneralSans-Bold.ttf" }}
-{{ $fontSemiBold := resources.Get "/GeneralSans-SemiBold.ttf" }}
+{{/* These links are taken from FontShare. Unfortunatly, using a locale copy of the TTFs fails on the CI for unknown reasons. :( */}}
+{{ $fontBold := resources.GetRemote "https://cdn.fontshare.com/wf/KWXO5X3YW4X7OLUMPO4X24HQJGJU7E2Q/VOWUQZS3YLP66ZHPTXAFSH6YACY4WJHT/NIQ54PVBBIWVK3PFSOIOUJSXIJ5WTNDP.ttf" }}
+{{ $fontSemiBold := resources.GetRemote "https://cdn.fontshare.com/wf/K46YRH762FH3QJ25IQM3VAXAKCHEXXW4/ISLWQPUZHZF33LRIOTBMFOJL57GBGQ4B/3ZLMEXZEQPLTEPMHTQDAUXP5ZZXCZAEN.ttf" }}
 
 {{ $img = $img.Filter (images.Text .Page.Title (dict
     "font" $fontBold
