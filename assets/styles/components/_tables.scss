@@ -1,6 +1,6 @@
 table {
   border-collapse: collapse;
-  margin: var(--spacing) 0;
+  margin: 0 0 var(--spacing--small);
   table-layout: auto;
   text-align: left;
   width: 100%;
@@ -9,25 +9,22 @@ table {
 thead {
   line-height: var(--line-height);
   vertical-align: bottom;
+  @include fw("semi-bold");
 }
 
 tbody {
   vertical-align: top;
 }
 
-tr {
+thead tr {
+  border-bottom: var(--border--small);
+}
+
+tbody tr {
   @include except-last(border-bottom, var(--border--small));
 }
 
 th,
 td {
   padding: var(--spacing--small) var(--spacing--small) var(--spacing--small) 0;
-}
-
-th {
-  @include fw("bold");
-
-  &:empty {
-    display: none;
-  }
 }
