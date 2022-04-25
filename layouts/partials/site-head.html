@@ -12,7 +12,7 @@
     <!-- Site info -->
     <title>{{ if not .IsHome}}{{- with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title -}}</title>
     {{ with .Description }}
-    <meta name="description" content="{{ . }}">
+    <meta name="description" content="{{ . | markdownify | plainify }}">
     {{ end }}
 
     <!-- SEO -->
