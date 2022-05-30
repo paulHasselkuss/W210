@@ -26,6 +26,11 @@ npm install
 ```
 Some usefull scripts can be found in this project's `package.json`.
 
+
+
+## [hugo contact form](https://fabform.io/a/hugo-contact-form)
+
+
 ## Features
 
 Atlas provides the following features out of the box:
