@@ -43,7 +43,7 @@
   "devDependencies": {
     "eslint": "^8.17.0",
     "markdownlint-cli": "^0.31.1",
-    "stylelint": "^14.8.5",
+    "stylelint": "^14.9.0",
     "stylelint-config-recommended-scss": "^6.0.0"
   },
   "name": "W210",
