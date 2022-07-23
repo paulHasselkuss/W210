@@ -1,6 +1,6 @@
 {{ define "page-frontmatter" }}
 
-{{ if not .Sections }}
+{{ if not (or (.Sections) (isset .Params "hide-menu")) }}
 <ul class="page-list vertical">
   {{ partial "partials/paginate-pages" . }}
 </ul>
