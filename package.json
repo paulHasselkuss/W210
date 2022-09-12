@@ -30,7 +30,7 @@
     "@babel/core": "^7.19",
     "@babel/preset-env": "^7.19.0",
     "@csstools/normalize.css": "^12.0.0",
-    "autoprefixer": "^10.4.8",
+    "autoprefixer": "^10.4.9",
     "bourbon": "^7.2.0",
     "cssnano": "^5.1.13",
     "flexsearch": "^0.7.21",
