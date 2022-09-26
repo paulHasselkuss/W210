@@ -41,7 +41,7 @@
     "wait-on": "^6.0.1"
   },
   "devDependencies": {
-    "eslint": "^8.23.1",
+    "eslint": "^8.24.0",
     "markdownlint-cli": "^0.32.2",
     "stylelint": "^14.12.1",
     "stylelint-config-recommended-scss": "^7.0.0"
