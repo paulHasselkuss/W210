@@ -1,6 +1,7 @@
 ---
 title: Forms
-description: Simple forms can be added via the `forms` partial or shortcode. The form's fields are given as data, either in a pages frontmatter or using data files.
+description: Forms can be added via the `forms` partial or shortcode. The form's fields are specified as data, either in a page's frontmatter or in a data file.
+toc: true
 simpleform:
   name: "simple-form"
   attributes:
@@ -15,8 +16,6 @@ simpleform:
   - name: "message"
     type: "textarea"
     label: "Your message"
-menu:
-  - primary
 ---
 
 ## Example using the page's frontmatter

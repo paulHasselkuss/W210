@@ -1,0 +1,31 @@
+<div class="header-wrapper">
+  <header id="siteHeader" class="site-header {{if or (.IsHome) (.Params.hideborder) }}site-header--border-on-scroll{{end}}">
+    <h1 class="site-header__logo">
+      <a class="unstyled" href="{{ .Site.BaseURL }}">
+        {{ partial "site/logo.html" . }}
+      </a>
+    </h1>
+
+    <div id="searchToggle" class="search-toggle icon">
+      {{ partial "util/svg.html" (dict "src" "img/icons/search_bold") }}
+    </div>
+
+    {{ if .Site.Menus.primary }}
+
+    <button id="navToggle" class="site-nav--btn hamburger" type="button" aria-label="Toggle navigation">
+      <div class="hamburger__inner">
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+    <nav id="siteNav" class="site-nav">
+      <ul>
+        {{ partial "util/menu-item.html" (dict "menu" "primary" "page" . ) }}
+      </ul>
+    </nav>
+
+    {{ end }}
+
+  </header>
+</div>

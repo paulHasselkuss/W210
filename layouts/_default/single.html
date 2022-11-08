@@ -1,21 +1,9 @@
-{{ define "page-frontmatter" }}
-
-{{ if .Params.toc }}
-<section class="page__toc">
-  {{ .TableOfContents }}
-</section>
+{{ define "frontmatter" }}
+{{ partial "page/page-description.html" . }}
+{{ partial "page/page-toc.html" . }}
 {{ end }}
-
-{{ end }}
-
-{{ define "main" }}
-
-<section class="page-content grid--main">
-  {{ .Content }}
-</section>
-
-{{ if .Params.images }}
-{{ partial "util/responsive-img.html" (dict "page" . "class" "page-image grid--full" ) }}
-{{ end }}
-
+  
+{{ define "content" }}
+{{ partial "page/page-content.html" . }}
+{{ partial "page/page-image.html" . }}
 {{ end }}

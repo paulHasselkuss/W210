@@ -10,6 +10,7 @@ disableKinds:
 
 params:
   logo: ""
+  layout: "simple"
   disallow_search_engines: false
   matomo:
     url: ""

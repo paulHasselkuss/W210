@@ -1,19 +1,18 @@
-{{ define "page-frontmatter" }}
+{{ define "frontmatter" }}
 
+{{ partial "page/page-description.html" . }}
 <ul class="page-list vertical">
-  {{- partial "util/menu-item.html" (dict "menu" "home" "page" . "class" "button") -}}
+  {{ partial "util/menu-item.html" (dict "menu" "home" "page" . "class" "button") }}
 </ul>
 
-{{end}}
-
-{{ define "main" }}
-
-{{ if .Params.images }}
-{{ partial "util/responsive-img.html" (dict "page" . "class" "page-image grid--full" ) }}
 {{ end }}
 
+{{ define "content" }}
+
+{{ partial "page/page-image.html" . }}
 <section class="page-content grid--main">
   {{ .Content }}
 </section>
 
 {{ end }}
+

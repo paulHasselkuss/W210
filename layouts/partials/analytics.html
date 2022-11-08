@@ -1,7 +1,7 @@
-{{ if .Site.Params.matomo }}
+{{ with .Site.Params.Matomo }}
 
-{{ $url := .Site.Params.Matomo.Url }}
-{{ $id := .Site.Params.Matomo.SiteId }}
+{{ $url := .Url }}
+{{ $id := .SiteId }}
 <!-- Get Hugo to build the css for Matomo. The file is then loaded by Matomo's iframe via the 'Custom Opt-Out' plugin: {{ partial "util/libsass.html" (dict "src" "styles/matomo.scss" "fingerprint" false ) }} -->
 
 <!-- Matomo -->
@@ -30,3 +30,4 @@ _paq.push(['enableLinkTracking']);
 </noscript>
 <!-- End Matomo -->
 {{ end }}
+{{ template "_internal/google_analytics.html" . }}

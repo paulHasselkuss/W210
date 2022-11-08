@@ -1,46 +1,31 @@
-{{ define "page-frontmatter" }}
+{{ define "frontmatter" }}
 
-{{ if not (or (.Sections) (isset .Params "hide-menu")) }}
-<ul class="page-list vertical">
-  {{ partial "partials/paginate-pages" . }}
-</ul>
+{{ partial "page/page-description.html" . }}
+
+{{/*For the simple layout, we display a list of all subpages.*/}}
+{{ if eq .Params.layout "simple" }}
+{{ partial "page/page-list.html" . }}
 {{ end }}
 
 {{ end }}
 
-{{ define "main" }}
+{{ define "content" }}
 
-{{ with .Content }}
-<section class="page-content grid--main">
-  {{ . }}
-</section>
-{{ end }}
+{{ partial "page/page-image.html" . }}
+{{ partial "page/page-content.html" . }}
 
-{{ if .Sections }}
+{{/*For the extended layout, we display a list of all sections and the subpages of the section.*/}}
+{{ if and (eq .Params.layout "extended") .Sections }}
+
 <section class="section-list grid--main">
-
   {{ range .Sections }}
   <article class=" section">
-
-    <h3 class="section__title">{{ .Title }}</h3>
+    <h3 class="section__title"><a class="unstyled"href="{{ .Permalink }}">{{ .Title }}</a></h3>
     <p class="section__description">{{ .Description | markdownify }}</p>
-
-    <ul class="page__page-list vertical">
-      <li><a class="button button--primary" href="{{ .Permalink }}">Info</a></li>
-      {{ partial "partials/paginate-pages" . }}
-    </ul>
-
+    {{ partial "page/page-list.html" . }}
   </article>
   {{ end }}
 </section>
-{{ end }}
-
-{{ end }}
-
-{{ define "partials/paginate-pages" }}
-
-{{ range .Paginator.Pages }}
-<li><a class="button" href="{{ .Permalink }}">{{ .Title }}</a></li>
 {{ end }}
 
 {{ end }}

@@ -1,0 +1,10 @@
+<header class="page-header grid--main">
+  <h1 class="page-header__title">{{ .Title }}</h1>
+
+  {{ if or (.Params.date) (.Params.author)}}
+  <p class="page-header__meta">
+    {{ with .Params.author }}<span>by {{ . }}</span>{{ end }}
+    {{ with .Params.date }}<span>published {{ .Format "2 January 2006" }}</span>{{ end }}
+  </p>
+  {{ end }}
+</header>

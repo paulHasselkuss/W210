@@ -1,103 +1,30 @@
-{{ partial "site-head.html" . }}
+<!doctype html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+{{ partial "site/site-head.html" . }}
 
-{{ block "header" . }}
-<div class="header-wrapper">
-  <header id="siteHeader" class="site-header {{if or (.IsHome) (.Params.hideborder) }}site-header--border-on-scroll{{end}}">
-    <h1 class="site-header__logo">
-      <a class="unstyled" href="{{ .Site.BaseURL }}">
-        {{ partial "logo.html" . }}
-      </a>
-    </h1>
-
-    <div id="searchToggle" class="search-toggle icon">
-      {{- partial "util/svg.html" (dict "src" "img/icons/search_bold") -}}
-    </div>
-
-    {{ if .Site.Menus.primary }}
-
-    <button id="navToggle" class="site-nav--btn hamburger" type="button" aria-label="Toggle navigation">
-      <div class="hamburger__inner">
-        <span></span>
-        <span></span>
-      </div>
-    </button>
-
-    <nav id="siteNav" class="site-nav">
-      <ul>
-        {{- partial "util/menu-item.html" (dict "menu" "primary" "page" . ) -}}
-      </ul>
-    </nav>
-
-    {{ end }}
-
-  </header>
-</div>
-{{ end }}
+<body class="kind-{{- .Kind }}">
+{{ partial "site/site-header.html" . }}
 
 <main class="site-content grid">
-
-  <header class="page-header grid--main">
-
-    <h1 class="page-header__title">{{ .Title }}</h1>
-
-    {{ if or (.Params.date) (.Params.author)}}
-    <p class="page-header__meta">
-      {{ with .Params.author }}<span>by {{ . }}</span>{{ end }}
-      {{ with .Params.date }}<span>published {{ .Format "2 January 2006" }}</span>{{ end }}
-    </p>
-    {{ end }}
-  </header>
+  {{ partial "page/page-header.html" . }}
 
   <div class="page-frontmatter grid--main bigtext">
-
-    {{ with .Description }}
-    <section class="page-description">
-      {{ . | markdownify }}
-    </section>
+    {{ block "frontmatter" . }}
+    {{ partial "page/page-description.html" . }}
     {{ end }}
-
-    {{ block "page-frontmatter" . }}
-    {{/*Other layouts can add additional frontmatter via this block*/}}
-    {{ end }}
-
   </div>
-
-  {{ block "main" . }}
-  {{ .Content }}
+  
+  {{ block "content" . }}
+  {{ partial "page/page-content.html" . }}
   {{ end }}
 
-  {{ if and .Params.showSponsors .Site.Params.sponsors }}
-  <section class="grid--main sponsors">
-    <h4 class="sponsors__title">Supported by:</h4>
-    {{ range .Site.Params.sponsors }}
-    <a class="sponsors__logo unstyled" href="{{ .link }}">
-      {{ if .logo }}
-      <img class="theme-dark--white" src="{{ (resources.Get .logo).Permalink }}" alt="{{ .name }}">
-      {{ else }}
-      <h5>{{ .name }}</h5>
-      {{ end }}
-    </a>
-    {{ end }}
-  </section>
+  {{ block "backmatter" . }}
+  {{ partial "site/sponsors.html" . }}
   {{ end }}
-
+  
 </main>
 
-{{ block "footer" . }}
-<footer class="site-footer">
-  <div class="site-footer__logo"><a href="#" class="unstyled">{{ partial "logo.html" . }}</a></div>
-  <ul class="site-footer__item site-footer__nav unstyled">
-    {{- partial "util/menu-item.html" (dict "menu" "footer" "page" . ) -}}
-  </ul>
-  <div class="site-footer__item">
-    <div>{{ replace .Site.Copyright "{currentYear}" now.Year | markdownify}}</div>
-    <ul class="site-footer__icons unstyled">
-      <li><span id="themeToggle" class="theme-toggle"></span></li>
-      <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}" aria-label="Share on Facebook">{{ partial "util/svg.html" (dict "src" "img/icons/facebook")}}</a></li>
-      <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}" aria-label="Share on Twitter">{{ partial "util/svg.html" (dict "src" "img/icons/twitter")}}</a></li>
-  </div>
-  </div>
-</footer>
-{{ end }}
-
-{{ partial "site-foot.html" . }}
+{{ partial "site/site-footer.html" . }}
+{{ partial "site/site-scripts.html" . }}
+</body>
+</html>

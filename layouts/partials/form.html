@@ -4,7 +4,7 @@
 {{ $formClass := .class  | default "element-grid" }}
 
 <form name="{{ $formName }}"
-  class="form form--{{ $formName }} {{ with $formClass }} {{ . }}{{ end }}" 
+  class="form form--{{- $formName }} {{ with $formClass }} {{ . }}{{ end }}" 
   {{ partial "inline/attributes" $formAttributes }}
   >
 

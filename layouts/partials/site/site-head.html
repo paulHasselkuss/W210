@@ -1,0 +1,34 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font & Styles -->
+  <link rel="preload" as="font" href="{{ "fonts/GeneralSans-variable-normal.woff2" | absURL }}" type="font/woff2" crossorigin="">
+  {{ partialCached "util/libsass.html" (dict "src" "styles/main.scss") }}
+
+  <!-- Site info -->
+  <title>{{ if not .IsHome}}{{- with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title -}}</title>
+  {{ with .Description }}
+  <meta name="description" content="{{ . | markdownify | plainify }}">
+  {{ end }}
+
+  <!-- SEO -->
+  {{ template "_internal/schema.html" . }}
+  {{ partial "social/opengraph.html" . }}
+  {{ partial "social/twitter-cards.html" . }}
+
+  <!-- Favicons -->
+  <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="any">
+  <link rel="icon" href="{{ "favicon.svg" | absURL }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
+  <link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" data-alt="#fffffc" data-default="#00000f" content="#00000f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" data-alt="#00000f" data-default="#fffffc" content="#fffffc">
+
+  <!-- Other -->
+  {{ range .AlternativeOutputFormats }}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+  {{ end }}
+</head>

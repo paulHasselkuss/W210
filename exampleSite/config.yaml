@@ -10,8 +10,8 @@ disableKinds:
 
 menu:
   home:
-  - name: HTML5 Test Page
-    url: "/html5-test-page/"
+  - name: Docs
+    url: "/docs/"
     Params:
       class: button--primary
   - name: Source

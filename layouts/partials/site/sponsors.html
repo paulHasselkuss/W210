@@ -1,0 +1,14 @@
+  {{ if and .Params.showSponsors .Site.Params.sponsors }}
+  <section class="grid--main sponsors">
+    <h4 class="sponsors__title">Supported by:</h4>
+    {{ range .Site.Params.sponsors }}
+    <a class="sponsors__logo unstyled" href="{{ .link }}">
+      {{ if .logo }}
+      <img class="theme-dark--white" src="{{ (resources.Get .logo).Permalink }}" alt="{{ .name }}">
+      {{ else }}
+      <h5>{{ .name }}</h5>
+      {{ end }}
+    </a>
+    {{ end }}
+  </section>
+  {{ end }}

@@ -1,0 +1,8 @@
+{{ $pages := union .Sections .Pages }}
+{{ with $pages }}
+<ul class="page-list vertical">
+  {{ range . }}
+  <li><a class="button" href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>
+{{ end }}
