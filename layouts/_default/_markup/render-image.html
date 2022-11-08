@@ -16,12 +16,12 @@
 
 {{ if .Title }}
 <figure>
-  {{ partial "responsive-img" (dict "page" .Page "src" $destination "alt" .Text "media" "main" )}}
+  {{ partial "util/responsive-img" (dict "page" .Page "src" $destination "alt" .Text "media" "main" )}}
   <figcaption>{{ .Title }}</figcaption>
 </figure>
 {{ else }}
 
-{{ partial "responsive-img" (dict "page" .Page "src" $destination "alt" .Text "media" "main" )}}
+{{ partial "util/responsive-img" (dict "page" .Page "src" $destination "alt" .Text "media" "main" )}}
 {{ end }}
 
 {{ end }}
