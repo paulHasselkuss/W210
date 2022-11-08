@@ -1,7 +1,6 @@
 ---
 title: Docs
 description: The documentation is a work in progress. You might want to look at the markdown files on GitHub.
-layout: simple
 menu:
   - primary
 ---
@@ -17,7 +16,7 @@ The theme supports three menus:
 
 Lists can have three styles:
 1. `none` - does not display any subpages.
-2. `simple` - displays subpages and subsections below the site's describtion.
+2. `simple` - displays subpages and subsections below the site's describtion. This is the default.
 3. `extended` - displays sections subsections and their subpages in an extended format.
 
 ## Search

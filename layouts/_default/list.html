@@ -3,7 +3,8 @@
 {{ partial "page/page-description.html" . }}
 
 {{/*For the simple layout, we display a list of all subpages.*/}}
-{{ if eq .Params.layout "simple" }}
+{{/*This is the default.*/}}
+{{ if or (eq .Params.layout "simple") (not .Params.layout) }}
 {{ partial "page/page-list.html" . }}
 {{ end }}
 
