@@ -2,9 +2,9 @@
 
 {{ partial "page/page-description.html" . }}
 
-{{/*For the simple layout, we display a list of all subpages.*/}}
+{{/*For the simple style, we display a list of all subpages.*/}}
 {{/*This is the default.*/}}
-{{ if or (eq .Params.layout "simple") (not .Params.layout) }}
+{{ if or (eq .Params.listStyle "simple") (not .Params.listStyle) }}
 {{ partial "page/page-list.html" . }}
 {{ end }}
 
@@ -15,8 +15,8 @@
 {{ partial "page/page-image.html" . }}
 {{ partial "page/page-content.html" . }}
 
-{{/*For the extended layout, we display a list of all sections and the subpages of the section.*/}}
-{{ if and (eq .Params.layout "extended") .Sections }}
+{{/*For the extended style, we display a list of all sections and the subpages of the section.*/}}
+{{ if and (eq .Params.listStyle "extended") .Sections }}
 
 <section class="section-list grid--main">
   {{ range .Sections }}
