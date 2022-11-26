@@ -1,0 +1,42 @@
+.sponsors {
+  margin-top: spacing(1);
+  padding-top: spacing(1);
+  border-top: var(--border--small);
+
+  columns: 2;
+  column-gap: spacing(1.5);
+
+  @include md("medium") {
+    columns: 3;
+    column-gap: spacing(3);
+  }
+
+  .sponsors__title {
+    margin-top: 0;
+    margin-bottom: 0;
+    column-span: all;
+  }
+
+  .sponsors__logo {
+    cursor: pointer;
+
+    svg, img {
+      width: auto;
+      margin-top: spacing(1);
+    }
+    
+    &:hover svg, &:hover img {
+      animation: pulse 1.5s infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}

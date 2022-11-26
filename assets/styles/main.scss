@@ -24,9 +24,11 @@ $bourbon: ("modular-scale-base": 1rem, "modular-scale-ratio": 1.25, "global-font
 @import "components/lists";
 @import "components/media";
 @import "components/tables";
+@import "components/sponsors";
 
 //layout
 @import "layout/grid";
+@import "layout/site";
 @import "layout/page";
 @import "layout/header";
 @import "layout/nav";
@@ -34,8 +36,11 @@ $bourbon: ("modular-scale-base": 1rem, "modular-scale-ratio": 1.25, "global-font
 @import "layout/footer";
 
 //pages
-@import "pages/common-elements";
+//...
 
 //themes
 @import "themes/darkmode";
 @import "themes/theme-toggle";
+
+//misc
+@import "overwrite";
