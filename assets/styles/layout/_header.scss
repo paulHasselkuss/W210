@@ -19,7 +19,7 @@
 
   // same width as content and footer
   width: calc(100% - (var(--spacing--site) * 2));
-  max-width: calc(#{$max-page-width} - (var(--spacing--site) * 2));
+  max-width: calc(var(--max-page-width) - (var(--spacing--site) * 2));
   display: flex;
   flex-direction: row;
   align-items: center;

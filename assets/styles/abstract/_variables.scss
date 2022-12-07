@@ -39,6 +39,9 @@ $breakpoints: ("small": 576px,
   --font-family--heading: var(--font-family);
   --baseline: #{$baseline};
 
+  // Page Width
+  --max-page-width: 1200px;
+
   // Other Sizes for horizontal spacing
   --spacing--small: #{spacing(.5)};
   --spacing: #{spacing(1)};

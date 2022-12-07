@@ -1,5 +1,3 @@
-$max-page-width: 1200px;
-
 html {
   background-color: var(--color--viewport--background);
   box-sizing: border-box;
@@ -14,7 +12,7 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  max-width: $max-page-width;
+  max-width: var(--max-page-width);
   min-height: 100%;
   margin: auto;
 }

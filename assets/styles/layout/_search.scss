@@ -46,12 +46,13 @@
 .search-container {
   margin: var(--header-height) var(--spacing--site) var(--spacing--small);
   width: calc(100% - (var(--spacing--site) * 2));
-  max-width: calc(#{$max-page-width} - (var(--spacing--site) * 2));
+  max-width: calc(var(--max-page-width) - (var(--spacing--site) * 2));
 }
 
 .search-form {
   padding: spacing(1) 0;
 
+  form,
   input {
     border: 0;
     margin: 0;
