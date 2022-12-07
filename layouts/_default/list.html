@@ -1,12 +1,16 @@
 {{ define "frontmatter" }}
 
-{{ partial "page/page-description.html" . }}
+{{ partial "page/page-header.html" . }}
 
-{{/*For the simple style, we display a list of all subpages.*/}}
-{{/*This is the default.*/}}
-{{ if or (eq .Params.listStyle "simple") (not .Params.listStyle) }}
-{{ partial "page/page-list.html" . }}
-{{ end }}
+<div class="page-frontmatter grid--main bigtext">
+  {{ partial "page/page-description.html" . }}
+
+  {{/*For the simple style, we display a list of all subpages.*/}}
+  {{/*This is the default.*/}}
+  {{ if or (eq .Params.listStyle "simple") (not .Params.listStyle) }}
+  {{ partial "page/page-list.html" . }}
+  {{ end }}
+</div>
 
 {{ end }}
 
@@ -21,7 +25,7 @@
 <section class="section-list grid--main">
   {{ range .Sections }}
   <article class=" section">
-    <h3 class="section__title"><a class="unstyled"href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <h3 class="section__title"><a class="unstyled" href="{{ .Permalink }}">{{ .Title }}</a></h3>
     <p class="section__description">{{ .Description | markdownify }}</p>
     {{ partial "page/page-list.html" . }}
   </article>

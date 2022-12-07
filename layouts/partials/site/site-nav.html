@@ -1,0 +1,16 @@
+    {{ if .Site.Menus.primary }}
+
+    <button id="navToggle" class="site-nav--btn hamburger" type="button" aria-label="Toggle navigation">
+      <div class="hamburger__inner">
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+    <nav id="siteNav" class="site-nav">
+      <ul>
+        {{ partial "util/menu-item.html" (dict "menu" "primary" "page" . ) }}
+      </ul>
+    </nav>
+
+    {{ end }}
