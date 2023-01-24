@@ -31,7 +31,7 @@
     "@babel/preset-env": "^7.20.2",
     "@csstools/normalize.css": "^12.0.0",
     "autoprefixer": "^10.4.13",
-    "bourbon": "^7.2.0",
+    "bourbon": "^7.3.0",
     "cssnano": "^5.1.14",
     "flexsearch": "^0.7.31",
     "instant.page": "^5.1.1",
