@@ -30,7 +30,7 @@ images:
   - <image> #the first image will be displayed as the page's main image above or beneath the contents
 toc: <true|false> #whether to display a table of contents, defaults to false
 listStyle: <none|simple|extended> #the page's listing style, defaults to simple
-showSponsors: <true|false> #whether to show sponsors below the page, defaults to false
+showSponsors: <true|false> #whether to show the site's sponsors below the page, defaults to false
 hideBorder: <true|false> #whether to hide the header's border, defaults to false
 excludeFromSearch: <true|false> #whether to excldue this page from search reuslts, defaults to false
 ```
