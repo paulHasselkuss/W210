@@ -86,7 +86,7 @@ button.hamburger {
   margin-top: -1px;
 }
 
-.hamburger span {
+.hamburger__inner span {
   display: block;
   transition: transform .2s $cubic--burger .2s;
 
@@ -110,7 +110,7 @@ button.hamburger {
   }
 }
 
-.hamburger.is-active span {
+.hamburger.is-active .hamburger__inner span {
   transition: transform .2s $cubic--burger;
   transform: translate3d(0, 0, 0);
 
