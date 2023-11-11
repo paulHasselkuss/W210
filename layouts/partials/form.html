@@ -25,7 +25,7 @@
   {{ end }}
 
   {{ if eq $type "textarea" }}
-  <textarea type="{{ $type }}" id="{{ $name }}" name="{{ $name }}" class="input-field" {{ partial "inline/attributes" $attributes }}></textarea>
+  <textarea id="{{ $name }}" name="{{ $name }}" class="input-field" {{ partial "inline/attributes" $attributes }}></textarea>
   {{ else }}
   <input type="{{ $type }}" id="{{ $name }}" name="{{ $name }}" class="input-field" {{ partial "inline/attributes" $attributes }}>
   {{ end }}
