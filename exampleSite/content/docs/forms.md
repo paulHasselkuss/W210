@@ -4,9 +4,7 @@ description: Forms can be added via the `forms` partial or shortcode. The form's
 toc: true
 simpleform:
   name: "simple-form"
-  attributes:
-    method: "POST"
-    data-netlify: "true"
+  attributes: 'method="POST" netlify'
   fields:
   - name: "name"
     label: "Your name"
@@ -35,16 +33,12 @@ The fields of the form below are specified in a data file. If both a data file a
 ```YAML
 name: "name"
 class: "my-custom-class" #optional
-attributes: #mapps directly to HTML attributes
-  method: "POST"
-  data-netlify: "true"
+attributes: 'method="POST" netlify' #mapps directly to HTML attributes
 fields:
 - name: "fieldName"
   class: "element-grid__full"  #optional
   type: "text" #optional
   describtion: "This is a describtion that supports **markdown**." #optional
   label: "This is a label that supports __markdown__:" #optional
-  attributes: #mapps directly to HTML attributes, optional
-    required: "true"
-    placeholder: "custom placeholder"
+  attributes: 'required' #mapps directly to HTML attributes, optional
 ```

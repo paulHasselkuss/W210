@@ -1,7 +1,5 @@
 name: "complex-form"
-attributes:
-  method: "POST"
-  data-netlify: "true"
+attributes: 'method:"POST" action="/thank-you/" netlify'
 fields:
 - name: "first-name"
   label: "First Name"
@@ -22,17 +20,13 @@ fields:
   class: "element-grid__half"
 - name: "letter-of-motivation"
   label: "Letter of Motivation (140-200 words)"
-  type: textarea
-  attributes:
-    rows: "10"
-    required: "true"
+  type: "textarea"
+  attributes: 'rows=10 required'
 - name: "cv"
   label: "Short CV (PDF)"
   type: "file"
-  attributes:
-    accept: ".pdf"
-    required: "true"
-- name: privacy-policy
-  label: Privacy Policy
+  attributes: 'accept=".pdf" required'
+- name: "privacy-policy"
+  label: "Privacy Policy"
   type: "checkbox"
-  describtion: Yes, I have read the [privacy policy](#) and agree that the data I have provided may be collected and stored electronically. My data will only be used strictly for the purpose of processing and answering my enquiry.
+  describtion: "Yes, I have read the [privacy policy](#) and agree that the data I have provided may be collected and stored electronically. My data will only be used strictly for the purpose of processing and answering my enquiry."

@@ -4,7 +4,7 @@
 {{ $formClass := .class  | default "element-grid" }}
 
 <form name="{{ $formName }}"
-  class="form form--{{- $formName }} {{ with $formClass }} {{ . }}{{ end }}" 
+  class="form form--{{- $formName }} {{- with $formClass }} {{ . }}{{ end }}" 
   {{ partial "inline/attributes" $formAttributes }}
   >
 
@@ -15,11 +15,11 @@
 {{ $describtion := .describtion | default ""  }}
 {{ $type := .type | default "text" }}
 {{ $class := .class | default "element-grid__full" }}
-{{ $attributes := .attributes | default (dict "required" "true") }}
+{{ $attributes := .attributes | default "required" }}
 
 <div class="input-container input-container--{{ $type }} {{ with $class }} {{ . }}{{ end }}">
   {{ with $label }}
-  <label for="{{ $name }}" class="input-label{{ if isset $attributes "required" }} is-required{{ end }}">
+  <label for="{{ $name }}" class="input-label{{ if strings.Contains $attributes "required" }} is-required{{ end }}">
     {{ . | markdownify }}
   </label>
   {{ end }}
@@ -39,19 +39,9 @@
 
 </form>
 
-
 {{ define "partials/inline/attributes" }}
 
-{{ $attributes := "" }}
-
-{{ range $key, $value := . }}
-
-{{ $string := $key }}
-{{ with $value }}
-{{ $string = printf `"%s"` . | printf "%s=%s" $string}}
-{{ end }}
-{{ $attributes = printf "%s" $attributes | printf "%s %s" $string }}
-{{ end }}
-
+{{ $attributes := printf "%s" . }}
 {{ return ($attributes  | safeHTMLAttr) }}
+
 {{ end }}
