@@ -6,7 +6,15 @@
 {{ $class = $class | append (split .class ", ") }}
 {{ end }}
 
-{{ $match := "<svg (.*)?>(.*)</svg>" }}
+{{/*
+  <svg([^>]*): Matches the opening <svg> tag and captures everything inside the tag (except for class) in the first capture group.
+  \bclass\s*=\s*"[^"]*": Matches the class attribute.
+  [^>]*>: Matches the rest of the opening tag.
+  (.*?): Captures the content within the <svg> tags (except for the closing </svg> tag) in the second capture group in a non-greedy way.
+  <\/svg>: Matches the closing </svg> tag.
+*/}}
+{{ $match := `<svg([^>]*)\bclass\s*=\s*"[^"]*"[^>]*>(.*?)<\/svg>` }}
+
 {{ $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` (delimit $class " ") }}
 {{ $resource := resources.Get (printf "%s.svg" $src) }}
 
