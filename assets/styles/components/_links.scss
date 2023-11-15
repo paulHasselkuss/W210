@@ -13,7 +13,12 @@ a {
     outline-offset: var(--focus-outline-offset);
   }
 
-  &.unstyled {
+  &.unstyled,
+  &.unchanged {
     text-decoration: none;
+  }
+
+  &.unchanged {
+    color: var(--color--font);
   }
 }
