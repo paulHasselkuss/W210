@@ -7,8 +7,10 @@
 <section class="section-list grid--main">
 {{ range $paginator.Pages }}
   <article class="section">
-    <h3 class="section__title"><a class="unstyled" href="{{ .Permalink }}">{{ .Title }}</a></h3>
-    <p class="section__description">{{ .Description | markdownify }}</p>
+    <a class="unstyled" href="{{ .Permalink }}">
+      <h3 class="section__title">{{ .Title }}</h3>
+      <p class="section__description">{{ .Description | markdownify }}</p>
+    </a>
     {{ partial "page/page-list.html" . }}
   </article>
 {{ end }}
