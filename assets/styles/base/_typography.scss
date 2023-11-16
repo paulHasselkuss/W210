@@ -113,3 +113,7 @@ p {
   -ms-hyphenate-limit-last: always;
   -ms-hyphenate-limit-zone: 8%;
 }
+
+mark {
+  background-color: $blue--light;
+}
