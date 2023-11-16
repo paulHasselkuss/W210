@@ -1,14 +1,3 @@
-{{ define "frontmatter" }}
-
-{{ partial "page/page-header.html" . }}
-
-<div class="page-frontmatter grid--main bigtext">
-  {{ partial "page/page-description.html" . }}
-  {{ partial "page/page-toc.html" . }}
-</div>
-
-{{ end }}
-  
 {{ define "content" }}
 {{ partial "page/page-content.html" . }}
 {{ partial "page/page-image.html" . }}

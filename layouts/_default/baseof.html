@@ -6,13 +6,15 @@
 {{ partial "site/site-header.html" . }}
 
 <main class="site-content grid">
-  {{ block "frontmatter" . }}
   {{ partial "page/page-header.html" . }}
 
   <div class="page-frontmatter grid--main bigtext">
     {{ partial "page/page-description.html" . }}
+    
+    {{ block "frontmatter" . }}
+    {{ partial "page/page-toc.html" . }}
+    {{ end }}
   </div>
-  {{ end }}
   
   {{ block "content" . }}
   {{ partial "page/page-content.html" . }}

@@ -1,36 +1,25 @@
-{{ define "frontmatter" }}
-
-{{ partial "page/page-header.html" . }}
-
-<div class="page-frontmatter grid--main bigtext">
-  {{ partial "page/page-description.html" . }}
-
-  {{/*For the simple style, we display a list of all subpages.*/}}
-  {{/*This is the default.*/}}
-  {{ if or (eq .Params.listStyle "simple") (not .Params.listStyle) }}
-  {{ partial "page/page-list.html" . }}
-  {{ end }}
-</div>
-
-{{ end }}
-
 {{ define "content" }}
 
 {{ partial "page/page-image.html" . }}
 {{ partial "page/page-content.html" . }}
 
-{{/*For the extended style, we display a list of all sections and the subpages of the section.*/}}
-{{ if and (eq .Params.listStyle "extended") .Sections }}
-
+{{ $paginator := .Paginate .Pages }}
 <section class="section-list grid--main">
-  {{ range .Sections }}
-  <article class=" section">
+{{ range $paginator.Pages }}
+  <article class="section">
     <h3 class="section__title"><a class="unstyled" href="{{ .Permalink }}">{{ .Title }}</a></h3>
     <p class="section__description">{{ .Description | markdownify }}</p>
     {{ partial "page/page-list.html" . }}
   </article>
-  {{ end }}
+{{ end }}
 </section>
+
+{{ if compare.Ne $paginator.TotalPages 1 }}
+<ul class="section pagination grid--main vertical">
+  <li>{{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">&#8249; Previous</a>{{ end }}</li>
+  <li>{{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">Next &#8250;
+</a>{{ end }}</li>
+</ul>
 {{ end }}
 
 {{ end }}

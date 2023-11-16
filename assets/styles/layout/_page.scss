@@ -47,3 +47,17 @@
     padding-bottom: spacing(1);
   }
 }
+
+.section-list {
+  padding-top: spacing(1);
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    @include fw("bold");
+  }
+}

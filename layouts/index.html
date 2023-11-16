@@ -1,15 +1,7 @@
 {{ define "frontmatter" }}
-
-{{ partial "page/page-header.html" . }}
-
-<div class="page-frontmatter grid--main bigtext">
-  {{ partial "page/page-description.html" . }}
-
-  <ul class="page-list vertical">
-    {{ partial "util/menu-item.html" (dict "menu" "home" "page" . "class" "button") }}
-  </ul>
-</div>
-
+<ul class="page-list vertical">
+  {{ partial "util/menu-item.html" (dict "menu" "home" "page" . "class" "button") }}
+</ul>
 {{ end }}
 
 {{ define "content" }}
