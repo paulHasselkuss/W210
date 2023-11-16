@@ -1,5 +1,5 @@
 # W210
-[![Test](https://github.com/paulHasselkuss/W210/actions/workflows/build.yml/badge.svg)](https://github.com/paulHasselkuss/W210/actions/workflows/build.yml)
+[![Deploy](https://github.com/paulHasselkuss/W210/actions/workflows/deploy.yml/badge.svg)](https://github.com/paulHasselkuss/W210/actions/workflows/deploy.yml)
 
 The goal of this project is to create a theme for Hugo usable for small, but text-heavy websites such as academic events or research groups.
 
