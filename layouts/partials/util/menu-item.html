@@ -4,5 +4,5 @@
 {{ $class := .class | default "unstyled" }}
 
 {{ range (index .page.Site.Menus $menu) }}
-<li><a {{ if $currentPage.IsMenuCurrent $menu . }} aria-current="page" {{ end }} class="{{- $class -}} {{if or ($currentPage.IsMenuCurrent $menu .) ($currentPage.HasMenuCurrent $menu .) }} is-active {{end}} {{ with .Params.class }}{{ . }}{{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{- with .Pre}}{{ . }}{{end -}}{{ .Name }}</a></li>
+<li><a {{ if $currentPage.IsMenuCurrent $menu . }} aria-current="page" {{ end }} class="{{- $class -}} {{if or ($currentPage.IsMenuCurrent $menu .) ($currentPage.HasMenuCurrent $menu .) }} is-active {{end}} {{ with .Params.class }}{{ . }}{{ end }}" href="{{ .URL }}" title="{{ .Title }}">{{- with .Pre}}{{ . }}{{end -}}{{ .Name }}{{- with .Post}}{{ . }}{{end -}}</a></li>
 {{ end }}
