@@ -27,4 +27,10 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  stroke-width: 1.5;
+}
+
+.icon--bold {
+  stroke-width: 3;
 }

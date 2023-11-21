@@ -1,25 +1,7 @@
-{{/* USAGE: {{ partial "util/svg.html" (dict "src" "path/to/svg" "class" ".someClass") }} */}}
+{{/* USAGE: {{ partial "util/svg.html" (dict "src" "path/to/svg" "class" "someClass") }} */}}
 {{ $src := .src | strings.TrimSuffix ".svg" }}
-{{ $class := slice (print $src "-icon") }}
+{{ $class := .class | default "" }}
 
-{{ if .class }}
-{{ $class = $class | append (split .class ", ") }}
-{{ end }}
-
-{{/*
-  <svg([^>]*): Matches the opening <svg> tag and captures everything inside the tag (except for class) in the first capture group.
-  \bclass\s*=\s*"[^"]*": Matches the class attribute.
-  [^>]*>: Matches the rest of the opening tag.
-  (.*?): Captures the content within the <svg> tags (except for the closing </svg> tag) in the second capture group in a non-greedy way.
-  <\/svg>: Matches the closing </svg> tag.
-*/}}
-{{ $match := `<svg([^>]*)\bclass\s*=\s*"[^"]*"[^>]*>(.*?)<\/svg>` }}
-
-{{ $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` (delimit $class " ") }}
 {{ $resource := resources.Get (printf "%s.svg" $src) }}
-
-{{ if not $resource }}
-{{ errorf "The file (/assets/)%q is not a SVG file!" .src }}
-{{ end }}
-
-{{ return (replaceRE $match $replaceWith (printf "%s" $resource.Content ) | safeHTML) }}
+{{ $updatedSVG := replaceRE "(<svg[^>]*)" (printf "$1 class=\"icon %s\"" $class) $resource.Content }}
+{{ return (printf "%s" $updatedSVG | safeHTML) }}
