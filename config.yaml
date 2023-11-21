@@ -60,6 +60,13 @@ markup:
   highlight:
     style: bw
 
+module:
+  imports:
+  - path: "github.com/feathericons/feather"
+    mounts:
+    - source: icons
+      target: assets/img/icons
+
 security:
   # babel is not allowed by default
   exec:

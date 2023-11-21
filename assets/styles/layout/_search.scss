@@ -9,6 +9,10 @@
     margin-right: 0;
   }
 
+  svg {
+    stroke-width: 3;
+  }
+
   &.is-active,
   &:hover {
     background-color: var(--color--font);

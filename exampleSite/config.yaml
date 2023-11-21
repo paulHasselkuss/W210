@@ -37,9 +37,6 @@ security:
   _merge: shallow
 
 module:
-  replacements: github.com/paulHasselkuss/W210 -> ../..
   imports:
+  # This is replaced in go.mod to point to the parent directory
   - path: "github.com/paulHasselkuss/W210"
-  mounts:
-  - source: static
-    target: static
