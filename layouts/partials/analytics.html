@@ -1,7 +1,9 @@
-{{ with .Site.Params.Matomo.Url }}
+{{ with .Site.Params.Matomo }}
 
-{{ $url := . }}
-{{ $id := .Site.Params.Matomo.SiteId }}
+{{ if and .Url .SiteId }}
+
+{{ $url := .Url }}
+{{ $id := .SiteId }}
 <!-- Get Hugo to build the css for Matomo. The file is then loaded by Matomo's iframe via the 'Custom Opt-Out' plugin: {{ partial "util/libsass.html" (dict "src" "styles/matomo.scss" "fingerprint" false ) }} -->
 
 <!-- Matomo -->
@@ -29,5 +31,6 @@ _paq.push(['enableLinkTracking']);
   <img referrerpolicy="no-referrer-when-downgrade" src="{{- $url -}}/matomo.php?idsite={{- $id -}}&amp;rec=1" style="border:0" alt="" />
 </noscript>
 <!-- End Matomo -->
+{{ end }}
 {{ end }}
 {{ template "_internal/google_analytics.html" . }}
