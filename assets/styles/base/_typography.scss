@@ -55,10 +55,12 @@ em,
   @include ms(-.5);
 }
 
+.codeblock,
 code,
 pre {
   font-family: monospace;
   color: $black;
+  @include ms(-1);
   background-color: var(--color--viewport--alt) !important; //overwrite inline styles
   font-size: .85em;
   padding: spacing(.5) spacing(1);

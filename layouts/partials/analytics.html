@@ -2,35 +2,25 @@
 
 {{ if and .Url .SiteId }}
 
-{{ $url := .Url }}
-{{ $id := .SiteId }}
-<!-- Get Hugo to build the css for Matomo. The file is then loaded by Matomo's iframe via the 'Custom Opt-Out' plugin: {{ partial "util/libsass.html" (dict "src" "styles/matomo.scss" "fingerprint" false ) }} -->
-
 <!-- Matomo -->
 <script>
-var _paq = window._paq = window._paq || [];
-/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-_paq.push(['trackPageView']);
-_paq.push(['enableLinkTracking']);
-(function() {
-  var u = "{{- $url -}}/";
-  _paq.push(['setTrackerUrl', u + 'matomo.php']);
-  _paq.push(['setSiteId', '{{- $id -}}']);
-  var d = document,
-    g = d.createElement('script'),
-    s = d.getElementsByTagName('script')[0];
-  g.async = true;
-  g.src = u + 'matomo.js';
-  s.parentNode.insertBefore(g, s);
-})();
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="{{- .Url -}}/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '{{- .SiteId -}}']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
 </script>
+<noscript><img referrerpolicy="no-referrer-when-downgrade" src="{{- .Url -}}/matomo.php?idsite={{- .SiteId -}}&amp;rec=1" style="border:0;" alt="" /></noscript>
 <!-- End Matomo Code -->
 
-<!-- Matomo Image Tracker-->
-<noscript>
-  <img referrerpolicy="no-referrer-when-downgrade" src="{{- $url -}}/matomo.php?idsite={{- $id -}}&amp;rec=1" style="border:0" alt="" />
-</noscript>
-<!-- End Matomo -->
 {{ end }}
 {{ end }}
 {{ template "_internal/google_analytics.html" . }}
