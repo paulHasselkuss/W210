@@ -64,6 +64,7 @@ pre {
   background-color: var(--color--viewport--alt) !important; //overwrite inline styles
   font-size: .85em;
   padding: spacing(.5) spacing(1);
+  margin-bottom: spacing(.5);
 }
 
 code {
