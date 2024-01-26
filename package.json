@@ -28,7 +28,7 @@
   "dependencies": {
     "@babel/cli": "^7.23",
     "@babel/core": "^7.23",
-    "@babel/preset-env": "^7.23.8",
+    "@babel/preset-env": "^7.23.9",
     "@csstools/normalize.css": "^12.1.1",
     "autoprefixer": "^10.4.17",
     "bourbon": "^7.3.0",
