@@ -65,6 +65,7 @@ pre {
   font-size: .85em;
   padding: spacing(.5) spacing(1);
   margin-bottom: spacing(.5);
+  overflow-x: auto;
 }
 
 code {
@@ -119,4 +120,8 @@ p {
 
 mark {
   background-color: $blue--light;
+}
+
+.highlight {
+  color: var(--color--action);
 }
