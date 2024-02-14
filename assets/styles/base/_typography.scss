@@ -60,9 +60,8 @@ code,
 pre {
   font-family: monospace;
   color: $black;
-  @include ms(-1);
-  background-color: var(--color--viewport--alt) !important; //overwrite inline styles
   font-size: .85em;
+  background-color: var(--color--viewport--alt) !important; //overwrite inline styles
   padding: spacing(.5) spacing(1);
   margin-bottom: spacing(.5);
   overflow-x: auto;
@@ -119,7 +118,7 @@ p {
 }
 
 mark {
-  background-color: $blue--light;
+  background-color: var(--color--action);
 }
 
 .highlight {

@@ -1,6 +1,7 @@
 {
-    "name": "Beyond the Armchair?!",
-    "short_name": "BTA?!",
+    "name": "W210",
+    "short_name": "W210",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -11,6 +12,11 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg"
         }
     ],
     "theme_color": "#fffff0",

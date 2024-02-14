@@ -8,7 +8,7 @@
   }
 
   @else {
-    @error "The breakpoint '#{$name}' does not exist in $fontweights.";
+    @error "The breakpoint '#{$weight}' does not exist in $fontweights.";
   }
 }
 
