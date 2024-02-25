@@ -1,7 +1,8 @@
 baseURL: "http://example.com"
-languageCode: en-gb
 title: ""
 copyright: "&copy; {currentYear}"
+languageCode: en-gb
+
 enableRobotsTXT: true
 disableAliases: true
 disableKinds:
@@ -10,12 +11,19 @@ disableKinds:
 
 params:
   logo: ""
-  disallow_search_engines: false
+  disallowSearchEngines: false
   matomo:
     url: ""
     siteId: ""
 
-# add JSON, Redirects, Headers
+module:
+  imports:
+  - path: "github.com/feathericons/feather"
+    mounts:
+    - source: icons
+      target: assets/img/icons
+
+# add search JSON, Redirects & Headers
 outputs:
   home:
     - HTML
@@ -26,8 +34,6 @@ outputs:
 # remove .{ext} from text/netlify
 mediaTypes:
   text/netlify:
-    suffixes:
-      - ''
     delimiter: ''
 
 # add output format for netlify _redirects & _headers
@@ -43,34 +49,26 @@ outputFormats:
     isPlainText: true
     notAlternative: true
 
-# toc settings
+# toc & parser settings
 markup:
   tableOfContents:
     endLevel: 2
     ordered: true
     startLevel: 2
   goldmark:
-    renderer:
-      unsafe: true
     parser:
       attribute:
         block: true
-        title: true
+    renderer:
+      unsafe: true
   highlight:
     style: bw
 
-module:
-  imports:
-  - path: "github.com/feathericons/feather"
-    mounts:
-    - source: icons
-      target: assets/img/icons
-
+# add babel that is not allowed by default
 security:
-  # babel is not allowed by default
   exec:
     allow:
-      - ^dart-sass-embedded$
+      - ^(dart-)?sass(-embedded)?$
       - ^go$
       - ^npx$
       - ^postcss$

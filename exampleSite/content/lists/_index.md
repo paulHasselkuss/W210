@@ -1,8 +1,7 @@
 ---
 title: Lists Test Page
 description: This is a test page for Hugo's [lists](https://gohugo.io/templates/lists/). W210 supports two list formats, `default` and `listSimple`. See the subordinate pages for examples.
-menu:
-  - primary
+menu: [primary]
 layout: listSimple
 ---
 

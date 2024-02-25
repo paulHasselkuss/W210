@@ -10,7 +10,7 @@ toc: true
 ```YAML
 params:
   logo: <path/to/image|path/to/svg|text>
-  disallow_search_engines: <true|false> #disallowed search engines
+  disallowSearchEngines: <true|false> #disallowed search engines in robots.txt
   matomo: #Matomo can be used for analytics
     url: <matomo-url>
     siteId: <matomo's site id>

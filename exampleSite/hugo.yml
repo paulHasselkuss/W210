@@ -1,12 +1,14 @@
-baseURL: "http://example.com"
-languageCode: en-gb
+baseURL: "https://paulhasselkuss.github.io/W210/"
 title: "W210"
 copyright: "&copy; {currentYear}"
-enableRobotsTXT: false
+languageCode: en-gb
+
 disableAliases: true
 disableKinds:
   - taxonomy
   - term
+enableRobotsTXT: true
+
 paginate: 5
 
 menu:
@@ -18,25 +20,18 @@ menu:
   - name: Source
     url: "https://github.com/paulHasselkuss/W210"
 
-params:
-  _merge: shallow
-
-outputs:
-  _merge: shallow
-
-mediaTypes:
-  _merge: shallow
-
-outputFormats:
-  _merge: shallow
-
+# recommended
 markup:
   _merge: shallow
 
+# required
+outputs:
+  _merge: shallow
+
+# required
 security:
   _merge: shallow
 
 module:
   imports:
-  # This is replaced in go.mod to point to the parent directory
-  - path: "github.com/paulHasselkuss/W210"
+  - path: "github.com/paulHasselkuss/W210" #This is replaced in go.mod to point to the parent directory

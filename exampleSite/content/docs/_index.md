@@ -1,8 +1,7 @@
 ---
 title: Docs
 description: The documentation is a work in progress. You might want to look at the markdown files on GitHub.
-menu:
-  - primary
+menu: [primary]
 layout: listSimple
 ---
 
@@ -38,4 +37,4 @@ Headers can be configured within `/layouts/index.headers`. See [Netlify](https:/
 
 Redirect rules can be appended to `/layouts/index.redirects`. See [Netlify](https://www.netlify.com/docs/redirects/).
 
-Hugo's [Aliases](https://gohugo.io/content-management/urls/#aliases) have been disabled within `config.toml` with `disableAliases = true`, and instead are handled by [Netlify Redirects](https://www.netlify.com/docs/redirects/). This is handled automatically and one should continue to add aliases as described in the Hugo documentation.
+Hugo's [Aliases](https://gohugo.io/content-management/urls/#aliases) have been disabled within `hugo.yml` with `disableAliases = true`, and instead are handled by [Netlify Redirects](https://www.netlify.com/docs/redirects/). This is handled automatically and one should continue to add aliases as described in the Hugo documentation.

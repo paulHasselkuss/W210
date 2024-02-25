@@ -1,6 +1,2 @@
 User-agent: *
-{{- if .Site.Params.disallow_search_engines }}
-Disallow: /
-{{ else }}
-Disallow: {{ if ne (getenv "HUGO_ENV") "production" }}/{{ end }}
-{{ end }}
+Disallow: {{ if or (ne (getenv "HUGO_ENV") "production") .Site.Params.disallowSearchEngines }}/{{ end }}
