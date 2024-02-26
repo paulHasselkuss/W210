@@ -9,7 +9,7 @@
   <article class="section">
     <a class="unstyled" href="{{ .Permalink }}">
       <h3 class="section__title">{{ .Title }}</h3>
-      <p class="section__description">{{ .Description | markdownify | plainify }}</p>
+      <p class="section__description">{{ .Description | markdownify | plainify | htmlUnescape }}</p>
     </a>
     {{ partial "page/page-list.html" . }}
   </article>
