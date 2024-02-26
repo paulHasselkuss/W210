@@ -3,6 +3,7 @@ title: Docs
 description: The documentation is a work in progress. You might want to look at the markdown files on GitHub.
 menu: [primary]
 layout: listSimple
+math: true
 ---
 
 ## Menus
@@ -30,6 +31,10 @@ For all pages, SEO meta tags are automatically added (Schema, OpenGraph, Twitter
 You can add a featured image by adding an image with `cover` or `thumbnail` in its name to a page's bundle. If no featured image is specified, one is created automatically by writing the page's title on a base image.
 
 To use a different base image, overwrite `assets/social/card-base.png`.
+
+## Math
+
+Support for mathematical equations via [MathJax](https://www.mathjax.org). `x = {-b \pm \sqrt{b^2-4ac} \over 2a}` becomes: \(x = {-b \pm \sqrt{b^2-4ac} \over 2a}\). Note that `math` needs to be set to `true` in the page's frontmatter.
 
 ## Netlify Features
 

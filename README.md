@@ -20,7 +20,7 @@ Also, you need to disable Hugo's aliases and add configurations for `markup` and
 # To use build-in support for Netlify's redirects
 disableAliases: true
 
-# Recommended, ToC and Markup config
+# Required, ToC and Markup config
 markup:
   _merge: shallow
 

@@ -5,7 +5,8 @@
   "comments": {
     "dependencies": {
       "flexsearch": "project",
-      "instant.page": "project"
+      "instant.page": "project",
+      "mathjax": "project"
     },
     "devDependencies": {
       "@csstools/normalize.css": "project",
@@ -24,7 +25,8 @@
   },
   "dependencies": {
     "flexsearch": "^0.7.43",
-    "instant.page": "^5.2.0"
+    "instant.page": "^5.2.0",
+    "mathjax": "^3.2.2"
   },
   "devDependencies": {
     "@csstools/normalize.css": "^12.1.1",
