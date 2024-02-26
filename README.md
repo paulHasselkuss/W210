@@ -5,21 +5,31 @@ The goal of this project is to create a theme for Hugo usable for small, but tex
 
 The overall structure is based on [Atlas](https://github.com/indigotree/atlas) and [Hyas](https://gethyas.com), SASS is based on [Bourbon](https://github.com/thoughtbot/bourbon/).
 
-While the project is usuable, some things still need to be done:
-- Add documentation
-- Improve flexibility (analytics, custom CSS etc.)
-
 ## Usage
 
-The theme should be added as a [module](https://gohugo.io/hugo-modules/). To use it, create a new hugo site (`hugo new site`) and add the following to your `config.yaml`:
+The theme should be added as a [module](https://gohugo.io/hugo-modules/). To use it, create a new hugo site (`hugo new site`) and add the following to your `hugo.yml`:
 
 ```
 module:
   imports:
   - path: github.com/paulHasselkuss/W210
 ```
+Also, you need to disable Hugo's aliases and add configurations for `markup` and `outputs`. The easiest way to do this is by adding the following to your `hugo.yml`:
 
-Then you need to install the required NPM dependencies:
+```
+# To use build-in support for Netlify's redirects
+disableAliases: true
+
+# Recommended, ToC and Markup config
+markup:
+  _merge: shallow
+
+# Required, adds support for Netlify's headers and redirects
+outputs:
+  _merge: shallow
+```
+
+Lastly, you need to install required NPM dependencies:
 ```
 hugo mod npm pack
 npm install
@@ -41,7 +51,7 @@ Note: Atlas' support for Netlify functions has been removed.
 
 ### Robots.txt
 
-A default robots.txt can be found at `/layouts/robots.txt` which is configured to disallow crawlers when the `HUGO_ENV` environment variable is **not** set to `"production"`.
+A default robots.txt can be found at `/layouts/robots.txt` which is configured to disallow crawlers when the `HUGO_ENV` environment variable is **not** set to `production`.
 
 The default behaviour is to disallow search engines on "branch" deployments.
 
@@ -65,7 +75,7 @@ Hugo [Aliases](https://gohugo.io/content-management/urls/#aliases) are usually h
 
 ## License
 
-W210 is copyright © 2021-2022 Paul Hasselkuß. It is free software, and may be redistributed under the terms specified in the [license](LICENSE.md).
+W210 is copyright © 2021-2024 Paul Hasselkuß. It is free software, and may be redistributed under the terms specified in the [license](LICENSE.md).
 
 W210 is using the [General Sans](https://www.fontshare.com/fonts/general-sans) font under the [Fontshare EULA](static/fonts/Fontshare-EULA.txt).
 
