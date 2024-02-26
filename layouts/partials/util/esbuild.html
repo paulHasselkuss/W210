@@ -6,11 +6,11 @@
 {{ $js := "" -}}
 
 {{ if .transpile -}}
-{{ $js = resources.Get $src | js.Build | babel (dict "noComments" true "minified" true "compact" true "config" "babel.config.js") | fingerprint -}}
+{{ $js = resources.Get $src | js.Build | babel (dict "noComments" true "minified" true "compact" true ) | fingerprint -}}
 {{ else if eq (hugo.Environment) "development" -}}
-{{ $js = resources.Get $src | js.Build (dict "targetPath" $targetPath "sourceMap" "inline") | fingerprint -}}
+{{ $js = resources.Get $src | js.Build (dict "targetPath" $targetPath "sourceMap" "inline" "target" "es2015") | fingerprint -}}
 {{ else -}}
-{{ $js = resources.Get $src | js.Build (dict "targetPath" $targetPath "minify" true ) | fingerprint -}}
+{{ $js = resources.Get $src | js.Build (dict "targetPath" $targetPath "minify" true "target" "es2015") | fingerprint -}}
 {{ end -}}
 
 {{ print "<script " $load | safeHTML }}

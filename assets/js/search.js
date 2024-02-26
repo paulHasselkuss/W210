@@ -114,7 +114,7 @@ function search_toggle_focus() {
 function search_init() {
   if (first_run) {
     first_run = false; // let's never do this again
-    fetch(search_form.getAttribute('data-language-prefix') + '/index.json')
+    fetch(search_form.getAttribute('data-base-url') + search_form.getAttribute('data-language-prefix') + '/index.json')
       .then(data => data.json())
       .then(data => {
         index = new Document(options);

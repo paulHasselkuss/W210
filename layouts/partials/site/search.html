@@ -2,8 +2,8 @@
   <section class="search-container grid">
 
     <div class="search-form grid--main">
-      <form id="searchForm" class="noscript" method="GET" data-language-prefix="{{ site.LanguagePrefix }}">
-        {{ $url := urls.Parse site.BaseURL }}
+      {{ $url := urls.Parse site.BaseURL }}
+      <form id="searchForm" class="noscript" method="GET" data-base-url="{{ $url }}" data-language-prefix="{{ site.LanguagePrefix }}">
         {{ $url = $url.Host | strings.TrimPrefix "www." }}
         <input id="searchInput" type="search" name="q" tabindex="0" autocomplete="off" placeholder="Search {{ $url }} ">
       </form>
@@ -21,4 +21,4 @@
   </section>
 </div>
 
-{{ partial "util/esbuild.html" (dict "src" "js/search.js" "targetPath" "search.js" "load" "async" "transpile" true) -}}
+{{ partial "util/esbuild.html" (dict "src" "js/search.js" "targetPath" "search.js" "load" "async") -}}

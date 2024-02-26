@@ -1,5 +1,5 @@
 {{ partialCached "site/search.html" . }}
-{{ partial "util/esbuild.html" (dict "src" "js/app.js" "targetPath" "js/main.js" "load" "defer" "transpile" true) }}
+{{ partial "util/esbuild.html" (dict "src" "js/app.js" "targetPath" "js/main.js" "load" "defer" "transpile" false) }}
 {{ if eq hugo.Environment "production" }}
 {{ partialCached "analytics.html" . }}
 {{ end }}

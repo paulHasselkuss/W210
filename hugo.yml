@@ -63,13 +63,3 @@ markup:
       unsafe: true
   highlight:
     style: bw
-
-# add babel that is not allowed by default
-security:
-  exec:
-    allow:
-      - ^(dart-)?sass(-embedded)?$
-      - ^go$
-      - ^npx$
-      - ^postcss$
-      - ^babel$
