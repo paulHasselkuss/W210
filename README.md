@@ -9,7 +9,7 @@ The overall structure is stringly inspired by [Atlas](https://github.com/indigot
 ## Features
 
 * Fast, lightweight theme with a minimalist aesthetic for small, but text-heavy websites.
-* Three menus: `primary`, `home`, `footer`
+* Four menus: `primary`, `home`, `footer`, `social`
 * Two list styles: `default` and `listSimple`
 * Images are optimized and resized automatically.
 * Client-side search via [FlexSearch](https://nextapps-de.github.io/flexsearch/).

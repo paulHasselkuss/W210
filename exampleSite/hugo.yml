@@ -19,6 +19,11 @@ menu:
       class: button--primary
   - name: Source
     url: "https://github.com/paulHasselkuss/W210"
+  social:
+  - identifier: Source
+    url: "https://github.com/paulHasselkuss/W210"
+    Params:
+      icon: "img/icons/github"
 
 module:
   imports:

@@ -39,7 +39,7 @@
 .site-footer__icons li {
   display: inline-block;
 
-  @include except-last(padding-right, .2em);
+  @include except-last(padding-right, .3em);
 
   .icon {
     height: 1em;

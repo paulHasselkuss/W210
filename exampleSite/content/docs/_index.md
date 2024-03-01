@@ -8,10 +8,13 @@ math: true
 
 ## Menus
 
-The theme supports three menus:
+The theme supports four menus:
 1. `primary` - primary navigation on the top
 2. `home` - navigation on the homepage
 3. `footer` - navigation in the footer
+4. `social` - icons in the footer
+
+Entries can be customized, including `pre` and `post`, but also `params.class` (to add a custom css class) and `params.icon` to add an icon from the asset folder.
 
 ## Lists
 

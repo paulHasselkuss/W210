@@ -7,8 +7,7 @@
     <div>{{ replace .Site.Copyright "{currentYear}" now.Year | markdownify}}</div>
     <ul class="site-footer__icons unstyled">
       <li><span id="themeToggle" class="theme-toggle"></span></li>
-      <li><a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}" aria-label="Share on Facebook">{{ partial "util/svg.html" (dict "src" "img/icons/facebook")}}</a></li>
-      <li><a href="https://twitter.com/intent/tweet?url={{ .Permalink }}" aria-label="Share on Twitter">{{ partial "util/svg.html" (dict "src" "img/icons/twitter")}}</a></li>
+      {{ partial "util/menu-item.html" (dict "menu" "social" "page" . ) }}
     </ul>
   </div>
 </footer>
