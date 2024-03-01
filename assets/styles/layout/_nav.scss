@@ -5,9 +5,9 @@ $cubic--burger: cubic-bezier(.645, .045, .355, 1);
   height: 0;
   overflow: hidden;
   position: fixed;
-  z-index: 100;
-  top: var(--header-height);
   left: 0;
+  top: 0;
+  z-index: -1;
   width: 100%;
 
   @include ms-fw(0, "semi-bold");
@@ -16,8 +16,9 @@ $cubic--burger: cubic-bezier(.645, .045, .355, 1);
   transition: height .4s;
 
   ul {
+    top: var(--header-height);
     list-style: none;
-    margin: 0 var(--spacing);
+    margin: var(--header-height) var(--spacing) 0;
 
     li {
       margin: 0 var(--spacing);
