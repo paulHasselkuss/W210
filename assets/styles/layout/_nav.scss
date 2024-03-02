@@ -135,6 +135,7 @@ button.hamburger {
     width: initial;
     text-align: right;
     flex: 1;
+    z-index: auto;
 
     ul li {
       opacity: 1;
