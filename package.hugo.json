@@ -10,7 +10,6 @@
   "devDependencies": {
     "@csstools/normalize.css": "^12.1.1",
     "autoprefixer": "^10.4.17",
-    "bourbon": "^7.3.0",
     "cssnano": "^6.0.5",
     "eslint": "^8.56.0",
     "markdownlint-cli": "^0.39.0",

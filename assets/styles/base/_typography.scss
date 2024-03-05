@@ -1,10 +1,12 @@
+@use "../utils";
+
 html {
   color: var(--color--font);
   line-height: var(--baseline);
   font-size: 100%; //fallback
-  font-size: clamp-builder(16px, 18px);
+  font-size: utils.clamp-builder(16px, 18px);
 
-  @include fw("normal");
+  @include utils.fw("normal");
 
   font-family: var(--font-family);
 }
@@ -21,7 +23,7 @@ h6 {
 
 h2,
 h3 {
-  margin: #{spacing(1)} 0 #{spacing(.5)};
+  margin:#{utils.spacing(1)} 0 #{utils.spacing(.5)};
 
   &+* {
     margin-top: 0 !important;
@@ -29,16 +31,17 @@ h3 {
 }
 
 @for $i from 1 through 5 {
+
   .text-h#{$i},
   h#{$i} {
-    @include ms-fw(5 - $i, "semi-bold");
+    @include utils.ms-fw(5 - $i, "semi-bold");
   }
 }
 
 b,
 strong,
 .bold {
-  @include fw("semi-bold");
+  @include utils.fw("semi-bold");
 }
 
 i,
@@ -48,31 +51,31 @@ em,
 }
 
 .bigtext {
-  @include ms-fw(1, "semi-bold");
+  @include utils.ms-fw(1, "semi-bold");
 }
 
 .smalltext {
-  @include ms(-.5);
+  @include utils.ms(-.5);
 }
 
 .codeblock,
 code,
 pre {
   font-family: monospace;
-  color: $black;
+  color: utils.$black;
   font-size: .85em;
   background-color: var(--color--viewport--alt) !important; //overwrite inline styles
-  padding: spacing(.5) spacing(1);
-  margin-bottom: spacing(.5);
+  padding: utils.spacing(.5) utils.spacing(1);
+  margin-bottom: utils.spacing(.5);
   overflow-x: auto;
 }
 
 code {
-    padding: .25em .5em;
+  padding: .25em .5em;
 
-    pre & {
-      padding: 0;
-    }
+  pre & {
+    padding: 0;
+  }
 }
 
 ::selection {
@@ -81,17 +84,19 @@ code {
 }
 
 //see https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/
-sup, sub {
+sup,
+sub {
   vertical-align: baseline;
   position: relative;
   top: -.4em;
 }
-sub { 
-  top: .4em; 
+
+sub {
+  top: .4em;
 }
 
 p {
-  margin: 0 0 spacing(.5);
+  margin: 0 0 utils.spacing(.5);
 
   //see https://medium.com/clear-left-thinking/all-you-need-to-know-about-hyphenation-in-css-2baee2d89179
   hyphens: auto;

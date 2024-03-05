@@ -1,0 +1,63 @@
+@use "sass:map";
+@use "sass:meta";
+@use "constants";
+@use "functions";
+
+@mixin ms($factor) {
+  font-size: functions.modular-scale($factor);
+}
+
+@mixin fw($weight) {
+  @if not map.has-key(constants.$font-weights, $weight) {
+    @error "The breakpoint '#{$weight}' does not exist in $fontweights.";
+  }
+
+  font-weight: #{meta.inspect(map.get(constants.$font-weights, $weight))};
+}
+
+@mixin ms-fw($factor, $weight) {
+  @include ms($factor);
+  @include fw($weight);
+}
+
+@mixin md($name) {
+  @if not map.has-key(constants.$breakpoints, $name) {
+    @error "The breakpoint '#{$name}' does not exist in $breakpoints.";
+  }
+
+  @media screen and (min-width: #{inspect(map-get(constants.$breakpoints, $name))}) {
+    @content;
+  }
+}
+
+@mixin font-face($font-family, $file-path, $file-formats: ("woff", "woff2")) {
+  $list: null;
+
+  @each $format in $file-formats {
+    $list: append($list, url("#{$file-path}.#{$format}") format("#{$format}"), comma);
+  }
+
+  @font-face {
+    font-family: $font-family;
+    src: $list;
+    @content;
+  }
+}
+
+@mixin except-last($selector, $value) {
+  #{$selector}: #{$value};
+
+  &:last-child {
+    #{$selector}: 0;
+  }
+}
+
+//https://stackoverflow.com/a/21622588
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend %headings !optional;
+}

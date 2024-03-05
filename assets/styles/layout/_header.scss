@@ -1,9 +1,11 @@
+@use "../utils";
+
 :root {
   //logo (header font-size * line-height) + bottom-padding + offset
-  --header-height: calc(#{font-container-height(0)} + #{spacing(.5 + .5)} + .5em);
+  --header-height: calc(#{utils.font-container-height(0)} + #{utils.spacing(.5 + .5)} + .5em);
 
-  @include md("medium") {
-    --header-height: calc(#{font-container-height(0)} + #{spacing(1 + .5)} + .5125em);
+  @include utils.md("medium") {
+    --header-height: calc(#{utils.font-container-height(0)} + #{utils.spacing(1 + .5)} + .5125em);
   }
 }
 
@@ -24,7 +26,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: spacing(.5);
+  padding-bottom: utils.spacing(.5);
   border-bottom: var(--border--small);
 }
 
@@ -33,7 +35,7 @@
   margin: 0;
   flex: 1;
 
-  @include md("medium") {
+  @include utils.md("medium") {
     flex: 0
   }
 }
@@ -61,10 +63,10 @@
   display: block;
   visibility: hidden;
   pointer-events: none;
-  height: calc(var(--header-height) + #{spacing(1)});
+  height: calc(var(--header-height) + #{utils.spacing(1)});
 
   /* fixed header height */
-  margin: calc(-1 * (var(--header-height) + #{spacing(1)})) 0 0;
+  margin: calc(-1 * (var(--header-height) + #{utils.spacing(1)})) 0 0;
 
   /* negative fixed header height */
 

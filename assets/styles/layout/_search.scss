@@ -1,9 +1,11 @@
+@use "../utils";
+
 .search-toggle {
   margin-right: var(--spacing);
-  transition: all default-transition();
+  transition: all utils.default-transition();
   cursor: pointer;
 
-  @include md("medium") {
+  @include utils.md("medium") {
     order: 3;
     margin-left: var(--spacing);
     margin-right: 0;
@@ -27,7 +29,7 @@
   width: 100vw;
   overflow: hidden;
   background-color: var(--color--viewport--background);
-  transition: height default-transition();
+  transition: height utils.default-transition();
 }
 
 .search-active {
@@ -50,7 +52,7 @@
 }
 
 .search-form {
-  padding: spacing(1) 0;
+  padding: utils.spacing(1) 0;
 
   form,
   input {
@@ -59,12 +61,12 @@
     padding: 0;
     color: var(--color--action);
 
-    @include ms-fw(4, "semi-bold");
+    @include utils.ms-fw(4, "semi-bold");
   }
 }
 
 .search-list {
-  max-height: calc(100vh - var(--header-height) - (#{modular-scale(4)} * 1.5) - (#{spacing(2)} * 2) - var(--spacing--small));
+  max-height: calc(100vh - var(--header-height) - (#{utils.modular-scale(4)} * 1.5) - (#{utils.spacing(2)} * 2) - var(--spacing--small));
   overflow: scroll;
 }
 

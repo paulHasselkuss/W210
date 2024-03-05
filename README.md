@@ -4,7 +4,7 @@
 
 The goal of this project is to create a theme for Hugo usable for small, but text-heavy websites such as academic events or research groups.
 
-The overall structure is stringly inspired by [Atlas](https://github.com/indigotree/atlas) and [Hyas](https://gethyas.com), SASS is based on [Bourbon](https://github.com/thoughtbot/bourbon/).
+The overall structure is stringly inspired by [Atlas](https://github.com/indigotree/atlas) and [Hyas](https://gethyas.com).
 
 ## Features
 
@@ -44,7 +44,7 @@ outputs:
   _merge: shallow
 ```
 
-Lastly, you need to install required NPM dependencies:
+Lastly, install required NPM dependencies and make sure that [Dart Sass](https://gohugo.io/functions/resources/tocss/#dart-sass) is installed and available on your `PATH`:
 
 ```SHELL
 hugo mod npm pack

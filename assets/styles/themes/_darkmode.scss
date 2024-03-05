@@ -1,9 +1,11 @@
+@use "../utils";
+
 @mixin darkmode {
-  --color--font: #{$white};
-  --color--font--alt: #{$gray--light};
-  --color--action: #{$blue--light};
-  --color--viewport--background: #{$black};
-  --color--viewport--alt: #{$gray};
+  --color--font: #{utils.$white};
+  --color--font--alt: #{utils.$gray--light};
+  --color--action: #{utils.$blue--light};
+  --color--viewport--background: #{utils.$black};
+  --color--viewport--alt: #{utils.$gray};
 }
 
 .alt-theme {
@@ -16,20 +18,21 @@
   }
 
   .alt-theme {
-    --color--font: #{$black};
-    --color--font--alt: #{$gray--dark};
-    --color--action: #{$blue};
-    --color--viewport--background: #{$white};
-    --color--viewport--alt: #{$gray--light};
+    --color--font:#{utils.$black};
+    --color--font--alt: #{utils.$gray--dark};
+    --color--action: #{utils.$blue};
+    --color--viewport--background: #{utils.$white};
+    --color--viewport--alt: #{utils.$gray--light};
   }
 }
 
 .theme-dark--display {
   display: none;
-  
+
   @media (prefers-color-scheme: dark) {
     display: initial;
   }
+
   .alt-theme & {
     display: initial;
   }
@@ -39,6 +42,7 @@
   @media (prefers-color-scheme: dark) {
     display: none;
   }
+
   .alt-theme & {
     display: none;
   }
@@ -49,11 +53,11 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .theme-dark--white  {
+  .theme-dark--white {
     filter: brightness(0) invert(1);
   }
 
-  .alt-theme .theme-dark--white  {
+  .alt-theme .theme-dark--white {
     filter: none;
   }
 }

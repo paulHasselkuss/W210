@@ -1,15 +1,17 @@
+@use "../utils";
+
 .page-frontmatter>* {
-  margin-bottom: spacing(.5);
+  margin-bottom: utils.spacing(.5);
 }
 
 .page-frontmatter,
 .page-image {
-  margin-bottom: spacing(1);
+  margin-bottom: utils.spacing(1);
 }
 
 .page-header__meta {
-  margin-top: spacing(-1);
-  margin-bottom: spacing(1);
+  margin-top: utils.spacing(-1);
+  margin-bottom: utils.spacing(1);
 }
 
 .page-content>%headings:first-child {
@@ -39,26 +41,27 @@
 
 .section {
   border-top: var(--border--small);
-  padding-top: spacing(1);
-  padding-bottom: spacing(2);
+  padding-top: utils.spacing(1);
+  padding-bottom: utils.spacing(2);
 
   &:last-child {
     //footer has 1 spacing at the top
-    padding-bottom: spacing(1);
+    padding-bottom: utils.spacing(1);
   }
 }
 
 .section-list {
-  padding-top: spacing(1);
+  padding-top: utils.spacing(1);
 }
 
 .matomo-opt-out {
+
   input[type=checkbox],
   input[type=checkbox]+label {
     display: inline;
   }
 
-  input[type=checkbox]  {
+  input[type=checkbox] {
     margin-right: .5em;
   }
 
@@ -73,6 +76,6 @@
 
   a {
     text-decoration: none;
-    @include fw("bold");
+    @include utils.fw("bold");
   }
 }

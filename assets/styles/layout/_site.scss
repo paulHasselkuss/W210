@@ -1,3 +1,5 @@
+@use "../utils";
+
 html {
   background-color: var(--color--viewport--background);
   box-sizing: border-box;
@@ -29,21 +31,22 @@ body {
 
 .site-content,
 .site-footer {
-  margin-bottom: spacing(.5);
+  margin-bottom: utils.spacing(.5);
 }
 
 .site-header {
-  padding-top: spacing(.5);
+  padding-top: utils.spacing(.5);
 }
 
-@include md("medium") {
+@include utils.md("medium") {
+
   .site-content,
   .site-footer {
-    margin-bottom: spacing(1);
+    margin-bottom: utils.spacing(1);
   }
 
   .site-header {
-    padding-top: spacing(1);
+    padding-top: utils.spacing(1);
   }
 }
 

@@ -4,7 +4,7 @@
 {{ $targetPath := .targetPath | default (replace $src "scss" "css") -}}
 {{ $fingerprint := .fingerprint | default true -}}
 
-{{ $options := (dict "targetPath" $targetPath "transpiler" "libsass" "includePaths" (slice "node_modules")) -}}
+{{ $options := (dict "targetPath" $targetPath "transpiler" "dartsass" "includePaths" (slice "node_modules")) -}}
 
 {{ if eq (hugo.Environment) "development" -}}
 {{ $options := merge $options (dict "enableSourceMap" "true") -}}

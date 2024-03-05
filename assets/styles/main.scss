@@ -1,46 +1,11 @@
 @charset "utf-8";
 
-$bourbon: ("modular-scale-base": 1rem, "modular-scale-ratio": 1.25, "global-font-file-formats": (woff2));
-
 //libs
-@import "bourbon/core/bourbon";
-@import "@csstools/normalize.css/normalize";
+@use "@csstools/normalize.css/normalize";
 
-//abstract
-@import "abstract/functions";
-@import "abstract/mixings";
-@import "abstract/variables";
-
-//base
-@import "base/fonts";
-@import "base/typography";
-
-//components
-@import "components/buttons";
-@import "components/details";
-@import "components/forms";
-@import "components/frames";
-@import "components/links";
-@import "components/lists";
-@import "components/media";
-@import "components/tables";
-@import "components/sponsors";
-
-//layout
-@import "layout/grid";
-@import "layout/site";
-@import "layout/page";
-@import "layout/header";
-@import "layout/nav";
-@import "layout/search";
-@import "layout/footer";
-
-//pages
-//...
-
-//themes
-@import "themes/darkmode";
-@import "themes/theme-toggle";
-
-//misc
-@import "overwrite";
+//styles
+@use "base";
+@use "components";
+@use "layout";
+@use "themes";
+@use "overwrite";

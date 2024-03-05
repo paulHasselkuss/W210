@@ -1,11 +1,13 @@
+@use "../utils";
+
 details {
-  margin-bottom: spacing(.5);
+  margin-bottom: utils.spacing(.5);
 }
 
 details summary {
-  @include fw("semi-bold");
+  @include utils.fw("semi-bold");
 
-  margin-bottom: spacing(.5);
+  margin-bottom: utils.spacing(.5);
   cursor: pointer;
   transition: color default-timing();
 
@@ -18,11 +20,11 @@ details summary {
   }
 }
 
-details summary > * {
+details summary>* {
   display: inline;
 }
 
-details[open] summary ~ * {
+details[open] summary~* {
   animation: sweep .5s ease-in-out;
 }
 

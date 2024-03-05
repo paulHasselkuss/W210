@@ -1,14 +1,16 @@
+@use "../utils";
+
 .sponsors {
-  margin-top: spacing(1);
-  padding-top: spacing(1);
+  margin-top: utils.spacing(1);
+  padding-top: utils.spacing(1);
   border-top: var(--border--small);
 
   columns: 2;
-  column-gap: spacing(1.5);
+  column-gap: utils.spacing(1.5);
 
-  @include md("medium") {
+  @include utils.md("medium") {
     columns: 3;
-    column-gap: spacing(3);
+    column-gap: utils.spacing(3);
   }
 
   .sponsors__title {
@@ -20,22 +22,26 @@
   .sponsors__logo {
     cursor: pointer;
 
-    svg, img {
+    svg,
+    img {
       width: auto;
-      margin-top: spacing(1);
+      margin-top: utils.spacing(1);
     }
-    
-    &:hover svg, &:hover img {
+
+    &:hover svg,
+    &:hover img {
       animation: pulse 1.5s infinite;
     }
   }
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     animation-timing-function: ease-in;
   }
+
   50% {
     transform: scale(1.05);
   }

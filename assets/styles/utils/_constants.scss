@@ -1,0 +1,36 @@
+// Colors
+$white: #fffffc;
+$black: #00000f;
+$gray--dark: #444;
+$gray: #c4c4c4;
+$gray--light: #e9e9e9;
+
+$blue: #030ba6;
+$blue--dark: #020873;
+$blue--light: #5961e0; //#5E76BF;
+
+// Typography
+$baseline: 1.6;
+$font-weights: (
+  //"x-light": 200,
+  //"light": 300,
+  "normal": 400,
+  //"medium": 500,
+  "semi-bold": 600,
+  "bold": 700
+);
+$font-stack-helvetica: (
+  "Helvetica Neue",
+  "Helvetica",
+  "Arial",
+  sans-serif,
+);
+
+// Breakpoints
+$breakpoints: (
+  "small": 576px,
+  "medium": 768px,
+  "large": 992px,
+  "x-large": 1200px,
+  "xx-large": 1400px
+);

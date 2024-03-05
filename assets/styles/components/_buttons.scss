@@ -1,3 +1,5 @@
+@use "../utils";
+
 .button,
 button,
 [type="button"],
@@ -15,7 +17,7 @@ button,
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
 
-  @include fw("bold");
+  @include utils.fw("bold");
 
   line-height: 1;
   padding: var(--spacing--small) var(--spacing);

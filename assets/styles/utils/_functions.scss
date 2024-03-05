@@ -1,0 +1,46 @@
+@use "sass:map";
+@use "sass:math";
+@use "constants";
+
+@function modular-scale($increment, $base: 1rem, $ratio: 1.25) {
+  @return $base * math.pow($ratio, $increment);
+}
+
+@function font-container-height($ms-factor: 0) {
+  @return calc(#{modular-scale($ms-factor)} * var(--baseline));
+}
+
+@function spacing($amount: 1) {
+  @if not ($amount % .5==0) {
+    @error "Spacing needs to be a factor of .5, was '#{$amount}.";
+  }
+
+  @return calc(#{$amount}rem * var(--baseline));
+}
+
+@function default-transition() {
+  @return var(--duration) var(--timing);
+}
+
+@function clamp-builder($min, $max, $breakpoint--min: "medium", $breakpoint--max: "x-large") {
+  @if not (map.has-key(constants.$breakpoints, $breakpoint--min) and map.has-key(constants.$breakpoints, $breakpoint--max)) {
+    @error "The breakpoints '#{$min-breakpoint}' or '#{$max-breakpoint}' do not exist in $breakpoints.";
+  }
+
+  $min-width: map.get(constants.$breakpoints, $breakpoint--min);
+  $max-width: map.get(constants.$breakpoints, $breakpoint--max);
+  $width-diff: strip-unit($max-width - $min-width);
+  $value-diff: strip-unit($max - $min);
+
+  $slope: calc(1rem + #{$value-diff} * ((100vw - #{$min-width}) / #{$width-diff}));
+
+  @return clamp(#{$min}, #{$slope}, #{$max});
+}
+
+@function strip-unit($number) {
+  @if type-of($number)=="number" and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+
+  @return $number;
+}

@@ -1,4 +1,6 @@
-@include md("medium") {
+@use "../utils";
+
+@include utils.md("medium") {
   .grid {
     display: grid;
     grid-template-columns: 75% 1fr; //repeat(3, 1fr);
@@ -22,7 +24,7 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
-  column-gap: spacing(.5);
+  column-gap: utils.spacing(.5);
 
   &__full {
     grid-column: span 6;
@@ -33,7 +35,7 @@
     grid-column: span 3;
   }
 
-  @include md("medium") {
+  @include utils.md("medium") {
     &__third {
       grid-column: span 2;
     }

@@ -1,15 +1,16 @@
+@use "../utils";
+
 //this is taken from bittners without many changes
 :root {
   --form-box-shadow: inset 0 var(--border-width) rgba(#000, .06);
-  --form-box-shadow-focus:
-    var(--form-box-shadow),
-    0 0 .3125rem #{var(--color--action)};
+  --form-box-shadow-focus: var(--form-box-shadow),
+  0 0 .3125rem #{var(--color--action)};
 }
 
 form {
-  margin-bottom: spacing(.5);
+  margin-bottom: utils.spacing(.5);
   border-top: var(--border--small);
-  padding: spacing(.5) 0;
+  padding: utils.spacing(.5) 0;
   border-bottom: var(--border--small);
   accent-color: var(--color--action);
 }
@@ -22,7 +23,7 @@ fieldset {
 }
 
 legend {
-  @include fw("semi-bold");
+  @include utils.fw("semi-bold");
 
   margin-bottom: var(--spacing--small);
   padding: 0;
@@ -31,7 +32,7 @@ legend {
 label {
   display: block;
 
-  @include fw("semi-bold");
+  @include utils.fw("semi-bold");
 
   margin-bottom: var(--spacing--small);
 
@@ -138,12 +139,12 @@ select {
   }
 }
 
-input[type="checkbox"] + label {
+input[type="checkbox"]+label {
   display: inline-block;
 }
 
 .input-container--submit {
-  margin-top: spacing(.5);
+  margin-top: utils.spacing(.5);
 }
 
 .input-container--checkbox,

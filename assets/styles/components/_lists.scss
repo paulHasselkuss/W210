@@ -1,3 +1,5 @@
+@use "../utils";
+
 ol li {
   counter-increment: ordered-list;
 
@@ -16,7 +18,7 @@ ul,
 ol {
   list-style-position: outsite;
   margin-top: 0;
-  margin-bottom: spacing(.5);
+  margin-bottom: utils.spacing(.5);
   padding: 0;
 
   &.vertical,
@@ -33,7 +35,7 @@ ol {
   &.vertical li {
     display: inline-block;
 
-    @include except-last(padding-right, 1.5em);
+    @include utils.except-last(padding-right, 1.5em);
   }
 }
 
@@ -51,7 +53,7 @@ dl {
 }
 
 dt {
-  @include fw("bold");
+  @include utils.fw("bold");
 
   margin: 0;
 }
@@ -67,4 +69,3 @@ hr {
   border-top: 0;
   margin: var(--spacing) 0;
 }
-

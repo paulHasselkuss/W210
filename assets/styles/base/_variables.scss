@@ -1,0 +1,48 @@
+@use "../utils";
+
+:root {
+  // Colors
+  --color--font: #{utils.$black};
+  --color--font--alt: #{utils.$gray--dark};
+  --color--action: #{utils.$blue};
+  --color--viewport--background: #{utils.$white};
+  --color--viewport--alt: #{utils.$gray--light};
+
+  // Typography
+  --font-family: GeneralSans,
+  #{utils.$font-stack-helvetica};
+  --font-family--heading: var(--font-family);
+  --baseline: #{utils.$baseline};
+
+  // Page Width
+  --max-page-width: 1200px;
+
+  // Other Sizes for horizontal spacing
+  --spacing--small: #{utils.spacing(.5)};
+  --spacing: #{utils.spacing(1)};
+  --spacing--site: #{utils.clamp-builder(.75em, 3em)};
+
+  // Borders
+  --border-radius: 0;
+  --border-width: .175em;
+  --border-width--small: calc(.175em / 2);
+  --border: var(--border-width) solid currentColor;
+  --border--small: var(--border-width--small) solid currentColor;
+
+  // Focus
+  --focus-outline-width: 0; //0.1875em;
+  --focus-outline-offset: .125em;
+  --focus-outline: var(--focus-outline-width) solid var(--color--action);
+
+  // Animations
+  --duration: 200ms;
+  --timing: ease-in-out;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    //use variable fonts only if supported
+    --font-family: GeneralSans-Variable,
+    #{utils.$font-stack-helvetica};
+  }
+}
