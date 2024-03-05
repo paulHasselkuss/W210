@@ -44,14 +44,8 @@ outputs:
   _merge: shallow
 ```
 
-Lastly, install required NPM dependencies and make sure that [Dart Sass](https://gohugo.io/functions/resources/tocss/#dart-sass) is installed and available on your `PATH`:
-
-```SHELL
-hugo mod npm pack
-npm install
-```
-
-Some usefull scripts can be found in this project's `package.json`.
+Lastly, make sure that [Dart Sass](https://gohugo.io/functions/resources/tocss/#dart-sass) is installed and available on your `PATH`.
+To use the theme, NPM is **not** needed. However, some usefull scripts may be found in this project's `package.json`.
 
 ## License
 

@@ -1,11 +1,12 @@
 'use strict';
-import 'instant.page/instantpage.js';
+import 'js/vendor/instantpage';
+
 const body = document.body;
 const nav_toggle = document.getElementById('navToggle');
 const theme_toggle = document.getElementById('themeToggle');
 const theme_meta = document.querySelectorAll('meta[name="theme-color"]');
 let ticking = false;
-theme_toggle.addEventListener('click', function(e) {
+theme_toggle.addEventListener('click', function (e) {
   let status = sessionStorage.getItem('alt-theme');
   if (status) {
     sessionStorage.removeItem('alt-theme');
@@ -16,15 +17,15 @@ theme_toggle.addEventListener('click', function(e) {
   e.preventDefault();
 });
 window.addEventListener('DOMContentLoaded', handle_theme());
-nav_toggle.addEventListener('click', function(e) {
+nav_toggle.addEventListener('click', function (e) {
   body.classList.toggle('nav-active')
   nav_toggle.classList.toggle('is-active');
   e.preventDefault();
 });
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   //simple & native throttle: http://www.html5rocks.com/en/tutorials/speed/animations/
   if (!ticking) {
-    window.requestAnimationFrame(function() {
+    window.requestAnimationFrame(function () {
       if (document.documentElement.scrollTop > 50) {
         body.classList.add('is-scrolled');
       } else {

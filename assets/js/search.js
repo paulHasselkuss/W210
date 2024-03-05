@@ -1,5 +1,6 @@
 'use strict';
-import Document from 'flexsearch/dist/module/document.js';
+import Document from 'js/vendor/flexsearch/document.js';
+
 const search_form = document.getElementById('searchForm'); // search form
 const search_input = document.getElementById('searchInput'); // input box for search
 const search_results = document.getElementById('searchListItems'); // targets the <ul>
@@ -19,19 +20,19 @@ let index; // holds our search engine
 let search__focus = false; // check to true to make visible by default
 let results_available = false;
 let first_run = true; // allow us to delay loading json data unless search activated
-search_toggle.addEventListener('click', function(e) {
+search_toggle.addEventListener('click', function (e) {
   search_toggle_focus(e);
 });
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
   // console.log(event); // DEBUG
   // Ctrl + / to show or hide Search
   // if (event.metaKey && event.which === 191) {
   if (event.ctrlKey && event.which === 191) {
     search_toggle_focus(e); // toggle visibility of search box
   }
-  
-  if(!search__focus) {
+
+  if (!search__focus) {
     return;
   }
   // Use Enter (13) to move to the first result
@@ -84,10 +85,10 @@ document.addEventListener('keydown', function(e) {
   }
 });
 //init when the form is in focus
-search_form.addEventListener('focusin', function() {
+search_form.addEventListener('focusin', function () {
   search_init();
 });
-search_form.addEventListener('keydown', function(e) {
+search_form.addEventListener('keydown', function (e) {
   // Allow ESC (27) to close search box
   if (e.keyCode == 27) {
     search__focus = true; // make sure toggle removes focus
@@ -119,7 +120,7 @@ function search_init() {
       .then(data => {
         index = new Document(options);
         data.forEach(data => index.add(data));
-        search_input.addEventListener('keyup', function() { // execute search as each character is typed
+        search_input.addEventListener('keyup', function () { // execute search as each character is typed
           search_exec(this.value);
         });
         //console.log('index.json loaded'); // DEBUG
@@ -137,7 +138,7 @@ function search_exec(term) {
       results_title_html = 'No results match.';
     } else { // build our html
       results_available = true;
-      let regex = new RegExp(term.split(/\s+/).filter(function(i) { return i === null || i === void 0 ? void 0 : i.length; }).join('|'), 'gi');
+      let regex = new RegExp(term.split(/\s+/).filter(function (i) { return i === null || i === void 0 ? void 0 : i.length; }).join('|'), 'gi');
       results[0].result.forEach(item => { results_html += result_html(item, regex) });
       results_title_html = maybePluralize(results[0].result.length, ' result');
     }
@@ -147,7 +148,7 @@ function search_exec(term) {
 }
 
 function result_html(item, regex) {
-  let title = item.doc.title.replace(regex, function(match) { return '<mark>' + match + '</mark>'; });
+  let title = item.doc.title.replace(regex, function (match) { return '<mark>' + match + '</mark>'; });
   return `<li class='search-result'><a class='unstyled' href='${item.doc.href}' tabindex = '0'>
     <h2 class='search-result__title'>${title}</h2>
     <p class='search-result__path'>${item.doc.href}</p>

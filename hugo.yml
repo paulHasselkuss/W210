@@ -12,10 +12,26 @@ params:
 # Module dependencies
 module:
   imports:
-  - path: "github.com/feathericons/feather"
-    mounts:
-    - source: icons
-      target: assets/img/icons
+    - path: "github.com/feathericons/feather"
+      mounts:
+        - source: icons
+          target: assets/img/icons
+    - path: "github.com/csstools/normalize.css"
+      mounts:
+        - source: normalize.css
+          target: assets/styles/vendor/normalize.css
+    - path: "github.com/nextapps-de/flexsearch"
+      mounts:
+        - source: dist/module
+          target: assets/js/vendor/flexsearch
+    - path: "github.com/instantpage/instant.page"
+      mounts:
+        - source: instantpage.js
+          target: assets/js/vendor/instantpage.js
+    - path: "github.com/mathjax/MathJax"
+      mounts:
+        - source: es5
+          target: assets/js/vendor/mathjax
 
 # Add search JSON, Redirects & Headers,
 outputs:
@@ -29,7 +45,7 @@ outputs:
 # merged by default
 mediaTypes:
   text/netlify:
-    delimiter: ''
+    delimiter: ""
 
 # Add output format for netlify _redirects & _headers,
 # merged by default
@@ -61,13 +77,13 @@ markup:
       passthrough:
         delimiters:
           block:
-          - - \[
-            - \]
-          - - $$
-            - $$
+            - - \[
+              - \]
+            - - $$
+              - $$
           inline:
-          - - \(
-            - \)
+            - - \(
+              - \)
         enable: true
   highlight:
     style: bw

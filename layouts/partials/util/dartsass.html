@@ -1,8 +1,9 @@
-{{/* USAGE: {{ partial "util/libsass.html" (dict "src" "styles/main.scss" "targetPath" "main.css" "fingerprint" true/false) }} */}}
+{{/* USAGE: {{ partial "util/dartsass.html" (dict "src" "styles/main.scss" "targetPath" "main.css" "fingerprint" true/false "postcss" true/false) }} */}}
 
 {{ $src := .src -}}
 {{ $targetPath := .targetPath | default (replace $src "scss" "css") -}}
 {{ $fingerprint := .fingerprint | default true -}}
+{{ $postcss := .postcss | default false -}}
 
 {{ $options := (dict "targetPath" $targetPath "transpiler" "dartsass" "includePaths" (slice "node_modules")) -}}
 
@@ -15,7 +16,12 @@
 {{ $css := resources.Get $src | toCSS $options -}}
 
 {{ if eq (hugo.Environment) "production" -}}
+
+{{ if $postcss }}
 {{ $css = $css | postCSS (dict "config" "postcss.config.js") }}
+{{ end }}
+
+{{ $css = $css | minify }}
 
 {{ if $fingerprint }}
 {{ $css = $css | fingerprint }}
