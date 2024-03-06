@@ -8,9 +8,9 @@
 {{ $options := (dict "targetPath" $targetPath "transpiler" "dartsass" "includePaths" (slice "node_modules")) -}}
 
 {{ if eq (hugo.Environment) "development" -}}
-{{ $options := merge $options (dict "enableSourceMap" "true") -}}
+{{ $options = merge $options (dict "enableSourceMap" "true") -}}
 {{ else -}}
-{{ $options := merge $options (dict "outputStyle" "compressed" ) -}}
+{{ $options = merge $options (dict "outputStyle" "compressed" ) -}}
 {{ end }}
 
 {{ $css := resources.Get $src | toCSS $options -}}
@@ -20,8 +20,6 @@
 {{ if $postcss }}
 {{ $css = $css | postCSS (dict "config" "postcss.config.js") }}
 {{ end }}
-
-{{ $css = $css | minify }}
 
 {{ if $fingerprint }}
 {{ $css = $css | fingerprint }}
