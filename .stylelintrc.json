@@ -1,23 +1,30 @@
 {
   "extends": "stylelint-config-recommended-scss",
-  "ignoreFiles": ["node_modules", "**/vendor/*.scss"],
-  "rules":
-  {
+  "ignoreFiles": [
+    "node_modules",
+    "**/vendor/*.scss"
+  ],
+  "rules": {
     "at-rule-empty-line-before": [
       "always",
       {
-        "except": ["blockless-after-same-name-blockless", "first-nested"],
-        "ignore": ["after-comment", "inside-block"]
+        "except": [
+          "blockless-after-same-name-blockless",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment",
+          "inside-block"
+        ]
       }
     ],
-    "number-leading-zero": "never",
     "property-no-unknown": [
       true,
       {
-        "ignoreProperties": ["font-named-instance"]
+        "ignoreProperties": [
+          "font-named-instance"
+        ]
       }
-    ],
-    "scss/no-global-function-names": null, 
-    "string-quotes": "double"
+    ]
   }
 }

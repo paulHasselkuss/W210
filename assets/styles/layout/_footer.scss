@@ -12,7 +12,7 @@
 }
 
 .site-footer__logo {
-  @include utils.ms-fw(3, "bold");
+  @include utils.fs-fw(3, "bold");
 }
 
 .site-footer__item {

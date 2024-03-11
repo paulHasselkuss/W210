@@ -1,13 +1,36 @@
-// Colors
-$white: #fffffc;
-$black: #00000f;
-$gray--dark: #444;
-$gray: #c4c4c4;
-$gray--light: #e9e9e9;
+@use "sass:color";
+@use "sass:meta";
+@use "sass:map";
+@use "hugo:vars";
 
-$blue: #030ba6;
-$blue--dark: #020873;
-$blue--light: #5961e0; //#5E76BF;
+// Hugo compatibility
+$_hugo-vars: meta.module-variables(vars);
+
+@function _getOrDefault($name, $default) {
+  @if map.has-key($_hugo-vars, $name) {
+    @return map.get($_hugo-vars, $name);
+  }
+
+  @return $default;
+}
+
+// Colors
+$_white: #fffffc;
+$_black: #00000f;
+$_blue: hsl(237, 96%, 33%);
+$_blue--light: hsl(237, 96%, 63%);
+
+// default
+$color--font: _getOrDefault("color--font", $_black);
+$color--action: _getOrDefault("color--action", $_blue);
+$color--background--site: _getOrDefault("color--background--site", $_white);
+$color--background--box: color.mix($color--font, $color--background--site, 10%);
+
+// darkmode
+$color--dark--font: _getOrDefault("color--dark--font", $_white);
+$color--dark--action: _getOrDefault("color--dark--action", $_blue--light);
+$color--dark--background--site: _getOrDefault("color--dark--background--site", $_black);
+$color--dark--background--box: color.mix($color--dark--font, $color--dark--background--site, 10%);
 
 // Typography
 $baseline: 1.6;

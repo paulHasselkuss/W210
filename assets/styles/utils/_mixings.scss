@@ -1,9 +1,10 @@
+@use "sass:list";
 @use "sass:map";
 @use "sass:meta";
 @use "constants";
 @use "functions";
 
-@mixin ms($factor) {
+@mixin fs($factor) {
   font-size: functions.modular-scale($factor);
 }
 
@@ -15,8 +16,8 @@
   font-weight: #{meta.inspect(map.get(constants.$font-weights, $weight))};
 }
 
-@mixin ms-fw($factor, $weight) {
-  @include ms($factor);
+@mixin fs-fw($factor, $weight) {
+  @include fs($factor);
   @include fw($weight);
 }
 
@@ -25,7 +26,7 @@
     @error "The breakpoint '#{$name}' does not exist in $breakpoints.";
   }
 
-  @media screen and (min-width: #{inspect(map-get(constants.$breakpoints, $name))}) {
+  @media screen and (min-width: #{meta.inspect(map.get(constants.$breakpoints, $name))}) {
     @content;
   }
 }
@@ -34,7 +35,7 @@
   $list: null;
 
   @each $format in $file-formats {
-    $list: append($list, url("#{$file-path}.#{$format}") format("#{$format}"), comma);
+    $list: list.append($list, url("#{$file-path}.#{$format}") format("#{$format}"), comma);
   }
 
   @font-face {
@@ -50,6 +51,20 @@
   &:last-child {
     #{$selector}: 0;
   }
+}
+
+@mixin colors--default {
+  --color--font:#{constants.$color--font};
+  --color--action: #{constants.$color--action};
+  --color--background--site: #{constants.$color--background--site};
+  --color--background--box: #{constants.$color--background--box};
+}
+
+@mixin colors--dark {
+  --color--font:#{constants.$color--dark--font};
+  --color--action: #{constants.$color--dark--action};
+  --color--background--site: #{constants.$color--dark--background--site};
+  --color--background--box: #{constants.$color--dark--background--box};
 }
 
 //https://stackoverflow.com/a/21622588

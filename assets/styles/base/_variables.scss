@@ -2,11 +2,7 @@
 
 :root {
   // Colors
-  --color--font: #{utils.$black};
-  --color--font--alt: #{utils.$gray--dark};
-  --color--action: #{utils.$blue};
-  --color--viewport--background: #{utils.$white};
-  --color--viewport--alt: #{utils.$gray--light};
+  @include utils.colors--default;
 
   // Typography
   --font-family: GeneralSans,
@@ -14,10 +10,10 @@
   --font-family--heading: var(--font-family);
   --baseline: #{utils.$baseline};
 
-  // Page Width
+  // Page width
   --max-page-width: 1200px;
 
-  // Other Sizes for horizontal spacing
+  // Other sizes for horizontal spacing
   --spacing--small: #{utils.spacing(.5)};
   --spacing: #{utils.spacing(1)};
   --spacing--site: #{utils.clamp-builder(.75em, 3em)};

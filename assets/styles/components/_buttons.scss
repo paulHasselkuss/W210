@@ -7,7 +7,7 @@ button,
 [type="submit"] {
   color: currentColor;
   appearance: none;
-  background-color: var(--color--viewport--background);
+  background-color: var(--color--background--site);
   border: var(--border);
   border-radius: var(--border-radius);
   border-color: var(--color--font);
@@ -29,7 +29,7 @@ button,
   white-space: nowrap;
 
   &:hover {
-    color: var(--color--viewport--background);
+    color: var(--color--background--site);
     background-color: var(--color--font);
   }
 
@@ -49,7 +49,7 @@ button,
 /* stylelint-disable -- false positive, we are overwriting the styles from above */
 .button--primary,
 [type="submit"] {
-  color: var(--color--viewport--background);
+  color: var(--color--background--site);
   background-color: var(--color--font);
 
   &:hover {

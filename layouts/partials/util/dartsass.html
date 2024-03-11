@@ -1,11 +1,11 @@
-{{/* USAGE: {{ partial "util/dartsass.html" (dict "src" "styles/main.scss" "targetPath" "main.css" "fingerprint" true/false "postcss" true/false) }} */}}
+{{/* USAGE: {{ partial "util/dartsass.html" (dict "src" "styles/main.scss" "targetPath" "main.css" "vars" .Params.style fingerprint" true/false "postcss" true/false) }} */}}
 
 {{ $src := .src -}}
 {{ $targetPath := .targetPath | default (replace $src "scss" "css") -}}
 {{ $fingerprint := .fingerprint | default true -}}
 {{ $postcss := .postcss | default false -}}
 
-{{ $options := (dict "targetPath" $targetPath "transpiler" "dartsass" "includePaths" (slice "node_modules")) -}}
+{{ $options := (dict "targetPath" $targetPath "transpiler" "dartsass" "vars" .vars "includePaths" (slice "node_modules")) -}}
 
 {{ if eq (hugo.Environment) "development" -}}
 {{ $options = merge $options (dict "enableSourceMap" "true") -}}

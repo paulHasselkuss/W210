@@ -17,11 +17,11 @@ $toggle-size: .9em;
     width: math.div($toggle-size, 2);
     height: $toggle-size;
     display: block;
-    background: utils.$black;
+    background: utils.$color--background--site;
     content: "";
   }
 
-  background: utils.$white;
+  background: utils.$color--dark--background--site;
   transition: transform 250ms ease-in-out;
 }
 

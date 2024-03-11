@@ -13,21 +13,21 @@ paginate: 5
 
 menu:
   home:
-  - name: Docs
-    url: "/docs/"
-    Params:
-      class: button--primary
-  - name: Source
-    url: "https://github.com/paulHasselkuss/W210"
+    - name: Docs
+      url: "/docs/"
+      Params:
+        class: button--primary
+    - name: Source
+      url: "https://github.com/paulHasselkuss/W210"
   social:
-  - identifier: Source
-    url: "https://github.com/paulHasselkuss/W210"
-    Params:
-      icon: "img/icons/github"
+    - identifier: Source
+      url: "https://github.com/paulHasselkuss/W210"
+      Params:
+        icon: "img/icons/github"
 
 module:
   imports:
-  - path: "github.com/paulHasselkuss/W210" #Replaced in go.mod to point to the parent directory  
+    - path: "github.com/paulHasselkuss/W210" #Replaced in go.mod to point to the parent directory
 
 # Required, adds ToC and Markup config
 markup:

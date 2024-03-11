@@ -8,6 +8,7 @@ params:
   matomo:
     url: ""
     siteId: ""
+  style: []
 
 # Module dependencies
 module:

@@ -14,10 +14,16 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "ignorePatterns": ["node_modules", "**/vendor/*.js"],
+  "ignorePatterns": [
+    "node_modules",
+    "**/vendor/*.js"
+  ],
   "rules": {
     "no-console": 0,
-    "quotes": ["error", "single"],
+    "quotes": [
+      "error",
+      "single"
+    ],
     "comma-dangle": [
       "error",
       {

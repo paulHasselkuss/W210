@@ -1,50 +1,16 @@
 @use "../utils";
 
-@mixin darkmode {
-  --color--font: #{utils.$white};
-  --color--font--alt: #{utils.$gray--light};
-  --color--action: #{utils.$blue--light};
-  --color--viewport--background: #{utils.$black};
-  --color--viewport--alt: #{utils.$gray};
-}
-
 .alt-theme {
-  @include darkmode;
+  @include utils.colors--dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    @include darkmode;
+    @include utils.colors--dark;
   }
 
   .alt-theme {
-    --color--font:#{utils.$black};
-    --color--font--alt: #{utils.$gray--dark};
-    --color--action: #{utils.$blue};
-    --color--viewport--background: #{utils.$white};
-    --color--viewport--alt: #{utils.$gray--light};
-  }
-}
-
-.theme-dark--display {
-  display: none;
-
-  @media (prefers-color-scheme: dark) {
-    display: initial;
-  }
-
-  .alt-theme & {
-    display: initial;
-  }
-}
-
-.theme-light--display {
-  @media (prefers-color-scheme: dark) {
-    display: none;
-  }
-
-  .alt-theme & {
-    display: none;
+    @include utils.colors--default;
   }
 }
 

@@ -34,7 +34,7 @@ h3 {
 
   .text-h#{$i},
   h#{$i} {
-    @include utils.ms-fw(5 - $i, "semi-bold");
+    @include utils.fs-fw(5 - $i, "semi-bold");
   }
 }
 
@@ -51,20 +51,20 @@ em,
 }
 
 .bigtext {
-  @include utils.ms-fw(1, "semi-bold");
+  @include utils.fs-fw(1, "semi-bold");
 }
 
 .smalltext {
-  @include utils.ms(-.5);
+  @include utils.fs(-.5);
 }
 
 .codeblock,
 code,
 pre {
   font-family: monospace;
-  color: utils.$black;
+  color: utils.$color--font;
   font-size: .85em;
-  background-color: var(--color--viewport--alt) !important; //overwrite inline styles
+  background-color: var(--color--background--box) !important; //overwrite inline styles
   padding: utils.spacing(.5) utils.spacing(1);
   margin-bottom: utils.spacing(.5);
   overflow-x: auto;
@@ -79,7 +79,7 @@ code {
 }
 
 ::selection {
-  color: var(--color--viewport--background);
+  color: var(--color--background--site);
   background-color: var(--color--font);
 }
 

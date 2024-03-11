@@ -8,11 +8,18 @@ toc: true
 
 ```YAML
 params:
-  logo: <path/to/image|path/to/svg|text>
-  disallowSearchEngines: <true|false> #disallowed search engines in robots.txt
-  matomo: #Matomo can be used for analytics
+  logo: <path/to/image|path/to/svg|text> #displayed top left
+  disallowSearchEngines: <true|false> #allows/disallows search engines in robots.txt
+  matomo: #optional, to use Matomo for analytics
     url: <matomo-url>
     siteId: <matomo's site id>
+  style: #optional, provides an easy way to overwrite the default colors
+    color__font: <#00000f>
+    color__action: <#030ba5>
+    color__background__site: <#fffffc>
+    color__dark__font: <#fffffc>
+    color__dark__action: <#464ffb>
+    color__dark__background__site: <#00000f>
 ```
 
 ## Frontmatter

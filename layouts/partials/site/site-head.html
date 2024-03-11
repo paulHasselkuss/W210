@@ -4,7 +4,7 @@
 
   <!-- Font & Styles -->
   <link rel="preload" as="font" href="{{ "styles/fonts/GeneralSans-variable-normal.woff2" | absURL }}" type="font/woff2" crossorigin="">
-  {{ partialCached "util/dartsass.html" (dict "src" "styles/main.scss") }}
+  {{ partialCached "util/dartsass.html" (dict "src" "styles/main.scss" "vars" site.Params.style) }}
 
   <!-- Site info -->
   <title>{{ if not .IsHome}}{{- with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title -}}</title>

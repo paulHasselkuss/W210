@@ -4,9 +4,7 @@ github.com/feathericons/feather v4.29.1+incompatible h1:2x3iuUAXwzDQJ3Hawc15IrgR
 github.com/feathericons/feather v4.29.1+incompatible/go.mod h1:+F8Ba9cmRHWu0pOVoZtid0iwkNJ8hr959HyPwj3hsRg=
 github.com/instantpage/instant.page v5.2.0+incompatible h1:wmz3tNL+iMrcUrCJZ4gfTwG8pab0ouaI5C2vx3lAg2Y=
 github.com/instantpage/instant.page v5.2.0+incompatible/go.mod h1:GXVDktwI+K4T9o5mcK2NYDqPFxAUrB9U9goR9oG1SaI=
-github.com/mathjax/MathJax v0.0.0-20220608174011-600692ad9d35 h1:ltmIuiFt2fDnxSWTz5tkIFzv/9jcyue7pdx5RT6Sqp4=
-github.com/mathjax/MathJax v0.0.0-20220608174011-600692ad9d35/go.mod h1:bgp6XP7Dtl25/x6vVIPVe2mkOCrg8wMk/A9gl0FzJLA=
+github.com/mathjax/MathJax v0.0.0-20230708183653-b6922e564070 h1:xaftXTM0tL7AsqTNqH+CzxGZ/U3TgJqi4MciY6N7ayw=
+github.com/mathjax/MathJax v0.0.0-20230708183653-b6922e564070/go.mod h1:bgp6XP7Dtl25/x6vVIPVe2mkOCrg8wMk/A9gl0FzJLA=
 github.com/nextapps-de/flexsearch v0.0.0-20240110101704-4c3966709f85 h1:H6xa5YyCHr78M+qqCApM4Kvz/eMA7pfGskYmfkEBRCA=
 github.com/nextapps-de/flexsearch v0.0.0-20240110101704-4c3966709f85/go.mod h1:5GdMfPAXzbA2gXBqTjC6l27kioSYzHlqDMh0+wyx7sU=
-github.com/thoughtbot/bourbon v7.3.0+incompatible h1:1REepWdMPzkiSJTsQxVp79C8mVLHjHnJ1Xq2Jrrq/Jw=
-github.com/thoughtbot/bourbon v7.3.0+incompatible/go.mod h1:Hv/ab7HEfRL9RUgAZ7DsfCNOI59QDrBXwgfmoYG/suQ=

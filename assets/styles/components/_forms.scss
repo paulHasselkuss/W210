@@ -107,10 +107,10 @@ textarea {
       border: var(--border);
     }
   }
+}
 
-  &::placeholder {
-    color: var(--color--font--alt);
-  }
+::placeholder {
+  color: grey;
 }
 
 [type="checkbox"],

@@ -12,9 +12,9 @@ $cubic--burger: cubic-bezier(.645, .045, .355, 1);
   z-index: -1;
   width: 100%;
 
-  @include utils.ms-fw(0, "semi-bold");
+  @include utils.fs-fw(0, "semi-bold");
 
-  background-color: var(--color--viewport--background);
+  background-color: var(--color--background--site);
   transition: height .4s;
 
   ul {
@@ -155,7 +155,7 @@ button.hamburger {
         &.is-active,
         &:hover {
           background-color: var(--color--font);
-          color: var(--color--viewport--background);
+          color: var(--color--background--site);
         }
 
         &.is-active:hover {
