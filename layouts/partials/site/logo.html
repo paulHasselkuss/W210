@@ -3,7 +3,7 @@
 {{ with resources.Get $logo }}
 
 {{ if strings.HasSuffix . "svg" }}
-{{ partial "svg" ( dict "src" . "class" "site-logo" ) }}
+{{ partial "util/svg" ( dict "src" . "class" "site-logo" ) }}
 {{ else }}
 <img class="site-logo" src="{{ .RelPermalink }}" alt="{{ $.Site.Title }}">
 {{ end }}

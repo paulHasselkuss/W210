@@ -1,20 +1,21 @@
-@use "sass:math";
 @use "../utils";
 
-$toggle-size: .9em;
+$toggle-size: 1em;
 
 .theme-toggle {
+  box-sizing: border-box;
   display: block;
+
   width: $toggle-size;
   height: $toggle-size;
   border-radius: $toggle-size;
-  border: currentColor solid var(--border-width--small);
+  border: currentColor solid 1.499px; //equal to an icon's stroke width
   overflow: hidden;
   cursor: pointer;
   transform: rotate(45deg);
 
   &::after {
-    width: math.div($toggle-size, 2);
+    width: 50%;
     height: $toggle-size;
     display: block;
     background: utils.$color--background--site;
