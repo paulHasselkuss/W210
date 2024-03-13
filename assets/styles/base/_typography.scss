@@ -62,7 +62,7 @@ em,
 code,
 pre {
   font-family: monospace;
-  color: utils.$color--font;
+  color: var(--color--font);
   font-size: .85em;
   background-color: var(--color--background--box) !important; //overwrite inline styles
   padding: utils.spacing(.5) utils.spacing(1);

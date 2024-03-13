@@ -30,7 +30,7 @@ $color--background--box: color.mix($color--font, $color--background--site, 10%);
 $color--dark--font: _getOrDefault("color--dark--font", $_white);
 $color--dark--action: _getOrDefault("color--dark--action", $_blue--light);
 $color--dark--background--site: _getOrDefault("color--dark--background--site", $_black);
-$color--dark--background--box: color.mix($color--dark--font, $color--dark--background--site, 10%);
+$color--dark--background--box: color.mix($color--dark--font, $color--dark--background--site, 25%);
 
 // Typography
 $baseline: 1.6;
