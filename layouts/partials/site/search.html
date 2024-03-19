@@ -7,16 +7,11 @@
         {{ $url = $url.Host | strings.TrimPrefix "www." }}
         <input id="searchInput" type="search" name="q" tabindex="0" autocomplete="off" placeholder="Search {{ $url }} ">
       </form>
-      <div>Type to search or press esc to cancel.</div>
+      <div>Type to search or press esc to <a id="searchCancel" href="#">cancel</a>.</div>
     </div>
 
-    <div class="search-list grid--main">
-      <h2 id="searchListTitle" class="search-list__title bigtext">
+    <div id="searchResults" class="search-list grid--main">
         <!--Filled by JS -->
-      </h2>
-      <ul id="searchListItems" class="search-list__items unstyled">
-        <!-- Filled by JS -->
-      </ul>
     </div>
   </section>
 </div>
