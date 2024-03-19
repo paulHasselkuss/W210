@@ -20,7 +20,8 @@ menu:
     - name: Source
       url: "https://github.com/paulHasselkuss/W210"
   social:
-    - identifier: Source
+    - title: Source on GitHub
+      identifier: Source
       url: "https://github.com/paulHasselkuss/W210"
       Params:
         icon: "img/icons/github"
