@@ -1,13 +1,14 @@
 'use strict';
+
 import Document from 'js/vendor/flexsearch/document.js';
 
-const search_toggle = document.getElementById('searchToggle');
-const search_cancel = document.getElementById('searchCancel');
-const search_form = document.getElementById('searchForm');
-const search_input = document.getElementById('searchInput');
-const search_results = document.getElementById('searchResults');
+const searchToggle = document.getElementById('searchToggle');
+const searchCancel = document.getElementById('searchCancel');
+const searchForm = document.getElementById('searchForm');
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
 
-const flexsearch_options = {
+const flexsearchOptions = {
   preset: 'match',
   context: 'true',
   tokenize: 'full',
@@ -19,54 +20,54 @@ const flexsearch_options = {
 };
 let flexsearch;
 
-let has_focus = false;
-let has_results = false;
-let has_init_flexsearch = false;
+let hasFocus = false;
+let hasResults = false;
+let hasInitFlexsearch = false;
 
-function search_toggle_focus() {
+function searchToggleFocus() {
   //console.log(e); // DEBUG
   // order of operations is very important to keep focus where it should stay
-  if (!has_focus) {
+  if (!hasFocus) {
     document.body.classList.add('search-active');
-    search_toggle.classList.add('is-active');
-    search_input.focus(); // move focus to search box
-    has_focus = true;
+    searchToggle.classList.add('is-active');
+    searchInput.focus(); // move focus to search box
+    hasFocus = true;
   } else {
     document.body.classList.remove('search-active');
-    search_toggle.classList.remove('is-active');
+    searchToggle.classList.remove('is-active');
     document.activeElement.blur(); // remove focus from search box
-    has_focus = false;
+    hasFocus = false;
   }
 }
 
-function search_init() {
-  if (!has_init_flexsearch) {
-    has_init_flexsearch = true; // let's never do this again
-    fetch(search_form.getAttribute('data-base-url') + search_form.getAttribute('data-language-prefix') + '/index.json')
+function searchInit() {
+  if (!hasInitFlexsearch) {
+    hasInitFlexsearch = true; // let's never do this again
+    fetch(searchForm.getAttribute('data-base-url') + searchForm.getAttribute('data-language-prefix') + '/index.json')
       .then(data => data.json())
       .then(data => {
-        flexsearch = new Document(flexsearch_options);
+        flexsearch = new Document(flexsearchOptions);
         data.forEach(data => flexsearch.add(data));
-        search_input.addEventListener('keyup', function () { // execute search as each character is typed
-          search_exec(this.value);
+        searchInput.addEventListener('keyup', function () { // execute search as each character is typed
+          searchExec(this.value);
         });
         //console.log('index.json loaded'); // DEBUG
       });
   }
 }
 
-function search_exec(term) {
-  has_results = false;
+function searchExec(term) {
+  hasResults = false;
   if (term.length > 3) {
     let results = flexsearch.search(term, { enrich: true });
     if (results.length !== 0) {
-      has_results = true;
+      hasResults = true;
     }
-    print_results(term, results);
+    printResults(term, results);
   }
 }
 
-function print_results(term, results) {
+function printResults(term, results) {
   let title_text = '';
   if (results.length === 0) {
     title_text = 'No results.'
@@ -78,15 +79,15 @@ function print_results(term, results) {
 
   let results_text = '';
   let regex = new RegExp(term.split(/\s+/).filter(Boolean).join('|'), 'gi');
-  results[0].result.forEach(item => results_text += item_to_html(item, regex));
+  results[0].result.forEach(item => results_text += itemToHtml(item, regex));
 
-  search_results.innerHTML = `
+  searchResults.innerHTML = `
     <h2 class="search-list__title bigtext">${title_text}</h2>
     <ul id="searchResultsList" class="search-list__items unstyled">${results_text}</ul>
     `;
 }
 
-function item_to_html(item, regex) {
+function itemToHtml(item, regex) {
   let item_title = item.doc.title.replace(regex, match => `<mark>${match}</mark>`);
   return `
     <li class='search-result'>
@@ -98,11 +99,11 @@ function item_to_html(item, regex) {
     `;
 }
 
-function get_first_result() {
+function getFirstResult() {
   return document.querySelector('#searchResults ul').firstElementChild.firstElementChild;
 }
 
-function get_last_result() {
+function getLastResult() {
   return document.querySelector('#searchResults ul').lastElementChild.firstElementChild;
 }
 
@@ -111,31 +112,31 @@ document.addEventListener('keydown', e => {
   // Ctrl + / to show or hide Search
   // if (event.metaKey && event.which === 191) {
   if (event.ctrlKey && event.which === 191) {
-    search_toggle_focus(e); // toggle visibility of search box
+    searchToggleFocus(e); // toggle visibility of search box
   }
 
-  if (!has_focus) {
+  if (!hasFocus) {
     return;
   }
   // Use Enter (13) to move to the first result
   if (e.keyCode == 13) {
-    if (document.activeElement == search_input) {
+    if (document.activeElement == searchInput) {
       e.preventDefault(); // stop form from being submitted
-      if (has_results) {
-        get_first_result().focus();
+      if (hasResults) {
+        getFirstResult().focus();
       }
     }
   }
   // DOWN (40) arrow
   if (e.keyCode == 40) {
-    if (has_results) {
+    if (hasResults) {
       e.preventDefault(); // stop window from scrolling
-      if (document.activeElement == search_input) {
+      if (document.activeElement == searchInput) {
         // if the currently focused element is the main input --> focus the first <li>
-        get_first_result().focus();
-      } else if (document.activeElement == get_last_result()) {
+        getFirstResult().focus();
+      } else if (document.activeElement == getLastResult()) {
         // if we're at the bottom, loop to the start
-        get_first_result().focus();
+        getFirstResult().focus();
       } else {
         // otherwise select the next search result
         document.activeElement.parentElement.nextElementSibling.firstElementChild.focus();
@@ -144,14 +145,14 @@ document.addEventListener('keydown', e => {
   }
   // UP (38) arrow
   if (e.keyCode == 38) {
-    if (has_results) {
+    if (hasResults) {
       e.preventDefault(); // stop window from scrolling
-      if (document.activeElement == search_input) {
+      if (document.activeElement == searchInput) {
         // If we're in the input box, do nothing
-        search_input.focus();
-      } else if (document.activeElement == get_first_result()) {
+        searchInput.focus();
+      } else if (document.activeElement == getFirstResult()) {
         // If we're at the first item, go to input box
-        search_input.focus();
+        searchInput.focus();
       } else {
         // Otherwise, select the search result above the current active one
         document.activeElement.parentElement.previousElementSibling.firstElementChild.focus();
@@ -160,24 +161,24 @@ document.addEventListener('keydown', e => {
   }
   // Use Backspace (8) to switch back to the search input
   if (e.keyCode == 8) {
-    if (document.activeElement != search_input) {
+    if (document.activeElement != searchInput) {
       e.preventDefault(); // stop browser from going back in history
-      search_input.focus();
+      searchInput.focus();
     }
   }
 });
 
 //toogle search visibility
-search_toggle.addEventListener('click', e => search_toggle_focus(e));
-search_cancel.addEventListener('click', e => search_toggle_focus(e));
+searchToggle.addEventListener('click', e => searchToggleFocus(e));
+searchCancel.addEventListener('click', e => searchToggleFocus(e));
 
 //init when the form is in focus
-search_form.addEventListener('focusin', e => search_init(e));
+searchForm.addEventListener('focusin', e => searchInit(e));
 
 // Allow ESC (27) to close search box
-search_form.addEventListener('keydown', e => {
+searchForm.addEventListener('keydown', e => {
   if (e.keyCode == 27) {
-    has_focus = false; // make sure toggle removes focus
-    search_toggle_focus(e);
+    hasFocus = true; // make sure toggle removes focus
+    searchToggleFocus(e);
   }
 });
