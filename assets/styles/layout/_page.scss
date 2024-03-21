@@ -1,7 +1,7 @@
 @use "../utils";
 
 .page-frontmatter>* {
-  margin-bottom: utils.spacing(.5);
+  @include utils.except-last(margin-bottom, #{utils.spacing(1)});
 }
 
 .page-frontmatter,

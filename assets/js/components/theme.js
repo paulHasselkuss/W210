@@ -24,12 +24,12 @@ themeToggle.addEventListener('click', (e) => {
   if (status) {
     sessionStorage.removeItem('alt-theme');
   } else {
-    sessionStorage.setItem('alt-theme', 'true')
+    sessionStorage.setItem('alt-theme', 'true');
   }
   handleTheme(!status);
   e.preventDefault();
 });
 
-document.addEventListener('DOMContentLoaded', () => handleTheme());
+document.addEventListener('DOMContentLoaded', handleTheme);
 
 

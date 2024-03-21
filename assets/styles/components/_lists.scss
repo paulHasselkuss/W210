@@ -21,6 +21,11 @@ ol {
   margin-bottom: utils.spacing(.5);
   padding: 0;
 
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+
   &.vertical,
   &.unstyled {
     list-style: none;

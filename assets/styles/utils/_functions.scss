@@ -6,12 +6,17 @@
   @return $base * math.pow($ratio, $increment);
 }
 
-@function font-container-height($ms-factor: 0) {
-  @return calc(#{modular-scale($ms-factor)} * var(--baseline));
+@function font-container-height($ms-factor: 0, $baseline: constants.$baseline) {
+  $font-size: modular-scale($ms-factor);
+  $baseline--half: math.div($baseline, 2); //baseline grid is half of the baseline (.8rem)
+  $factor: math.ceil(math.div($font-size, $baseline--half)); //find the smallest ratio of the grid that fits
+  $factor: math.clamp(2rem, $factor, $factor); //let's not get too small
+
+  @return calc(#{$baseline--half} * #{$factor});
 }
 
 @function spacing($amount: 1) {
-  @if not ($amount % .5 == 0) {
+  @if not ($amount % .5==0) {
     @error "Spacing needs to be a factor of .5, was '#{$amount}.";
   }
 
@@ -38,7 +43,7 @@
 }
 
 @function strip-unit($number) {
-  @if type-of($number) == "number" and not unitless($number) {
+  @if type-of($number)=="number" and not unitless($number) {
     @return math.div($number, $number * 0 + 1);
   }
 

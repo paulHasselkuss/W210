@@ -6,6 +6,7 @@
 
 @mixin fs($factor) {
   font-size: functions.modular-scale($factor);
+  line-height: functions.font-container-height($factor);
 }
 
 @mixin fw($weight) {
