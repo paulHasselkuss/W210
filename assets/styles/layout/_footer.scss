@@ -2,7 +2,7 @@
 
 .site-footer {
   padding-top: utils.spacing(.5);
-  padding-bottom: utils.spacing(1);
+  padding-bottom: utils.spacing(.5);
   border-top: var(--border--small);
 
   @include utils.md("medium") {

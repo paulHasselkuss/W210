@@ -29,8 +29,7 @@ body {
   margin: 0 var(--spacing--site);
 }
 
-.site-content,
-.site-footer {
+.site-content {
   margin-bottom: utils.spacing(.5);
 }
 
@@ -40,8 +39,7 @@ body {
 
 @include utils.md("medium") {
 
-  .site-content,
-  .site-footer {
+  .site-content {
     margin-bottom: utils.spacing(1);
   }
 
