@@ -1,4 +1,5 @@
 {{ $identifier := .Get 0 }}
+{{ $identifier = split $identifier "/" }}
 
 {{ with (index $.Page.Params $identifier) }}
 {{ partial "form.html" . }}
