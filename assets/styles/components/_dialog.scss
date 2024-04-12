@@ -1,0 +1,45 @@
+@use "../utils";
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+dialog {
+  position: fixed;
+  box-sizing: border-box;
+
+  //width: calc(100% - (var(--spacing--site) * 2));
+  max-width: calc(var(--max-page-width) - (var(--spacing--site) * 2));
+  padding: utils.spacing();
+
+  background-color: var(--color--background--site);
+  color: var(--color--font);
+  border: var(--border--small);
+
+  &:focus-visible {
+    outline: 0;
+  }
+
+  &::backdrop {
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+}
+
+dialog[open] {
+  animation: fadeInDialog var(--duration) var(--timing) normal;
+
+  &::backdrop {
+    animation: fadeInDialog var(--duration) var(--timing) normal;
+  }
+}
+
+@keyframes fadeInDialog {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

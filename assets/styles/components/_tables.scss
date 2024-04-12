@@ -30,3 +30,7 @@ th,
 td {
   padding: var(--spacing--small) var(--spacing--small) var(--spacing--small) 0;
 }
+
+th:empty {
+  padding: 0;
+}
