@@ -3,7 +3,8 @@
 const themeToggle = document.getElementById('themeToggle');
 const themeMetas = document.querySelectorAll('meta[name="theme-color"]');
 
-function handleTheme(add = sessionStorage.getItem('alt-theme')) {
+function handleTheme() {
+  let add = sessionStorage.getItem('alt-theme');
   if (add) {
     document.documentElement.classList.add('alt-theme');
     setThemeMeta('data-alt');
@@ -26,7 +27,7 @@ themeToggle.addEventListener('click', (e) => {
   } else {
     sessionStorage.setItem('alt-theme', 'true');
   }
-  handleTheme(!status);
+  handleTheme();
   e.preventDefault();
 });
 
