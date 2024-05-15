@@ -4,7 +4,7 @@ const themeToggle = document.getElementById('themeToggle');
 const themeMetas = document.querySelectorAll('meta[name="theme-color"]');
 
 function handleTheme() {
-  let add = sessionStorage.getItem('alt-theme');
+  const add = sessionStorage.getItem('alt-theme');
   if (add) {
     document.documentElement.classList.add('alt-theme');
     setThemeMeta('data-alt');
@@ -21,16 +21,15 @@ function setThemeMeta(attribute) {
 }
 
 themeToggle.addEventListener('click', (e) => {
-  let status = sessionStorage.getItem('alt-theme');
+  const status = sessionStorage.getItem('alt-theme');
   if (status) {
     sessionStorage.removeItem('alt-theme');
   } else {
     sessionStorage.setItem('alt-theme', 'true');
   }
+
   handleTheme();
   e.preventDefault();
 });
 
 document.addEventListener('DOMContentLoaded', handleTheme);
-
-

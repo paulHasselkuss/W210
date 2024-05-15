@@ -1,7 +1,6 @@
 {
   "extends": "stylelint-config-recommended-scss",
   "ignoreFiles": [
-    "node_modules",
     "**/vendor/*.scss"
   ],
   "rules": {
@@ -25,6 +24,7 @@
           "font-named-instance"
         ]
       }
-    ]
+    ],
+    "scss/operator-no-unspaced": null
   }
 }

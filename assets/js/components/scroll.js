@@ -11,7 +11,7 @@ function handleScroll(scrollPosition = window.scrollY) {
 }
 
 document.addEventListener('scroll', () => {
-  //simple & native throttle: https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
+  // simple & native throttle: https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
   if (!isTicking) {
     window.requestAnimationFrame(() => {
       handleScroll();

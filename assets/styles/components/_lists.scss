@@ -1,5 +1,14 @@
 @use "../utils";
 
+ul {
+  margin-left: 1em;
+}
+
+ol {
+  list-style: none;
+  counter-reset: ordered-list;
+}
+
 ol li {
   counter-increment: ordered-list;
 
@@ -42,15 +51,6 @@ ol {
 
     @include utils.except-last(padding-right, 1.5em);
   }
-}
-
-ul {
-  margin-left: 1em;
-}
-
-ol {
-  list-style: none;
-  counter-reset: ordered-list;
 }
 
 dl {

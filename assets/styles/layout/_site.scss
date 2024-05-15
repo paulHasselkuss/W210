@@ -21,16 +21,13 @@ body {
 
 .site-content {
   flex: 1;
+  margin-bottom: utils.spacing(.5);
 }
 
 .site-header,
 .site-content,
 .site-footer {
   margin: 0 var(--spacing--site);
-}
-
-.site-content {
-  margin-bottom: utils.spacing(.5);
 }
 
 .site-header {

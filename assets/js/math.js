@@ -2,10 +2,11 @@
 
 import 'js/vendor/mathjax/tex-chtml.js';
 
-// eslint-disable-next-line no-undef
+/* global MathJax:writable */
+/* exported MathJax */
 MathJax = {
   tex: {
-    displayMath: [['\\[', '\\]'], ['$$', '$$']],  // block
-    inlineMath: [['\\(', '\\)']],                 // inline
+    displayMath: [['\\[', '\\]'], ['$$', '$$']], // block
+    inlineMath: [['\\(', '\\)']], // inline
   },
 };
