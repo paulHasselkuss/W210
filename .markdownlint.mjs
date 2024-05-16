@@ -1,0 +1,8 @@
+export default {
+  'default': true,
+  'line_length': false,
+  'no-inline-html': false,
+  'no-trailing-punctuation': false,
+  'no-duplicate-heading': false,
+  'no-bare-urls': false,
+};
