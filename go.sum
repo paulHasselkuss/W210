@@ -6,5 +6,5 @@ github.com/instantpage/instant.page v5.2.0+incompatible h1:wmz3tNL+iMrcUrCJZ4gfT
 github.com/instantpage/instant.page v5.2.0+incompatible/go.mod h1:GXVDktwI+K4T9o5mcK2NYDqPFxAUrB9U9goR9oG1SaI=
 github.com/mathjax/MathJax v0.0.0-20230708183653-b6922e564070 h1:xaftXTM0tL7AsqTNqH+CzxGZ/U3TgJqi4MciY6N7ayw=
 github.com/mathjax/MathJax v0.0.0-20230708183653-b6922e564070/go.mod h1:bgp6XP7Dtl25/x6vVIPVe2mkOCrg8wMk/A9gl0FzJLA=
-github.com/nextapps-de/flexsearch v0.0.0-20240501124520-961c3ae84a87 h1:6PNbL0/LxO8Xl8MZSe5uvCidYNpFTz9nlWTqj2qdlzA=
-github.com/nextapps-de/flexsearch v0.0.0-20240501124520-961c3ae84a87/go.mod h1:5GdMfPAXzbA2gXBqTjC6l27kioSYzHlqDMh0+wyx7sU=
+github.com/nextapps-de/flexsearch v0.0.0-20250210141409-f78ebb388862 h1:+kGQ+34t7Bv0mbwTGUxwQU2ruuac8jsHEvcleSRUI3M=
+github.com/nextapps-de/flexsearch v0.0.0-20250210141409-f78ebb388862/go.mod h1:5GdMfPAXzbA2gXBqTjC6l27kioSYzHlqDMh0+wyx7sU=

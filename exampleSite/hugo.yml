@@ -9,7 +9,8 @@ enableRobotsTXT: true
 disableAliases: true
 
 # Smaller pagination for testing
-paginate: 5
+pagination:
+  pagerSize: 5
 
 menu:
   home:
