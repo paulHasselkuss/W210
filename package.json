@@ -5,7 +5,7 @@
     "default"
   ],
   "dependencies": {
-    "flexsearch": "^0.7.43",
+    "flexsearch": "^0.8.147",
     "instant.page": "^5.2.0",
     "mathjax": "^3.2.2"
   },
