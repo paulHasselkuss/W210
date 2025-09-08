@@ -49,7 +49,7 @@
 @mixin except-last($selector, $value) {
   #{$selector}: #{$value};
 
-  &:last-child {
+  :last-child {
     #{$selector}: 0;
   }
 }
