@@ -10,7 +10,7 @@
     "mathjax": "^4.0.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.2.2",
+    "@antfu/eslint-config": "^5.4.1",
     "@csstools/normalize.css": "^12.1.1",
     "autoprefixer": "^10.4.21",
     "bourbon": "^7.3.0",
