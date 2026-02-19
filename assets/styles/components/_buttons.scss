@@ -20,7 +20,7 @@ button,
   @include utils.fw("bold");
 
   line-height: 1;
-  padding: var(--spacing--small) var(--spacing);
+  padding: var(--spacing--small) var(--spacing) !important;
   text-align: center;
   text-decoration: none;
   transition: all var(--duration) var(--timing);
