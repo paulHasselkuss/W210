@@ -4,7 +4,7 @@
 {{ with (index $.Page.Params $identifier) }}
 {{ partial "form.html" . }}
 {{ else }}
-{{ with (index $.Site.Data $identifier) }}
+{{ with (index hugo.Data $identifier) }}
 {{ partial "form.html" . }}
 {{ end }}
 {{ end }}

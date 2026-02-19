@@ -2,13 +2,13 @@
 
 {{ if eq $type "address" }}
 <p>
-  <address>{{- index .Page.Site.Data.contact $type | markdownify -}}</address></p>
+  <address>{{- index hugo.Data.contact $type | markdownify -}}</address></p>
 {{ else if eq $type "contact" }}
 <p>
-  {{ $phone := index .Page.Site.Data.contact "phone"}}
+  {{ $phone := index hugo.Data.contact "phone"}}
   Telephone: <a href="tel:{{ $phone }}">{{- $phone | htmlEscape -}}</a><br />
 
-  {{ $data := index .Page.Site.Data.contact "mail" }}
+  {{ $data := index hugo.Data.contact "mail" }}
   {{ $parts := split $data "@" }}
   {{ $user := index $parts 0}}
   {{ $domain := index $parts 1 }}
