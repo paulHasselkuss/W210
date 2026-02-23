@@ -7,7 +7,7 @@
   "dependencies": {
     "flexsearch": "^0.8.212",
     "instant.page": "^5.2.0",
-    "mathjax": "^4.1.0"
+    "mathjax": "^4.1.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^7.2.0",
