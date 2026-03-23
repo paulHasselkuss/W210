@@ -1,7 +1,7 @@
 {
   "name": "W210",
   "private": true,
-  "browserlists": [
+  "browserslist": [
     "default"
   ],
   "dependencies": {
