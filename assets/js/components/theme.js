@@ -32,4 +32,4 @@ themeToggle.addEventListener('click', (e) => {
   e.preventDefault();
 });
 
-document.addEventListener('DOMContentLoaded', handleTheme);
+handleTheme();

@@ -13,7 +13,7 @@ The overall structure is stringly inspired by [Atlas](https://github.com/indigot
 * Two list styles: `default` and `listSimple`
 * Images are optimized and resized automatically.
 * Client-side search via [FlexSearch](https://nextapps-de.github.io/flexsearch/).
-* Support for mathematical equations via [MathJax](https://www.mathjax.org).
+* Support for mathematical equations via Hugo's [`transform.toMath`](https://gohugo.io/functions/transform/tomath/).
 * SEO tags and featured images are added/created automatically.
 * Support for Netlify's headers and redirects.
 

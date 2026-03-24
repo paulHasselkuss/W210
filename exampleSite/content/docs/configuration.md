@@ -36,7 +36,6 @@ sponsors: #sponsors to be shown on the page
 - name: <name> #mandatory
   logo: <path/to/image|path/to/svg> #optional
   link: <url> #optional
-math: <true|false> #whether to load mathjax for this page
 ```
 
 Note that these parameters can be set for multiple (or all) pages via [`cascade`](https://gohugo.io/content-management/front-matter/).

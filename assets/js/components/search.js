@@ -10,7 +10,7 @@ const searchResults = document.getElementById('searchResults');
 
 const flexsearchOptions = {
   preset: 'match',
-  context: 'true',
+  context: true,
   tokenize: 'full',
   document: {
     id: 'id',
@@ -47,7 +47,7 @@ function searchInit() {
       .then(data => data.json())
       .then((data) => {
         flexsearch = new Document(flexsearchOptions);
-        data.forEach(data => flexsearch.add(data));
+        data.forEach(item => flexsearch.add(item));
         searchInput.addEventListener('keyup', function () { // execute search as each character is typed
           searchExec(this.value);
         });
@@ -70,6 +70,9 @@ function searchExec(term) {
 
 function printResults(term, results) {
   let title_text = '';
+  let results_text = '';
+  const regex = new RegExp(term.split(/\s+/).filter(Boolean).join('|'), 'gi');
+
   if (results.length === 0) {
     title_text = 'No results.';
   } else if (results[0].result.length === 1) {
@@ -78,9 +81,9 @@ function printResults(term, results) {
     title_text = `${results[0].result.length} results`;
   }
 
-  let results_text = '';
-  const regex = new RegExp(term.split(/\s+/).filter(Boolean).join('|'), 'gi');
-  results[0].result.forEach(item => results_text += itemToHtml(item, regex));
+  if (results.length > 0) {
+    results[0].result.forEach(item => results_text += itemToHtml(item, regex));
+  }
 
   searchResults.innerHTML = `
     <h2 class="search-list__title bigtext">${title_text}</h2>
@@ -109,10 +112,10 @@ function getLastResult() {
 }
 
 document.addEventListener('keydown', (e) => {
-  // console.log(event); // DEBUG
+  // console.log(e); // DEBUG
   // Ctrl + / to show or hide Search
-  // if (event.metaKey && event.which === 191) {
-  if (event.ctrlKey && event.which === 191) {
+  // if (e.metaKey && e.key === '/') {
+  if (e.ctrlKey && e.key === '/') {
     searchToggleFocus(e);
   } // toggle visibility of search box
 
@@ -120,8 +123,8 @@ document.addEventListener('keydown', (e) => {
     return;
   }
 
-  // Use Enter (13) to move to the first result
-  if (e.keyCode === 13) {
+  // Use Enter to move to the first result
+  if (e.key === 'Enter') {
     if (document.activeElement === searchInput) {
       e.preventDefault(); // stop form from being submitted
       if (hasResults) {
@@ -129,8 +132,8 @@ document.addEventListener('keydown', (e) => {
       }
     }
   }
-  // DOWN (40) arrow
-  if (e.keyCode === 40) {
+
+  if (e.key === 'ArrowDown') {
     if (hasResults) {
       e.preventDefault(); // stop window from scrolling
       if (document.activeElement === searchInput) {
@@ -145,8 +148,8 @@ document.addEventListener('keydown', (e) => {
       }
     }
   }
-  // UP (38) arrow
-  if (e.keyCode === 38) {
+
+  if (e.key === 'ArrowUp') {
     if (hasResults) {
       e.preventDefault(); // stop window from scrolling
       if (document.activeElement === searchInput) {
@@ -161,8 +164,8 @@ document.addEventListener('keydown', (e) => {
       }
     }
   }
-  // Use Backspace (8) to switch back to the search input
-  if (e.keyCode === 8) {
+  // Use Backspace to switch back to the search input
+  if (e.key === 'Backspace') {
     if (document.activeElement !== searchInput) {
       e.preventDefault(); // stop browser from going back in history
       searchInput.focus();
@@ -170,16 +173,16 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// toogle search visibility
+// toggle search visibility
 searchToggle.addEventListener('click', e => searchToggleFocus(e));
 searchCancel.addEventListener('click', e => searchToggleFocus(e));
 
 // init when the form is in focus
 searchForm.addEventListener('focusin', e => searchInit(e));
 
-// Allow ESC (27) to close search box
+// Allow ESC to close search box
 searchForm.addEventListener('keydown', (e) => {
-  if (e.keyCode === 27) {
+  if (e.key === 'Escape') {
     hasFocus = true; // make sure toggle removes focus
     searchToggleFocus(e);
   }

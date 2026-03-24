@@ -29,10 +29,6 @@ module:
       mounts:
         - source: instantpage.js
           target: assets/js/vendor/instantpage.js
-    - path: "github.com/mathjax/MathJax"
-      mounts:
-        - source: es5
-          target: assets/js/vendor/mathjax
 
 # Add search JSON, Redirects & Headers,
 outputs:

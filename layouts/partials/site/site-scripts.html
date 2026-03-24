@@ -1,4 +1,3 @@
 {{ partialCached "site/search.html" . }}
 {{ partial "util/esbuild.html" (dict "src" "js/app.js" "targetPath" "js/main.js" "load" "defer") }}
-{{ if .Param "math" }}{{ partial "util/esbuild.html" (dict "src" "js/math.js" "load" "defer") }}{{ end }}
 {{ if eq hugo.Environment "production" }}{{ partialCached "analytics.html" . }}{{ end }}
