@@ -2,7 +2,7 @@
 baseURL: "https://paulhasselkuss.github.io/W210/"
 title: "W210"
 copyright: "&copy; {currentYear}"
-languageCode: en-gb
+locale: en-gb
 enableRobotsTXT: true
 
 # To use build-in support for Netlify's redirects
