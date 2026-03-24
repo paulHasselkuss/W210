@@ -4,6 +4,5 @@
     {{- errorf "Unable to render mathematical markup to HTML using the transform.ToMath function. The KaTeX display engine threw the following error: %s: see %s." . $.Position }}
   {{- else }}
     {{- .Value }}
-    {{- $.Page.Store.Set "hasMath" true }}
   {{- end }}
 {{- end -}}

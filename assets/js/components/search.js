@@ -71,6 +71,7 @@ function searchExec(term) {
 function printResults(term, results) {
   let title_text = '';
   let results_text = '';
+  // eslint-disable-next-line e18e/prefer-static-regex
   const regex = new RegExp(term.split(/\s+/).filter(Boolean).join('|'), 'gi');
 
   if (results.length === 0) {
