@@ -1,11 +1,7 @@
     {{ if .Site.Menus.primary }}
 
-    <button id="navToggle" class="site-nav--btn hamburger" type="button" aria-label="Toggle navigation">
-      <span class="hamburger__inner">
-        <span></span>
-        <span></span>
-      </span>
-    </button>
+    <input id="navToggle" class="site-nav-checkbox" type="checkbox" aria-label="Toggle navigation" />
+    <label for="navToggle" class="hamburger"></label>
 
     <nav id="siteNav" class="site-nav">
       <ul>
