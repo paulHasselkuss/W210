@@ -46,11 +46,16 @@
 }
 
 .site-header--border-on-scroll {
-  border-bottom: none;
+  border-bottom: var(--border--small);
+
+  animation: show-border linear both;
+  animation-timeline: scroll();
+  animation-range: 2em 2.5em;
 }
 
-.is-scrolled .site-header--border-on-scroll {
-  border-bottom: var(--border--small);
+@keyframes show-border {
+  from { border-color: transparent; }
+  to { border-color: currentColor; }
 }
 
 .site-content {
