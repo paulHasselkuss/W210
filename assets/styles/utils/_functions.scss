@@ -30,7 +30,7 @@
 
 @function clamp-builder($min, $max, $breakpoint--min: "medium", $breakpoint--max: "x-large") {
   @if not (map.has-key(constants.$breakpoints, $breakpoint--min) and map.has-key(constants.$breakpoints, $breakpoint--max)) {
-    @error "The breakpoints '#{$min-breakpoint}' or '#{$max-breakpoint}' do not exist in $breakpoints.";
+    @error "The breakpoints '#{$breakpoint--min}' or '#{$breakpoint--max}' do not exist in $breakpoints.";
   }
 
   $min-width: map.get(constants.$breakpoints, $breakpoint--min);

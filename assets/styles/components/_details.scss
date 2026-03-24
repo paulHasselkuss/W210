@@ -9,7 +9,7 @@ details summary {
 
   margin-bottom: utils.spacing(.5);
   cursor: pointer;
-  transition: color default-timing();
+  transition: color utils.default-transition();
 
   &:focus {
     outline: none;

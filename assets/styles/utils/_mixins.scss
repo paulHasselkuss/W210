@@ -11,7 +11,7 @@
 
 @mixin fw($weight) {
   @if not map.has-key(constants.$font-weights, $weight) {
-    @error "The breakpoint '#{$weight}' does not exist in $fontweights.";
+    @error "The font weight '#{$weight}' does not exist in $fontweights.";
   }
 
   font-weight: #{meta.inspect(map.get(constants.$font-weights, $weight))};

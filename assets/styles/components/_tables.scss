@@ -9,7 +9,7 @@ table {
 }
 
 thead {
-  line-height: var(--line-height);
+  line-height: var(--baseline);
   vertical-align: bottom;
   @include utils.fw("semi-bold");
 }
