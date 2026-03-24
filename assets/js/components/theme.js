@@ -1,35 +1,8 @@
 'use strict';
 
-const themeToggle = document.getElementById('themeToggle');
-const themeMetas = document.querySelectorAll('meta[name="theme-color"]');
+const themeCheckbox = document.getElementById('themeCheckbox');
+themeCheckbox.checked = localStorage.getItem('alt-theme') === 'true';
 
-function handleTheme() {
-  const add = sessionStorage.getItem('alt-theme');
-  if (add) {
-    document.documentElement.classList.add('alt-theme');
-    setThemeMeta('data-alt');
-  } else {
-    document.documentElement.classList.remove('alt-theme');
-    setThemeMeta('data-default');
-  }
-}
-
-function setThemeMeta(attribute) {
-  for (const m of themeMetas) {
-    m.setAttribute('content', m.getAttribute(attribute));
-  }
-}
-
-themeToggle.addEventListener('click', (e) => {
-  const status = sessionStorage.getItem('alt-theme');
-  if (status) {
-    sessionStorage.removeItem('alt-theme');
-  } else {
-    sessionStorage.setItem('alt-theme', 'true');
-  }
-
-  handleTheme();
-  e.preventDefault();
+themeCheckbox.addEventListener('change', (e) => {
+  localStorage.setItem('alt-theme', e.target.checked);
 });
-
-handleTheme();

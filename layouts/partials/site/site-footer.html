@@ -6,7 +6,7 @@
   <div class="site-footer__item">
     <div>{{ replace .Site.Copyright "{currentYear}" now.Year | markdownify}}</div>
     <ul class="site-footer__icons unstyled">
-      <li><span id="themeToggle" class="theme-toggle"></span></li>
+      <li><input id="themeCheckbox" class="theme-toggle" type="checkbox" aria-label="Toggle theme"/></li>
       {{ partial "util/menu-item.html" (dict "menu" "social" "page" . ) }}
     </ul>
   </div>

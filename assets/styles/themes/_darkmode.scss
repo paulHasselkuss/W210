@@ -1,29 +1,19 @@
 @use "../utils";
 
-.alt-theme {
-  @include utils.colors--dark;
+:root {
+  color-scheme: light;
+
+  &:has(#themeCheckbox:checked) {
+    color-scheme: dark;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    @include utils.colors--dark;
-  }
+    color-scheme: dark;
 
-  .alt-theme {
-    @include utils.colors--default;
-  }
-}
-
-.alt-theme .theme-dark--white {
-  filter: brightness(0) invert(1);
-}
-
-@media (prefers-color-scheme: dark) {
-  .theme-dark--white {
-    filter: brightness(0) invert(1);
-  }
-
-  .alt-theme .theme-dark--white {
-    filter: none;
+    &:has(#themeCheckbox:checked) {
+      color-scheme: light;
+    }
   }
 }

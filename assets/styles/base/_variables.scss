@@ -2,11 +2,13 @@
 
 :root {
   // Colors
-  @include utils.colors--default;
+  --color--font: light-dark(#{utils.$color--font}, #{utils.$color--dark--font});
+  --color--action: light-dark(#{utils.$color--action}, #{utils.$color--dark--action});
+  --color--background--site: light-dark(#{utils.$color--background--site}, #{utils.$color--dark--background--site});
+  --color--background--box: light-dark(#{utils.$color--background--box}, #{utils.$color--dark--background--box});
 
   // Typography
-  --font-family: GeneralSans,
-  #{utils.$font-stack-helvetica};
+  --font-family: GeneralSans, #{utils.$font-stack-helvetica};
   --font-family--heading: var(--font-family);
   --baseline: #{utils.$baseline};
 
