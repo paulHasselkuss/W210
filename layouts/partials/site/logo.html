@@ -2,8 +2,8 @@
 
 {{ with resources.Get $logo }}
 
-{{ if strings.HasSuffix . "svg" }}
-{{ partial "util/svg" ( dict "src" . "class" "site-logo" ) }}
+{{ if eq .MediaType.SubType "svg" }}
+{{ partial "util/svg" ( dict "src" $logo "class" "site-logo" ) }}
 {{ else }}
 <img class="site-logo" src="{{ .RelPermalink }}" alt="{{ $.Site.Title }}">
 {{ end }}

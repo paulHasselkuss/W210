@@ -6,18 +6,9 @@
 {{ else if eq $type "contact" }}
 <p>
   {{ $phone := index hugo.Data.contact "phone"}}
+  {{ $mail := index hugo.Data.contact "mail" }}
   Telephone: <a href="tel:{{ $phone }}">{{- $phone | htmlEscape -}}</a><br />
-
-  {{ $data := index hugo.Data.contact "mail" }}
-  {{ $parts := split $data "@" }}
-  {{ $user := index $parts 0}}
-  {{ $domain := index $parts 1 }}
-
-  {{ $displaytext := slice ($user) (" [AT] ") ($domain) }}
-  {{ $displaytext = delimit $displaytext "  " }}
-  {{ $displaytext = replace $displaytext "." " [DOT] " }}
-
-  E-Mail: <a href='javascript:void(0)' rel='nofollow' onclick='str1="{{ $user }}";str2="{{ $domain }}";this.href="mailto:" + str1 + "@" + str2'>{{- $displaytext | safeHTML -}}</a>
+  E-Mail: {{ $mail | $.Page.RenderString }}
 </p>
 
 {{ else }}

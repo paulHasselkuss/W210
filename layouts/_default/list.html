@@ -19,8 +19,7 @@
 {{ if compare.Ne $paginator.TotalPages 1 }}
 <ul class="section pagination grid--main vertical">
   <li>{{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">&#8249; Previous</a>{{ end }}</li>
-  <li>{{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">Next &#8250;
-</a>{{ end }}</li>
+  <li>{{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">Next &#8250;</a>{{ end }}</li>
 </ul>
 {{ end }}
 

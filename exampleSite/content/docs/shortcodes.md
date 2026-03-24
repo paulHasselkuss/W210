@@ -12,10 +12,10 @@ The e-mail address will be encrpyted using (simple) javascript.
 To use, create a data file `config.yml` and add the data using `address`, `phone` or `mail` as key.
 
 ```
-{{</* contact <address|phone|mail */>}}`
+{{</* contact <address|contact */>}}
 ```
 
-{{< contact address >}}
+{{< contact contact >}}
 
 ## Details
 
