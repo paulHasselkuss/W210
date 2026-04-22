@@ -3,8 +3,7 @@
   popovertarget="search"
 ></button>
 <div id="search" class="header__anchored grid" popover>
-  {{ $url := urls.Parse site.BaseURL }} {{ $placeholder := $url.Host |
-  strings.TrimPrefix "www." | printf "Search %s" }}
+  {{ $url := urls.Parse site.BaseURL }} {{ $placeholder := $url.Host | strings.TrimPrefix "www." | printf "Search %s" }}
 
   <form
     id="search-form"
@@ -28,7 +27,7 @@
     </div>
   </form>
 
-  <div id="search-results" class="results grid grid__full">
+  <div id="search-results" class="results grid">
     {{/*Filled dynamically by JS*/}}
   </div>
 </div>
