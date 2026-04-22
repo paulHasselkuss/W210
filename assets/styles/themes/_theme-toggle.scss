@@ -22,13 +22,11 @@ $toggle-size: 1em;
     transform: rotate(180deg);
   }
 
-  @media (hover: hover) {
-    &:hover {
-      transform: rotate(45deg);
+  @include utils.hover {
+    transform: rotate(45deg);
 
-      &:checked {
-        transform: rotate(225deg);
-      }
+    &:checked {
+      transform: rotate(225deg);
     }
   }
 }

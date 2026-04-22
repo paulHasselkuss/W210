@@ -109,14 +109,18 @@ $gap: 0.25em;
     .menu__link {
       padding: utils.space(0.25, true) utils.space();
 
-      &--active,
-      &:hover {
+      @include utils.hover {
         color: var(--background);
         background-color: var(--color);
       }
 
-      &--active:hover {
-        background-color: var(--color--action);
+      &--active {
+        color: var(--background);
+        background-color: var(--color);
+
+        @include utils.hover {
+          background-color: var(--color--action);
+        }
       }
     }
   }

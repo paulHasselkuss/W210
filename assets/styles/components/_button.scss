@@ -16,14 +16,18 @@
     border: none;
   }
 
-  &--active,
-  &:hover {
+  @include utils.hover {
     color: var(--background);
     background-color: var(--color);
   }
 
-  &--active:hover {
-    background-color: var(--color--action);
-    border-color: var(--color--action);
+  &--active {
+    color: var(--background);
+    background-color: var(--color);
+
+    @include utils.hover {
+      background-color: var(--color--action);
+      border-color: var(--color--action);
+    }
   }
 }

@@ -7,11 +7,9 @@ a,
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--color), transparent 65%);
 
-  @media (hover: hover) {
-    &:hover {
-      color: var(--color--action);
-      text-decoration-color: var(--color--action);
-    }
+  @include utils.hover {
+    color: var(--color--action);
+    text-decoration-color: var(--color--action);
   }
 
   &--unstyled,
@@ -19,8 +17,10 @@ a,
     text-decoration: none;
   }
 
-  &--unstyled:hover {
-    color: currentColor;
-    text-decoration: none;
+  &--unstyled {
+    @include utils.hover {
+      color: currentColor;
+      text-decoration: none;
+    }
   }
 }
