@@ -38,12 +38,6 @@ ol[class] {
   list-style: none;
   padding-inline-start: 0;
 }
-/*
-button[class] {
-  background: none; //check
-  border: none; //check
-  padding: 0;
-}*/
 
 /* Set core body defaults */
 body {
@@ -75,6 +69,8 @@ textarea,
 select {
   font-family: inherit;
   font-size: inherit;
+
+  padding: 0; //remove padding on iOS
 }
 
 button[class] {
