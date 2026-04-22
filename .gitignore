@@ -1,13 +1,11 @@
-# Files for Netlify
-/functions
-/resources
+/exampleSite/public/
+/exampleSite/resources/_gen/
+/exampleSite/assets/jsconfig.json
+/exampleSite/hugo_stats.json
+/exampleSite/.hugo_build.lock
 
-# Local Netlify folder
-.netlify
-
-
-# Created by https://www.toptal.com/developers/gitignore/api/hugo,node,sass,linux,macos,windows
-# Edit at https://www.toptal.com/developers/gitignore?templates=hugo,node,sass,linux,macos,windows
+# Created by https://www.toptal.com/developers/gitignore/api/hugo,sass,node,remix+netlify,linux,macos,windows
+# Edit at https://www.toptal.com/developers/gitignore?templates=hugo,sass,node,remix+netlify,linux,macos,windows
 
 ### Hugo ###
 # Generated files by hugo
@@ -67,6 +65,10 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+### macOS Patch ###
+# iCloud generated files
+*.icloud
 
 ### Node ###
 # Logs
@@ -208,6 +210,9 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+### Remix+Netlify ###
+/.netlify
+
 ### Sass ###
 .sass-cache/
 *.css.map
@@ -240,4 +245,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/hugo,node,sass,linux,macos,windows
+# End of https://www.toptal.com/developers/gitignore/api/hugo,sass,node,remix+netlify,linux,macos,windows

@@ -5,7 +5,7 @@
   <body class="page page--{{- .Kind }}">
     {{ partial "layout/header.html" . }}
 
-    <main class="grid content">
+    <main class="grid  grid--align-start content">
       <header class="grid__full grid space">
         {{ block "frontmatter" . }}
           {{ partial "content/title.html" . }}
