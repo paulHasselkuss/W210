@@ -36,7 +36,6 @@
   &__subgrid {
     display: grid;
     grid-template-columns: subgrid;
-    gap: utils.space();
   }
 
   &__side {
