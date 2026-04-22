@@ -25,7 +25,11 @@ $primary-open: ":has(#primary-menu:popover-open)";
 
   &--social &__item {
     display: inline-block;
-    margin-inline-start: 0.5ch;
+    margin-inline-end: 0.5ch;
+
+    &:last-child {
+      margin-inline-end: 0;
+    }
   }
 
   &--primary {
