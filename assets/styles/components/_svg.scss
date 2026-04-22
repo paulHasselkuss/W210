@@ -1,0 +1,10 @@
+.svg {
+  height: initial;
+  width: initial;
+
+  &--icon {
+    height: 1em;
+    width: 1em;
+    stroke-width: 2;
+  }
+}

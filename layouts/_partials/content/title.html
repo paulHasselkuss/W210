@@ -1,0 +1,10 @@
+<div class="masthead space">
+  <h1 class="masthead__title">{{ .Title }}</h1>
+
+  {{ if or (.Params.date) (.Params.author) }}
+    <div class="masthead__byline">
+      {{ with .Params.author }}<span>by {{ . }}</span>{{ end }}
+      {{ with .Params.date }}<span>published {{ .Format "2 January 2006" }}</span>{{ end }}
+    </div>
+  {{ end }}
+</div>

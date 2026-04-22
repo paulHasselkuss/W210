@@ -1,0 +1,31 @@
+{{/* USAGE: {{ partial "util/menu-item.html" (dict "page" "." "menu" "menu-name" "class" "customClass") }} */}}
+{{ $currentPage := .page }}
+{{ $menuName := .menu }}
+{{ $baseClass := .class | default "" }}
+
+{{ $menu := index site.Menus $menuName }}
+{{ $index := 0 }}
+
+{{ range $menu }}
+  {{ $active := $currentPage.IsMenuCurrent $menuName . }}
+  {{ $itemClass := .Params.class | default "" }}
+  {{ $classList := "menu__link" }}
+
+  {{ if ne $baseClass "" }}{{ $classList = printf "%s %s" $classList $baseClass }}{{ end }}
+  {{ if ne $itemClass "" }}{{ $classList = printf "%s %s" $classList $itemClass }}{{ end }}
+  {{ if $active }}{{ $classList = printf "%s %s" $classList "menu__link--active" }}{{ end }}
+
+  <li class="menu__item" style="--i: {{ $index }};">
+    <a
+      href="{{ .URL }}"
+      class="{{ $classList }}"
+      {{ if $active }}aria-current="page"{{ end }}
+      {{ with .Title }}title="{{ . }}"{{ end }}>
+      {{- with .Params.icon }}{{ partial "util/svg.html" (dict "src" . "class" "svg--icon menu__icon") }}{{ end -}}
+      {{- with .Pre }}{{ . }}{{ end -}}
+      {{ .Name }}
+      {{- with .Post }}{{ . }}{{ end -}}
+    </a>
+  </li>
+  {{ $index = add $index 1 }}
+{{ end }}

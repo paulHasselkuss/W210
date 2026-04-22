@@ -1,190 +1,181 @@
-'use strict';
+"use strict";
 
-import Document from 'js/vendor/flexsearch/document.js';
+// If not compact, js.build needs "externals" (slice "worker_threads") to avoid esbuild failure due to node dependencies
+import FlexSearch from "js/vendor/flexsearch/flexsearch.compact.module.min.js";
+const Document = FlexSearch.Document;
 
-const searchToggle = document.getElementById('searchToggle');
-const searchCancel = document.getElementById('searchCancel');
-const searchForm = document.getElementById('searchForm');
-const searchInput = document.getElementById('searchInput');
-const searchResults = document.getElementById('searchResults');
+const DOM = {
+  exit: document.getElementById("search-cancel"),
+  popover: document.getElementById("search"),
+  form: document.getElementById("search-form"),
+  input: document.getElementById("search-input"),
+  results: document.getElementById("search-results"),
+};
+
+const State = {
+  flexsearch: null,
+  hasResults: false,
+  isInitialized: false,
+};
 
 const flexsearchOptions = {
-  preset: 'match',
+  preset: "match",
   context: true,
-  tokenize: 'full',
+  tokenize: "full",
   document: {
-    id: 'id',
-    field: ['title', 'desc', 'content'],
-    store: ['title', 'href'],
+    id: "id",
+    field: ["title", "desc", "content"],
+    store: ["title", "href"],
   },
 };
-let flexsearch;
 
-let hasFocus = false;
-let hasResults = false;
-let hasInitFlexsearch = false;
+async function initSearch() {
+  if (State.isInitialized) return;
+  State.isInitialized = true; // Set early to prevent duplicate fetches
 
-function searchToggleFocus() {
-  // console.log(e); // DEBUG
-  // order of operations is very important to keep focus where it should stay
-  if (!hasFocus) {
-    document.body.classList.add('search-active');
-    searchToggle.classList.add('is-active');
-    searchInput.focus(); // move focus to search box
-    hasFocus = true;
-  } else {
-    document.body.classList.remove('search-active');
-    searchToggle.classList.remove('is-active');
-    document.activeElement.blur(); // remove focus from search box
-    hasFocus = false;
+  try {
+    const baseUrl = DOM.form.getAttribute("data-base-url") || "";
+    const prefix = DOM.form.getAttribute("data-language-prefix") || "";
+    const response = await fetch(`${baseUrl}${prefix}/index.json`);
+    const data = await response.json();
+
+    State.flexsearch = new Document(flexsearchOptions);
+    data.forEach((item) => State.flexsearch.add(item));
+
+    DOM.input.addEventListener("input", (e) => executeSearch(e.target.value));
+  } catch (error) {
+    console.error("Failed to load search index:", error);
+    State.isInitialized = false; // Allow retry if fetch failed
   }
 }
 
-function searchInit() {
-  if (!hasInitFlexsearch) {
-    hasInitFlexsearch = true; // let's never do this again
-    fetch(`${searchForm.getAttribute('data-base-url') + searchForm.getAttribute('data-language-prefix')}/index.json`)
-      .then(data => data.json())
-      .then((data) => {
-        flexsearch = new Document(flexsearchOptions);
-        data.forEach(item => flexsearch.add(item));
-        searchInput.addEventListener('keyup', function () { // execute search as each character is typed
-          searchExec(this.value);
-        });
-        // console.log('index.json loaded'); // DEBUG
-      });
+function executeSearch(term) {
+  State.hasResults = false;
+
+  // Wait until user types more than 3 characters
+  if (term.length <= 2) return;
+
+  const results = State.flexsearch.search(term, { enrich: true });
+
+  // Update state if we have valid matches
+  if (results.length > 0 && results[0].result.length > 0) {
+    State.hasResults = true;
   }
+
+  renderResults(term, results);
 }
 
-function searchExec(term) {
-  hasResults = false;
-  if (term.length > 3) {
-    const results = flexsearch.search(term, { enrich: true });
-    if (results.length !== 0) {
-      hasResults = true;
-    }
+function renderResults(term, results) {
+  let titleText = "No results.";
+  let resultsHtml = "";
 
-    printResults(term, results);
+  if (State.hasResults) {
+    const matches = results[0].result;
+    titleText = matches.length === 1 ? "1 result" : `${matches.length} results`;
+
+    const regex = new RegExp(term.split(/\s+/).filter(Boolean).join("|"), "gi");
+
+    // Map over results to create a single HTML string cleanly
+    resultsHtml = matches
+      .map((item) => createResultItemHtml(item, regex))
+      .join("");
   }
+
+  DOM.results.innerHTML = `
+    <h2 class="results__title">${titleText}</h2>
+    <ul id="search-results" class="results__list grid grid__full">
+      ${resultsHtml}
+    </ul>
+  `;
 }
 
-function printResults(term, results) {
-  let title_text = '';
-  let results_text = '';
-  // eslint-disable-next-line e18e/prefer-static-regex
-  const regex = new RegExp(term.split(/\s+/).filter(Boolean).join('|'), 'gi');
-
-  if (results.length === 0) {
-    title_text = 'No results.';
-  } else if (results[0].result.length === 1) {
-    title_text = '1 result';
-  } else {
-    title_text = `${results[0].result.length} results`;
-  }
-
-  if (results.length > 0) {
-    results[0].result.forEach(item => results_text += itemToHtml(item, regex));
-  }
-
-  searchResults.innerHTML = `
-    <h2 class="search-list__title bigtext">${title_text}</h2>
-    <ul id="searchResultsList" class="search-list__items unstyled">${results_text}</ul>
-    `;
-}
-
-function itemToHtml(item, regex) {
-  const item_title = item.doc.title.replace(regex, match => `<mark>${match}</mark>`);
+function createResultItemHtml(item, regex) {
+  const highlightedTitle = item.doc.title.replace(
+    regex,
+    (match) => `<mark>${match}</mark>`,
+  );
   return `
-    <li class='search-result'>
-      <a class='unstyled' href='${item.doc.href}' tabindex = '0'>
-        <h3 class='search-result__title'>${item_title}</h3>
-        <p class='search-result__path'>${item.doc.href}</p>
+    <li class="results__item">
+      <a class="results__link link link--plain" href="${item.doc.href}" tabindex="0">
+        <h3 class="results__heading">${highlightedTitle}</h3>
+        <p class="results__url">${item.doc.href}</p>
       </a>
     </li>
-    `;
+  `;
 }
 
-function getFirstResult() {
-  return document.querySelector('#searchResults ul').firstElementChild.firstElementChild;
+// Dynamically fetches current links to avoid brittle DOM traversal
+function getResultLinks() {
+  return Array.from(DOM.results.querySelectorAll(".results__link"));
 }
 
-function getLastResult() {
-  return document.querySelector('#searchResults ul').lastElementChild.firstElementChild;
-}
-
-document.addEventListener('keydown', (e) => {
-  // console.log(e); // DEBUG
-  // Ctrl + / to show or hide Search
-  // if (e.metaKey && e.key === '/') {
-  if (e.ctrlKey && e.key === '/') {
-    searchToggleFocus(e);
-  } // toggle visibility of search box
-
-  if (!hasFocus) {
+function handleKeyNavigation(e) {
+  // Ctrl + / to show search popover
+  if (e.ctrlKey && e.key === "/") {
+    e.preventDefault();
+    DOM.popover.showPopover();
     return;
   }
 
-  // Use Enter to move to the first result
-  if (e.key === 'Enter') {
-    if (document.activeElement === searchInput) {
-      e.preventDefault(); // stop form from being submitted
-      if (hasResults) {
-        getFirstResult().focus();
-      }
-    }
-  }
+  // Abort if popover isn't open (using standard Popover API pseudo-class)
+  if (!DOM.popover.matches(":popover-open")) return;
 
-  if (e.key === 'ArrowDown') {
-    if (hasResults) {
-      e.preventDefault(); // stop window from scrolling
-      if (document.activeElement === searchInput) {
-        // if the currently focused element is the main input --> focus the first <li>
-        getFirstResult().focus();
-      } else if (document.activeElement === getLastResult()) {
-        // if we're at the bottom, loop to the start
-        getFirstResult().focus();
-      } else {
-        // otherwise select the next search result
-        document.activeElement.parentElement.nextElementSibling.firstElementChild.focus();
-      }
-    }
-  }
+  const links = getResultLinks();
+  const activeEl = document.activeElement;
+  const currentIndex = links.indexOf(activeEl);
 
-  if (e.key === 'ArrowUp') {
-    if (hasResults) {
-      e.preventDefault(); // stop window from scrolling
-      if (document.activeElement === searchInput) {
-        // If we're in the input box, do nothing
-        searchInput.focus();
-      } else if (document.activeElement === getFirstResult()) {
-        // If we're at the first item, go to input box
-        searchInput.focus();
-      } else {
-        // Otherwise, select the search result above the current active one
-        document.activeElement.parentElement.previousElementSibling.firstElementChild.focus();
+  switch (e.key) {
+    case "Enter":
+      if (activeEl === DOM.input && State.hasResults) {
+        e.preventDefault(); // Stop form submission
+        links[0]?.focus();
       }
-    }
+      break;
+
+    case "ArrowDown":
+      if (!State.hasResults) break;
+      e.preventDefault(); // Stop window scrolling
+
+      if (activeEl === DOM.input || currentIndex === links.length - 1) {
+        links[0]?.focus(); // Jump to first from input, or loop from bottom to top
+      } else if (currentIndex >= 0) {
+        links[currentIndex + 1]?.focus(); // Go to next
+      }
+      break;
+
+    case "ArrowUp":
+      if (!State.hasResults) break;
+      e.preventDefault();
+
+      if (activeEl === DOM.input || currentIndex === 0) {
+        DOM.input.focus(); // Jump back to input from first item
+      } else if (currentIndex > 0) {
+        links[currentIndex - 1]?.focus(); // Go to previous
+      }
+      break;
+
+    case "Backspace":
+      if (activeEl !== DOM.input) {
+        e.preventDefault();
+        DOM.input.focus();
+      }
+      break;
+
+    case "Escape":
+      DOM.popover.hidePopover();
+      break;
   }
-  // Use Backspace to switch back to the search input
-  if (e.key === 'Backspace') {
-    if (document.activeElement !== searchInput) {
-      e.preventDefault(); // stop browser from going back in history
-      searchInput.focus();
-    }
-  }
+}
+
+DOM.popover.addEventListener("toggle", (e) => {
+  if (e.newState === "open") DOM.input.focus();
 });
 
-// toggle search visibility
-searchToggle.addEventListener('click', e => searchToggleFocus(e));
-searchCancel.addEventListener('click', e => searchToggleFocus(e));
+DOM.form.addEventListener("focusin", initSearch);
 
-// init when the form is in focus
-searchForm.addEventListener('focusin', e => searchInit(e));
-
-// Allow ESC to close search box
-searchForm.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    hasFocus = true; // make sure toggle removes focus
-    searchToggleFocus(e);
-  }
+DOM.exit.addEventListener("click", (e) => {
+  e.preventDefault();
+  DOM.popover.hidePopover();
 });
+
+document.addEventListener("keydown", handleKeyNavigation);

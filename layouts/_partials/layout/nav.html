@@ -1,0 +1,9 @@
+{{ if site.Menus.primary }}
+  <button class="hamburger header-icon" popovertarget="primary-menu">
+  </button>
+  <nav id="primary-menu" class="header__anchored header__anchored--mobile" popover>
+    <ul class="menu menu--primary">
+      {{ partial "util/menu-item.html" (dict "menu" "primary" "page" .) }}
+    </ul>
+  </nav>
+{{ end }}

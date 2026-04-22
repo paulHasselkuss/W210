@@ -1,0 +1,120 @@
+//via https://piccalil.li/blog/a-more-modern-css-reset/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ol,
+ul,
+pre {
+  margin: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+/*ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}*/
+ul[class],
+ol[class] {
+  list-style: none;
+  padding-inline-start: 0;
+}
+/*
+button[class] {
+  background: none; //check
+  border: none; //check
+  padding: 0;
+}*/
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+
+  &:hover {
+    color: var(--color--action);
+  }
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button[class] {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Sane defaults for details */
+details summary {
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+  > * {
+    display: inline;
+  }
+}
+
+/* Sane defaults for popovers */
+[popover] {
+  border: none;
+  padding: 0;
+}
+
+body:has(:popover-open) {
+  overflow: hidden;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}

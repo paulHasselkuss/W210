@@ -1,0 +1,5 @@
+{{ $class := or (.Get "class") "" }}
+
+<aside class="grid__side aside {{ with $class }}{{ . }}{{ end }}">
+  {{- .Inner | .Page.RenderString -}}
+</aside>

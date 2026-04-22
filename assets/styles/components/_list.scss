@@ -1,0 +1,35 @@
+$_padding: 3ch;
+
+ul,
+.list {
+  padding-inline-start: $_padding;
+  &--plain,
+  &--vertical {
+    list-style: none;
+  }
+
+  &--vertical .list__item {
+    display: inline-block;
+    margin-inline-end: 0.1ch;
+  }
+}
+
+ol,
+.list--ordered {
+  list-style: none;
+  counter-reset: ol;
+  padding-inline-start: $_padding;
+
+  li,
+  .list__item {
+    counter-increment: ol;
+    position: relative;
+
+    &::before {
+      content: counter(ol, lower-roman) ".";
+      position: absolute;
+      inset-inline-start: -$_padding;
+      width: 2rem;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{{ $pages := union .Sections .Pages }}
+{{ with $pages }}
+  <ul class="grid__main menu menu--vertical">
+    {{ range . }}
+      <li class="menu__item"><a class="menu__link button" href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+{{ end }}

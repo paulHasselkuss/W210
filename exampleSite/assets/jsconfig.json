@@ -1,0 +1,12 @@
+{
+ "compilerOptions": {
+  "baseUrl": ".",
+  "paths": {
+   "*": [
+    "../../../../Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/instantpage/instant.page@v5.2.0+incompatible/*",
+    "../../../../Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/nextapps-de/flexsearch@v0.0.0-20250907103239-defb38b083f0/dist/*",
+    "../../assets/*"
+   ]
+  }
+ }
+}

@@ -1,10 +1,7 @@
-@forward "buttons";
-@forward "details";
-@forward "dialog";
-@forward "forms";
-@forward "frames";
-@forward "links";
-@forward "lists";
-@forward "media";
-@forward "sponsors";
-@forward "tables";
+@use "link";
+@use "list";
+@use "button";
+@use "form";
+@use "aside";
+@use "space";
+@use "svg";

@@ -1,0 +1,15 @@
+@use "../utils";
+
+.space {
+  margin-block-end: utils.space();
+
+  &--above:not(:first-child) {
+    margin-block-start: utils.space();
+  }
+}
+
+.border {
+  border-block-start: var(--border--small);
+  padding-block-start: utils.space(1);
+  margin-block-start: utils.space();
+}

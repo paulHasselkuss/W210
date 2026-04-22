@@ -1,10 +1,6 @@
-# To use build-in support for Netlify's redirects
-disableAliases: true
-
 # Supported params for reference
 params:
   logo: ""
-  disallowSearchEngines: false
   matomo:
     url: ""
     siteId: ""
@@ -17,46 +13,20 @@ module:
       mounts:
         - source: icons
           target: assets/img/icons
-    - path: "github.com/csstools/normalize.css"
-      mounts:
-        - source: normalize.css
-          target: assets/styles/vendor/normalize.css
     - path: "github.com/nextapps-de/flexsearch"
       mounts:
-        - source: dist/module
+        - source: dist
           target: assets/js/vendor/flexsearch
     - path: "github.com/instantpage/instant.page"
       mounts:
         - source: instantpage.js
           target: assets/js/vendor/instantpage.js
 
-# Add search JSON, Redirects & Headers,
+# Add search JSON
 outputs:
   home:
     - HTML
     - JSON
-    - REDIRECTS
-    - HEADERS
-
-# Remove .{ext} from text/netlify,
-# merged by default
-mediaTypes:
-  text/netlify:
-    delimiter: ""
-
-# Add output format for netlify _redirects & _headers,
-# merged by default
-outputFormats:
-  REDIRECTS:
-    mediatype: text/netlify
-    baseName: _redirects
-    isPlainText: true
-    notAlternative: true
-  HEADERS:
-    mediatype: text/netlify
-    baseName: _headers
-    isPlainText: true
-    notAlternative: true
 
 # ToC & parser settings
 markup:
@@ -66,6 +36,7 @@ markup:
     startLevel: 2
   goldmark:
     parser:
+      wrapStandAloneImageWithinParagraph: false
       attribute:
         block: true
     renderer:

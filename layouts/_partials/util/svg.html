@@ -1,0 +1,8 @@
+{{/* USAGE: {{ partial "util/svg.html" (dict "src" "path/to/svg.svg" "class" "customClass") }} */}}
+{{ $src := .src }}
+{{ $class := .class | default "" }}
+
+{{ with resources.Get $src }}
+  {{ $classes := printf "$1 class=\"svg %s\"" $class }}
+  {{ .Content | replaceRE "(<svg[^>]*)" $classes | safeHTML }}
+{{ end }}

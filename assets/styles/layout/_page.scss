@@ -1,81 +1,13 @@
 @use "../utils";
 
-.page-frontmatter>* {
-  @include utils.except-last(margin-bottom, #{utils.spacing(1)});
-}
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  max-width: 1200px;
 
-.page-frontmatter,
-.page-image {
-  margin-bottom: utils.spacing(1);
-}
+  margin: auto;
+  padding-inline: utils.clamp-builder(1rem, 3rem);
 
-.page-header__meta {
-  margin-top: utils.spacing(-1);
-  margin-bottom: utils.spacing(1);
-}
-
-.page-content>%headings:first-child {
-  margin-top: 0;
-}
-
-.page-header__meta span {
-  display: inline-block;
-
-  &::after {
-    content: ", ";
-  }
-
-  &:first-child::first-letter {
-    text-transform: capitalize;
-  }
-
-  &:last-child::after {
-    content: "";
-  }
-}
-
-.page-toc ol li::before {
-  display: inline-block;
-  min-width: 1.5em;
-}
-
-.section {
-  border-top: var(--border--small);
-  padding-top: utils.spacing(1);
-  padding-bottom: utils.spacing(2);
-
-  &:last-child {
-    //footer has 1 spacing at the top
-    padding-bottom: utils.spacing(1);
-  }
-}
-
-.section-list {
-  padding-top: utils.spacing(1);
-}
-
-.matomo-opt-out {
-
-  input[type=checkbox],
-  input[type=checkbox]+label {
-    display: inline;
-  }
-
-  input[type=checkbox] {
-    margin-right: .5em;
-  }
-
-  p:only-child {
-    margin-bottom: 0;
-  }
-}
-
-.pagination {
-  display: flex;
-  justify-content: space-between;
-
-  a {
-    text-decoration: none;
-    @include utils.fw("bold");
-  }
+  background-color: var(--background);
 }

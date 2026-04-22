@@ -1,52 +1,65 @@
-@use "sass:map";
 @use "sass:math";
+@use "sass:map";
 @use "sass:meta";
 @use "constants";
+
+@function space($amount: 0.5, $safe: false) {
+  @if not($safe or $amount%.5==0) {
+    @error "Spacing needs to be a factor of .5, was '#{$amount}.";
+  }
+  @return calc(#{$amount}rem * var(--baseline));
+}
 
 @function modular-scale($increment, $base: 1rem, $ratio: 1.25) {
   @return $base * math.pow($ratio, $increment);
 }
 
-@function font-container-height($ms-factor: 0, $baseline: constants.$baseline) {
-  $font-size: modular-scale($ms-factor);
-  $baseline--half: math.div($baseline, 2); //baseline grid is half of the baseline (.8rem)
-  $factor: math.ceil(math.div($font-size, $baseline--half)); //find the smallest ratio of the grid that fits
-  $factor: math.clamp(2rem, $factor, $factor); //let's not get too small
-
-  @return calc(#{$baseline--half} * #{$factor});
+@function fit($size, $baseline: constants.$baseline) {
+  $base: math.div($baseline, 2);
+  $factor: math.ceil(math.div($size, $base));
+  @return $base * $factor;
 }
 
-@function spacing($amount: 1) {
-  @if not ($amount % .5==0) {
-    @error "Spacing needs to be a factor of .5, was '#{$amount}.";
-  }
-
-  @return calc(#{$amount}rem * var(--baseline));
+@function modular-fit($ms: 0, $baseline: constants.$baseline) {
+  @return fit(modular-scale($ms), $baseline);
 }
 
-@function default-transition() {
-  @return var(--duration) var(--timing);
+@function clamp-builder(
+  $min-rem,
+  $max-rem,
+  $breakpoint--min: "small",
+  $breakpoint--max: "medium"
+) {
+  $min-width-px: map.get(constants.$breakpoints, $breakpoint--min);
+  $max-width-px: map.get(constants.$breakpoints, $breakpoint--max);
+
+  $width-diff: strip-unit($max-width-px - $min-width-px);
+  $value-diff: strip-unit($max-rem - $min-rem) * 16; //1rem equals 16px
+
+  @return clamp(
+    #{$min-rem},
+    calc(1rem + #{$value-diff} * ((100vw - #{$min-width-px}) / #{$width-diff})),
+    #{$max-rem}
+  );
 }
 
-@function clamp-builder($min, $max, $breakpoint--min: "medium", $breakpoint--max: "x-large") {
-  @if not (map.has-key(constants.$breakpoints, $breakpoint--min) and map.has-key(constants.$breakpoints, $breakpoint--max)) {
-    @error "The breakpoints '#{$breakpoint--min}' or '#{$breakpoint--max}' do not exist in $breakpoints.";
-  }
-
-  $min-width: map.get(constants.$breakpoints, $breakpoint--min);
-  $max-width: map.get(constants.$breakpoints, $breakpoint--max);
-  $width-diff: strip-unit($max-width - $min-width);
-  $value-diff: strip-unit($max - $min);
-
-  $slope: calc(1rem + #{$value-diff} * ((100vw - #{$min-width}) / #{$width-diff}));
-
-  @return clamp(#{$min}, #{$slope}, #{$max});
+@function modular-clamp-builder(
+  $ms-min,
+  $ms-max,
+  $breakpoint--min: "small",
+  $breakpoint--max: "medium"
+) {
+  @return clamp-builder(
+    modular-scale($ms-min),
+    modular-scale($ms-max),
+    $breakpoint--min,
+    $breakpoint--max
+  );
 }
 
 @function strip-unit($number) {
-  @if meta.type-of($number)=="number" and not math.is-unitless($number) {
-    @return math.div($number, $number * 0 + 1);
+  @if meta.type-of($number) == "number" and not math.is-unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
   }
-
   @return $number;
 }

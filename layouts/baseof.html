@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "en" }}">
+  {{ partial "head.html" . }}
+
+  <body class="page page--{{- .Kind }}">
+    {{ partial "layout/header.html" . }}
+
+    <main class="grid content">
+      <header class="grid__full grid space">
+        {{ block "frontmatter" . }}
+          {{ partial "content/title.html" . }}
+          {{ partial "content/desc.html" . }}
+          {{ partial "content/toc.html" . }}
+        {{ end }}
+      </header>
+
+      {{ block "content" . }}
+        {{ partial "content/image.html" . }}
+        {{ partial "content/text.html" . }}
+      {{ end }}
+
+      {{ block "backmatter" . }}
+        {{ partial "content/sponsors.html" . }}
+      {{ end }}
+    </main>
+
+    {{ partial "layout/footer.html" . }}
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

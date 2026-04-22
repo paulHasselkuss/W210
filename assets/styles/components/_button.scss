@@ -1,0 +1,29 @@
+@use "../utils";
+
+.button {
+  padding: utils.space(0.25, true) utils.space(1);
+  border: var(--border);
+  border-color: var(--color);
+
+  background-color: var(--background);
+
+  @include utils.font-weight("semi-bold");
+
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+
+  &--plain {
+    border: none;
+  }
+
+  &--active,
+  &:hover {
+    color: var(--background);
+    background-color: var(--color);
+  }
+
+  &--active:hover {
+    background-color: var(--color--action);
+    border-color: var(--color--action);
+  }
+}

@@ -1,7 +1,7 @@
-@forward "grid";
-@forward "site";
-@forward "page";
-@forward "header";
-@forward "nav";
-@forward "search";
-@forward "footer";
+@use "page";
+@use "header";
+@use "menu";
+@use "search";
+@use "grid";
+@use "content";
+@use "footer";

@@ -1,0 +1,11 @@
+{{ $logo := site.Params.Logo | default site.Title }}
+
+{{ with resources.Get $logo }}
+  {{ if eq .MediaType.SubType "svg" }}
+    {{ partial "util/svg" (dict "src" $logo "class" "logo") }}
+  {{ else }}
+    <img class="logo" src="{{ .RelPermalink }}" alt="{{ site.Title }}">
+  {{ end }}
+{{ else }}
+  <span class="logo">{{ $logo }}</span>
+{{ end }}

@@ -3,10 +3,6 @@ baseURL: "https://paulhasselkuss.github.io/W210/"
 title: "W210"
 copyright: "&copy; {currentYear}"
 locale: en-gb
-enableRobotsTXT: true
-
-# To use build-in support for Netlify's redirects
-disableAliases: true
 
 # Smaller pagination for testing
 pagination:
@@ -17,24 +13,28 @@ menu:
     - name: Docs
       url: "/docs/"
       Params:
-        class: button--primary
+        class: button--active
     - name: Source
       url: "https://github.com/paulHasselkuss/W210"
+      params:
+        icon: "img/icons/github.svg"
   social:
     - title: Source on GitHub
       identifier: Source
       url: "https://github.com/paulHasselkuss/W210"
       Params:
-        icon: "img/icons/github"
+        icon: "img/icons/github.svg"
 
 module:
   imports:
     - path: "github.com/paulHasselkuss/W210" #Replaced in go.mod to point to the parent directory
 
+# Add search JSON
+outputs:
+  home:
+    - HTML
+    - JSON
+
 # Required, adds ToC and Markup config
 markup:
-  _merge: shallow
-
-# Required, adds support for Netlify's headers and redirects
-outputs:
   _merge: shallow

@@ -1,0 +1,54 @@
+@use "../utils";
+
+.form {
+  border-block: var(--border--small);
+  padding-block: utils.space();
+
+  &__label {
+    @include utils.font-weight("semi-bold");
+
+    :has(input:required) &::after {
+      content: " *";
+      color: red;
+    }
+  }
+
+  &__group {
+    margin-block-end: utils.space();
+
+    &--checkbox {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 0.5ch;
+      align-items: center;
+    }
+  }
+
+  &__textarea,
+  &__input {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    padding: utils.space(0.25, true);
+    border: var(--border--small);
+
+    &:focus {
+      outline: none;
+    }
+
+    &[type="file"] {
+      border: none;
+      padding: 0;
+    }
+
+    &[type="checkbox"],
+    &[type="radio"] {
+      width: initial;
+      order: -1;
+    }
+
+    &__desc {
+      margin-block-end: 0;
+    }
+  }
+}

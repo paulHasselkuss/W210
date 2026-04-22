@@ -1,13 +1,8 @@
 module github.com/paulHasselkuss/W210/exampleSite
 
-go 1.17
+go 1.26.1
 
-require (
-	github.com/csstools/normalize.css v12.1.1+incompatible // indirect
-	github.com/feathericons/feather v4.29.2+incompatible // indirect
-	github.com/instantpage/instant.page v5.2.0+incompatible // indirect
-	github.com/nextapps-de/flexsearch v0.0.0-20250210141409-f78ebb388862 // indirect
-	github.com/paulHasselkuss/W210 v0.0.0-20250228172053-b18511b21d87 // indirect
-)
+require github.com/paulHasselkuss/W210 v0.0.0-20260406074338-a82a44de912d
 
+// indirect
 replace github.com/paulHasselkuss/W210 => ../

@@ -1,0 +1,23 @@
+{{/* USAGE: {{ partial "util/dartsass.html" (dict "src" "styles/main.scss" "targetPath" "main.css" "vars" .Params.style) }} */}}
+
+{{ $src := .src -}}
+{{ $targetPath := .targetPath | default (replace $src "scss" "css") -}}
+{{ $vars := .vars | default dict -}}
+
+{{ $opts := dict
+  "enableSourceMap" hugo.IsDevelopment
+  "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+  "targetPath" $targetPath
+  "transpiler" "dartsass"
+  "vars" $vars
+}}
+
+{{ with resources.Get $src | toCSS $opts }}
+  {{ if hugo.IsDevelopment }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{ else }}
+    {{ with . | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{ end }}
+  {{ end }}
+{{ end }}

@@ -6,11 +6,10 @@
 // Hugo compatibility
 $_hugo-vars: meta.module-variables(vars);
 
-@function _getOrDefault($name, $default) {
+@function _get($name, $default) {
   @if map.has-key($_hugo-vars, $name) {
     @return map.get($_hugo-vars, $name);
   }
-
   @return $default;
 }
 
@@ -18,19 +17,21 @@ $_hugo-vars: meta.module-variables(vars);
 $_white: #fffffc;
 $_black: #00000f;
 $_blue: hsl(237, 96%, 33%);
-$_blue--light: hsl(237, 96%, 63%);
 
 // default
-$color--font: _getOrDefault("color--font", $_black);
-$color--action: _getOrDefault("color--action", $_blue);
-$color--background--site: _getOrDefault("color--background--site", $_white);
-$color--background--box: color.mix($color--font, $color--background--site, 10%);
+$color: _get("color", $_black);
+$color--action: _get("color--action", $_blue);
+$background: _get("background", $_white);
+$background--alt: color.mix($color, $background, 10%);
 
 // darkmode
-$color--dark--font: _getOrDefault("color--dark--font", $_white);
-$color--dark--action: _getOrDefault("color--dark--action", $_blue--light);
-$color--dark--background--site: _getOrDefault("color--dark--background--site", $_black);
-$color--dark--background--box: color.mix($color--dark--font, $color--dark--background--site, 25%);
+$color--dark: _get("color--dark-", $_white);
+$color--action--dark: _get(
+  "color--action--dark",
+  color.adjust($_blue, $lightness: 30%)
+);
+$background--dark: _get("background--dark", $_black);
+$background--alt--dark: color.mix($color--dark, $background--dark, 25%);
 
 // Typography
 $baseline: 1.6;
@@ -42,12 +43,8 @@ $font-weights: (
   "semi-bold": 600,
   "bold": 700
 );
-$font-stack-helvetica: (
-  "Helvetica Neue",
-  "Helvetica",
-  "Arial",
-  sans-serif,
-);
+$font-stack-helvetica: ("Helvetica Neue", "Helvetica", "Arial", sans-serif);
+$font-stack-consolas: ("Consolas", "monaco", monospace);
 
 // Breakpoints
 $breakpoints: (
@@ -55,5 +52,5 @@ $breakpoints: (
   "medium": 768px,
   "large": 992px,
   "x-large": 1200px,
-  "xx-large": 1400px
+  "xx-large": 1400px,
 );

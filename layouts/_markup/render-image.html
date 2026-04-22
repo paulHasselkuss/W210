@@ -1,0 +1,8 @@
+{{- if .IsBlock -}}
+  <figure class="grid__full grid">
+    {{ partial "util/img.html" (dict "src" .Destination "page" .Page "alt" .PlainText "media" "main") }}
+    {{ with .Title }}<figcaption class="grid__side aside">{{ . }}</figcaption>{{ end }}
+  </figure>
+{{ else }}
+  {{ partial "util/img.html" (dict "src" .Destination "page" .Page "alt" .PlainText "media" "main") }}
+{{ end }}

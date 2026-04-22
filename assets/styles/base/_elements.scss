@@ -1,0 +1,17 @@
+@use "../utils";
+
+hr {
+  color: var(--color);
+  border: none;
+  border-block-start: var(--border--small);
+  margin-block: 0 utils.space();
+}
+
+thead {
+  border-block-end: var(--border);
+}
+
+tr {
+  color: var(--color);
+  border-block-end: var(--border--small);
+}

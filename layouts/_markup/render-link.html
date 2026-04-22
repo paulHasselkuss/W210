@@ -1,0 +1,36 @@
+{{- if in .Destination "@" -}}
+
+  {{ $address := replace .Destination "mailto:" "" }}
+  {{ $parts := split $address "@" }}
+  {{ $user := index $parts 0 }}
+  {{ $domain := index $parts 1 }}
+  {{ $displaytext := .Text | default $address }}
+
+  {{ if eq $displaytext $address }}
+    {{ $displaytext = slice ($user) (" [AT] ") ($domain) }}
+    {{ $displaytext = delimit $displaytext "" }}
+    {{ $displaytext = replace $displaytext "." " [DOT] " }}
+  {{ end }}
+
+  <a href="javascript:void(0)" rel="nofollow"
+    data-user="{{ $user | htmlEscape }}"
+    data-domain="{{ $domain | htmlEscape }}"
+    {{ with .Title }} data-subject="{{ . | htmlEscape }}"{{ end }}
+    onclick="
+    var m = 'mailto:' + this.dataset.user + '@' + this.dataset.domain;
+    if (this.dataset.subject) {
+    m += '?subject=' + encodeURIComponent(this.dataset.subject);
+    }
+    this.href = m;
+    ">
+    {{ $displaytext | safeHTML }}
+  </a>
+
+{{- else -}}
+  {{- $u := urls.Parse .Destination -}}
+  <a href="{{ .Destination | safeURL }}"
+    class="link"
+    {{- with .Title }} title="{{ . }}"{{ end -}}{{- if $u.IsAbs }}rel="external" target="_blank"{{ end -}}>
+    {{- with .Text }}{{ . }}{{ end -}}
+  </a>
+{{- end -}}

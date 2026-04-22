@@ -1,8 +1,6 @@
-github.com/csstools/normalize.css v12.1.1+incompatible h1:Jx5FpTW/FTguA6IO5T5hC5npzXuEXuSsHjxLHwj1AWI=
-github.com/csstools/normalize.css v12.1.1+incompatible/go.mod h1:EUTyYpZAK5L5aQBdWMlSgXOxiHGhOe33o1CoArhAXZk=
 github.com/feathericons/feather v4.29.2+incompatible h1:T71K08C6i0/Ke6R7EEKjo+rOfo7EmH10uEkaRv1XPSw=
 github.com/feathericons/feather v4.29.2+incompatible/go.mod h1:+F8Ba9cmRHWu0pOVoZtid0iwkNJ8hr959HyPwj3hsRg=
 github.com/instantpage/instant.page v5.2.0+incompatible h1:wmz3tNL+iMrcUrCJZ4gfTwG8pab0ouaI5C2vx3lAg2Y=
 github.com/instantpage/instant.page v5.2.0+incompatible/go.mod h1:GXVDktwI+K4T9o5mcK2NYDqPFxAUrB9U9goR9oG1SaI=
-github.com/nextapps-de/flexsearch v0.0.0-20250210141409-f78ebb388862 h1:+kGQ+34t7Bv0mbwTGUxwQU2ruuac8jsHEvcleSRUI3M=
-github.com/nextapps-de/flexsearch v0.0.0-20250210141409-f78ebb388862/go.mod h1:5GdMfPAXzbA2gXBqTjC6l27kioSYzHlqDMh0+wyx7sU=
+github.com/nextapps-de/flexsearch v0.0.0-20250907103239-defb38b083f0 h1:55phPhe6fDjfjG0jX4+br3nLORKgjgx8abZUdI0YJRA=
+github.com/nextapps-de/flexsearch v0.0.0-20250907103239-defb38b083f0/go.mod h1:5GdMfPAXzbA2gXBqTjC6l27kioSYzHlqDMh0+wyx7sU=

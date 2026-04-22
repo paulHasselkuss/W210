@@ -1,0 +1,11 @@
+<h{{ .Level }}
+  class="heading{{ .Level }} space--above"
+  id="{{ .Anchor | safeURL }}"
+>
+  <a
+    class="link link--unstyled"
+    href="#{{ .Anchor | safeURL }}"
+  >
+    {{ .Text | safeHTML }}
+  </a>
+  </h{{ .Level }}>

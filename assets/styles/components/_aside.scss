@@ -1,0 +1,5 @@
+@use "../utils";
+
+.aside {
+  @include utils.font-size(-1);
+}

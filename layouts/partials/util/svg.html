@@ -1,7 +1,0 @@
-{{/* USAGE: {{ partial "util/svg.html" (dict "src" "path/to/svg" "class" "someClass") }} */}}
-{{ $src := .src | strings.TrimSuffix ".svg" }}
-{{ $class := .class | default "" }}
-
-{{ $resource := resources.Get (printf "%s.svg" $src) }}
-{{ $updatedSVG := replaceRE "(<svg[^>]*)" (printf "$1 class=\"icon %s\"" $class) $resource.Content }}
-{{ return (printf "%s" $updatedSVG | safeHTML) }}

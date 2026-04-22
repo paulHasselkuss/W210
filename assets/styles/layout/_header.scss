@@ -1,80 +1,94 @@
 @use "../utils";
 
-:root {
-  //logo (header font-size * line-height) + bottom-padding + offset
-  --header-height: calc(#{utils.font-container-height(0)} + #{utils.spacing(.5 + .5)} + .5em);
+.header {
+  inset-block-start: 0;
+  position: sticky;
+  padding: utils.space(0.5) 0;
 
-  @include utils.md("medium") {
-    --header-height: calc(#{utils.font-container-height(0)} + #{utils.spacing(1 + .5)} + .5125em);
-  }
-}
-
-.header-wrapper {
-  position: fixed;
-  top: 0;
-  z-index: 101;
-  width: 100%;
-  background-color: var(--color--background--site);
-}
-
-.site-header {
-
-  // same width as content and footer
-  width: calc(100% - (var(--spacing--site) * 2));
-  max-width: calc(var(--max-page-width) - (var(--spacing--site) * 2));
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: utils.spacing(.5);
-  border-bottom: var(--border--small);
-}
+  gap: 1em;
 
-.site-header__logo {
-  font-size: 1em;
-  line-height: 1em;
-  margin: 0;
-  flex: 1;
+  line-height: 1;
 
-  @include utils.md("medium") {
-    flex: 0
+  background: var(--background);
+  z-index: 99;
+
+  anchor-name: --header;
+
+  &:has(&__anchored:popover-open) {
+    border-block-end-color: transparent;
+    animation: none;
+  }
+
+  &__anchored {
+    position-anchor: --header;
+    position-area: bottom span-all;
+    width: anchor-size();
+
+    height: 0;
+    overflow: hidden;
+    transition:
+      height 0.4s ease-out allow-discrete,
+      overlay 0.4s ease-out allow-discrete,
+      display 0.4s ease-out allow-discrete;
+
+    background: var(--background);
+
+    &:popover-open {
+      height: calc(100vh - anchor-size(height));
+
+      @starting-style {
+        height: 0;
+      }
+    }
+
+    @include utils.mq("medium") {
+      &--mobile {
+        display: block;
+        position: relative;
+
+        position-anchor: none;
+        position-area: none;
+        inset: auto;
+
+        width: auto;
+        height: auto;
+        overflow: visible;
+
+        transition: none;
+      }
+    }
+  }
+
+  &__logo {
+    font-size: 1em;
+    line-height: 1;
+    margin: 0;
+
+    @include utils.mq("medium") {
+      flex: 1;
+    }
+  }
+
+  &__search {
+    @include utils.mq("medium") {
+      order: 3;
+    }
   }
 }
 
-.site-logo {
+.header-icon {
+  position: relative;
+  width: 1em;
   height: 1em;
-}
+  box-sizing: content-box;
+  transition: all 0.3s ease-out;
+  padding: utils.space(0.25, true);
 
-.site-header--border-on-scroll {
-  border-bottom: var(--border--small);
-
-  animation: show-border linear both;
-  animation-timeline: scroll();
-  animation-range: 2em 2.5em;
-}
-
-@keyframes show-border {
-  from { border-color: transparent; }
-  to { border-color: currentColor; }
-}
-
-.site-content {
-  margin-top: var(--header-height);
-}
-
-//see https: //stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header
-//we add a margine to ::target::before that is equal to the header's offset (here to .hide-logo)
-:target::before {
-  content: " ";
-  display: block;
-  visibility: hidden;
-  pointer-events: none;
-  height: calc(var(--header-height) + #{utils.spacing(1)});
-
-  /* fixed header height */
-  margin: calc(-1 * (var(--header-height) + #{utils.spacing(1)})) 0 0;
-
-  /* negative fixed header height */
-
-  z-index: -9999;
+  &:hover {
+    color: var(--background);
+    background-color: var(--color);
+  }
 }

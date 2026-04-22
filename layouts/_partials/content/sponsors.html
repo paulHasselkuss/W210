@@ -1,0 +1,22 @@
+{{ with .Params.sponsors }}
+  <section class="grid grid--align-start grid__full border sponsors">
+    <h3 class="sponsors__title grid__side">Supported by:</h3>
+    {{ $short := in (slice 1 2 4) (len .) }}
+    <ul class="sponsors__list grid__subgrid {{ if not $short }}grid__full{{ end }}">
+      {{ range . }}
+        <li class="sponsors__entry">
+          <a class="link link--plain" href="{{ .link }}" target="_blank" rel="noopener">
+            {{ with resources.Get .logo }}
+              {{ if eq .MediaType.SubType "svg" }}
+                {{ partial "util/svg.html" (dict "src" . "class" "sponsors__svg") }}
+              {{ else }}
+                <img class="sponsor__img" src="{{ .Permalink }}" alt="{{ .name }}">
+              {{ end }}
+            {{ else }}
+              {{ .name }}
+            {{ end }}
+          </a>
+        </li>
+      {{ end }}
+    </section>
+{{ end }}

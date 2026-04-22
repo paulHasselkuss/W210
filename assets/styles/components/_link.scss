@@ -1,0 +1,26 @@
+@use "../utils";
+
+a,
+.link {
+  color: currentColor;
+  transition: all 250ms ease-in-out;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color), transparent 65%);
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--color--action);
+      text-decoration-color: var(--color--action);
+    }
+  }
+
+  &--unstyled,
+  &--plain {
+    text-decoration: none;
+  }
+
+  &--unstyled:hover {
+    color: currentColor;
+    text-decoration: none;
+  }
+}

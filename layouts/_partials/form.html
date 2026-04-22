@@ -1,0 +1,39 @@
+{{ $name := .name }}
+{{ $attributes := .attributes | default "required" | safeHTMLAttr }}
+{{ $fields := .fields }}
+
+<form name="{{ $name }}" class="form form--{{- $name }}" {{ $attributes }}>
+
+  {{ range $fields }}
+
+    {{ $id := .id }}
+    {{ $type := .type | default "text" }}
+    {{ $label := .label | default "" }}
+    {{ $attributes := .attributes | default "required" | safeHTMLAttr }}
+
+    <div class="form__group form__group--{{- $type -}}">
+      <label class="form__label" for="{{ $id }}">
+        {{ $label | markdownify }}
+      </label>
+
+      {{ if eq $type "select" }}
+        <select class="form__select" id="{{ $id }}" name="{{ $id }}" {{ $attributes }}>
+          {{ range .options }}
+            <option value="{{ .value }}" {{ if eq .value $.default }}selected{{ end }}>
+              {{ .label }}
+            </option>
+          {{ end }}
+        </select>
+
+      {{ else if eq $type "textarea" }}
+        <textarea class="form__textarea" id="{{ $id }}" name="{{ $id }}" {{ $attributes }}></textarea>
+
+      {{ else }}
+        <input class="form__input" type="{{ $type }}" id="{{ .id }}" name="{{ .id }}" {{ $attributes }}>
+      {{ end }}
+
+      {{ with .describtion }}<p class="form__desc">{{ . | markdownify }}</p>{{ end }}
+    </div>
+  {{ end }}
+  <button class="button button--active" type="submit">Submit</button>
+</form>

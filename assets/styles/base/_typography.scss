@@ -1,86 +1,78 @@
 @use "../utils";
 
-html {
-  color: var(--color--font);
+:root {
+  @include utils.font-weight("normal");
+
+  color: var(--color);
   line-height: var(--baseline);
-  font-size: 100%; //fallback
-  font-size: utils.clamp-builder(16px, 18px);
-
-  @include utils.fw("normal");
-
   font-family: var(--font-family);
+  font-size: utils.clamp-builder(1rem, 1.125rem, "medium", "xx-large");
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-family--heading);
-  margin: var(--spacing) 0 var(--spacing);
+@include utils.heading(1, 2, 3, 4) {
+  @include utils.font-weight("semi-bold");
+
+  text-wrap: balance;
+  //margin-block-end: utils.space();
 }
 
-h2,
-h3 {
-  margin:#{utils.spacing(1)} 0 #{utils.spacing(.5)};
-
-  &+* {
-    margin-top: 0 !important;
+@for $i from 1 through 3 {
+  @include utils.heading($i) {
+    @include utils.font-size(4 - $i);
   }
 }
 
-@for $i from 1 through 5 {
-
-  .text-h#{$i},
-  h#{$i} {
-    @include utils.fs-fw(5 - $i, "semi-bold");
-  }
+@include utils.heading(4) {
+  text-transform: uppercase;
+  font-size: 1rem;
 }
 
+summary,
+th,
 b,
-strong,
-.bold {
-  @include utils.fw("semi-bold");
+strong {
+  @include utils.font-weight("semi-bold");
 }
 
 i,
-em,
-.italic {
+em {
   font-style: italic;
 }
 
-.bigtext {
-  @include utils.fs-fw(1, "semi-bold");
+small {
+  @include utils.font-size(-1);
 }
 
-.smalltext {
-  @include utils.fs(-.5);
-}
-
-.codeblock,
 code,
 pre {
-  font-family: monospace;
-  color: var(--color--font);
-  font-size: .85em;
-  background-color: var(--color--background--box) !important; //overwrite inline styles
-  padding: utils.spacing(.5) utils.spacing(1);
-  margin-bottom: utils.spacing(.5);
-  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.4rem;
+  font-family: var(--font-family--mono);
+
+  color: var(--color);
+  background-color: var(--background--alt);
 }
 
-code {
-  padding: .25em .5em;
+// Overrule Hugo's syntax highlighting
+.highlight > * {
+  color: var(--color) !important;
+  background-color: var(--background--alt) !important;
+}
 
-  pre & {
+//inline code
+code {
+  padding: 0.4ch 0.8ch;
+}
+
+pre {
+  padding: utils.space(0.5);
+  overflow: auto;
+  min-width: 0;
+  max-width: 100%;
+
+  code {
     padding: 0;
   }
-}
-
-::selection {
-  color: var(--color--background--site);
-  background-color: var(--color--font);
 }
 
 //see https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/
@@ -88,45 +80,48 @@ sup,
 sub {
   vertical-align: baseline;
   position: relative;
-  top: -.4em;
+  font-size: inherit;
 }
 
 sub {
-  top: .4em;
+  top: 0.4em;
 }
 
-p {
-  margin: 0 0 utils.spacing(.5);
+sup {
+  top: -0.4em;
+}
 
-  //see https://medium.com/clear-left-thinking/all-you-need-to-know-about-hyphenation-in-css-2baee2d89179
-  hyphens: auto;
-  hyphenate-limit-chars: 6 3 3;
-  hyphenate-limit-lines: 2;
-  hyphenate-limit-last: always;
-  hyphenate-limit-zone: 8%;
-
-  //current spec :(
-  -webkit-hyphenate-limit-before: 3;
-  -webkit-hyphenate-limit-after: 3;
-  -webkit-hyphenate-limit-chars: 6 3 3;
-  -webkit-hyphenate-limit-lines: 2;
-  -webkit-hyphenate-limit-last: always;
-  -webkit-hyphenate-limit-zone: 8%;
-  -moz-hyphenate-limit-chars: 6 3 3;
-  -moz-hyphenate-limit-lines: 2;
-  -moz-hyphenate-limit-last: always;
-  -moz-hyphenate-limit-zone: 8%;
-  -ms-hyphenate-limit-chars: 6 3 3;
-  -ms-hyphenate-limit-lines: 2;
-  -ms-hyphenate-limit-last: always;
-  -ms-hyphenate-limit-zone: 8%;
+::selection {
+  color: var(--background);
+  background-color: var(--color);
 }
 
 mark {
-  color: var(--color--background--site);
+  color: var(--background);
   background-color: var(--color--action);
 }
 
-.highlight {
-  color: var(--color--action);
+blockquote {
+  border-inline-start: var(--border);
+  padding-inline-start: utils.space();
+
+  @include utils.font-weight("semi-bold");
+
+  text-align: start;
+  text-wrap: balance;
+
+  @include utils.font-size(1);
+
+  > * {
+    margin-block-end: utils.space();
+  }
+
+  :last-child {
+    margin-block-end: 0;
+  }
+
+  cite {
+    font-style: normal;
+    @include utils.font-size(-1);
+  }
 }

@@ -1,0 +1,15 @@
+[
+{{- $pages := site.Pages -}}
+{{- $pages = where $pages "Params.excludeFromSearch" "!=" true -}}
+{{- range $index, $page := $pages -}}
+  {{- if or $page.Content (gt (len $page.Plain) 0) -}}
+    {{ if gt $index 0 }},{{ end }} {
+    "id": {{ $index }},
+    "href": "{{ $page.RelPermalink }}",
+    "title": {{ $page.Title | jsonify }},
+    "desc": {{ $page.Description | markdownify | plainify | jsonify }},
+    "content": {{ $page.Plain | jsonify }}
+    }
+  {{- end -}}
+{{- end -}}
+]

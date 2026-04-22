@@ -1,0 +1,59 @@
+@use "../utils";
+
+.content {
+  margin-block: utils.space(1);
+  text-align: justify;
+}
+
+.masthead {
+  &__title:has(+ &__byline) {
+    margin-block-end: 0;
+  }
+  &__byline *:not(:last-child)::after {
+    content: ", ";
+  }
+}
+
+.frontmatter {
+  @include utils.font-weight("semi-bold");
+  @include utils.font-size(1);
+  text-align: start;
+  text-wrap: pretty;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+
+  @include utils.font-weight("semi-bold");
+}
+
+.excerpt__description {
+  margin-block-end: 0;
+}
+
+//rendered by Hugo, thus we need to style elements
+.toc li::before {
+  content: counter(ol, upper-roman) ".";
+}
+
+.sponsors {
+  &__svg,
+  &__img {
+    height: 2.5em;
+  }
+
+  &__svg * {
+    fill: currentColor !important; //need to overwrite potential inline styles
+  }
+
+  &__title {
+    font-size: 1em;
+    font-weight: initial;
+  }
+
+  &__list {
+    margin-block-end: 0;
+    @include utils.font-weight("semi-bold");
+  }
+}

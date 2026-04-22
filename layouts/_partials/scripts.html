@@ -1,0 +1,2 @@
+{{ partialCached "util/esbuild.html" (dict "src" "js/app.js" "targetPath" "js/main.js" "load" "defer") }}
+{{ if hugo.IsProduction }}{{ partialCached "analytics.html" . }}{{ end }}

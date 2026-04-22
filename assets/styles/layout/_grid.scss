@@ -1,43 +1,45 @@
 @use "../utils";
 
-@include utils.md("medium") {
-  .grid {
-    display: grid;
-    grid-template-columns: 75% 1fr; //repeat(3, 1fr);
-    grid-template-rows: minmax(min-content, max-content);
-  }
-
-  .grid--main {
-    grid-column: 1/2;
-  }
-
-  .grid--full {
-    grid-column: 1/3;
-  }
-
-  .grid--side {
-    grid-column: 2/3;
-  }
-}
-
-.element-grid {
+.grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: auto;
-  column-gap: utils.spacing(.5);
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(min-content, max-content);
+
+  align-items: last baseline;
+  gap: utils.space();
+
+  @include utils.mq("medium") {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column: 1 / -1;
+  }
+
+  &--align-start {
+    align-items: start;
+  }
+
+  &--plain {
+    grid-template-columns: 1fr;
+  }
+
+  &__subgrid {
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: utils.space();
+  }
+
+  > *,
+  &__main {
+    width: 100%;
+    grid-column: span 2;
+
+    margin-block-end: 0;
+  }
+
+  &__side {
+    grid-column: span 1;
+  }
 
   &__full {
-    grid-column: span 6;
-  }
-
-  &__third,
-  &__half {
-    grid-column: span 3;
-  }
-
-  @include utils.md("medium") {
-    &__third {
-      grid-column: span 2;
-    }
+    grid-column: 1 / -1;
   }
 }

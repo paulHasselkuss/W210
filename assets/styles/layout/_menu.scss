@@ -1,0 +1,123 @@
+@use "../utils";
+
+$primary-open: ":has(#primary-menu:popover-open)";
+
+.menu {
+  list-style: none;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0.5ch;
+
+    text-decoration: initial;
+  }
+
+  &__icon {
+    display: inline;
+  }
+
+  &--vertical {
+    display: flex;
+    flex-wrap: wrap;
+    gap: utils.space() utils.space(1);
+  }
+
+  &--social &__item {
+    display: inline-block;
+    margin-inline-start: 0.5ch;
+  }
+
+  &--primary {
+    @include utils.font-weight("semi-bold");
+
+    .menu__item {
+      margin-inline: utils.space(1);
+      padding-block: utils.space(1);
+      border-block-end: var(--border--small);
+
+      opacity: 0;
+      transform: scale(1.1) translateY(-30px);
+      transition:
+        opacity 0.4s ease-out allow-discrete,
+        padding 0.4s ease-out allow-discrete,
+        transform 0.4s ease-out allow-discrete;
+      transition-delay: calc(var(--i, 0) * 0.07s);
+
+      &:last-child {
+        border-block-end: none;
+      }
+
+      #{$primary-open} & {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+$gap: 0.25em;
+
+.hamburger {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1em;
+    margin-left: -0.5em; // Offset by half the width to center
+    border-block-start: var(--border);
+    transition: transform 0.3s ease;
+  }
+
+  &::before {
+    transform: translateY(calc(-50% - $gap));
+  }
+  &::after {
+    transform: translateY(calc(-50% + $gap));
+  }
+
+  #{$primary-open} & {
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  @include utils.mq("medium") {
+    display: none;
+  }
+}
+
+@include utils.mq("medium") {
+  .menu--primary {
+    margin: 0;
+
+    .menu__item {
+      display: inline-block;
+      margin-inline: utils.space();
+      padding: initial;
+      border: initial;
+      opacity: 1;
+      transform: initial;
+      transition-delay: initial;
+    }
+
+    .menu__link {
+      padding: utils.space(0.25, true) utils.space();
+
+      &--active,
+      &:hover {
+        color: var(--background);
+        background-color: var(--color);
+      }
+
+      &--active:hover {
+        background-color: var(--color--action);
+      }
+    }
+  }
+}

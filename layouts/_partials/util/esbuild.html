@@ -1,0 +1,21 @@
+{{/* USAGE: {{ partial "util/esbuild.html" (dict "src" "js/file.js" "out" "main.js" "load" "async/defer") }} */}}
+
+{{ $src := .src -}}
+{{ $targetPath := .targetPath | default $src -}}
+{{ $load := .load | default "" -}}
+
+{{ $opts := dict
+  "minify" (cond hugo.IsDevelopment false true)
+  "sourceMap" (cond hugo.IsDevelopment "linked" "none")
+  "targetPath" $targetPath
+}}
+
+{{ with resources.Get $src | js.Build $opts }}
+  {{ if hugo.IsDevelopment }}
+    <script {{ print $load | safeHTMLAttr }} src="{{ .RelPermalink }}"></script>
+  {{ else }}
+    {{ with . | fingerprint }}
+      <script {{ print $load | safeHTMLAttr }} src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{ end }}
+  {{ end }}
+{{ end }}

@@ -1,0 +1,61 @@
+{{ $class := .class | default "" }}
+{{ $alt := .alt | default "" }}
+{{ $sizes := .sizes | default "500,800,1200" }}
+{{ $media := .media | default "full" }}
+{{ $loading := .loading | default "lazy" }}
+{{ $src := .src }}
+{{ $page := .page }}
+
+{{ $u := urls.Parse $src }}
+{{ $srcsetWebp := slice }}
+{{ $srcsetJpg := slice }}
+{{ $img := slice }}
+
+{{- if not $u.IsAbs -}}
+  {{- $img = or ($page.Resources.Get $u.Path) (resources.Get $u.Path) }}
+  {{ if not $img }}
+    {{ errorf "Image not found: %s" $src }}
+  {{ end }}
+
+  {{- $src = $img.RelPermalink -}}
+
+  {{/* Convert sizes string to slice of ints */}}
+  {{ $sizes = split $sizes "," }}
+  {{ $sizeInts := slice }}
+  {{ range $sizes }}
+    {{ $sizeInts = $sizeInts | append (int (strings.TrimSpace .)) }}
+  {{ end }}
+
+  {{/* These are equal to the breakpoints in CSS */}}
+  {{ if eq $media "full" }}
+    {{ $media = "100vw, (min-width: 768px) 1200px" }}
+  {{ else if eq $media "main" }}
+    {{ $media = "100vw, (min-width: 768px) 900px" }}
+  {{ else if eq $media "side" }}
+    {{ $media = "100vw, (min-width: 768px) 300px" }}
+  {{ end }}
+
+  {{/* Generate responsive image variants */}}
+  {{ range $sizeInts }}
+    {{ if ge $img.Width . }}
+      {{ $resized := $img.Resize (printf "%dx" .) }}
+      {{ $webp := $img.Resize (printf "%dx webp" .) }}
+      {{ $srcsetWebp = $srcsetWebp | append (printf "%s %dw" $webp.RelPermalink .) }}
+      {{ $srcsetJpg = $srcsetJpg | append (printf "%s %dw" $resized.RelPermalink .) }}
+    {{ end }}
+  {{ end }}
+{{- end -}}
+
+<picture {{ with $class }}class="{{ . }}"{{ end }}>
+  {{ with $srcsetWebp }}
+    <source type="image/webp" sizes="{{ $media }}" srcset="{{ delimit . ", " }}">
+  {{ end }}
+  <img
+    {{ with $media }}sizes="{{ . }}"{{ end }}
+    {{ with $srcsetJpg }}srcset="{{ delimit . ", " }}"{{ end }}
+    {{ with $img }}width="{{ .Width }}" height="{{ .Height }}"{{ end }}
+    src="{{ $src }}"
+    alt="{{ $alt }}"
+    loading="{{ $loading }}"
+    decoding="async">
+</picture>

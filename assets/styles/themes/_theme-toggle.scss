@@ -1,6 +1,6 @@
 @use "../utils";
 
-$toggle-size: 1.4em;
+$toggle-size: 1em;
 
 .theme-toggle {
   appearance: none;
@@ -13,27 +13,22 @@ $toggle-size: 1.4em;
   border-radius: 50%;
   margin: 0;
 
-  border: currentColor solid 1.499px;
-  background: linear-gradient(
-    to right,
-    utils.$color--background--site 0 50%,
-    utils.$color--font 50% 100%
-  );
+  border: var(--border--small);
+  background: linear-gradient(-45deg, utils.$background 50%, utils.$color 50%);
 
-  transform: rotate(45deg);
   transition: transform 250ms ease-in-out;
 
   &:checked {
-    transform: rotate(225deg);
+    transform: rotate(180deg);
   }
-}
 
-@media (hover: hover) {
-  .theme-toggle:hover {
-    transform: rotate(90deg);
+  @media (hover: hover) {
+    &:hover {
+      transform: rotate(45deg);
 
-    &:checked {
-      transform: rotate(270deg);
+      &:checked {
+        transform: rotate(225deg);
+      }
     }
   }
 }
