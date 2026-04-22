@@ -3,6 +3,7 @@
 IP := $(shell ifconfig en0 | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $$2}')
 
 build: clean
+	cd exampleSite && \
 	hugo --minify --gc
 
 start: clean
