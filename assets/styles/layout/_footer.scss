@@ -4,8 +4,10 @@
   border-block-start: var(--border--small);
   padding-block: utils.space();
 
+  display: grid;
+  gap: utils.space();
+
   @include utils.mq("medium") {
-    display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     align-items: baseline;
 
