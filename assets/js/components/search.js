@@ -83,7 +83,7 @@ function renderResults(term, results) {
 
   DOM.results.innerHTML = `
     <h2 class="results__title">${titleText}</h2>
-    <ul id="search-results" class="results__list grid grid__full">
+    <ul id="search-results" class="results__list grid grid--default-wide">
       ${resultsHtml}
     </ul>
   `;

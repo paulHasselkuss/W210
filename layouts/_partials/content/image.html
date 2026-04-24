@@ -1,4 +1,4 @@
 {{ if .Params.images }}
   {{ $src := index .Params.images 0 }}
-  {{ partial "util/img.html" (dict "src" $src "page" . "class" "grid__full" "loading" "auto") }}
+  {{ partial "util/img.html" (dict "src" $src "page" . "loading" "auto") }}
 {{ end }}

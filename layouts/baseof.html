@@ -5,8 +5,8 @@
   <body class="page page--{{- .Kind }}">
     {{ partial "layout/header.html" . }}
 
-    <main class="grid grid--align-start content">
-      <header class="grid space">
+    <main class="flex content">
+      <header class="grid grid--default-wide space">
         {{ block "frontmatter" . }}
           {{ partial "content/title.html" . }}
           {{ partial "content/desc.html" . }}

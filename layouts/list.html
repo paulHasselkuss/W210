@@ -1,6 +1,6 @@
 {{ define "content" }}
 {{ $paginator := .Paginate .Pages }}
-<section class="grid">
+<section class="grid grid--default-wide">
   {{ range $paginator.Pages }}
     <article class="excerpt border">
       <a class="link link--plain" href="{{ .Permalink }}">

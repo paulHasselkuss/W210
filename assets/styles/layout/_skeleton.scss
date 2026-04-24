@@ -1,0 +1,43 @@
+@use "../utils";
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: utils.space();
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: utils.space();
+  align-items: last baseline;
+
+  @include utils.mq("medium") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &--align-start {
+    align-items: start;
+  }
+
+  &__subgrid {
+    display: grid;
+    grid-template-columns: subgrid;
+    align-items: last baseline;
+  }
+
+  &--default-wide > *,
+  &__span-wide {
+    grid-column: span 2;
+  }
+
+  &--default-all > *,
+  &__span-all {
+    grid-column: 1 / -1;
+  }
+
+  &--default-small > *,
+  &__span-small {
+    grid-column: span 1;
+  }
+}

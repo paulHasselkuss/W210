@@ -1,7 +1,7 @@
 {{- if .IsBlock -}}
-  <figure class="grid">
+  <figure class="grid__subgrid grid__span-all grid--default-wide">
     {{ partial "util/img.html" (dict "src" .Destination "page" .Page "alt" .PlainText "media" "main") }}
-    {{ with .Title }}<figcaption class="grid__side aside">{{ . }}</figcaption>{{ end }}
+    {{ with .Title }}<figcaption class="aside grid__span-small">{{ . }}</figcaption>{{ end }}
   </figure>
 {{ else }}
   {{ partial "util/img.html" (dict "src" .Destination "page" .Page "alt" .PlainText "media" "main") }}

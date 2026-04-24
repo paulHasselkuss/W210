@@ -1,8 +1,8 @@
 {{ with .Params.sponsors }}
   <section class="grid grid--align-start border sponsors">
-    <h3 class="sponsors__title grid__side">Supported by:</h3>
+    <h3 class="sponsors__title grid__span-small">Supported by:</h3>
     {{ $short := in (slice 1 2 4) (len .) }}
-    <ul class="sponsors__list grid__subgrid {{ if not $short }}grid__full{{ end }}">
+    <ul class="sponsors__list grid__subgrid {{ if not $short }}grid__span-all{{ end }}">
       {{ range . }}
         <li class="sponsors__entry">
           <a class="link link--plain" href="{{ .link }}" target="_blank" rel="noopener">
