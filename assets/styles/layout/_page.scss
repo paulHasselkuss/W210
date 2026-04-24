@@ -10,4 +10,6 @@
   padding-inline: utils.clamp-builder(1rem, 3rem);
 
   background-color: var(--background);
+
+  container-type: inline-size;
 }
