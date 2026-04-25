@@ -4,18 +4,28 @@
   border-block-start: var(--border--small);
   padding-block: utils.space();
 
-  display: grid;
+  display: flex;
   gap: utils.space();
+  flex-direction: column;
 
-  @include utils.mq("medium") {
-    grid-template-columns: 1fr 2fr 1fr;
-    align-items: baseline;
+  @container (width > calc(14ch * 4)) {
+    flex-direction: row;
 
-    &__item:nth-child(3n + 2) {
-      column-count: 2;
+    &__item {
+      &:last-child {
+        text-align: right;
+      }
+      &--large {
+        columns: 2;
+      }
     }
-    &__item:nth-child(3n) {
-      text-align: right;
+  }
+
+  &__item {
+    flex: 1;
+
+    &--large {
+      flex: 2;
     }
   }
 }
