@@ -17,18 +17,12 @@
 
   anchor-name: --header;
 
-  &:has(&__anchored:popover-open) {
-    border-block-end-color: transparent;
-    animation: none;
-  }
-
-  &__anchored {
+  &__popover {
     position-anchor: --header;
     position-area: bottom span-all;
     width: anchor-size();
 
     height: 0;
-    overflow: hidden;
     transition:
       height 0.4s ease-out allow-discrete,
       overlay 0.4s ease-out allow-discrete,
@@ -44,18 +38,12 @@
       }
     }
 
-    @include utils.mq("medium") {
+    @container (width > 60ch) {
       &--mobile {
         display: block;
         position: relative;
-
         position-anchor: none;
-        position-area: none;
-        inset: auto;
-
-        width: auto;
         height: auto;
-        overflow: visible;
 
         transition: none;
       }
@@ -66,29 +54,14 @@
     font-size: 1em;
     line-height: 1;
     margin: 0;
+  }
 
-    @include utils.mq("medium") {
+  @container (width > 60ch) {
+    &__menu {
       flex: 1;
     }
-  }
-
-  &__search {
-    @include utils.mq("medium") {
+    &__search {
       order: 3;
     }
-  }
-}
-
-.header-icon {
-  position: relative;
-  width: 1em;
-  height: 1em;
-  box-sizing: content-box;
-  transition: all 0.3s ease-out;
-  padding: utils.space(0.25, true);
-
-  @include utils.hover {
-    color: var(--background);
-    background-color: var(--color);
   }
 }

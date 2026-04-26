@@ -1,33 +1,32 @@
-<button
-  class="magnifier header-icon header__search"
-  popovertarget="search"
-></button>
-<div id="search" class="header__anchored flex" popover>
-  {{ $url := urls.Parse site.BaseURL }} {{ $placeholder := $url.Host | strings.TrimPrefix "www." | printf "Search %s" }}
+<div class="header__search">
+  <button class="icon icon--magnifier header__search-trigger" popovertarget="search"></button>
+  <div id="search" class="header__popover flex" popover>
+    {{ $url := urls.Parse site.BaseURL }} {{ $placeholder := $url.Host | strings.TrimPrefix "www." | printf "Search %s" }}
 
-  <form
-    id="search-form"
-    class="space"
-    method="GET"
-    data-base-url="{{ $url }}"
-    data-language-prefix="{{ site.LanguagePrefix }}"
-  >
-    <input
-      id="search-input"
-      class="search-input"
-      type="search"
-      name="q"
-      tabindex="0"
-      autocomplete="off"
-      title="{{ $placeholder }}"
-      placeholder="{{ $placeholder }}"
-    />
-    <div>
-      Type to search or press esc to <a id="search-cancel" href="#">cancel</a>.
+    <form
+      id="search-form"
+      class="space"
+      method="GET"
+      data-base-url="{{ $url }}"
+      data-language-prefix="{{ site.LanguagePrefix }}"
+    >
+      <input
+        id="search-input"
+        class="search-input"
+        type="search"
+        name="q"
+        tabindex="0"
+        autocomplete="off"
+        title="{{ $placeholder }}"
+        placeholder="{{ $placeholder }}"
+      />
+      <div>
+        Type to search or press esc to <a id="search-cancel" href="#">cancel</a>.
+      </div>
+    </form>
+
+    <div id="search-results" class="results flex">
+      {{/*Filled dynamically by JS*/}}
     </div>
-  </form>
-
-  <div id="search-results" class="results flex">
-    {{/*Filled dynamically by JS*/}}
   </div>
 </div>

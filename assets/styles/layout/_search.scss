@@ -1,7 +1,5 @@
 @use "../utils";
 
-$search-open: ":has(#search:popover-open)";
-
 .search-input {
   @include utils.font-size(4);
   @include utils.font-weight("semi-bold");
@@ -24,53 +22,5 @@ $search-open: ":has(#search:popover-open)";
   &__link:focus-visible {
     color: var(--color--action);
     outline: none;
-  }
-}
-
-.magnifier {
-  //circle
-  &::before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0.7em;
-    height: 0.7em;
-    content: "";
-    border-radius: 50%;
-    border: var(--border);
-    transform: translate(-50%, -50%);
-    transform-origin: center;
-    transition: transform 0.3s ease;
-  }
-
-  //stem
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0.35em;
-    height: 0;
-    border-block-start: var(--border);
-    transform: translate(-50%, -50%) translate(0.3em, 0.3em) rotate(45deg);
-    transform-origin: center;
-    transition: transform 0.3s ease;
-  }
-
-  #{$search-open} & {
-    //circle
-    &::before {
-      width: 1em;
-      height: 0;
-      border-radius: 0;
-      border: 0;
-      border-block-start: var(--border);
-      transform: translate(-50%, -50%) rotate(-45deg);
-    }
-    //stem
-    &::after {
-      width: 1em;
-      transform: translate(-50%, -50%) rotate(45deg);
-    }
   }
 }

@@ -1,7 +1,5 @@
 @use "../utils";
 
-$primary-open: ":has(#primary-menu:popover-open)";
-
 .menu {
   list-style: none;
 
@@ -33,6 +31,12 @@ $primary-open: ":has(#primary-menu:popover-open)";
   }
 
   &--primary {
+    display: flex;
+    gap: utils.space(1);
+    justify-content: end;
+
+    margin: 0;
+
     @include utils.font-weight("semi-bold");
 
     .menu__item {
@@ -52,7 +56,7 @@ $primary-open: ":has(#primary-menu:popover-open)";
         border-block-end: none;
       }
 
-      #{$primary-open} & {
+      #{utils.$primary-open} & {
         transform: scale(1) translateY(0);
         opacity: 1;
       }
@@ -60,49 +64,15 @@ $primary-open: ":has(#primary-menu:popover-open)";
   }
 }
 
-$gap: 0.25em;
-
-.hamburger {
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 1em;
-    margin-left: -0.5em; // Offset by half the width to center
-    border-block-start: var(--border);
-    transition: transform 0.3s ease;
-  }
-
-  &::before {
-    transform: translateY(calc(-50% - $gap));
-  }
-  &::after {
-    transform: translateY(calc(-50% + $gap));
-  }
-
-  #{$primary-open} & {
-    &::before {
-      transform: rotate(45deg);
-    }
-    &::after {
-      transform: rotate(-45deg);
-    }
-  }
-
-  @include utils.mq("medium") {
-    display: none;
-  }
-}
-
-@include utils.mq("medium") {
+@container (width > 60ch) {
   .menu--primary {
-    margin: 0;
+    .menu__trigger {
+      display: none;
+    }
 
     .menu__item {
       display: inline-block;
-      margin-inline: utils.space();
+      margin-inline: initial;
       padding: initial;
       border: initial;
       opacity: 1;

@@ -33,6 +33,10 @@ $color--action--dark: _get(
 $background--dark: _get("background--dark", $_black);
 $background--alt--dark: color.mix($color--dark, $background--dark, 25%);
 
+//id selectors
+$primary-open: ":has(#primary-menu:popover-open)";
+$search-open: ":has(#search:popover-open)";
+
 // Typography
 $baseline: 1.6;
 $font-weights: (
