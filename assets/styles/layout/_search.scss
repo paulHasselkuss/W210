@@ -1,26 +1,32 @@
 @use "../utils";
 
-.search-input {
-  @include utils.font-size(4);
-  @include utils.font-weight("semi-bold");
-
-  border: 0;
-  background: none;
-
-  &:focus {
-    outline: 0;
+.search {
+  &__panel {
+    @include utils.panel();
   }
-}
 
-.results {
-  line-height: initial; //check
+  &__input {
+    @include utils.font-size(4);
+    @include utils.font-weight("semi-bold");
 
-  margin: 0;
-  overflow-y: scroll;
-  max-height: 100%;
+    border: 0;
+    background: none;
 
-  &__link:focus-visible {
-    color: var(--color--action);
-    outline: none;
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &__results {
+    line-height: initial; //check
+
+    margin: 0;
+    overflow-y: scroll;
+    max-height: 100%;
+
+    :focus-visible {
+      color: var(--color--action);
+      outline: none;
+    }
   }
 }

@@ -1,7 +1,7 @@
 {{ if site.Menus.primary }}
   <nav class="header__menu menu menu--primary">
     <button class="icon icon--hamburger menu__trigger" popovertarget="primary-menu"></button>
-    <ul id="primary-menu" popover class="header__popover header__popover--mobile">
+    <ul id="primary-menu" popover class="menu__panel">
       {{ partial "util/menu-item.html" (dict "menu" "primary" "page" .) }}
     </ul>
   </nav>

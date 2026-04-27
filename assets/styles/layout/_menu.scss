@@ -31,13 +31,13 @@
   }
 
   &--primary {
-    display: flex;
-    gap: utils.space(1);
-    justify-content: end;
-
     margin: 0;
 
     @include utils.font-weight("semi-bold");
+
+    .menu__panel {
+      @include utils.panel();
+    }
 
     .menu__item {
       margin-inline: utils.space(1);
@@ -68,6 +68,18 @@
   .menu--primary {
     .menu__trigger {
       display: none;
+    }
+
+    .menu__panel {
+      position: relative;
+      position-anchor: none;
+      height: auto;
+
+      transition: none;
+
+      display: flex;
+      gap: utils.space(1);
+      justify-content: end;
     }
 
     .menu__item {

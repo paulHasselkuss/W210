@@ -1,6 +1,6 @@
-<div class="header__search">
-  <button class="icon icon--magnifier header__search-trigger" popovertarget="search"></button>
-  <div id="search" class="header__popover flex" popover>
+<div class="header__search search">
+  <button class="icon icon--magnifier search__trigger" popovertarget="search"></button>
+  <div id="search" class="search__panel flex" popover>
     {{ $url := urls.Parse site.BaseURL }} {{ $placeholder := $url.Host | strings.TrimPrefix "www." | printf "Search %s" }}
 
     <form
@@ -12,7 +12,7 @@
     >
       <input
         id="search-input"
-        class="search-input"
+        class="search__input"
         type="search"
         name="q"
         tabindex="0"
@@ -25,7 +25,7 @@
       </div>
     </form>
 
-    <div id="search-results" class="results flex">
+    <div id="search-results" class="search__results results flex">
       {{/*Filled dynamically by JS*/}}
     </div>
   </div>

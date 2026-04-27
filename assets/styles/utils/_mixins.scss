@@ -50,3 +50,25 @@
     }
   }
 }
+
+@mixin panel {
+  position-anchor: --header;
+  position-area: bottom span-all;
+  width: anchor-size();
+
+  height: 0;
+  transition:
+    height 0.4s ease-out allow-discrete,
+    overlay 0.4s ease-out allow-discrete,
+    display 0.4s ease-out allow-discrete;
+
+  background: var(--background);
+
+  &:popover-open {
+    height: calc(100vh - anchor-size(height));
+
+    @starting-style {
+      height: 0;
+    }
+  }
+}
