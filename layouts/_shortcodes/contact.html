@@ -1,17 +1,13 @@
-{{ $type := .Get 0 }}
-
-{{ if eq $type "address" }}
+{{- $type := .Get 0 -}}
+{{- if eq $type "address" -}}
+  <address>{{- index hugo.Data.contact $type | markdownify -}}</address>
+{{- else if eq $type "contact" -}}
   <p>
-    <address>{{- index hugo.Data.contact $type | markdownify -}}</address>
+    {{- $phone := index hugo.Data.contact "phone" -}}
+    {{- $mail := index hugo.Data.contact "mail" -}}
+    Telephone: <a href="tel:{{- $phone -}}">{{- $phone | htmlEscape -}}</a><br />
+    E-Mail: {{ $mail | $.Page.RenderString -}}
   </p>
-{{ else if eq $type "contact" }}
-  <p>
-    {{ $phone := index hugo.Data.contact "phone" }}
-    {{ $mail := index hugo.Data.contact "mail" }}
-    Telephone: <a href="tel:{{ $phone }}">{{- $phone | htmlEscape -}}</a><br />
-    E-Mail: {{ $mail | $.Page.RenderString }}
-  </p>
-
-{{ else }}
-  {{ errorf "Missing value for contact data '%s'." $type }}
-{{ end }}
+{{- else -}}
+  {{- errorf "Missing value for contact data '%s'." $type -}}
+{{- end -}}
