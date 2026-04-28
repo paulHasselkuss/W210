@@ -2,7 +2,7 @@
 {{ $paginator := .Paginate .Pages }}
 <section class="grid grid--default-wide">
   {{ range $paginator.Pages }}
-    <article class="excerpt border">
+    <article class="excerpt border grid__subgrid grid--default-wide">
       <a class="link link--plain" href="{{ .Permalink }}">
         <h3 class="excerpt__title">{{ .Title }}</h3>
         <p class="excerpt__description">{{ .Description | markdownify | plainify | htmlUnescape }}</p>

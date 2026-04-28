@@ -49,6 +49,14 @@ You can add a featured image by adding an image with `cover` or `thumbnail` in i
 
 To use a different base image, overwrite `assets/social/card-base.png`.
 
+### Encrypted Mail Adresses
+
+Links to email addresses are encrypted using simple JavaScript:
+
+example@example.org
+
+Click [here](mailto:example@example.org "This becomes the mail's topic") to send me an email.
+
 ### Math
 
 Mathematical equations are supported and enabled by default: `x = {-b \pm \sqrt{b^2-4ac} \over 2a}` becomes: \(x = {-b \pm \sqrt{b^2-4ac} \over 2a}\).

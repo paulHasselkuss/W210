@@ -8,7 +8,7 @@
           <a class="link link--plain" href="{{ .link }}" target="_blank" rel="noopener">
             {{ with resources.Get .logo }}
               {{ if eq .MediaType.SubType "svg" }}
-                {{ partial "util/svg.html" (dict "src" . "class" "sponsors__svg") }}
+                {{ partial "util/svg.html" (dict "src" . "class" "sponsors__svg svg--logo") }}
               {{ else }}
                 <img class="sponsor__img" src="{{ .Permalink }}" alt="{{ .name }}">
               {{ end }}

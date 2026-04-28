@@ -1,7 +1,16 @@
+@use "../utils";
+
 thead {
   border-block-end: var(--border);
 }
 
 tr {
-  border-block-end: var(--border);
+  border-block-end: var(--border--small);
+}
+
+td,
+th {
+  vertical-align: baseline;
+  padding-block: utils.space(0.25, true);
+  padding-inline-end: utils.space(0.25, true);
 }
