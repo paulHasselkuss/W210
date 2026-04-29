@@ -1,4 +1,6 @@
 {{ define "content" }}
+{{ partial "content/image.html" . }}
+{{ partial "content/text.html" . }}
 {{ $paginator := .Paginate .Pages }}
 <section class="grid grid--default-wide">
   {{ range $paginator.Pages }}
