@@ -7,6 +7,7 @@
 {{ $page := .page }}
 
 {{ $u := urls.Parse $src }}
+{{ $srcsetAvif := slice }}
 {{ $srcsetWebp := slice }}
 {{ $srcsetJpg := slice }}
 {{ $img := slice }}
@@ -40,7 +41,9 @@
     {{ if ge $img.Width . }}
       {{ $resized := $img.Resize (printf "%dx" .) }}
       {{ $webp := $img.Resize (printf "%dx webp" .) }}
+      {{ $avif := $img.Resize (printf "%dx avif" .) }}
       {{ $srcsetWebp = $srcsetWebp | append (printf "%s %dw" $webp.RelPermalink .) }}
+      {{ $srcsetAvif = $srcsetAvif | append (printf "%s %dw" $avif.RelPermalink .) }}
       {{ $srcsetJpg = $srcsetJpg | append (printf "%s %dw" $resized.RelPermalink .) }}
     {{ end }}
   {{ end }}
@@ -49,6 +52,9 @@
 <picture {{ with $class }}class="{{ . }}"{{ end }}>
   {{ with $srcsetWebp }}
     <source type="image/webp" sizes="{{ $media }}" srcset="{{ delimit . ", " }}">
+  {{ end }}
+  {{ with $srcsetAvif }}
+    <source type="image/avif" sizes="{{ $media }}" srcset="{{ delimit . ", " }}">
   {{ end }}
   <img
     {{ with $media }}sizes="{{ . }}"{{ end }}
