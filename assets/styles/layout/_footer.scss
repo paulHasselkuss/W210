@@ -8,7 +8,7 @@
   gap: utils.space();
   flex-direction: column;
 
-  @container (width > calc(14ch * 4)) {
+  @container (inline-size > calc(14ch * 4)) {
     flex-direction: row;
 
     &__item {

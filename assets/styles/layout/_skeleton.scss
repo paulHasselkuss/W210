@@ -12,7 +12,7 @@
   gap: utils.space();
   align-items: last baseline;
 
-  @container (width > 80ch) {
+  @container (inline-size > 80ch) {
     grid-template-columns: repeat(3, 1fr);
   }
 

@@ -1,6 +1,5 @@
 {
  "compilerOptions": {
-  "baseUrl": ".",
   "paths": {
    "*": [
     "../../../../Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/instantpage/instant.page@v5.2.0+incompatible/*",

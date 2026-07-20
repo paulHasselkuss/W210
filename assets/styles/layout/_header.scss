@@ -23,7 +23,7 @@
     margin: 0;
   }
 
-  @container (width > 60ch) {
+  @container (inline-size > 60ch) {
     &__menu {
       flex: 1;
     }

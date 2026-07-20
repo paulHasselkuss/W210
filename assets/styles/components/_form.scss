@@ -27,7 +27,7 @@
   &__textarea,
   &__input {
     display: block;
-    width: 100%;
+    inline-size: 100%;
     background-color: transparent;
     padding: utils.space(0.25, true);
     border: var(--border--small);
@@ -43,7 +43,7 @@
 
     &[type="checkbox"],
     &[type="radio"] {
-      width: initial;
+      inline-size: initial;
       order: -1;
     }
 

@@ -8,8 +8,8 @@ $toggle-size: 1em;
   display: inline-block;
   cursor: pointer;
 
-  width: $toggle-size;
-  height: $toggle-size;
+  inline-size: $toggle-size;
+  block-size: $toggle-size;
   border-radius: 50%;
   margin: 0;
 

@@ -29,7 +29,7 @@ ol,
       content: counter(ol, lower-roman) ".";
       position: absolute;
       inset-inline-start: -$_padding;
-      width: 2rem;
+      inline-size: 2rem;
     }
   }
 }

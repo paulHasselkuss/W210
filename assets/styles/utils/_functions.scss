@@ -30,15 +30,18 @@
   $breakpoint--min: "small",
   $breakpoint--max: "medium"
 ) {
-  $min-width-px: map.get(constants.$breakpoints, $breakpoint--min);
-  $max-width-px: map.get(constants.$breakpoints, $breakpoint--max);
+  $min-inline-size-px: map.get(constants.$breakpoints, $breakpoint--min);
+  $max-inline-size-px: map.get(constants.$breakpoints, $breakpoint--max);
 
-  $width-diff: strip-unit($max-width-px - $min-width-px);
+  $inline-size-diff: strip-unit($max-inline-size-px - $min-inline-size-px);
   $value-diff: strip-unit($max-rem - $min-rem) * 16; //1rem equals 16px
 
   @return clamp(
     #{$min-rem},
-    calc(1rem + #{$value-diff} * ((100vw - #{$min-width-px}) / #{$width-diff})),
+    calc(
+      1rem + #{$value-diff} *
+        ((100vw - #{$min-inline-size-px}) / #{$inline-size-diff})
+    ),
     #{$max-rem}
   );
 }

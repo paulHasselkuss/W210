@@ -10,7 +10,7 @@
     @error "The breakpoint '#{$name}' does not exist in $breakpoints.";
   }
 
-  @media screen and (min-width: #{map.get(constants.$breakpoints, $name)}) {
+  @media screen and (min-inline-size: #{map.get(constants.$breakpoints, $name)}) {
     @content;
   }
 }
@@ -54,21 +54,21 @@
 @mixin panel {
   position-anchor: --header;
   position-area: bottom span-all;
-  width: anchor-size();
+  inline-size: anchor-size();
 
-  height: 0;
+  block-size: 0;
   transition:
-    height 0.4s ease-out allow-discrete,
+    block-size 0.4s ease-out allow-discrete,
     overlay 0.4s ease-out allow-discrete,
     display 0.4s ease-out allow-discrete;
 
   background: var(--background);
 
   &:popover-open {
-    height: calc(100vh - anchor-size(height));
+    block-size: calc(100vh - anchor-size(block-size));
 
     @starting-style {
-      height: 0;
+      block-size: 0;
     }
   }
 }

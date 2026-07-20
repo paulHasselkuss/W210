@@ -64,7 +64,7 @@
   }
 }
 
-@container (width > 60ch) {
+@container (inline-size > 60ch) {
   .menu--primary {
     .menu__trigger {
       display: none;
@@ -73,7 +73,7 @@
     .menu__panel {
       position: relative;
       position-anchor: none;
-      height: auto;
+      block-size: auto;
 
       transition: none;
 

@@ -69,8 +69,8 @@ code {
 pre {
   padding: utils.space(0.5);
   overflow: auto;
-  min-width: 0;
-  max-width: 100%;
+  min-inline-size: 0;
+  max-inline-size: 100%;
 
   code {
     padding: 0;

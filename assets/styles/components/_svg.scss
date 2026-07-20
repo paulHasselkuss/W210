@@ -1,14 +1,14 @@
 .svg {
-  height: initial;
-  width: initial;
+  block-size: initial;
+  inline-size: initial;
 
   &--icon {
-    height: 1em;
-    width: 1em;
+    block-size: 1em;
+    inline-size: 1em;
     stroke-width: 2;
   }
 
   &--logo {
-    height: 2.5em;
+    block-size: 2.5em;
   }
 }

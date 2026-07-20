@@ -41,7 +41,7 @@ ol[class] {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  min-block-size: 100vh;
 }
 
 /* A elements that don't have a class get default styles */
@@ -57,9 +57,9 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
-  max-width: 100%;
+  max-inline-size: 100%;
   display: block;
-  height: auto;
+  block-size: auto;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -81,7 +81,7 @@ button {
 
 /* Make sure textareas without a rows attribute are not tiny */
 textarea:not([rows]) {
-  min-height: 10em;
+  min-block-size: 10em;
 }
 
 /* Sane defaults for details */
