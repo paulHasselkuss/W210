@@ -1,16 +1,33 @@
 @use "../utils";
 
-thead {
-  border-block-end: var(--border);
-}
+table,
+.table {
+  caption-side: bottom;
 
-tr {
-  border-block-end: var(--border--small);
-}
+  caption,
+  &__caption {
+    text-align: inherit;
+    margin-block-start: calc(0.5rem * var(--baseline));
+  }
 
-td,
-th {
-  vertical-align: baseline;
-  padding-block: utils.space(0.25, true);
-  padding-inline-end: utils.space(0.25, true);
+  thead,
+  &__head {
+    border-block-end: var(--border);
+  }
+
+  tr,
+  &__row {
+    border-block-end: var(--border--small);
+  }
+
+  td,
+  th,
+  &__cell {
+    vertical-align: baseline;
+    padding-block: utils.space(0.25, true);
+
+    &:not(:last-child) {
+      padding-inline-end: utils.space(1);
+    }
+  }
 }

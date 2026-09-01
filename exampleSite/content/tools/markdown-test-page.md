@@ -68,11 +68,16 @@ end tell
 ## Tables
 
 | Column 1      | Column 2      |
-| ------------- | ------------- |
+| :------------ | ------------: |
 | Cell 1, Row 1 | Cell 2, Row 1 |
 | Cell 1, Row 2 | Cell 2, Row 2 |
 
-You can add alignment with colons in the separator row, e.g. `:---` for left, `:---:` for center.
+| Column 1      | Column 2      |
+| ------------- | ------------- |
+| `some text` | This is a cell that contains a lot of text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. |
+{ caption="Another table with more text and a caption." }
+
+To add alignment, use colons in the separator row, e.g. `:---` for left, `:---:` for center. To add a caption, use a block attribute and the key `caption`.
 
 ## Images
 
