@@ -82,7 +82,7 @@ sup,
 sub {
   vertical-align: baseline;
   position: relative;
-  font-size: inherit;
+  @include utils.font-size(-1);
 }
 
 sub {

@@ -67,13 +67,13 @@ end tell
 
 ## Tables
 
-| Column 1      | Column 2      |
+| Column 1      |      Column 2 |
 | :------------ | ------------: |
 | Cell 1, Row 1 | Cell 2, Row 1 |
 | Cell 1, Row 2 | Cell 2, Row 2 |
 
-| Column 1      | Column 2      |
-| ------------- | ------------- |
+| Column 1 | Column 2 |
+| -------- | -------- |
 | `some text` | This is a cell that contains a lot of text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. |
 { caption="Another table with more text and a caption." }
 
@@ -86,6 +86,12 @@ To add alignment, use colons in the separator row, e.g. `:---` for left, `:---:`
 With title/caption:
 
 ![Entry of the Bauhaus school in Dessau, Germany](/img/pexels-birgitboellinger-31158460.jpg "Entry of the Bauhaus school in Dessau, Germany (photo by Birgit Böllinger, Pexels)")
+
+## Footnotes
+
+This paragraph has a footnote, rendered at the end of the page.[^1]
+
+[^1]: This is the footnote. It can contain _formatting_.
 
 ## Span elements
 

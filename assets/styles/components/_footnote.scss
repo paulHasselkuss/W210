@@ -1,0 +1,18 @@
+@use "../utils";
+
+.footnote-ref,
+.footnote-backref {
+  text-decoration: none;
+}
+
+.footnotes {
+  @include utils.font-size(-1);
+
+  ol li {
+    margin-block-start: utils.space();
+
+    &::before {
+      content: counter(ol, decimal);
+    }
+  }
+}
