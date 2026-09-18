@@ -1,8 +1,16 @@
 {{- if .IsBlock -}}
   <figure class="grid__subgrid grid__span-all grid--default-wide">
-    {{ partial "util/img.html" (dict "src" .Destination "page" .Page "alt" .PlainText "media" "main") }}
-    {{ with .Title }}<figcaption class="aside grid__span-small">{{ . }}</figcaption>{{ end }}
+    {{- if strings.HasSuffix (lower .Destination) "svg" -}}
+      {{- partial "util/svg" (dict "src" .Destination "page" .Page) -}}
+    {{- else -}}
+      {{ partial "util/img.html" (dict "src" .Destination "page" .Page "alt" .PlainText "media" "main") }}
+    {{- end -}}
+    {{- with .Title }}<figcaption class="aside grid__span-small">{{ . }}</figcaption>{{ end -}}
   </figure>
-{{ else }}
-  {{ partial "util/img.html" (dict "src" .Destination "page" .Page "alt" .PlainText "media" "main") }}
-{{ end }}
+{{- else -}}
+  {{- if strings.HasSuffix (lower .Destination) "svg" -}}
+    {{- partial "util/svg" (dict "src" .Destination "page" .Page) -}}
+  {{- else -}}
+    {{- partial "util/img.html" (dict "src" .Destination "page" .Page "alt" .PlainText "media" "main") -}}
+  {{- end -}}
+{{- end -}}

@@ -1,4 +1,7 @@
-{{ with .Params.sponsors }}
+{{ $page := .Page }}
+{{ $sponsors := .Params.sponsors }}
+
+{{ with $sponsors }}
   <section class="grid grid--align-start border sponsors">
     <h3 class="sponsors__title grid__span-small">Supported by:</h3>
     {{ $short := in (slice 1 2 4) (len .) }}
@@ -8,7 +11,7 @@
           <a class="link link--plain" href="{{ .link }}" target="_blank" rel="noopener">
             {{ with resources.Get .logo }}
               {{ if eq .MediaType.SubType "svg" }}
-                {{ partial "util/svg.html" (dict "src" . "class" "sponsors__svg svg--logo") }}
+                {{ partial "util/svg.html" (dict "src" . "class" "sponsors__svg svg--logo" "page" $page) }}
               {{ else }}
                 <img class="sponsor__img" src="{{ .Permalink }}" alt="{{ .name }}">
               {{ end }}

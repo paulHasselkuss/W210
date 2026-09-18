@@ -21,7 +21,7 @@
       class="{{ $classList }}"
       {{ if $active }}aria-current="page"{{ end }}
       {{ with .Title }}title="{{ . }}"{{ end }}>
-      {{- with .Params.icon }}{{ partial "util/svg.html" (dict "src" . "class" "svg--icon menu__icon") }}{{ end -}}
+      {{- with .Params.icon }}{{ partial "util/svg.html" (dict "src" . "class" "svg--icon menu__icon" "page" $currentPage) }}{{ end -}}
       {{- with .Pre }}{{ . }}{{ end -}}
       {{ .Name }}
       {{- with .Post }}{{ . }}{{ end -}}

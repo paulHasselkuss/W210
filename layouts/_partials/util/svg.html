@@ -1,8 +1,11 @@
-{{/* USAGE: {{ partial "util/svg.html" (dict "src" "path/to/svg.svg" "class" "customClass") }} */}}
-{{ $src := .src }}
-{{ $class := .class | default "" }}
+{{- $class := .class | default "" -}}
+{{- $src := .src -}}
+{{- $page := .page -}}
 
-{{ with resources.Get $src }}
-  {{ $classes := printf "$1 class=\"svg %s\"" $class }}
-  {{ .Content | replaceRE "(<svg[^>]*)" $classes | safeHTML }}
-{{ end }}
+{{- $svg := or ($page.Resources.Get $src) (resources.Get $src) -}}
+{{- if not $svg -}}
+  {{ errorf "SVG not found: %s" $src }}
+{{- end -}}
+
+{{- $classes := printf "$1 class=\"%s\"" (trim (printf "svg %s" $class) " ") -}}
+{{- $svg.Content | replaceRE "(<svg[^>]*)" $classes | safeHTML -}}
